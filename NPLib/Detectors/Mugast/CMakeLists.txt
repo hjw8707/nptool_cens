@@ -1,0 +1,7 @@
+add_custom_command(OUTPUT TMugastPhysicsDict.cxx COMMAND ${CMAKE_BINARY_DIR}/scripts/build_dict.sh TMugastPhysics.h TMugastPhysicsDict.cxx TMugastPhysics.rootmap libNPMugast.dylib DEPENDS TMugastPhysics.h)
+add_custom_command(OUTPUT TMugastDataDict.cxx COMMAND ${CMAKE_BINARY_DIR}/scripts/build_dict.sh TMugastData.h TMugastDataDict.cxx TMugastData.rootmap libNPMugast.dylib DEPENDS TMugastData.h)
+add_custom_command(OUTPUT TMugastPhysicsReaderDict.cxx COMMAND ${CMAKE_BINARY_DIR}/scripts/build_dict.sh TMugastPhysicsReader.h TMugastPhysicsReaderDict.cxx TMugastPhysicsReader.rootmap libNPMugast.dylib DEPENDS TMugastPhysicsReader.h)
+add_library(NPMugast SHARED TMugastData.cxx TMugastDataDict.cxx TMugastPhysics.cxx TMugastPhysicsDict.cxx TMugastSpectra.h TMugastSpectra.cxx TMugastPhysicsReader.cxx TMugastPhysicsReaderDict.cxx)
+target_link_libraries(NPMugast ${ROOT_LIBRARIES} NPCore) 
+#install(FILES TMugastData.h TMugastPhysics.h TMugastSpectra.h DESTINATION ${CMAKE_INCLUDE_OUTPUT_DIRECTORY})
+install(FILES MugastMap.h MugastReverseMap.h TMugastSpectra.h TMugastData.h TMugastPhysics.h TMugastPhysicsReader.h DESTINATION ${CMAKE_INCLUDE_OUTPUT_DIRECTORY})

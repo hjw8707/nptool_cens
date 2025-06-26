@@ -1,0 +1,52 @@
+FROM gitlab-registry.in2p3.fr/np/nptool/base:latest 
+ARG http_proxy
+ARG https_proxy
+ENV HTTP_PROXY=$http_proxy
+ENV HTTPS_PROXY=$https_proxy
+# nptool
+ENV NPTOOL=/root/nptool
+ENV NPLib_DIR=/root/nptool/NPLib
+# geant4 
+ENV G4ENSDFSTATEDATA=/opt/geant4_install/share/Geant4/data/G4ENSDFSTATE2.3
+ENV G4PIIDATA=/opt/geant4_install/share/Geant4/data/G4PII1.3
+ENV G4INCLDATA=/opt/geant4_install/share/Geant4/data/G4INCL1.2
+ENV G4LIB_USE_ZLIB=1
+ENV G4LEDATA=/opt/geant4_install/share/Geant4/data/G4EMLOW8.5
+ENV G4LIB_BUILD_SHARED=1
+ENV G4WORKDIR=/root/geant4_workdir
+ENV G4PARTICLEXSDATA=/opt/geant4_install/share/Geant4/data/G4PARTICLEXS4.0
+ENV G4UI_USE_TCSH=1
+ENV G4NEUTRONHPDATA=/opt/geant4_install/share/Geant4/data/G4NDL4.7
+ENV G4LIB_USE_GDML=1
+ENV G4MULTITHREADED=1
+ENV G4SAIDXSDATA=/opt/geant4_install/share/Geant4/data/G4SAIDDATA2.0
+ENV G4INCLUDE=/opt/geant4_install/include/Geant4
+ENV G4REALSURFACEDATA=/opt/geant4_install/share/Geant4/data/RealSurface2.2
+ENV G4ABLADATA=/opt/geant4_install/share/Geant4/data/G4ABLA3.3
+ENV G4SYSTEM=Linux-g++
+ENV G4LIB=/opt/geant4_install/lib/Geant4-11.2.1
+ENV G4LEVELGAMMADATA=/opt/geant4_install/share/Geant4/data/PhotonEvaporation5.7
+ENV G4INSTALL=/opt/geant4_install/share/Geant4/geant4make
+ENV G4RADIOACTIVEDATA=/opt/geant4_install/share/Geant4/data/RadioactiveDecay5.6
+# all lib
+ENV LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/opt/geant4_install/lib:/root/nptool/NPSimulation/lib:/root/nptool/NPLib/lib:/root/nptool/NPSimulation/lib:/root/nptool/NPLib/lib
+ENV PATH=/root/geant4_workdir/bin/Linux-g++:/opt/geant4_install/bin:/root/nptool/NPSimulation/bin:/root/nptool/NPLib/bin:/root/nptool/NPSimulation/bin:/root/nptool/NPLib/bin:/opt/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV export PYTHONPATH=/opt/root/lib
+ENV JUPYTER_CONFIG_DIR=/opt/root/etc/notebook
+ENV JUPYTER_PATH=/opt/root/etc/notebook
+ENV ROOTSYS=/opt/root
+ENV SHLIB_PATH=/opt/root/lib
+ENV MANPATH=/opt/root/man
+ENV DYLD_LIBRARY_PATH=/opt/root/lib
+ENV CMAKE_PREFIX_PATH=/opt/root
+
+WORKDIR /root
+RUN git clone https://gitlab.in2p3.fr/np/nptool.git
+WORKDIR /root/nptool/NPLib
+RUN cmake -GNinja ./ ; ninja install
+WORKDIR /root/nptool/NPSimulation
+RUN cmake -GNinja ./ ; ninja install
+WORKDIR /root
+RUN echo "source /root/nptool/nptool.sh" >> .bashrc
+RUN chmod -R og+rx  /root
+CMD /bin/bash -rcfile .bashrc

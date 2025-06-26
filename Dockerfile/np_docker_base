@@ -1,0 +1,28 @@
+FROM rootproject/root:latest
+ARG http_proxy
+ARG https_proxy
+ENV HTTP_PROXY=$http_proxy
+ENV HTTPS_PROXY=$https_proxy
+ENV http_proxy=$http_proxy
+ENV https_proxy=$https_proxy
+
+## general necessities
+RUN apt-get -y update
+
+## install dependencies for geant4 and utility
+RUN apt-get install -y cmake ninja-build wget git python3 libexpat1-dev libxerces-c-dev libsm-dev libxft2-dev libxpm-dev libxext-dev libtiff-dev libtbb-dev libgif-dev; apt-get clean
+
+WORKDIR /opt
+## Get GEANT4, compile, install and set up
+RUN wget http://gitlab.cern.ch/geant4/geant4/-/archive/v11.2.1/geant4-v11.2.1.tar.gz
+RUN mkdir geant4 geant4_build geant4_install
+RUN tar -xf geant4-v11.2.1.tar.gz -C geant4 --strip-components 1 ; rm -f geant4-v11.2.1.tar.gz
+RUN /bin/bash -c "cd geant4_build ; cmake -GNinja -DCMAKE_INSTALL_PREFIX=/opt/geant4_install -DGEANT4_INSTALL_DATA=ON -DGEANT4_USE_GDML=ON /opt/geant4"
+RUN /bin/bash -c "cd geant4_build ; ninja install;ninja clean; cd .. ; rm -rf geant4_build ; rm -rf geant4"
+
+## source and start bash prompt
+
+WORKDIR /root
+RUN echo "source /opt/root/bin/thisroot.sh" > .bashrc
+RUN echo "source /opt/geant4_install/share/Geant4/geant4make/geant4make.sh" >> .bashrc 
+CMD /bin/bash -rcfile .bashrc

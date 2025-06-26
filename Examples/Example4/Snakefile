@@ -1,0 +1,22 @@
+# create a list of n indices, increase if more core avalaible
+job_list=[]
+for n in range(10):
+  job_list.append(str(n))
+
+rule trigger:
+  input:
+    expand("root/analysis/Example4_{id}.root",id=job_list)
+
+rule simulation:
+  output:
+    "root/simulation/Example4_{id}.root"
+  shell:
+    "npsimulation -D Example4.detector -E Example4.reaction -O Example4_{wildcards.id} -B run.mac --random-seed {wildcards.id}" 
+
+rule analysis:
+  output:
+    "root/analysis/Example4_{id}.root"
+  input:
+    "root/simulation/Example4_{id}.root"
+  shell:
+    "npanalysis -T SimulatedTree root/simulation/Example4_{wildcards.id}.root -O Example4_{wildcards.id}"

@@ -1,0 +1,86 @@
+# Specify the docker image to use (only used if using docker runners)
+  
+default:
+  image: docker:latest
+  services:
+    - docker:dind
+
+variables:
+  DOCKER_BASE: $CI_REGISTRY_IMAGE/base:latest
+  DOCKER_FINAL: $CI_REGISTRY_IMAGE/nptool:latest
+stages:
+  - build-docker-base
+  - build-NPLib
+  - build-NPSimulation
+  - test
+  - deploy
+
+building-docker-base:
+  stage: build-docker-base   
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker info
+      #- docker build --no-cache --pull -t $DOCKER_BASE -f ./Dockerfile/np_docker_base --network=host --build-arg http_proxy="http://caeproxy.in2p3.fr:3128"  --build-arg https_proxy="http://caeproxy.in2p3.fr:3128" .
+
+    - docker build --no-cache --pull -t $DOCKER_BASE -f ./Dockerfile/np_docker_base --network=host .
+    - docker push $DOCKER_BASE
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "NPTool.2.dev"'
+      changes:
+       - Dockerfile/np_docker_base
+    - when: never
+
+building-NPLib:
+ image: $DOCKER_BASE
+ stage: build-NPLib
+ script:
+   - source nptool.sh
+   - cd $NPTOOL/NPLib 
+   - cmake -GNinja ./
+   - ninja install 
+ artifacts:
+  paths:
+    - NPLib/lib
+    - NPLib/include
+    - NPLib/bin
+    - NPLib/ClassList.txt
+    - NPLib/NPLibConfig.cmake
+  expire_in: 2 hour
+  
+building-NPSimulation:
+ image: $DOCKER_BASE
+ stage: build-NPSimulation
+ script:
+  - source nptool.sh
+  - cd $NPTOOL/NPSimulation 
+  - cmake -GNinja ./
+  - ninja install 
+ artifacts:
+  paths:
+    - NPSimulation/lib
+    - NPSimulation/include
+    - NPSimulation/bin
+    - NPSimulation/ressources
+  expire_in: 2 hour
+
+testing:
+ image: $DOCKER_BASE
+ stage: test
+ script:
+  - source nptool.sh
+  - $NPTOOL/NPLib/scripts/RootLogon.sh 
+  - $NPTOOL/NPLib/scripts/test/all.sh
+
+building-docker-final:
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "NPTool.2.dev"'
+      when: always
+    - when: never
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker info
+    - docker build --no-cache --pull -t $DOCKER_FINAL -f ./Dockerfile/nptool_docker --network=host .
+    - docker push $DOCKER_FINAL
+
+

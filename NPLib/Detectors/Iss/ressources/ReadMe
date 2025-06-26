@@ -1,0 +1,31 @@
+
+NOTE: to be used only id the PS_Image scorer function defined in the DSSSDScorer file (see /NPSimulation/Scorer/DSSSDScorer.cc) is used in the detector definition file.
+
+
+Edit Mask.cxx and adjust the parameters for one side of the DSSSD.
+
+Then run:
+root -l Mask.cxx
+
+This creates mask.png file that you can save with a different name (e.g: maskFront.png)
+
+Repeat the same operation for the other side of the DSSS to create the corresponding mask (e.g:maskBack.png)
+
+
+Parameters used for ISS front:
+
+ unsigned int strips = 128 ;
+  double dimension = 129.;
+  double active = 127.9;
+  double width = 0.9;
+  // mm per pixel 
+  double scale = 127/12800;
+
+
+Parameters used for ISS back:
+  unsigned int strips = 11 ;
+  double dimension = 23.5;
+  double active = 19.9;
+  double width = 1.78;
+  // mm per pixel 
+  double scale = 19.9/1100;

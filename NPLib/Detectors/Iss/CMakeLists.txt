@@ -1,0 +1,5 @@
+add_custom_command(OUTPUT TIssPhysicsDict.cxx COMMAND ../../scripts/build_dict.sh TIssPhysics.h TIssPhysicsDict.cxx TIssPhysics.rootmap libNPIss.dylib DEPENDS TIssPhysics.h)
+add_custom_command(OUTPUT TIssDataDict.cxx COMMAND ../../scripts/build_dict.sh TIssData.h TIssDataDict.cxx TIssData.rootmap libNPIss.dylib DEPENDS TIssData.h)
+add_library(NPIss SHARED TIssData.cxx TIssPhysics.cxx TIssDataDict.cxx TIssPhysicsDict.cxx TIssSpectra.cxx)
+target_link_libraries(NPIss ${ROOT_LIBRARIES} NPCore) 
+install(FILES TIssData.h TIssPhysics.h TIssSpectra.h DESTINATION ${CMAKE_INCLUDE_OUTPUT_DIRECTORY})

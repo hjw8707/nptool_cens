@@ -1,0 +1,5 @@
+add_custom_command(OUTPUT TEdinburghDSSDPhysicsDict.cxx COMMAND ../../scripts/build_dict.sh TEdinburghDSSDPhysics.h TEdinburghDSSDPhysicsDict.cxx TEdinburghDSSDPhysics.rootmap libNPEdinburghDSSD.dylib DEPENDS TEdinburghDSSDPhysics.h)
+add_custom_command(OUTPUT TEdinburghDSSDDataDict.cxx COMMAND ../../scripts/build_dict.sh TEdinburghDSSDData.h TEdinburghDSSDDataDict.cxx TEdinburghDSSDData.rootmap libNPEdinburghDSSD.dylib DEPENDS TEdinburghDSSDData.h)
+add_library(NPEdinburghDSSD SHARED TEdinburghDSSDSpectra.cxx TEdinburghDSSDData.cxx TEdinburghDSSDPhysics.cxx TEdinburghDSSDDataDict.cxx TEdinburghDSSDPhysicsDict.cxx )
+target_link_libraries(NPEdinburghDSSD ${ROOT_LIBRARIES} NPCore)
+install(FILES EdinburghDSSDMap.h TEdinburghDSSDSpectra.h TEdinburghDSSDData.h TEdinburghDSSDPhysics.h DESTINATION ${CMAKE_INCLUDE_OUTPUT_DIRECTORY})
