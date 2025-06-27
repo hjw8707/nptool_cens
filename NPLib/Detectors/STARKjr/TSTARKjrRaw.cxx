@@ -16,35 +16,37 @@
  *                                                                           *
  *---------------------------------------------------------------------------*
  * Comment:                                                                  *
- *                                                                           *   
+ *                                                                           *
  *                                                                           *
  *****************************************************************************/
 
 #include "TSTARKjrRaw.h"
-#include <iostream>
+
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
 
-using namespace std; 
+using namespace std;
 
 ClassImp(TSTARKjrRaw)
 
-//////////////////////////////////////////////////////////////////////
-TSTARKjrRaw::TSTARKjrRaw() {}
+    //////////////////////////////////////////////////////////////////////
+    TSTARKjrRaw::TSTARKjrRaw() {}
 
 //////////////////////////////////////////////////////////////////////
 TSTARKjrRaw::~TSTARKjrRaw() {}
 
 //////////////////////////////////////////////////////////////////////
 void TSTARKjrRaw::Clear() {
-  // X6
-  fX6_Det.clear();
-  fX6_Ch.clear();
-  fX6_E.clear();
-  fX6_T.clear();}
+    // X6
+    fX6_Det.clear();
+    fX6_Ch.clear();
+    fX6_E.clear();
+    fX6_T.clear();
+}
 
-void TSTARKjrRaw::SetRaw(const TSTARKjrData* sData){
+void TSTARKjrRaw::SetRaw(const TSTARKjrData* sData) {
   /*  for (Int_t i = 0 ; i < sData->GetX6_Mult() ; i++) {
     fX6_Det.push_back(sData->GetX6_DetN(i));
     fX6_Ch. push_back(2*(sData->GetX6_FStN(i) - 0)); // Front strip = 1 ~ 8 -> 0, 2, ..., 14
@@ -62,14 +64,15 @@ void TSTARKjrRaw::SetRaw(const TSTARKjrData* sData){
     fX6_T.  push_back(sData->GetX6_T(i));}
   */}
 
-//////////////////////////////////////////////////////////////////////
-void TSTARKjrRaw::Dump() const { // to check the data
-  std::cout << "========== Check X6 Raw Data ==============" << std::endl;
-  std::cout << "  Total Size = " << GetX6_Mult() << std::endl;
-  for (Int_t i = 0 ; i < GetX6_Mult() ; i++) {
-    std::cout << " DetN = " << fX6_Det[i] << ", ";
-    std::cout << " BStN = " << fX6_Ch[i] << ", ";
-    std::cout << " E = " << fX6_E[i] << ", ";
-    std::cout << " T = " << fX6_T[i] << std::endl;
+  //////////////////////////////////////////////////////////////////////
+  void TSTARKjrRaw::Dump() const {  // to check the data
+      std::cout << "========== Check X6 Raw Data ==============" << std::endl;
+      std::cout << "  Total Size = " << GetX6_Mult() << std::endl;
+      for (Int_t i = 0; i < GetX6_Mult(); i++) {
+          std::cout << " DetN = " << fX6_Det[i] << ", ";
+          std::cout << " BStN = " << fX6_Ch[i] << ", ";
+          std::cout << " E = " << fX6_E[i] << ", ";
+          std::cout << " T = " << fX6_T[i] << std::endl;
+      }
+      std::cout << "=======================================" << std::endl;
   }
-  std::cout << "=======================================" << std::endl;}

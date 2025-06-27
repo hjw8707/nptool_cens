@@ -34,7 +34,6 @@
 #include "G4VisAttributes.hh"
 #include "G4MultiFunctionalDetector.hh"
 #include "NPInputParser.h"
-#include "G4Box.hh"
 // NPSimulation header
 #include "NPSVDetector.hh"
 
@@ -42,11 +41,6 @@
 #include "TFatimaData.h"
 using namespace std;
 using namespace CLHEP;
-
-// ROOT headers for reading in 138La background spectrum
-#include "TFile.h"
-#include "TH1.h"
-#include "TH1D.h"
 
 class Fatima : public NPS::VDetector{
   ////////////////////////////////////////////////////
@@ -119,46 +113,17 @@ private:
   vector<G4RotationMatrix*> m_Rot;
  
 private:/// Visualisation Attribute:
-    G4VisAttributes* m_LaBr3VisAtt;
+   G4VisAttributes* m_LaBr3VisAtt;
    G4VisAttributes* m_DetectorCasingVisAtt  ;
-   G4VisAttributes* m_PMTShieldVisAtt;
-    G4VisAttributes* m_PMTVisAtt;
-    G4VisAttributes* m_ShieldCanVisAtt;
-    G4VisAttributes* m_HolderCanVisAtt;
-    G4VisAttributes* m_HolderVisAtt;
-       G4VisAttributes* m_Holder1VisAtt;
-    G4VisAttributes* m_Holder2VisAtt;
-     G4VisAttributes* m_Holder3VisAtt;
-     G4VisAttributes* m_Holder4VisAtt;
-     G4VisAttributes* m_Holder5VisAtt;
-     G4VisAttributes* m_Holder6VisAtt;
-     G4VisAttributes* m_Holder7VisAtt;
-
-    
-    
-   G4double    m_ChamberHmin;
-		G4double    m_ChamberHmax;
-		G4double    m_ChamberWmin;
-		G4double    m_ChamberWmax;
-		G4double    m_ChamberDmin; 
-		G4double    m_ChamberDmax;
-
+   G4VisAttributes* m_PMTVisAtt; 
 public:
     static NPS::VDetector* Construct();
-
-private:
-  TFile* file_138La;
-  TH1D* hist_138La;
 };
 
 namespace FATIMA{
    // Resolution
-  const G4double EnergyThreshold = 20*keV;   // 20 keV
-    // time jitter (in FWHM), formalism according to J.-M. Regis, NIM A 763, 210 (2014)
-  const G4double Jitter_A = 3.387*ns;   // energy factor
-  const G4double Jitter_B = -16.25*keV;   // some energy dependence, ensure this + threshold > 0!
-  const G4double Jitter_C = 0.196*ns;   // constant jitter
-  
+  const G4double EnergyResolution = 0.0099;	// = 3.5% at .662MeV of Resolution   //   Unit is MeV/2.35
+  const G4double EnergyThreshold = 100*keV;   
   // Geometry for the mother volume 
   const G4double FaceFront = 7.5*cm;
   const G4double Length = 26.33*cm; 
@@ -174,13 +139,11 @@ namespace FATIMA{
    // Al front Window
    const G4double WinOuterDiameter = 4.15*cm;
    const G4double WinInnerDiameter = 0*cm;
-   const G4double WinLength  = 0.25*cm; //
+   const G4double WinLength  = 0.1*cm; //
 
    // PMT 
    const G4double PMTFace = FaceFront;
    const G4double PMTThickness = 22.*cm; // for detector
-   const G4double PMTIn = 7.55*cm;
-     const G4double PMTOut = 8.05*cm;
 
    // Lead tube 
    const G4double LeadAMinR = CanOuterDiameter;
@@ -188,7 +151,7 @@ namespace FATIMA{
    const G4double LeadALength = 4.33*cm; 
  
    const G4double LeadBMinR = CanOuterDiameter;
-   const G4double LeadBMaxR = FaceFront;  
+   const G4double LeadBMaxR = FaceFront; 
    const G4double LeadBLength = 1.*cm; 
 
   // Position 
@@ -200,34 +163,7 @@ namespace FATIMA{
 
    const G4double LeadAShield_PosZ  = -Length*0.5 + 0.5*LeadALength;
    const G4double LeadBShield_PosZ  = -Length*0.5 + LeadALength - 0.5*LeadBLength ;
-   const  G4double chamber_PosZ = 0;
-     const  G4double  PMTShield_PosZ= -Length*0.5 + (Length-PMTThickness) + 0.5*PMTThickness;
-     const G4double  ShieldCan_PosZ = Length*.5 + 0.5*WinLength;
-     //const G4double HolderCan_PosZ = -Length*0.1 + 0.5*LeadALength;
-      const G4double HolderCan_PosZ = 0;
-      const G4double Holder_PosZ = -Length*0.1 + 0.5*LeadALength;
-      //const G4double Holder1_PosZ = -Length*0.1 + 0.5*LeadALength;
-      const G4double Holder1_PosZ = 0;
-      // const G4double Holder2_PosZ = -Length*0.1 + 0.5*LeadALength;
-         const G4double Holder2_PosZ=0;
-           const G4double Holder3_PosZ=0;
-            const G4double Holder4_PosZ=0;               //bottom holder front
-            const G4double Holder5_PosZ=0;               //bottom holder front
-            const G4double Holder6_PosZ=0;               //bottom holder back
-            const G4double Holder7_PosZ=0;               //bottom holder back
-  //Chamber
-   //const G4double chamberFace = 30 *cm;
-   //const G4double chamberThickness = 60.*cm; 
-   //const G4double chamber_PosZ = -Length*0.5 + 0.5*LaBr3Thickness + 0.1*cm;
 
-  // JP: FATIMA detector properties
-  const G4int NDET_FATIMA = 36;
-  const G4double DECAY_RATE = 73.1/s; // for Fatima detector
-  // const G4double DECAY_RATE = 0; // for efficiency studies
-  const G4double DECAY_WINDOW = 5*us; // limit to 50 us, adjust to the half-life of the decaying isomer of interest
-  const G4double DECAY_PROB = 1.-exp(-DECAY_RATE*DECAY_WINDOW); // poisson probability of at least one decay event within the time window
-  const G4double SIGMA_FATIMA = 335*ps/2.355; // 334 ps from FATIMA NIM paper, but for 60Co gammas 
-  const G4double DIST_FATIMA = 17*cm;
 }
 
 #endif
