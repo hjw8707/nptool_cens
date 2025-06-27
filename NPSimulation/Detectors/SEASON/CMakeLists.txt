@@ -1,0 +1,2 @@
+add_library(NPSSEASON SHARED  SEASON.cc)
+target_link_libraries(NPSSEASON NPSCore ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} ${NPLib_LIBRARIES} -lNPSEASON)

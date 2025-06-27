@@ -1,0 +1,2 @@
+add_library(NPSASGARD SHARED  ASGARD.cc)
+target_link_libraries(NPSASGARD NPSCore ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} -lNPASGARD)

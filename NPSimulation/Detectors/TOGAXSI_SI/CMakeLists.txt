@@ -1,0 +1,2 @@
+add_library(NPSTOGAXSI_SI SHARED  TOGAXSI_SI.cc)
+target_link_libraries(NPSTOGAXSI_SI NPSCore ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} -lNPTOGAXSI_SI)

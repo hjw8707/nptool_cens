@@ -1,0 +1,2 @@
+add_library(NPSMUSETT SHARED  MUSETT.cc)
+target_link_libraries(NPSMUSETT NPSCore ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} ${NPLib_LIBRARIES} -lNPMUSETT)

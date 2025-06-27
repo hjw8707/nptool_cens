@@ -1,9 +1,11 @@
-nptool
+CENS NPTool
 ======
 
 ## 프로젝트 설명
 
 nptool은 저에너지 핵물리 실험을 위한 데이터 분석 및 몬테카를로 시뮬레이션 패키지입니다. 이 패키지는 복잡한 실험을 준비하고 분석하기 위한 통합 프레임워크를 제공하며, Geant4 및 ROOT 툴킷을 효율적으로 활용합니다. nptool은 사용자가 실험 데이터를 쉽게 처리하고 분석할 수 있도록 다양한 기능을 제공합니다. 이 프로젝트는 오픈 소스이며, 사용자와 개발자들이 자유롭게 기여할 수 있도록 설계되었습니다.
+
+본 프로젝트는 CENS(센터명: Center for Exotic Nuclear Studies)에서 개발 및 유지보수하고 있는 NPTool의 공식 저장소입니다. CENS NPTool은 저에너지 핵물리 실험을 위한 데이터 분석과 몬테카를로 시뮬레이션을 지원하며, CENS의 연구 환경과 실험 요구에 최적화되어 있습니다. CENS 연구진 및 협력 연구자들이 실험 데이터를 효율적으로 처리하고 분석할 수 있도록 다양한 기능과 예제, 문서가 제공됩니다.
 
 이 패키지는 다음과 같은 주요 기능을 포함합니다:
 
@@ -19,6 +21,7 @@ distributed data analysis and Monte Carlo simulation package for low-energy
 nuclear physics experiments. The NPTool package aims to offer an unified
 framework for preparing and analysing complex experiments, making an efficient
 use of Geant4 and ROOT toolkits.
+
 - If you wish to contribute, contact Adrien Matta: <matta@lpccaen.in2p3.fr>
 - For issues, use the git issue tracker or contact  Adrien Matta : <matta@lpccaen.in2p3.fr>
 
@@ -114,6 +117,7 @@ All detectors compiled:
 ```
 cmake ./
 ```
+
 **OR** some detectors compiled:
 
 ```
