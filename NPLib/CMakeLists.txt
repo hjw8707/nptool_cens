@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.10)
 include(CheckCXXCompilerFlag)
 project(NPLib CXX)
 set(CMAKE_BUILD_TYPE Release)
@@ -6,8 +6,8 @@ set(CMAKE_BUILD_TYPE Release)
 # Setting the policy to match Cmake version
 cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 
-# include the nptool standard CMake preamble 
-include("${CMAKE_BINARY_DIR}/ressources/CMake/NPTool_CMake_Preamble.cmake")
+# include the nptool standard CMake preamble
+include("${CMAKE_SOURCE_DIR}/ressources/CMake/NPTool_CMake_Preamble.cmake")
 
 # Major change in the Core/Physics (affecting the detector/analysis/simulation)
 set(NPLIB_VERSION_MAJOR 3)
@@ -31,7 +31,7 @@ if(NPMULTITHREADING)
  message("Building application with no MutilThreading Support")
 endif()
 
-configure_file(scripts/build_dict.sh.in scripts/build_dict.sh @ONLY) 
+configure_file(scripts/build_dict.sh.in scripts/build_dict.sh @ONLY)
 
 
 configure_file(Core/NPLibVersion.h.in Core/NPLibVersion.h @ONLY)
@@ -40,7 +40,7 @@ string(COMPARE EQUAL "${NPTOOL_DETLIST}" "" rdet)
 if(rdet)
     message("Building all detectors")
   else()
-    message("Building the following detectors ${NPTOOL_DETLIST}") 
+    message("Building the following detectors ${NPTOOL_DETLIST}")
 endif()
 
 set(CMAKE_BINARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
@@ -54,7 +54,7 @@ MACRO(subdirlist result curdir)
   FOREACH(child ${children})
     IF(IS_DIRECTORY ${curdir}/${child})
       string(COMPARE EQUAL "${child}" "CMakeFiles" r0)
-      string(COMPARE EQUAL "${child}" ".DS_Store" r1) 
+      string(COMPARE EQUAL "${child}" ".DS_Store" r1)
       set(det "")
       string(REPLACE "Detectors/" "" det ${child})
 
@@ -63,7 +63,7 @@ MACRO(subdirlist result curdir)
         IF(r2)
           LIST(APPEND dirlist ${child})
         ELSEIF(${NPTOOL_DETLIST} MATCHES ".*${det}.*" )
-          LIST(APPEND dirlist ${child}) 
+          LIST(APPEND dirlist ${child})
         ENDIF()
       ENDIF()
     ENDIF()
@@ -90,7 +90,7 @@ foreach(subdir ${SUB_DIRECTORY})
   string(REPLACE "Detectors/" "" target ${subdir})
   string(COMPARE EQUAL "${target}" "Utility" r0)
   string(COMPARE EQUAL "${target}" "Maya" r1)
-   
+
   if(NOT r0 AND NOT r1)
     LIST(APPEND TARGET_LIST NP${target})
   endif()
