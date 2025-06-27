@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+Target
+ THICKNESS= 210.0 um
+ RADIUS= 20.0 mm
+ MATERIAL= Au 
+ Angle= 0. deg
+ X= 0 mm
+ Y= 0 mm
+ Z= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+ZDD
+ R= 3505 mm 
+ Theta= 0 deg
+ZDD DC
+ Z= 1005.0 mm
+ Thickness= 20 mm
+ Gas= iC4H10
+ Pressure= 0.012 bar
+ Temperature= 294 kelvin
+ZDD DC
+ Z= 1030.0 mm
+ Thickness= 20 mm
+ Gas= iC4H10
+ Pressure= 0.012 bar
+ Temperature= 294 kelvin
+ZDD IC
+ NDet= 10
+ ZofFirst= 1300. mm
+ Thickness= 20. mm
+ Gas= iC4H10
+ Pressure= 0.2 bar
+ Temperature= 294 kelvin
+ZDD Plastic
+ NDet= 5
+ Material= EJ200
+ Width= 220. mm
+ Length= 44. mm
+ Thickness= 20. mm
+ PosOfCentral= 0. 0. 1926.1 mm

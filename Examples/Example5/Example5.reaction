@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%% QFS Example in progress %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Beam
+  Particle= 12C
+  Energy= 4800 MeV
+  SigmaEnergy= 0 MeV
+  SigmaThetaX= 0 deg
+  SigmaPhiY= 0 deg
+  SigmaX= 0 mm
+  SigmaY= 0 mm
+  MeanThetaX= 0 deg
+  MeanPhiY= 0 deg
+  MeanX= 0 mm
+  MeanY= 0 mm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+QFSReaction
+ Beam= 12C
+ Target= 1H
+ Scattered= 1H
+ KnockedOut= 1H
+ Heavy= 11B
+ ExcitationEnergyBeam= 0.0 MeV
+ ExcitationEnergyHeavy= 0.0 MeV
+ MomentumSigma= 100.0 
+ ShootHeavy= 1
+ ShootLight= 1
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

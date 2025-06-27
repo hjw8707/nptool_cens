@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Reaction file for 11Li(d,3He)10He reaction %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Beam
+ Particle= 7Be
+ Energy= 100 MeV
+ SigmaEnergy= 0 MeV
+ SigmaThetaX= 0.1 deg
+ SigmaPhiY= 0.1 deg
+ SigmaX= 0.1 mm
+ SigmaY= 0.1 mm
+ MeanThetaX= 0 deg
+ MeanPhiY= 0 deg
+ MeanX= 0 mm
+ MeanY= 0 mm
+ %EnergyProfilePath=
+ %XThetaXProfilePath=
+ %YPhiYProfilePath=
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+FusionReaction
+  Beam= 7Be
+  Target= 2H
+  Product= 9B
+  ExcitationEnergy= 1 MeV
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Decay 9B
+ Daughter= 8Be p
+ ExcitationEnergy= 0 0 MeV
+ Threshold= 1 MeV
+ BranchingRatio= 1
+ LifeTime= 0 ns
+ Shoot= 1 1 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Decay 8Be
+ Daughter= 4He 4He 
+ ExcitationEnergy= 0 0 MeV
+ Threshold= 0 MeV
+ BranchingRatio= 1
+ LifeTime= 0 ns
+ Shoot= 1 1 1
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

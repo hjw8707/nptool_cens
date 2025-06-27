@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%  Reaction file for 238U transfer reaction  %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Beam energy given in MeV ; Excitation in MeV ; emmitance in rad
+Beam
+ Particle= 238U
+ Energy= 135660
+ ExcitationEnergy= 0 MeV
+ SigmaEnergy= 2
+ SigmaX= 5 mm
+ SigmaY= 5 mm
+ SigmaThetaX= 0 
+ SigmaPhiY= 0
+ MeanThetaX= 0
+ MeanPhiY= 0 deg
+ MeanX= 0.0 mm
+ MeanY= 0.0 mm
+ ZEmission= -5000 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TwoBodyReaction
+ Beam= 238U
+ Target= 208Pb
+ Light= 208Pb
+ Heavy= 238U
+ ExcitationEnergyLight= 15.0
+ ExcitationEnergyHeavy= 0.0
+ CrossSectionPath= sofia.txt CS
+ ShootLight= 1
+ ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+FissionDecay 
+ CompoundNucleus= 238U
+ FissionModel= GEF
+ VamosChargeStates= 0
+ Shoot_FF= 1
+ Shoot_neutron= 0
+ Shoot_gamma= 0

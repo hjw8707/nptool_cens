@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Reaction file for 11Li(d,3He)10He reaction %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Beam energy given in MeV ; Excitation in MeV
+Beam
+  Particle= 14O
+  Energy= 47.04 MeV 
+  SigmaEnergy= 0 MeV 
+  SigmaThetaX= 0.1 deg
+  SigmaPhiY= 0.1 deg
+  SigmaX= 1 mm 
+  SigmaY= 1 mm
+  ZEmission = -350 mm
+  MeanThetaX= 0 deg 
+  MeanPhiY= 0 deg
+  MeanX= 0 mm 
+  MeanY= 0 mm 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TwoBodyReaction
+ Beam= 14O
+ Target= 4He
+ Light= 1H
+ Heavy= 17F
+ ExcitationEnergyLight= 0.0 MeV
+ ExcitationEnergyHeavy= 0.0 MeV
+ CrossSectionPath= flat.txt CS
+ ShootLight= 1
+ ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

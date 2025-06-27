@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% An Isotropic Source to be used as EventGenerator %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Energy are given in MeV , Position in mm      % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+GEFReader
+ GEFversion= 2023.33
+ InputDataFile= /home/benoit/Physics/nptool/nptoolv3/Inputs/InputData/test.lmd 
+ x0= 0 
+ y0= 0 
+ z0= 0 mm
+ KineticEnergy_FS= 100 MeV
+ FissioningSystem= 235U
+ SigmaX= 12 mm
+ SigmaY= 12 mm
+ Particle= fragments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Supported particle type: proton, neutron, gamma, fragments.
+% If you want to see all particles of the file, you may give no argument.
+% KineticEnergy_FS gives additional kinetic energy along Z and boosts fragments
+% and evaporated particles accordingly. To be refined to various angles.

@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%  Reaction file for 18Ne(alpha,p)21Na reaction  %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Beam
+   Particle= 8Li
+   Energy= 15 MeV
+   SigmaEnergy= 0 MeV
+   SigmaX= 1 mm 
+   SigmaY= 1 mm
+   SigmaThetaX= 0 deg  
+   SigmaPhiY= 0 deg
+   MeanThetaX= 0 deg
+   MeanPhiY= 0 deg
+   MeanX= 0 mm
+   MeanY= 0 mm
+
+TwoBodyReaction
+   Beam= 8Li
+   Target= 4He
+   Light= neutron
+   Heavy= 11B
+   ExcitationEnergyHeavy= 0.0
+   ExcitationEnergyLight= 0.0
+   CrossSectionPath= flat.txt CS
+   ShootLight= 1
+   ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

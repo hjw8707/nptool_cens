@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Target
+ Thickness= 0.001 mm
+ Radius=  30 mm
+ Material= Vacuum
+ Angle= 0 deg
+ X= 0 mm
+ Y= 0 mm 
+ Z= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ScintillatorPlastic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Plastic
+ X= 0 mm
+ Y= 0 mm
+ Z= 1500 mm
+ Shape= Square
+ Height= 1000 mm
+ Width= 1000 mm
+ Thickness= 0.001 mm
+ Scintillator= BC400
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Plastic
+ X= 0 mm
+ Y= 0 mm
+ Z= 1755 mm
+ Shape= Square
+ Height= 1000 mm
+ Width= 1000 mm
+ Thickness= 500 mm
+ Scintillator= Pb
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

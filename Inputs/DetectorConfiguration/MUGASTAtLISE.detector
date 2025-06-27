@@ -1,0 +1,210 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EXOGAM setup with one clover
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exogam clover
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Target
+ Thickness= 18 micrometer
+ Radius=  30 mm
+ Material= CD2
+ Angle= 0 deg
+ X= 0 mm
+ Y= 0 mm 
+ Z= 0 mm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Exogam
+%   X= 0 mm
+%   Y= 0 mm
+%   Z= -1400 mm
+%   ThetaX= 180 deg
+%   ThetaY= 0 deg
+%   ThetaZ= 0 deg
+% 
+% Exogam
+%   X= 0 mm
+%   Y= 0 mm
+%   Z= 1400 mm
+%   ThetaX= 0 deg
+%   ThetaY= 0 deg
+%   ThetaZ= 0 deg
+% 
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 0 deg
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 45 deg
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 90 deg
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 135 deg
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 180 deg
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 225 deg
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 270 deg
+
+Exogam
+  R= 140 mm
+  Theta= 90 deg
+  Phi= 315 deg
+
+%%%%%%%%%%% 45 degrees exogam
+Exogam
+  R= 140 mm
+  Theta= 135 deg
+  Phi= 0 deg
+
+Exogam
+  R= 140 mm
+  Theta= 135 deg
+  Phi= 90 deg
+
+Exogam
+  R= 140 mm
+  Theta= 135 deg
+  Phi= 180 deg
+
+Exogam
+  R= 140 mm
+  Theta= 135 deg
+  Phi= 270 deg
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Telescope 1 %%%%%%% 		
+M2Telescope  		
+ X1_Y1= 	-13.17	-105.07	299.38 mm
+ X1_Y128= -25.15	    -12.87	328.18 mm
+ X128_Y1= -103.63	-105.68	263.74 mm
+ X128_Y128= -115.61	-13.56	292.51 mm
+ SI= 1		
+ SILI= 0		
+ CSI= 1		
+ VIS= all  
+%%%%%%% Telescope 2 %%%%%%% 		
+M2Telescope  		
+ X1_Y1= -114.9	10.05	292.57 mm
+ X1_Y128= -24.52	9.80	328.49 mm
+ X128_Y1= -103.13	102.14	263.58 mm
+ X128_Y128= 	-12.74	101.90	299.51 mm
+ SI= 1		
+ SILI= 0		
+ CSI= 1		
+ VIS= all  
+
+%%%%%%% Telescope 3 %%%%%%% 		
+M2Telescope  		
+ X1_Y1= 	12.94	101.57	300.03 mm
+ X1_Y128= 24.43	9.53	329.29 mm
+ X128_Y1= 103.23	101.34	263.86 mm
+ X128_Y128= 114.74	9.30	293.11 mm
+ SI= 1		
+ SILI= 0		
+ CSI= 1		
+ VIS= all  
+
+
+%%%%%%% Telescope 4 %%%%%%% 		
+M2Telescope  		
+ X1_Y1= 114.62	-13.35	292.81 mm
+ X1_Y128= 24.30 -13.44	328.89 mm
+ X128_Y1= 103.32	-105.63	264.21 mm
+ X128_Y128= 	13.00	-105.74	300.28 mm
+ SI= 1		
+ SILI= 0		
+ CSI= 1		
+ VIS= all  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Mugast Trapezoid 
+ DetectorNumber= 7
+ X128_Y1=	44.063	102.884	-30.345	mm
+ X1_Y1=	-47.423	102.884	-30.345	mm
+ X1_Y128=	-14.275	35.783	-110.312	mm
+ X128_Y128=	10.915	35.783	-110.312	mm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Mugast Trapezoid 
+ DetectorNumber= 3
+ X128_Y1=	111.464	-10.14	-30.345	mm
+ X1_Y1=	83.193	76.895	-30.345	mm
+ X1_Y128=	29.62	24.634	-110.312	mm
+ X128_Y128=	37.405	0.677	-110.312	mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Mugast Trapezoid      
+ DetectorNumber= 1
+ X128_Y1=	24.825	-109.134	-30.345	mm
+ X1_Y1=	98.84	-55.36	-30.345	mm
+ X1_Y128=	32.582	-20.558	-110.312	mm
+ X128_Y128=	12.202	-35.365	-110.312	mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Mugast Trapezoid      
+ DetectorNumber= 5
+ X128_Y1=	-96.121	-57.335	-30.345	mm
+ X1_Y1=	-22.107	-111.109	-30.345	mm
+ X1_Y128=	-9.484	-37.34	-110.312	mm
+ X128_Y128=	-29.863	-22.533	-110.312	mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Mugast Trapezoid      
+ DetectorNumber= 4
+ X128_Y1=	-84.232	73.70	-30.345	mm
+ X1_Y1=	-112.503	-13.31	-30.345	mm
+ X1_Y128=	-38.443	-2.519	-110.312	mm
+ X128_Y128=	-30.659	21.438	-110.312	mm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+ZDD
+ R= 3505 mm 
+ Theta= 0 deg
+%ZDD DC
+% Z= 1005.0 mm
+% Thickness= 20 mm
+% Gas= iC4H10
+% Pressure= 0.012 bar
+% Temperature= 294 kelvin
+% ZDD DC
+%  Z= 1030.0 mm
+%  Thickness= 20 mm
+%  Gas= iC4H10
+%  Pressure= 0.012 bar
+%  Temperature= 294 kelvin
+ZDD IC
+ NDet= 10
+ ZofFirst= 1300. mm
+ Thickness= 20. mm
+ Gas= iC4H10
+ Pressure= 0.3 bar
+ Temperature= 294 kelvin
+ZDD Plastic
+ NDet= 5
+ Material= EJ200
+ Width= 220. mm
+ Length= 44. mm
+ Thickness= 20. mm
+ PosOfCentral= 0. 0. 1926.1 mm
+

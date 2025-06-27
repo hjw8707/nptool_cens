@@ -1,0 +1,35 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%  Reaction file for 238U transfer reaction  %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Beam energy given in MeV ; Excitation in MeV ; emmitance in rad
+Beam
+ Particle= 238U
+ Energy= 1428
+ SigmaEnergy= 1e-5
+ SigmaX= 0.25
+ SigmaY= 0.56
+ SigmaThetaX= 0 
+ SigmaPhiY= 0
+ MeanThetaX= 0
+ MeanPhiY= 0
+ MeanX= 0
+ MeanY= 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TwoBodyReaction
+ Beam= 238U
+ Target= 12C
+ Light= 14C
+ Heavy= 236U
+ ExcitationEnergyLight= 0.0
+ ExcitationEnergyHeavy= 8.0
+ CrossSectionPath= flat.txt CS
+ ShootLight= 1
+ ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+FissionDecay 
+ CompoundNucleus= 236U
+ FissionModel= GEF
+ VamosChargeStates= 1
+ Shoot_FF= 1
+ Shoot_neutron= 0
+ Shoot_gamma= 0

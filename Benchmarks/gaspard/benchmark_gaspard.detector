@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+Target
+ THICKNESS= 5 micrometer 
+ RADIUS= 7.5 mm 
+ MATERIAL= CD2
+ ANGLE= 0 deg
+ X= 0 mm 
+ Y= 0 mm 
+ Z= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1 Annular Back
+GaspardTracker Annular
+ Z= -156.5 mm 
+ RMIN= 16 mm 
+ RMAX= 52 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 0
+ THIRDSTAGE= 0
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1 Annular Front
+GaspardTracker Annular
+ Z= 156.5 mm 
+ RMIN= 16 mm 
+ RMAX= 52 mm 
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1 End-Cap Back
+GaspardTracker Trapezoid
+ X128_Y128= 55.338 -14.346 -146.501 mm
+ X1_Y128= 55.338 14.346 -146.501 mm
+ X128_Y1= 138.519 -48.717 -69.236 mm
+ X1_Y1=  138.518 48.726 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 0
+ THIRDSTAGE= 0
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2
+GaspardTracker Trapezoid
+ X128_Y128= 49.215 29.045 -146.501 mm
+ X1_Y128=  28.986 49.274 -146.501 mm
+ X128_Y1= 132.395 63.500 -69.236 mm
+ X1_Y1=  63.492 132.401 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 0
+ THIRDSTAGE= 0
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3
+GaspardTracker Trapezoid
+ X128_Y128= 14.263 55.338 -146.501 mm
+ X1_Y128= -14.346 55.338 -146.501 mm
+ X128_Y1=  48.717 138.519 -69.236 mm
+ X1_Y1=  -48.726 138.518 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 0
+ THIRDSTAGE= 0
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4
+GaspardTracker Trapezoid
+ X128_Y128= -29.045 49.215 -146.501 mm
+ X1_Y128= -49.274 28.986 -146.501 mm
+ X128_Y1= -63.500 132.395 -69.236 mm
+ X1_Y1=  -132.401 63.492 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 0
+ THIRDSTAGE= 0
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+GaspardTracker Trapezoid
+ X128_Y128= -55.338 14.346 -146.501 mm
+ X1_Y128= -55.338 -14.346 -146.501 mm
+ X128_Y1= -138.519 48.717 -69.236 mm
+ X1_Y1=  -138.518 -48.726 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%6
+GaspardTracker Trapezoid
+ X128_Y128= -49.215 -29.045 -146.501 mm
+ X1_Y128= -28.986 -49.274 -146.501 mm
+ X128_Y1= -132.395 -63.500 -69.236 mm
+ X1_Y1=  -63.492 -132.401 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7
+GaspardTracker Trapezoid
+ X128_Y128= -14.263 -55.338 -146.501 mm
+ X1_Y128= 14.346 -55.338 -146.501 mm
+ X128_Y1= -48.717 -138.519 -69.236 mm
+ X1_Y1=  48.726 -138.518 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8
+GaspardTracker Trapezoid
+ X128_Y128= 29.045 -49.215 -146.501 mm
+ X1_Y128= 49.274 -28.986 -146.501 mm
+ X128_Y1= 63.500 -132.395 -69.236 mm
+ X1_Y1=  132.401 -63.492 -69.237 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1 Barrel
+GaspardTracker Square
+ THETA= 90 deg 
+ PHI= 0 deg
+ R= 143 mm 
+ BETA= 0 0 0 deg 
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 0
+ THIRDSTAGE= 0
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2
+GaspardTracker Square
+ THETA= 90 deg 
+ PHI= 45 deg
+ R= 143 mm
+ BETA= 0 0 0 deg
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 0
+ THIRDSTAGE= 0
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3
+GaspardTracker Square
+ THETA= 90 deg
+ PHI= 90 deg
+ R= 143 mm
+ BETA= 0 0 0 deg
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4
+GaspardTracker Square
+ THETA= 90 deg 
+ PHI= 135 deg 
+ R= 143 mm
+ BETA= 0 0 0 deg
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+GaspardTracker Square
+ THETA= 90 deg
+ PHI= 180 deg 
+ R= 143 mm
+ BETA= 0 0 0 deg
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%6
+GaspardTracker Square
+ THETA= 90 deg
+ PHI= 225 deg
+ R= 143 mm
+ BETA= 0 0 0 deg
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7
+GaspardTracker Square
+ THETA= 90 deg
+ PHI= 270 deg
+ R= 143 mm
+ BETA= 0 0 0 deg
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8
+GaspardTracker Square
+ THETA= 90 deg
+ PHI= 315 deg
+ R= 143 mm 
+ BETA= 0 0 0 deg
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1 Front-Cap Back
+GaspardTracker Trapezoid
+ X128_Y128= 55.338 14.346 146.501 mm
+ X1_Y128= 55.338 -14.346 146.501 mm
+ X128_Y1= 138.518 48.726 69.237 mm
+ X1_Y1=  138.519 -48.717 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2
+GaspardTracker Trapezoid
+ X128_Y128= 28.986 49.274 146.501 mm
+ X1_Y128= 49.215 29.045 146.501 mm
+ X128_Y1= 63.492 132.401 69.237 mm
+ X1_Y1=  132.395 63.500 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3
+GaspardTracker Trapezoid
+ X128_Y128= -14.346 55.338 146.501 mm
+ X1_Y128= 14.263 55.338 146.501 mm
+ X128_Y1= -48.726 138.518 69.237 mm
+ X1_Y1=  48.717 138.519 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4
+GaspardTracker Trapezoid
+ X128_Y128= -49.274 28.986 146.501 mm
+ X1_Y128= -29.045 49.215 146.501 mm
+ X128_Y1= -132.401 63.492 69.237 mm
+ X1_Y1=  -63.500 132.395 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+GaspardTracker Trapezoid
+ X128_Y128= -55.338 -14.346 146.501 mm
+ X1_Y128= -55.338 14.346 146.501 mm
+ X128_Y1= -138.518 -48.726 69.237 mm
+ X1_Y1=  -138.519 48.717 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%6
+GaspardTracker Trapezoid
+ X128_Y128= -28.986 -49.274 146.501 mm
+ X1_Y128= -49.215 -29.045 146.501 mm
+ X128_Y1= -63.492 -132.401 69.237 mm
+ X1_Y1=  -132.395 -63.500 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7
+GaspardTracker Trapezoid
+ X128_Y128= 14.346 -55.338 146.501 mm
+ X1_Y128= -14.263 -55.338 146.501 mm
+ X128_Y1= 48.726 -138.518 69.237 mm
+ X1_Y1=  -48.717 -138.519 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8
+GaspardTracker Trapezoid
+ X128_Y128= 49.274 -28.986 146.501 mm
+ X1_Y128= 29.045 -49.215 146.501 mm
+ X128_Y1= 132.401 -63.492 69.237 mm
+ X1_Y1=  63.500 -132.395 69.236 mm
+ FIRSTSTAGE= 1
+ SECONDSTAGE= 1
+ THIRDSTAGE= 1
+ VIS= all
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8
+

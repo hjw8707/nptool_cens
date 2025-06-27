@@ -1,0 +1,106 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	1
+VOICE
+ Type= Anode
+ z-pos= 0 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	2
+VOICE
+ Type= Anode
+ z-pos= 20 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	3
+VOICE
+ Type= Anode
+ z-pos= 40 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	4
+VOICE
+ Type= Anode
+ z-pos= 60 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	5
+VOICE
+ Type= Anode
+ z-pos= 80 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	6
+VOICE
+ Type= Anode
+ z-pos= 100 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	7
+VOICE
+ Type= Anode
+ z-pos= 120 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	8
+VOICE
+ Type= Anode
+ z-pos= 140 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	9
+VOICE
+ Type= Anode
+ z-pos= 160 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	10
+VOICE
+ Type= Anode
+ z-pos= 180 mm
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	Cat
+VOICE
+ Type= Cathode
+ radi= 5.0 micrometer
+ pitch= 2.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+ AC_gap= 10 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	FG
+VOICE
+ Type= FG
+ radi= 5.0 micrometer
+ pitch= 1.0 mm
+ Tilt= 0 deg
+ zRot= 0 deg 
+ AFG_gap= 1.7 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+VOICE
+ Type= END
+ z-pos= 0 mm
+ Tilt= 0 deg
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+VOICE
+ gas= G4_He
+ pressure= 0.79 atmosphere 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

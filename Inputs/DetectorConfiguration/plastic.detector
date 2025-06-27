@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Target
+ THICKNESS= 1 micrometer
+ ANGLE= 0 deg
+ RADIUS=	7.5 mm
+ MATERIAL= CH2
+ X= 0 mm
+ Y= 0 mm
+ Z= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Plastic
+ X= 0 mm
+ Y= 0 mm
+ Z= 100 mm
+ Thickness= 50 mm
+ Shape= cylind
+ Height= 50 mm
+ Width= 0 mm
+ Radius= 25 mm
+ Scintillator= Cu
+ LeadThickness= 0 mm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Avaible material:
+% BC400
+% BC452_2  : BC400 with 2% Pb
+% BC452_5  : BC400 with 5% Pb
+% BC452_10 : BC400 with 10% Pb

@@ -1,0 +1,26 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% An Isotropic Source to be used as EventGenerator %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Energy are given in MeV , Position in mm      % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Isotropic
+ EnergyLow= 0
+ EnergyHigh= 20
+ EnergyDistribution= flat
+% EnergyDistribution= Watt
+ %EnergyDistribution= FromHisto
+ %EnergyDistributionHist= MannhartFineFilterHisto.root hMannhart
+% EnergyDistributionHist= 20221222_EbarNubarExtrapolations_PFNS.root PFNS_2
+% EnergyDistributionHist= hPFNS_jeff3.3.root PFNS_jeff_0
+ %EnergyDistribution= 0.38*sqrt(x)*exp(-x/0.847212)
+ HalfOpenAngleMin= 0
+ HalfOpenAngleMax= 30
+ x0= 0 
+ y0= 0 
+ z0= 0 mm 
+ SigmaX= 12 mm
+ SigmaY= 12 mm
+ Multiplicity= 1
+ Particle= neutron
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Supported particle type: proton, neutron, deuton, triton, He3 , alpha 
