@@ -1,13 +1,16 @@
 # CENS NPTool
 
-## 프로젝트 설명
-
-------
 nptool은 저에너지 핵물리 실험을 위한 데이터 분석 및 몬테카를로 시뮬레이션 패키지입니다. 이 패키지는 복잡한 실험을 준비하고 분석하기 위한 통합 프레임워크를 제공하며, Geant4 및 ROOT 툴킷을 효율적으로 활용합니다. nptool은 사용자가 실험 데이터를 쉽게 처리하고 분석할 수 있도록 다양한 기능을 제공합니다. 이 프로젝트는 오픈 소스이며, 사용자와 개발자들이 자유롭게 기여할 수 있도록 설계되었습니다.
+
+nptool is a data analysis and Monte Carlo simulation package for low-energy nuclear physics experiments. This package provides an integrated framework for preparing and analyzing complex experiments, efficiently utilizing the Geant4 and ROOT toolkits. nptool offers various features to help users easily process and analyze experimental data. This project is open source and designed to allow users and developers to freely contribute.
 
 본 프로젝트는 CENS(센터명: Center for Exotic Nuclear Studies)에서 개발 및 유지보수하고 있는 NPTool의 공식 저장소입니다. CENS NPTool은 저에너지 핵물리 실험을 위한 데이터 분석과 몬테카를로 시뮬레이션을 지원하며, CENS의 연구 환경과 실험 요구에 최적화되어 있습니다. CENS 연구진 및 협력 연구자들이 실험 데이터를 효율적으로 처리하고 분석할 수 있도록 다양한 기능과 예제, 문서가 제공됩니다. 특히, CENS에서 개발된 검출기에 대한 시뮬레이션 코드들이 추가되어 있습니다. CENS의 모든 유저들이 직접 검출기를 추가하거나 코드를 수정할 수 있습니다.
 
+This project is the official repository of NPTool, developed and maintained by CENS (Center for Exotic Nuclear Studies). CENS NPTool supports data analysis and Monte Carlo simulation for low-energy nuclear physics experiments, optimized for the research environment and experimental requirements of CENS. Various features, examples, and documentation are provided to help CENS researchers and collaborators efficiently process and analyze experimental data. In particular, simulation codes for detectors developed at CENS are included. All CENS users can directly add detectors or modify the code.
+
 현재 이용할 수 있는 CENS 검출기의 목록은 다음과 같습니다.
+
+The following CENS detectors are currently available:
 
 - ASGARD (Clover HPGe Array)
 - Khala (LaBr3 Array, the part of IDATEN)
@@ -19,16 +22,18 @@ nptool은 저에너지 핵물리 실험을 위한 데이터 분석 및 몬테카
 
 이하 내용은 NPTool 패키지의 README의 내용입니다. 기본적인 구성과 설정, 실행 방법은 NPTool과 같습니다.
 
+The following content is from the NPTool package README. The basic structure, setup, and usage are the same as NPTool.
+
 ------
-nptool, which stands for Nuclear Physics Tool, is an open source and freely distributed data analysis and Monte Carlo simulation package for low-energy nuclear physics experiments. The NPTool package aims to offer an unified framework for preparing and analysing complex experiments, making an efficient use of Geant4 and ROOT toolkits.
+nptool(Nuclear Physics Tool의 약자)는 저에너지 핵물리 실험을 위한 오픈 소스 및 자유 배포 데이터 분석 및 몬테카를로 시뮬레이션 패키지입니다. NPTool 패키지는 복잡한 실험을 준비하고 분석할 수 있는 통합 프레임워크를 제공하며, Geant4와 ROOT 툴킷을 효율적으로 활용합니다.
 
-- If you wish to contribute, contact Adrien Matta: <matta@lpccaen.in2p3.fr>
-- For issues, use the git issue tracker or contact Adrien Matta: <matta@lpccaen.in2p3.fr>
+- 기여를 원하시면 Adrien Matta(<matta@lpccaen.in2p3.fr>)에게 연락해 주세요.
+- 버그 및 이슈는 git 이슈 트래커를 이용하거나 Adrien Matta(<matta@lpccaen.in2p3.fr>)에게 문의해 주세요.
 
-## Useful links
+## 유용한 링크
 
-- [nptool website](http://nptool.org): Find the latest information on the framework
-- [nptool manual](http://nptool.org/manual): Find a more detailed manual on how to install and run the framework
+- [nptool 웹사이트](http://nptool.org): 프레임워크에 대한 최신 정보를 확인할 수 있습니다.
+- [nptool 매뉴얼](http://nptool.org/manual): 설치 및 실행 방법에 대한 자세한 매뉴얼을 확인할 수 있습니다.
 
 ## 목차
 
