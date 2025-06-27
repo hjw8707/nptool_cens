@@ -1,5 +1,9 @@
 # CENS NPTool
 
+## Administrators
+
+- Jongwon Hwang (CENS, <jwhwang@ibs.re.kr>)
+
 nptool은 저에너지 핵물리 실험을 위한 데이터 분석 및 몬테카를로 시뮬레이션 패키지입니다. 이 패키지는 복잡한 실험을 준비하고 분석하기 위한 통합 프레임워크를 제공하며, Geant4 및 ROOT 툴킷을 효율적으로 활용합니다. nptool은 사용자가 실험 데이터를 쉽게 처리하고 분석할 수 있도록 다양한 기능을 제공합니다. 이 프로젝트는 오픈 소스이며, 사용자와 개발자들이 자유롭게 기여할 수 있도록 설계되었습니다.
 
 nptool is a data analysis and Monte Carlo simulation package for low-energy nuclear physics experiments. This package provides an integrated framework for preparing and analyzing complex experiments, efficiently utilizing the Geant4 and ROOT toolkits. nptool offers various features to help users easily process and analyze experimental data. This project is open source and designed to allow users and developers to freely contribute.
@@ -19,6 +23,14 @@ The following CENS detectors are currently available:
 - STARKjr (Si Array)
 - VOICE (Active Target TPC)
 - CACAO (CsI:Tl Array)
+
+## 검증된 실행 환경 (Verified Environment)
+
+- **OS**: macOS 15.5
+- **Compiler**: Clang 17.0.0
+- **CMake**: 3.31.6
+- **ROOT**: 6.35.01
+- **Geant4**: 11.3.1
 
 이하 내용은 NPTool 패키지의 README의 내용입니다. 기본적인 구성과 설정, 실행 방법은 NPTool과 같습니다.
 
