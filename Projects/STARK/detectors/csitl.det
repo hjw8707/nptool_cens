@@ -1,0 +1,45 @@
+%%%%%%%%%%Detector%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+%GeneralTarget
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+Target
+ THICKNESS= 5 micrometer
+ RADIUS= 7.5 mm
+ MATERIAL= CH2
+ ANGLE= 0 deg
+ X= 0 mm
+ Y= 0 mm
+ Z= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+CsITl
+ Pos= 40 40 40 mm
+ Ang= 0 0 0 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm
+%
+CsITl
+ Pos= 120 40 40 mm
+ Ang= 90 0 0 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm
+%
+CsITl
+ Pos= 200 40 40 mm
+ Ang=  0 90 0 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm
+%
+CsITl
+ Pos= 300 40 40 mm
+ Ang=  0 0 90 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm

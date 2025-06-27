@@ -1,0 +1,114 @@
+%%%%%%%%%%Detector%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+%GeneralTarget
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+Target
+ THICKNESS= 5 micrometer
+ RADIUS= 7.5 mm
+ MATERIAL= CH2
+ ANGLE= 0 deg
+ X= 0 mm
+ Y= 0 mm
+ Z= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%STARK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 16 array
+STARK
+ Type= X6
+ Rho= 100 mm
+ Phi= 0 deg
+ Z  = 0 mm
+
+STARK
+ Type= X6
+ Rho= 200 mm
+ Phi= 0 deg
+ Z  = 0 mm
+ Flip= 1
+
+STARK
+ Type= X6
+ Rho= 300 mm
+ Phi= 0 deg
+ Z  = 0 mm
+ Flip= 0
+ Rev= 1
+
+STARK
+ Type= X6
+ Rho= 400 mm
+ Phi= 0 deg
+ Z  = 0 mm
+ Flip= 1
+ Rev= 1
+
+
+STARK
+ Type= BB10
+ Pos= -100 0 0 mm
+ Flip= 1
+ 
+STARK
+ Type= BB10
+ R=     100 mm
+ Theta= 90 deg
+ Phi=   270 deg
+
+STARK
+ Type= QQQ5
+ Pos= 0 0 10 mm
+ Beta = 0 deg
+
+STARK
+ Type= QQQ5
+ Pos= 0 0 10 mm
+ Beta = 90 deg
+
+STARK
+ Type= QQQ5
+ Pos= 0 0 10 mm
+ Beta = 180 deg
+
+STARK
+ Type= QQQ5
+ Pos= 0 0 10 mm
+ Beta = 270 deg
+
+STARK
+ Type= QQQ5
+ Pos= 0 0 -10 mm
+ Beta = 180 deg
+
+CsITl
+ Pos= 40 40 40 mm
+ Ang= 0 0 0 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm
+
+CsITl
+ Pos= 120 40 40 mm
+ Ang= 90 0 0 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm
+
+CsITl
+ Pos= 200 40 40 mm
+ Ang=  0 90 0 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm
+
+CsITl
+ Pos= 300 40 40 mm
+ Ang=  0 0 90 deg
+ Horizontal= 80 mm
+ Vertical= 60 mm
+ Thickness= 20 mm
+ LeadThickness= 1 mm
