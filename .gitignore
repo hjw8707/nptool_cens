@@ -43,7 +43,6 @@ Documentation/user_guide.log
 *.blg
 *.SRIM
 *.sublime-*
-PhysicsListOption.txt
 Outputs
 Outputs/*
 Outputs/*/*.*
