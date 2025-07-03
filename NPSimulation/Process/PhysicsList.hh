@@ -24,13 +24,13 @@
 #ifndef PhysicsList_h
 #define PhysicsList_h 1
 
-#include "G4VUserPhysicsList.hh"
-#include "G4VModularPhysicsList.hh"
-#include "G4EmConfigurator.hh"
-
-#include "globals.hh"
-#include <string>
 #include <map>
+#include <string>
+
+#include "G4EmConfigurator.hh"
+#include "G4VModularPhysicsList.hh"
+#include "G4VUserPhysicsList.hh"
+#include "globals.hh"
 
 // Particle definition
 #include "G4IonConstructor.hh"
@@ -40,43 +40,42 @@
 #include "G4RadioactiveDecayPhysics.hh"
 
 // EM
-#include "G4EmParameters.hh"
-#include "G4EmStandardPhysics.hh"
+#include "G4EmExtraPhysics.hh"
 #include "G4EmLivermorePhysics.hh"
+#include "G4EmParameters.hh"
 #include "G4EmPenelopePhysics.hh"
+#include "G4EmStandardPhysics.hh"
 #include "G4EmStandardPhysics_option1.hh"
 #include "G4EmStandardPhysics_option2.hh"
 #include "G4EmStandardPhysics_option3.hh"
 #include "G4EmStandardPhysics_option4.hh"
-#include "G4EmStandardPhysics.hh"    
-#include "G4EmExtraPhysics.hh"
 #include "G4StoppingPhysics.hh"
 
-//Optical
+// Optical
 #include "G4OpticalPhysics.hh"
 
 // Drift Electron
 #include "G4DriftElectronPhysics.hh"
 
-//Hadronique
-#include "G4IonElasticPhysics.hh"
+// Hadronique
 #include "G4HadronElasticPhysics.hh"
 #include "G4HadronInelasticQBBC.hh"
-#include "G4IonBinaryCascadePhysics.hh"
 #include "G4HadronPhysicsINCLXX.hh"
+#include "G4IonBinaryCascadePhysics.hh"
+#include "G4IonElasticPhysics.hh"
 #include "G4IonINCLXXPhysics.hh"
 #if NPS_GEANT4_VERSION_MAJOR > 9
-#include "G4HadronPhysicsQGSP_BIC_HP.hh"
 #include "G4HadronPhysicsQGSP_BERT_HP.hh"
 #include "G4HadronPhysicsQGSP_BIC.hh"
+#include "G4HadronPhysicsQGSP_BIC_HP.hh"
 #include "INCLXXPhysicsListHelper.hh"
 #endif
 #include "G4HadronPhysicsQGSP_BERT.hh"
 
 class G4VPhysicsConstructor;
 
-class PhysicsList: public G4VModularPhysicsList{
-  public:
+class PhysicsList : public G4VModularPhysicsList {
+   public:
     PhysicsList();
     virtual ~PhysicsList();
 
@@ -89,13 +88,14 @@ class PhysicsList: public G4VModularPhysicsList{
     void BiasCrossSectionByFactor(double factor);
     void AddIonGasModels();
     void AddPAIModel(const G4String& modname);
-    void NewPAIModel(const G4ParticleDefinition* part, const G4String& modname,const G4String& procname);
+    void NewPAIModel(const G4ParticleDefinition* part, const G4String& modname, const G4String& procname);
     void AddPackage(const G4String& name);
     void AddLevelData();
-  private:
-    std::map<std::string,G4VPhysicsConstructor*>  m_PhysList;
 
-  private: // Physics List
+   private:
+    std::map<std::string, G4VPhysicsConstructor*> m_PhysList;
+
+   private:  // Physics List
     G4OpticalPhysics* opticalPhysicsList;
     G4DriftElectronPhysics* driftElectronPhysicsList;
     G4VPhysicsConstructor* emPhysicsList;
@@ -104,7 +104,7 @@ class PhysicsList: public G4VModularPhysicsList{
     G4EmConfigurator* emConfig;
     G4EmParameters* em_parameters;
 
-  private: // Physics option
+   private:  // Physics option
     std::string m_EmList;
     double m_IonBinaryCascadePhysics;
     double m_NPIonInelasticPhysics;
@@ -117,7 +117,7 @@ class PhysicsList: public G4VModularPhysicsList{
     double m_HadronPhysicsQGSP_BIC_HP;
     double m_HadronPhysicsQGSP_BERT_HP;
     double m_HadronPhysicsINCLXX;
-    bool   m_INCLXXPhysics;
+    bool m_INCLXXPhysics;
     double m_HadronPhysicsQGSP_INCLXX_HP;
     double m_HadronPhysicsQGSP_INCLXX;
     double m_HadronPhysicsFTFP_INCLXX_HP;
@@ -132,7 +132,7 @@ class PhysicsList: public G4VModularPhysicsList{
     double m_ShieldingLEND;
     double m_Shielding_HPT;
 
+    std::map<int, std::string> m_LevelDataFiles;
 };
-
 
 #endif
