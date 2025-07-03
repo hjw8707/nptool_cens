@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Plunger
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PlungerTarget
+ R= 20 mm
+ Thickness= 0.1 mm
+ Z= 0 mm
+ Material= Al
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PlungerStopper
+ R= 20 mm
+ Thickness= 3 mm
+ Z= 20 mm
+ Material= Al
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+PlungerChamber
+ R= 500 mm
+ Thickness= 3 mm
+ Material= Al
+ PipeR= 30 mm
+ PipeZ0= -600 mm
+ PipeZ1= 600 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

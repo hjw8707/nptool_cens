@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Reaction file for 11Li(d,3He)10He reaction %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Beam energy given in MeV ; Excitation in MeV
+Beam
+  Particle= 12C
+  Energy= 600 MeV
+  SigmaEnergy= 0 MeV
+  SigmaThetaX= 0 deg
+  SigmaPhiY= 0 deg
+  SigmaX= 0 mm
+  SigmaY= 0 mm
+  ZEmission = -500 mm
+  MeanThetaX= 0 deg
+  MeanPhiY= 0 deg
+  MeanX= 0 mm
+  MeanY= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TwoBodyReaction
+  Beam= 12C
+  Target= 26Al
+  Light= 12C
+  Heavy= 26Al
+  ExcitationEnergyLight= 0.0 MeV
+  ExcitationEnergyHeavy= 0.0 MeV
+  CrossSectionPath= flat.txt CS
+  ShootLight= 1
+  ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Decay 12C
+ Daughter= 12C gamma gamma
+ Threshold= 9 MeV
+ ExcitationEnergy= 0 4 5
+ Shoot= 1 1 1
+ LifeTime= 1 s
+ BranchingRatio= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
