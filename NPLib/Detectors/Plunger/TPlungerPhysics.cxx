@@ -49,7 +49,24 @@ ClassImp(TPlungerPhysics)
       m_EventPhysics(this),
       m_E_RAW_Threshold(0),  // adc channels
       m_E_Threshold(0),      // MeV
-      m_NumberOfDetectors(0) {}
+      m_NumberOfDetectors(0),
+      m_TargetFound(false),
+      m_TargetR(0),
+      m_TargetThickness(0),
+      m_TargetPosZ(0),
+      m_TargetMaterial(""),
+      m_StopperFound(false),
+      m_StopperR(0),
+      m_StopperThickness(0),
+      m_StopperPosZ(0),
+      m_StopperMaterial(""),
+      m_ChamberFound(false),
+      m_ChamberR(0),
+      m_ChamberThickness(0),
+      m_ChamberMaterial(""),
+      m_ChamberPipeR(0),
+      m_ChamberPipeZ0(0),
+      m_ChamberPipeZ1(0) {}
 
 ///////////////////////////////////////////////////////////////////////////
 /// A usefull method to bundle all operation to add a detector
@@ -192,31 +209,53 @@ void TPlungerPhysics::Clear() {
 
 ///////////////////////////////////////////////////////////////////////////
 void TPlungerPhysics::ReadConfiguration(NPL::InputParser parser) {
-    vector<NPL::InputBlock*> blocks = parser.GetAllBlocksWithToken("Plunger");
+    std::vector<NPL::InputBlock*> blocks;
+    ////////////////////////////////////////////////////
+    // Plunger Target
+    ////////////////////////////////////////////////////
+    blocks = parser.GetAllBlocksWithTokenAndValue("Plunger", "Target");
     if (NPOptionManager::getInstance()->GetVerboseLevel())
         cout << "//// " << blocks.size() << " detectors found " << endl;
 
-    vector<string> cart = {"POS", "Shape"};
-    vector<string> sphe = {"R", "Theta", "Phi", "Shape"};
+    if (blocks.size() > 0) {
+        if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  Plunger Target " << endl;
+        m_TargetFound = true;
+        m_TargetR = blocks[0]->GetDouble("R", "mm");
+        m_TargetThickness = blocks[0]->GetDouble("Thickness", "mm");
+        m_TargetPosZ = blocks[0]->GetDouble("Z", "mm");
+        m_TargetMaterial = blocks[0]->GetString("Material");
+    }
+    ////////////////////////////////////////////////////
+    // Plunger Stopper
+    ////////////////////////////////////////////////////
+    blocks = parser.GetAllBlocksWithTokenAndValue("Plunger", "Stopper");
+    if (NPOptionManager::getInstance()->GetVerboseLevel())
+        cout << "//// " << blocks.size() << " detectors found " << endl;
 
-    for (unsigned int i = 0; i < blocks.size(); i++) {
-        if (blocks[i]->HasTokenList(cart)) {
-            if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  Plunger " << i + 1 << endl;
+    if (blocks.size() > 0) {
+        if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  Plunger Stopper " << endl;
+        m_StopperFound = true;
+        m_StopperR = blocks[0]->GetDouble("R", "mm");
+        m_StopperThickness = blocks[0]->GetDouble("Thickness", "mm");
+        m_StopperPosZ = blocks[0]->GetDouble("Z", "mm");
+        m_StopperMaterial = blocks[0]->GetString("Material");
+    }
+    ////////////////////////////////////////////////////
+    // Plunger Chamber
+    ////////////////////////////////////////////////////
+    blocks = parser.GetAllBlocksWithTokenAndValue("Plunger", "Chamber");
+    if (NPOptionManager::getInstance()->GetVerboseLevel())
+        cout << "//// " << blocks.size() << " detectors found " << endl;
 
-            TVector3 Pos = blocks[i]->GetTVector3("POS", "mm");
-            string Shape = blocks[i]->GetString("Shape");
-            AddDetector(Pos, Shape);
-        } else if (blocks[i]->HasTokenList(sphe)) {
-            if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  Plunger " << i + 1 << endl;
-            double R = blocks[i]->GetDouble("R", "mm");
-            double Theta = blocks[i]->GetDouble("Theta", "deg");
-            double Phi = blocks[i]->GetDouble("Phi", "deg");
-            string Shape = blocks[i]->GetString("Shape");
-            AddDetector(R, Theta, Phi, Shape);
-        } else {
-            cout << "ERROR: check your input file formatting " << endl;
-            exit(1);
-        }
+    if (blocks.size() > 0) {
+        if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  Plunger Chamber " << endl;
+        m_ChamberFound = true;
+        m_ChamberR = blocks[0]->GetDouble("R", "mm");
+        m_ChamberThickness = blocks[0]->GetDouble("Thickness", "mm");
+        m_ChamberMaterial = blocks[0]->GetString("Material");
+        m_ChamberPipeR = blocks[0]->GetDouble("PipeR", "mm");
+        m_ChamberPipeZ0 = blocks[0]->GetDouble("PipeZ0", "mm");
+        m_ChamberPipeZ1 = blocks[0]->GetDouble("PipeZ1", "mm");
     }
 }
 

@@ -203,7 +203,7 @@ void Plunger::ReadConfiguration(NPL::InputParser parser) {
     ////////////////////////////////////////////////////
     // Plunger Target
     ////////////////////////////////////////////////////
-    blocks = parser.GetAllBlocksWithToken("PlungerTarget");
+    blocks = parser.GetAllBlocksWithTokenAndValue("Plunger", "Target");
     if (NPOptionManager::getInstance()->GetVerboseLevel())
         cout << "//// " << blocks.size() << " detectors found " << endl;
 
@@ -218,7 +218,7 @@ void Plunger::ReadConfiguration(NPL::InputParser parser) {
     ////////////////////////////////////////////////////
     // Plunger Stopper
     ////////////////////////////////////////////////////
-    blocks = parser.GetAllBlocksWithToken("PlungerStopper");
+    blocks = parser.GetAllBlocksWithTokenAndValue("Plunger", "Stopper");
     if (NPOptionManager::getInstance()->GetVerboseLevel())
         cout << "//// " << blocks.size() << " detectors found " << endl;
 
@@ -233,7 +233,7 @@ void Plunger::ReadConfiguration(NPL::InputParser parser) {
     ////////////////////////////////////////////////////
     // Plunger Chamber
     ////////////////////////////////////////////////////
-    blocks = parser.GetAllBlocksWithToken("PlungerChamber");
+    blocks = parser.GetAllBlocksWithTokenAndValue("Plunger", "Chamber");
     if (NPOptionManager::getInstance()->GetVerboseLevel())
         cout << "//// " << blocks.size() << " detectors found " << endl;
 

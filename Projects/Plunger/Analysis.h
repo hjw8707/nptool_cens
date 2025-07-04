@@ -1,4 +1,4 @@
-#ifndef Analysis_h 
+#ifndef Analysis_h
 #define Analysis_h
 /*****************************************************************************
  * Copyright (C) 2009-2016    this file is part of the NPTool Project        *
@@ -21,22 +21,26 @@
  *                                                                           *
  *****************************************************************************/
 
-#include"NPVAnalysis.h"
-#include"TPlungerPhysics.h"
-class Analysis: public NPL::VAnalysis{
-  public:
+#include "NPVAnalysis.h"
+#include "TASGARDPhysics.h"
+#include "TPlungerPhysics.h"
+class Analysis : public NPL::VAnalysis {
+   public:
     Analysis();
     ~Analysis();
 
-  public: 
+   public:
     void Init();
     void TreatEvent();
     void End();
 
-   static NPL::VAnalysis* Construct();
+    void InitializeRootInput();
+    void InitializeRootOutput();
 
-  private:
-   TPlungerPhysics* Plunger;
+    static NPL::VAnalysis* Construct();
 
+   private:
+    TPlungerPhysics* Plunger;
+    TASGARDPhysics* ASGARD;
 };
 #endif

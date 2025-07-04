@@ -139,6 +139,32 @@ class TPlungerPhysics : public TObject, public NPL::VDetector {
    private:
     int m_NumberOfDetectors;  //!
 
+    // parameters for the target
+   private:
+    bool m_TargetFound;        //!
+    double m_TargetR;          //!
+    double m_TargetThickness;  //!
+    double m_TargetPosZ;       //!
+    string m_TargetMaterial;   //!
+
+    // parameters for the stopper
+   private:
+    bool m_StopperFound;        //!
+    double m_StopperR;          //!
+    double m_StopperThickness;  //!
+    double m_StopperPosZ;       //!
+    string m_StopperMaterial;   //!
+
+    // parameters for the chamber
+   private:
+    bool m_ChamberFound;        //!
+    double m_ChamberR;          //!
+    double m_ChamberThickness;  //!
+    string m_ChamberMaterial;   //!
+    double m_ChamberPipeR;      //!
+    double m_ChamberPipeZ0;     //!
+    double m_ChamberPipeZ1;     //!
+
     // Static constructor to be passed to the Detector Factory
    public:
     static NPL::VDetector* Construct();

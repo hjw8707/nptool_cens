@@ -19,50 +19,59 @@
  *                                                                           *
  *****************************************************************************/
 
-#include<iostream>
+#include <iostream>
 using namespace std;
-#include"Analysis.h"
-#include"NPAnalysisFactory.h"
-#include"NPDetectorManager.h"
+#include "Analysis.h"
+#include "NPAnalysisFactory.h"
+#include "NPDetectorManager.h"
+#include "RootInput.h"
+#include "RootOutput.h"
+#include "TChain.h"
+#include "TTree.h"
+
 ////////////////////////////////////////////////////////////////////////////////
-Analysis::Analysis(){
-}
+Analysis::Analysis() {}
 ////////////////////////////////////////////////////////////////////////////////
-Analysis::~Analysis(){
+Analysis::~Analysis() {}
+
+////////////////////////////////////////////////////////////////////////////////
+void Analysis::Init() {
+    Plunger = (TPlungerPhysics*)m_DetectorManager->GetDetector("Plunger");
+    ASGARD = (TASGARDPhysics*)m_DetectorManager->GetDetector("ASGARD");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-void Analysis::Init(){
-   Plunger= (TPlungerPhysicsPhysics*) m_DetectorManager->GetDetector("Plunger");
-}
+void Analysis::TreatEvent() {}
 
 ////////////////////////////////////////////////////////////////////////////////
-void Analysis::TreatEvent(){
+void Analysis::End() {}
+
+///////////////////////////////////////////////////////////////////////////
+void Analysis::InitializeRootInput() {
+    TChain* inputChain = RootInput::getInstance()->GetChain();
+    inputChain->SetBranchStatus("Plunger", true);
+    // inputChain->SetBranchAddress("Plunger", &m_EventData);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-void Analysis::End(){
+///////////////////////////////////////////////////////////////////////////
+void Analysis::InitializeRootOutput() {
+    TTree* outputTree = RootOutput::getInstance()->GetTree();
+    // outputTree->Branch("Plunger", "TPlungerPhysics", &m_EventPhysics);
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //            Construct Method to be pass to the DetectorFactory              //
 ////////////////////////////////////////////////////////////////////////////////
-NPL::VAnalysis* Analysis::Construct(){
-  return (NPL::VAnalysis*) new Analysis();
-}
+NPL::VAnalysis* Analysis::Construct() { return (NPL::VAnalysis*)new Analysis(); }
 
 ////////////////////////////////////////////////////////////////////////////////
 //            Registering the construct method to the factory                 //
 ////////////////////////////////////////////////////////////////////////////////
-extern "C"{
-class proxy{
-  public:
-    proxy(){
-      NPL::AnalysisFactory::getInstance()->SetConstructor(Analysis::Construct);
-    }
+extern "C" {
+class proxy {
+   public:
+    proxy() { NPL::AnalysisFactory::getInstance()->SetConstructor(Analysis::Construct); }
 };
 
 proxy p;
 }
-

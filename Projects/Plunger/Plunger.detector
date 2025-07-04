@@ -1,19 +1,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Plunger
+% Plunger
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-PlungerTarget
+Plunger Target
  R= 20 mm
  Thickness= 0.1 mm
  Z= 0 mm
  Material= Al
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-PlungerStopper
+Plunger Stopper
  R= 20 mm
  Thickness= 3 mm
  Z= 20 mm
  Material= Al
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-PlungerChamber
+Plunger Chamber
  R= 500 mm
  Thickness= 3 mm
  Material= Al
@@ -21,4 +21,20 @@ PlungerChamber
  PipeZ0= -600 mm
  PipeZ1= 600 mm
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%-------------------------------------------------
+% ASGARD Clover Detector Configuration Example
+%-------------------------------------------------
+ASGARD Clover
+ CloverID= 1
+ R= 50 cm
+ Theta= 45.0 deg
+ Phi= 30.0 deg
+ Beta= 0.0 0.0 0.0
+%
+ASGARD Clover
+ CloverID= 2
+ R= 50 cm
+ Theta= 135.0 deg
+ Phi= 60.0 deg
+ Beta= 0.0 0.0 0.0
+%

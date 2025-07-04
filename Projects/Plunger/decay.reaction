@@ -4,7 +4,7 @@
 %%Beam energy given in MeV ; Excitation in MeV
 Beam
   Particle= 12C
-  ExcitationEnergy= 3853.807 keV
+  ExcitationEnergy= 4500 keV
   Energy= 600 MeV
   SigmaEnergy= 0 MeV
   SigmaThetaX= 0 deg
