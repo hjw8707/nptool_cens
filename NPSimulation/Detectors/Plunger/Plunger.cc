@@ -131,6 +131,7 @@ G4LogicalVolume* Plunger::BuildStopper() {
         G4Material* DetectorMaterial = MaterialManager::getInstance()->GetMaterialFromLibrary(m_StopperMaterial);
         m_StopperLV = new G4LogicalVolume(stopperCylinder, DetectorMaterial, "logic_Plunger_StopperCylinder", 0, 0, 0);
         m_StopperLV->SetVisAttributes(m_VisStopper);
+        m_StopperLV->SetSensitiveDetector(m_PlungerDetector);
     }
     return m_StopperLV;
 }
@@ -316,11 +317,36 @@ void Plunger::InitializeRootOutput() {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 // Read sensitive part and fill the Root tree.
 // Called at in the EventAction::EndOfEventAvtion
-void Plunger::ReadSensitive(const G4Event*) {}
+void Plunger::ReadSensitive(const G4Event*) {
+    m_Event->Clear();
+    InteractionScorers::PS_Interactions* Scorer =
+        (InteractionScorers::PS_Interactions*)m_PlungerDetector->GetPrimitive(0);
+
+    unsigned int size = Scorer->GetMult();
+    for (unsigned int i = 0; i < size; i++) {
+        string name = Scorer->GetParticleName(i);
+        double kineticEnergy = Scorer->GetKineticEnergy(i);  // in MeV
+        double posx = Scorer->GetPositionX(i);
+        double posy = Scorer->GetPositionY(i);
+        double posz = Scorer->GetPositionZ(i);
+        double mass = Scorer->GetMass(i);                                   // in MeV/c^2
+        double velocity = sqrt(1 - pow(mass / (kineticEnergy + mass), 2));  // in beta
+        m_Event->SetPlunger(name, velocity, kineticEnergy, TVector3(posx, posy, posz));
+    }
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 ////////////////////////////////////////////////////////////////
-void Plunger::InitializeScorers() {}
+void Plunger::InitializeScorers() {
+    // This check is necessary in case the geometry is reloaded
+    bool already_exist = false;
+    m_PlungerDetector = CheckScorer("PlungerDetector", already_exist);
+    if (already_exist) return;
+
+    G4VPrimitiveScorer* Interaction = new InteractionScorers::PS_Interactions("Interaction", ms_InterCoord, 0);
+    m_PlungerDetector->RegisterPrimitive(Interaction);
+    G4SDManager::GetSDMpointer()->AddNewDetector(m_PlungerDetector);
+}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

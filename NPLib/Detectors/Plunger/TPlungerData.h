@@ -18,7 +18,7 @@
  *                                                                           *
  *---------------------------------------------------------------------------*
  * Comment:                                                                  *
- *                                                                           *   
+ *                                                                           *
  *                                                                           *
  *****************************************************************************/
 
@@ -28,77 +28,59 @@ using namespace std;
 
 // ROOT
 #include "TObject.h"
+#include "TVector3.h"
 
 class TPlungerData : public TObject {
-  //////////////////////////////////////////////////////////////
-  // data members are hold into vectors in order 
-  // to allow multiplicity treatment
-  private: 
-    // Energy
-    vector<UShort_t>   fPlunger_E_DetectorNbr;
-    vector<Double_t>   fPlunger_Energy;
+    //////////////////////////////////////////////////////////////
+    // data members are hold into vectors in order
+    // to allow multiplicity treatment
+   private:
+    // Particle flying to the stopper
+    vector<string> fPlunger_ParticleName;
+    vector<double> fPlunger_Velocity;
+    vector<double> fPlunger_KineticEnergy;
+    vector<TVector3> fPlunger_Position;
 
-    // Time
-    vector<UShort_t>   fPlunger_T_DetectorNbr;
-    vector<Double_t>   fPlunger_Time;
-
-
-  //////////////////////////////////////////////////////////////
-  // Constructor and destructor
-  public: 
+    //////////////////////////////////////////////////////////////
+    // Constructor and destructor
+   public:
     TPlungerData();
     ~TPlungerData();
-    
 
-  //////////////////////////////////////////////////////////////
-  // Inherited from TObject and overriden to avoid warnings
-  public:
+    //////////////////////////////////////////////////////////////
+    // Inherited from TObject and overriden to avoid warnings
+   public:
     void Clear();
     void Clear(const Option_t*) {};
     void Dump() const;
 
-
-  //////////////////////////////////////////////////////////////
-  // Getters and Setters
-  // Prefer inline declaration to avoid unnecessary called of 
-  // frequently used methods
-  // add //! to avoid ROOT creating dictionnary for the methods
-  public:
+    //////////////////////////////////////////////////////////////
+    // Getters and Setters
+    // Prefer inline declaration to avoid unnecessary called of
+    // frequently used methods
+    // add //! to avoid ROOT creating dictionnary for the methods
+   public:
     //////////////////////    SETTERS    ////////////////////////
-    // Energy
-    inline void SetEnergy(const UShort_t& DetNbr,const Double_t& Energy){
-      fPlunger_E_DetectorNbr.push_back(DetNbr);
-      fPlunger_Energy.push_back(Energy);
-    };//!
-
-    // Time
-    inline void SetTime(const UShort_t& DetNbr,const Double_t& Time)	{
-      fPlunger_T_DetectorNbr.push_back(DetNbr);     
-      fPlunger_Time.push_back(Time);
-    };//!
-
+    // Particle flying to the stopper
+    inline void SetPlunger(const string& ParticleName, const double& Velocity, const double& KineticEnergy,
+                           const TVector3& Position) {
+        fPlunger_ParticleName.push_back(ParticleName);
+        fPlunger_Velocity.push_back(Velocity);
+        fPlunger_KineticEnergy.push_back(KineticEnergy);
+        fPlunger_Position.push_back(Position);
+    };  //!
 
     //////////////////////    GETTERS    ////////////////////////
-    // Energy
-    inline UShort_t GetMultEnergy() const
-      {return fPlunger_E_DetectorNbr.size();}
-    inline UShort_t GetE_DetectorNbr(const unsigned int &i) const 
-      {return fPlunger_E_DetectorNbr[i];}//!
-    inline Double_t Get_Energy(const unsigned int &i) const 
-      {return fPlunger_Energy[i];}//!
+    // Particle flying to the stopper
+    inline UShort_t GetMultPlunger() const { return fPlunger_ParticleName.size(); }
+    inline string GetParticleName(const unsigned int& i) const { return fPlunger_ParticleName[i]; }    //!
+    inline double GetVelocity(const unsigned int& i) const { return fPlunger_Velocity[i]; }            //!
+    inline double GetKineticEnergy(const unsigned int& i) const { return fPlunger_KineticEnergy[i]; }  //!
+    inline TVector3 GetPosition(const unsigned int& i) const { return fPlunger_Position[i]; }          //!
 
-    // Time
-    inline UShort_t GetMultTime() const
-      {return fPlunger_T_DetectorNbr.size();}
-    inline UShort_t GetT_DetectorNbr(const unsigned int &i) const 
-      {return fPlunger_T_DetectorNbr[i];}//!
-    inline Double_t Get_Time(const unsigned int &i) const 
-      {return fPlunger_Time[i];}//!
-
-
-  //////////////////////////////////////////////////////////////
-  // Required for ROOT dictionnary
-  ClassDef(TPlungerData,1)  // PlungerData structure
+    //////////////////////////////////////////////////////////////
+    // Required for ROOT dictionnary
+    ClassDef(TPlungerData, 1)  // PlungerData structure
 };
 
 #endif

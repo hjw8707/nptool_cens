@@ -35,28 +35,28 @@
 using namespace std;
 
 // NPL header
-#include "NPParticle.h"
 #include "NPInputParser.h"
+#include "NPParticle.h"
 
-namespace NPL{
-  class Beam:public NPL::Particle{
-    
-  public:  // Constructors and Destructors
+namespace NPL {
+class Beam : public NPL::Particle {
+   public:  // Constructors and Destructors
     Beam();
     Beam(string);
     ~Beam();
-    
-  public:  // Various Method
+
+   public:  // Various Method
     void ReadConfigurationFile(string Path);
     void ReadConfigurationFile(NPL::InputParser);
 
-  private:
+   private:
     int fVerboseLevel;
-  
-  private:
-    //Particle* fBeamParticle;
+
+   private:
+    // Particle* fBeamParticle;
     double fEnergy;
     double fExcitationEnergy;
+    bool fUseNearestEnergyLevel;  // flag to use the nearest energy level
     double fSigmaEnergy;
     double fMeanX;
     double fMeanY;
@@ -72,70 +72,81 @@ namespace NPL{
     TH1D* fEnergyHist;
     TH2F* fXThetaXHist;
     TH2F* fYPhiYHist;
-    
-  public:
+
+   public:
     // Getters and Setters
     // Set
-    // void SetBeamParticle (Particle* BeamParticle)  {delete fBeamParticle ; fBeamParticle = new Particle(BeamParticle->GetZ(),BeamParticle->GetA());}
-    void SetEnergy      (double Energy)         {fEnergy=Energy;}
-    void SetExcitationEnergy(double Excitation) {fExcitationEnergy=Excitation;}
-    void SetSigmaEnergy (double SigmaEnergy)    {fSigmaEnergy=SigmaEnergy;}
-    void SetMeanX       (double MeanX)          {fMeanX=MeanX;}
-    void SetMeanY       (double MeanY)          {fMeanY=MeanY;}
-    void SetSigmaX      (double SigmaX)         {fSigmaX=SigmaX;}
-    void SetSigmaY      (double SigmaY)         {fSigmaY=SigmaY;}
-    void SetMeanThetaX  (double MeanThetaX)     {fMeanThetaX=MeanThetaX;}
-    void SetMeanPhiY    (double MeanPhiY)       {fMeanPhiY=MeanPhiY;}
-    void SetSigmaThetaX (double SigmaThetaX)    {fSigmaThetaX=SigmaThetaX;}
-    void SetSigmaPhiY   (double SigmaPhiY)      {fSigmaPhiY=SigmaPhiY;}
-    void SetEnergyHist  (TH1D*  EnergyHist)     {delete fEnergyHist; fEnergyHist   = EnergyHist;}
-    void SetXThetaXHist (TH2F*  XThetaXHist)    {delete fXThetaXHist; fXThetaXHist = XThetaXHist;}
-    void SetYPhiYHist   (TH2F*  YPhiYHist)      {delete fYPhiYHist; fYPhiYHist     = YPhiYHist;}
-    void SetVerboseLevel(int verbose)           {fVerboseLevel = verbose;}
+    // void SetBeamParticle (Particle* BeamParticle)  {delete fBeamParticle ; fBeamParticle = new
+    // Particle(BeamParticle->GetZ(),BeamParticle->GetA());}
+    void SetEnergy(double Energy) { fEnergy = Energy; }
+    void SetExcitationEnergy(double Excitation) { fExcitationEnergy = Excitation; }
+    void SetSigmaEnergy(double SigmaEnergy) { fSigmaEnergy = SigmaEnergy; }
+    void SetMeanX(double MeanX) { fMeanX = MeanX; }
+    void SetMeanY(double MeanY) { fMeanY = MeanY; }
+    void SetSigmaX(double SigmaX) { fSigmaX = SigmaX; }
+    void SetSigmaY(double SigmaY) { fSigmaY = SigmaY; }
+    void SetMeanThetaX(double MeanThetaX) { fMeanThetaX = MeanThetaX; }
+    void SetMeanPhiY(double MeanPhiY) { fMeanPhiY = MeanPhiY; }
+    void SetSigmaThetaX(double SigmaThetaX) { fSigmaThetaX = SigmaThetaX; }
+    void SetSigmaPhiY(double SigmaPhiY) { fSigmaPhiY = SigmaPhiY; }
+    void SetEnergyHist(TH1D* EnergyHist) {
+        delete fEnergyHist;
+        fEnergyHist = EnergyHist;
+    }
+    void SetXThetaXHist(TH2F* XThetaXHist) {
+        delete fXThetaXHist;
+        fXThetaXHist = XThetaXHist;
+    }
+    void SetYPhiYHist(TH2F* YPhiYHist) {
+        delete fYPhiYHist;
+        fYPhiYHist = YPhiYHist;
+    }
+    void SetVerboseLevel(int verbose) { fVerboseLevel = verbose; }
 
     // Get
     // Particle*  GetParticle     () const {return fBeamParticle;}
-    double    GetEnergy      () const {return fEnergy;}
-    double    GetExcitationEnergy() const {return fExcitationEnergy;}
-    double    GetSigmaEnergy () const {return fSigmaEnergy;}
-    double    GetMeanX       () const {return fMeanX;}
-    double    GetMeanY       () const {return fMeanY;}
-    double    GetSigmaX      () const {return fSigmaX;}
-    double    GetSigmaY      () const {return fSigmaY;}
-    double    GetMeanThetaX  () const {return fMeanThetaX;}
-    double    GetMeanPhiY    () const {return fMeanPhiY;}
-    double    GetSigmaThetaX () const {return fSigmaThetaX;}
-    double    GetSigmaPhiY   () const {return fSigmaPhiY;}
-    TH1D*     GetEnergyHist  () const {return fEnergyHist;}
-    TH2F*     GetXThetaXHist () const {return fXThetaXHist;}
-    TH2F*     GetYPhiYHist   () const {return fYPhiYHist;}
-    int       GetVerboseLevel() const {return fVerboseLevel;}
+    double GetEnergy() const { return fEnergy; }
+    double GetExcitationEnergy() const { return fExcitationEnergy; }
+    bool GetUseNearestEnergyLevel() const { return fUseNearestEnergyLevel; }
+    double GetSigmaEnergy() const { return fSigmaEnergy; }
+    double GetMeanX() const { return fMeanX; }
+    double GetMeanY() const { return fMeanY; }
+    double GetSigmaX() const { return fSigmaX; }
+    double GetSigmaY() const { return fSigmaY; }
+    double GetMeanThetaX() const { return fMeanThetaX; }
+    double GetMeanPhiY() const { return fMeanPhiY; }
+    double GetSigmaThetaX() const { return fSigmaThetaX; }
+    double GetSigmaPhiY() const { return fSigmaPhiY; }
+    TH1D* GetEnergyHist() const { return fEnergyHist; }
+    TH2F* GetXThetaXHist() const { return fXThetaXHist; }
+    TH2F* GetYPhiYHist() const { return fYPhiYHist; }
+    int GetVerboseLevel() const { return fVerboseLevel; }
 
-  private: // Event Generation private variable
+   private:  // Event Generation private variable
     double fTargetSize;
-    double fEffectiveTargetSize; // target size has seen from the beam axis
+    double fEffectiveTargetSize;  // target size has seen from the beam axis
     double fTargetThickness;
-    double fEffectiveTargetThickness; // target thickness has seen by the beam
+    double fEffectiveTargetThickness;  // target thickness has seen by the beam
     double fTargetAngle;
     double fTargetZ;
- 
-  public:
+
+   public:
     void SetTargetSize(double TargetSize);
     void SetTargetThickness(double TargetThickness);
     void SetTargetAngle(double TargetAngle);
-    void SetTargetZ(double TargetZ) {fTargetZ = TargetZ;}
-    double GetTargetSize(){return fTargetSize;}
-    double GetTargetThickness(){return fTargetThickness;}
-    double GetTargetAngle(){return fTargetAngle;}
-    double GetTargetZ() {return fTargetZ;}
-    double GetTargetEffectiveThickness(){return fEffectiveTargetThickness;}
-    double GetTargetEffectiveTargetSize(){return fEffectiveTargetSize;}
+    void SetTargetZ(double TargetZ) { fTargetZ = TargetZ; }
+    double GetTargetSize() { return fTargetSize; }
+    double GetTargetThickness() { return fTargetThickness; }
+    double GetTargetAngle() { return fTargetAngle; }
+    double GetTargetZ() { return fTargetZ; }
+    double GetTargetEffectiveThickness() { return fEffectiveTargetThickness; }
+    double GetTargetEffectiveTargetSize() { return fEffectiveTargetSize; }
 
-   
-  public: // Event Generation
-    void GenerateRandomEvent(double& E, double& X, double& Y, double& Z, double& ThetaX, double& PhiY );
-  public: // Print private paremeter
+   public:  // Event Generation
+    void GenerateRandomEvent(double& E, double& X, double& Y, double& Z, double& ThetaX, double& PhiY);
+
+   public:  // Print private paremeter
     void Print() const;
-  };
-}
+};
+}  // namespace NPL
 #endif

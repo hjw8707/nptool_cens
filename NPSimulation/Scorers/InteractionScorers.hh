@@ -20,39 +20,43 @@
  * Comment:                                                                  *
  *                                                                           *
  *****************************************************************************/
-#include "G4VPrimitiveScorer.hh"
-#include "G4RunManager.hh"
-#include "TInteractionCoordinates.h"
-#include "NPImage.h"
 #include <map>
+
+#include "G4RunManager.hh"
+#include "G4VPrimitiveScorer.hh"
+#include "NPImage.h"
+#include "TInteractionCoordinates.h"
 using namespace std;
 using namespace CLHEP;
 
 namespace InteractionScorers {
 
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-  class InteractionData{
-    public:
-      InteractionData(){m_Index=0;};
-      InteractionData(const unsigned int& Index ,const double& Energy, const double& Time , const double& PositionX, const double& PositionY, const double& PositionZ, const double& Theta, const double& Phi){
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+class InteractionData {
+   public:
+    InteractionData() { m_Index = 0; };
+    InteractionData(const unsigned int& Index, const double& Energy, const double& Time, const double& PositionX,
+                    const double& PositionY, const double& PositionZ, const double& Theta, const double& Phi) {
         m_Index = Index;
         m_Energy = Energy;
         m_Time = Time;
-        m_PositionX = PositionX;;
+        m_PositionX = PositionX;
+        ;
         m_PositionY = PositionY;
         m_PositionZ = PositionZ;
         m_Theta = Theta;
         m_Phi = Phi;
-      }
+    }
 
-      InteractionData(const unsigned int& Index ,const double& Energy, const double& Time , 
-          const double& PositionX, const double& PositionY, const double& PositionZ, 
-          const double& Theta, const double& Phi, const std::string &ParticleName, 
-          const int &A, const int &Z, const double &Mass, const int &Charge, const double &Brho, const double &KineticEnergy){
+    InteractionData(const unsigned int& Index, const double& Energy, const double& Time, const double& PositionX,
+                    const double& PositionY, const double& PositionZ, const double& Theta, const double& Phi,
+                    const std::string& ParticleName, const int& A, const int& Z, const double& Mass, const int& Charge,
+                    const double& Brho, const double& KineticEnergy) {
         m_Index = Index;
         m_Energy = Energy;
         m_Time = Time;
-        m_PositionX = PositionX;;
+        m_PositionX = PositionX;
+        ;
         m_PositionY = PositionY;
         m_PositionZ = PositionZ;
         m_Theta = Theta;
@@ -64,70 +68,68 @@ namespace InteractionScorers {
         m_Charge = Charge;
         m_Brho = Brho;
         m_KineticEnergy = KineticEnergy;
-      }
+    }
 
-      ~InteractionData(){};
+    ~InteractionData() {};
 
-    private:
-      unsigned int m_Index;
-      double m_Energy;
-      double m_KineticEnergy;
-      double m_Time;
-      double m_PositionX;
-      double m_PositionY;
-      double m_PositionZ;
-      double m_Theta;
-      double m_Phi;
-      std::string m_ParticleName;
-      int m_A;
-      int m_Z;
-      double m_Mass;
-      int m_Charge;
-      double m_Brho;
+   private:
+    unsigned int m_Index;
+    double m_Energy;
+    double m_KineticEnergy;
+    double m_Time;
+    double m_PositionX;
+    double m_PositionY;
+    double m_PositionZ;
+    double m_Theta;
+    double m_Phi;
+    std::string m_ParticleName;
+    int m_A;
+    int m_Z;
+    double m_Mass;
+    int m_Charge;
+    double m_Brho;
 
-    public:
-      unsigned int GetIndex() const{return m_Index;};
-      double GetEnergy() const{return m_Energy;};
-      double GetKineticEnergy() const{return m_KineticEnergy;};
-      double GetTime() const{return m_Time;};
-      double GetPositionX() const{return m_PositionX;};
-      double GetPositionY() const{return m_PositionY;};
-      double GetPositionZ() const{return m_PositionZ;};
-      double GetTheta() const{return m_Theta;};
-      double GetPhi() const{return m_Phi;};
-      std::string GetParticleName() const{return m_ParticleName;};
-      int GetA() const{return m_A;};
-      int GetZ() const{return m_Z;};
-      double GetMass() const{return m_Mass;};
-      int GetCharge() const{return m_Charge;};
-      double GetBrho() const{return m_Brho;};
+   public:
+    unsigned int GetIndex() const { return m_Index; };
+    double GetEnergy() const { return m_Energy; };
+    double GetKineticEnergy() const { return m_KineticEnergy; };
+    double GetTime() const { return m_Time; };
+    double GetPositionX() const { return m_PositionX; };
+    double GetPositionY() const { return m_PositionY; };
+    double GetPositionZ() const { return m_PositionZ; };
+    double GetTheta() const { return m_Theta; };
+    double GetPhi() const { return m_Phi; };
+    std::string GetParticleName() const { return m_ParticleName; };
+    int GetA() const { return m_A; };
+    int GetZ() const { return m_Z; };
+    double GetMass() const { return m_Mass; };
+    int GetCharge() const { return m_Charge; };
+    double GetBrho() const { return m_Brho; };
 
-
-    public:
-      void Set(const unsigned int& Index, const double& Energy, const double& Time ,
-          const double& PositionX, const double& PositionY, const double& PositionZ, 
-          const double& Theta, const double& Phi){
-
+   public:
+    void Set(const unsigned int& Index, const double& Energy, const double& Time, const double& PositionX,
+             const double& PositionY, const double& PositionZ, const double& Theta, const double& Phi) {
         m_Index = Index;
         m_Energy = Energy;
         m_Time = Time;
-        m_PositionX = PositionX;;
+        m_PositionX = PositionX;
+        ;
         m_PositionY = PositionY;
         m_PositionZ = PositionZ;
         m_Theta = Theta;
         m_Phi = Phi;
-      }
+    }
 
-      void Set(const unsigned int& Index, const double& Energy, const double& Time ,
-          const double& PositionX, const double& PositionY, const double& PositionZ, 
-          const double& Theta, const double& Phi, const std::string &ParticleName, 
-          const int &A, const int &Z, const double &Mass, const int &Charge, const double &Brho, const double &KineticEnergy){
-
+    void Set(const unsigned int& Index, const double& Energy, const double& Time, const double& PositionX,
+             const double& PositionY, const double& PositionZ, const double& Theta, const double& Phi,
+             const std::string& ParticleName, const int& A, const int& Z, const double& Mass, const int& Charge,
+             const double& Brho, const double& KineticEnergy) {
         m_Index = Index;
         m_Energy = Energy;
         m_KineticEnergy = KineticEnergy;
         m_Time = Time;
-        m_PositionX = PositionX;;
+        m_PositionX = PositionX;
+        ;
         m_PositionY = PositionY;
         m_PositionZ = PositionZ;
         m_Theta = Theta;
@@ -138,99 +140,94 @@ namespace InteractionScorers {
         m_Mass = Mass;
         m_Charge = Charge;
         m_Brho = Brho;
+    }
+    void Add(const double& Energy) { m_Energy += Energy; };
+    unsigned int GetIndex() { return m_Index; };
+};
 
-      }
-      void Add(const double& Energy){m_Energy+=Energy;};
-      unsigned int GetIndex(){return m_Index;};
-  };
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// Manage a vector of Interaction hit
+class InteractionDataVector {
+   public:
+    InteractionDataVector() {};
+    ~InteractionDataVector() {};
 
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-  // Manage a vector of Interaction hit
-  class InteractionDataVector{
-    public:
-      InteractionDataVector(){};
-      ~InteractionDataVector(){};
+   private:
+    vector<InteractionData> m_Data;
 
-    private:
-      vector<InteractionData> m_Data;
+   public:
+    vector<InteractionData>::iterator find(const unsigned int& index);
+    void clear() { m_Data.clear(); };
+    vector<InteractionData>::iterator end() { return m_Data.end(); };
+    vector<InteractionData>::iterator begin() { return m_Data.begin(); };
+    unsigned int size() { return m_Data.size(); };
+    void Add(const unsigned int& index, const double& Energy) { find(index)->Add(Energy); };
 
-    public:
-      vector<InteractionData>::iterator find(const unsigned int& index) ;
-      void clear(){m_Data.clear();} ;
-      vector<InteractionData>::iterator end() {return m_Data.end();};
-      vector<InteractionData>::iterator begin() {return m_Data.begin();};
-      unsigned int size() {return m_Data.size();};
-      void Add(const unsigned int& index,const double& Energy) {find(index)->Add(Energy);};
+    void Set(const unsigned int& index, const double& Energy, const double& Time, const double& PositionX,
+             const double& PositionY, const double& PositionZ, const double& Theta, const double& Phi) {
+        m_Data.push_back(InteractionData(index, Energy, Time, PositionX, PositionY, PositionZ, Theta, Phi));
+    };
 
-      void Set(const unsigned int& index,const double& Energy, const double& Time , 
-          const double& PositionX, const double& PositionY, const double& PositionZ, 
-          const double& Theta, const double& Phi) {
+    void Set(const unsigned int& index, const double& Energy, const double& Time, const double& PositionX,
+             const double& PositionY, const double& PositionZ, const double& Theta, const double& Phi,
+             const std::string& ParticleName, const int& A, const int& Z, const double& Mass, const int& Charge,
+             const double& Brho, const double& KineticEnergy) {
+        m_Data.push_back(InteractionData(index, Energy, Time, PositionX, PositionY, PositionZ, Theta, Phi, ParticleName,
+                                         A, Z, Mass, Charge, Brho, KineticEnergy));
+    };
 
-        m_Data.push_back(InteractionData(index,Energy,Time,PositionX,PositionY,PositionZ,Theta,Phi));
+    InteractionData* operator[](const unsigned int& i) { return &m_Data[i]; };
+};
 
-      };
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+class PS_Interactions : public G4VPrimitiveScorer {
+   public:  // with description
+    PS_Interactions(G4String name, TInteractionCoordinates* Inter, G4int depth = 0);
+    ~PS_Interactions() {};
 
-      void Set(const unsigned int& index,const double& Energy, const double& Time ,
-          const double& PositionX, const double& PositionY, const double& PositionZ,
-          const double& Theta, const double& Phi, const std::string &ParticleName,
-          const int &A, const int &Z, const double &Mass, const int &Charge, const double &Brho, const double &KineticEnergy){
-        m_Data.push_back(InteractionData(index,Energy,Time,PositionX,PositionY,PositionZ,Theta,Phi,ParticleName, A, Z, Mass, Charge, Brho, KineticEnergy));
-      };
+   protected:  // with description
+    G4bool ProcessHits(G4Step*, G4TouchableHistory*);
 
-      InteractionData* operator[](const unsigned int& i){return &m_Data[i];};
-  };
+   public:
+    void Initialize(G4HCofThisEvent*);
+    void EndOfEvent(G4HCofThisEvent*);
+    void clear();
+    void DrawAll() {};
+    void PrintAll() { m_InterractionCoordinates->Dump(); };
 
+    // Level at which to find the copy number linked to the detector number
+    G4int m_Level;
 
-  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-  class PS_Interactions : public G4VPrimitiveScorer{
+   private:
+    InteractionDataVector m_DataVector;
+    TInteractionCoordinates* m_InterractionCoordinates;
+    unsigned int t_Index;
+    double t_Energy;
+    double t_KineticEnergy;
+    double t_Time;
+    G4ThreeVector t_Position;
+    std::string t_ParticleName;
+    int t_A;
+    int t_Z;
+    double t_Mass;
+    int t_Charge;
+    double t_Brho;
+    // G4ThreeVector MOMENT;
+   public:
+    inline unsigned int GetMult() { return m_DataVector.size(); };
+    inline double GetEnergy(const unsigned int& i) { return m_DataVector[i]->GetEnergy(); };
+    inline double GetKineticEnergy(const unsigned int& i) { return m_DataVector[i]->GetKineticEnergy(); };
+    inline double GetBrho(const unsigned int& i) { return m_DataVector[i]->GetBrho(); };
+    inline double GetPositionX(const unsigned int& i) { return m_DataVector[i]->GetPositionX(); };
+    inline double GetPositionY(const unsigned int& i) { return m_DataVector[i]->GetPositionY(); };
+    inline double GetPositionZ(const unsigned int& i) { return m_DataVector[i]->GetPositionZ(); };
+    inline double GetCharge(const unsigned int& i) { return m_DataVector[i]->GetCharge(); };
+    inline double GetTheta(const unsigned int& i) { return m_DataVector[i]->GetTheta(); };
+    inline double GetPhi(const unsigned int& i) { return m_DataVector[i]->GetPhi(); };
+    inline std::string GetParticleName(const unsigned int& i) { return m_DataVector[i]->GetParticleName(); };
+    inline double GetMass(const unsigned int& i) { return m_DataVector[i]->GetMass(); };
+};
 
-    public: // with description
-      PS_Interactions(G4String name, TInteractionCoordinates* Inter,G4int depth=0);
-      ~PS_Interactions(){};
-
-    protected: // with description
-      G4bool ProcessHits(G4Step*, G4TouchableHistory*);
-
-    public:
-      void Initialize(G4HCofThisEvent*);
-      void EndOfEvent(G4HCofThisEvent*);
-      void clear();
-      void DrawAll(){};
-      void PrintAll(){m_InterractionCoordinates->Dump();};
-
-      // Level at which to find the copy number linked to the detector number
-      G4int    m_Level;
-
-    private:
-      InteractionDataVector m_DataVector;
-      TInteractionCoordinates* m_InterractionCoordinates; 
-      unsigned int t_Index;
-      double t_Energy;
-      double t_KineticEnergy;
-      double t_Time;
-      G4ThreeVector t_Position;
-      std::string t_ParticleName;
-      int t_A;
-      int t_Z;
-      double t_Mass;
-      int t_Charge;
-      double t_Brho;
-      //G4ThreeVector MOMENT;
-    public:
-      inline unsigned int  GetMult() {return m_DataVector.size();};
-      inline double GetEnergy(const unsigned int& i) {return m_DataVector[i]->GetEnergy();};
-      inline double GetKineticEnergy(const unsigned int& i) {return m_DataVector[i]->GetKineticEnergy();};
-      inline double GetBrho(const unsigned int& i) {return m_DataVector[i]->GetBrho();};
-      inline double GetPositionX(const unsigned int& i) {return m_DataVector[i]->GetPositionX();};
-      inline double GetPositionY(const unsigned int& i) {return m_DataVector[i]->GetPositionY();};
-      inline double GetPositionZ(const unsigned int& i) {return m_DataVector[i]->GetPositionZ();};
-      inline double GetCharge(const unsigned int& i) {return m_DataVector[i]->GetCharge();};
-      inline double GetTheta(const unsigned int& i) {return m_DataVector[i]->GetTheta();};
-      inline double GetPhi(const unsigned int& i) {return m_DataVector[i]->GetPhi();};
-      
-  };
-
-}
-
+}  // namespace InteractionScorers
 
 #endif

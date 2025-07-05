@@ -67,6 +67,9 @@ class Plunger : public NPS::VDetector {
     G4Region* m_DecayRegion;
     vector<G4VFastSimulationModel*> m_ReactionModel;
 
+   public:
+    G4MultiFunctionalDetector* m_PlungerDetector;
+
     ////////////////////////////////////////////////////
     //////  Inherite from NPS::VDetector class /////////
     ////////////////////////////////////////////////////

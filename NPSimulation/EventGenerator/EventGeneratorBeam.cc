@@ -74,12 +74,15 @@ void EventGeneratorBeam::GenerateEvent(G4Event* anEvent) {
             m_particle = G4ParticleTable::GetParticleTable()->FindParticle("gamma");
         else {
             //////////////////////////////////////////////////////////
-            // Find an nearest level
-            double nearestLevelEx = G4NuclearLevelData::GetInstance()->GetLevelEnergy(m_Beam->GetZ(), m_Beam->GetA(),
-                                                                                      m_Beam->GetExcitationEnergy());
+            // check if the nearest level is used
+            double excitationEnergy = m_Beam->GetExcitationEnergy();
+            if (m_Beam->GetUseNearestEnergyLevel()) {
+                excitationEnergy = G4NuclearLevelData::GetInstance()->GetLevelEnergy(m_Beam->GetZ(), m_Beam->GetA(),
+                                                                                     m_Beam->GetExcitationEnergy());
+            }
             //////////////////////////////////////////////////////////
             m_particle = G4ParticleTable::GetParticleTable()->GetIonTable()->GetIon(m_Beam->GetZ(), m_Beam->GetA(),
-                                                                                    nearestLevelEx);
+                                                                                    excitationEnergy);
         }
     }
 

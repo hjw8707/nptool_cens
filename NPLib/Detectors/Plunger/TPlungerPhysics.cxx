@@ -94,17 +94,17 @@ void TPlungerPhysics::BuildPhysicalEvent() {
     PreTreat();
 
     // match energy and time together
-    unsigned int mysizeE = m_PreTreatedData->GetMultEnergy();
-    unsigned int mysizeT = m_PreTreatedData->GetMultTime();
-    for (UShort_t e = 0; e < mysizeE; e++) {
-        for (UShort_t t = 0; t < mysizeT; t++) {
-            if (m_PreTreatedData->GetE_DetectorNbr(e) == m_PreTreatedData->GetT_DetectorNbr(t)) {
-                DetectorNumber.push_back(m_PreTreatedData->GetE_DetectorNbr(e));
-                Energy.push_back(m_PreTreatedData->Get_Energy(e));
-                Time.push_back(m_PreTreatedData->Get_Time(t));
-            }
-        }
-    }
+    // unsigned int mysizeE = m_PreTreatedData->GetMultEnergy();
+    // unsigned int mysizeT = m_PreTreatedData->GetMultTime();
+    // for (UShort_t e = 0; e < mysizeE; e++) {
+    //     for (UShort_t t = 0; t < mysizeT; t++) {
+    //         if (m_PreTreatedData->GetE_DetectorNbr(e) == m_PreTreatedData->GetT_DetectorNbr(t)) {
+    //             DetectorNumber.push_back(m_PreTreatedData->GetE_DetectorNbr(e));
+    //             Energy.push_back(m_PreTreatedData->Get_Energy(e));
+    //             Time.push_back(m_PreTreatedData->Get_Time(t));
+    //         }
+    //     }
+    // }
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -119,24 +119,24 @@ void TPlungerPhysics::PreTreat() {
     static CalibrationManager* Cal = CalibrationManager::getInstance();
 
     // Energy
-    unsigned int mysize = m_EventData->GetMultEnergy();
-    for (UShort_t i = 0; i < mysize; ++i) {
-        if (m_EventData->Get_Energy(i) > m_E_RAW_Threshold) {
-            Double_t Energy = Cal->ApplyCalibration("Plunger/ENERGY" + NPL::itoa(m_EventData->GetE_DetectorNbr(i)),
-                                                    m_EventData->Get_Energy(i));
-            if (Energy > m_E_Threshold) {
-                m_PreTreatedData->SetEnergy(m_EventData->GetE_DetectorNbr(i), Energy);
-            }
-        }
-    }
+    // unsigned int mysize = m_EventData->GetMultEnergy();
+    // for (UShort_t i = 0; i < mysize; ++i) {
+    //     if (m_EventData->Get_Energy(i) > m_E_RAW_Threshold) {
+    //         Double_t Energy = Cal->ApplyCalibration("Plunger/ENERGY" + NPL::itoa(m_EventData->GetE_DetectorNbr(i)),
+    //                                                 m_EventData->Get_Energy(i));
+    //         if (Energy > m_E_Threshold) {
+    //             m_PreTreatedData->SetEnergy(m_EventData->GetE_DetectorNbr(i), Energy);
+    //         }
+    //     }
+    // }
 
-    // Time
-    mysize = m_EventData->GetMultTime();
-    for (UShort_t i = 0; i < mysize; ++i) {
-        Double_t Time = Cal->ApplyCalibration("Plunger/TIME" + NPL::itoa(m_EventData->GetT_DetectorNbr(i)),
-                                              m_EventData->Get_Time(i));
-        m_PreTreatedData->SetTime(m_EventData->GetT_DetectorNbr(i), Time);
-    }
+    // // Time
+    // mysize = m_EventData->GetMultTime();
+    // for (UShort_t i = 0; i < mysize; ++i) {
+    //     Double_t Time = Cal->ApplyCalibration("Plunger/TIME" + NPL::itoa(m_EventData->GetT_DetectorNbr(i)),
+    //                                           m_EventData->Get_Time(i));
+    //     m_PreTreatedData->SetTime(m_EventData->GetT_DetectorNbr(i), Time);
+    // }
 }
 
 ///////////////////////////////////////////////////////////////////////////
