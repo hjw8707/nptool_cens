@@ -9,8 +9,8 @@ Plunger Target
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Plunger Stopper
  R= 20 mm
- Thickness= 3 mm
- Z= 20 mm
+ Thickness= 30 mm
+ Z= 60 mm
  Material= Al
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Plunger Chamber

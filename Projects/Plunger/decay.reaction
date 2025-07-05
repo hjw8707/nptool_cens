@@ -3,8 +3,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%Beam energy given in MeV ; Excitation in MeV
 Beam
-  Particle= 12C
-  ExcitationEnergy= 4500 keV
+  Particle= 15C
+  ExcitationEnergy= 4000 keV
+  UseNearestEnergyLevel= 1
   Energy= 600 MeV
   SigmaEnergy= 0 MeV
   SigmaThetaX= 0 deg

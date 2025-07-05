@@ -252,8 +252,16 @@ PhysicsList::PhysicsList() : G4VUserPhysicsList() {
         //// Level data
         //////////////////////////////////////////////////////////
         for (auto& [ZA, file] : m_LevelDataFiles) {
-            G4NuclearLevelData::GetInstance()->AddPrivateData(ZA % 1000, int(ZA / 1000), file);
-            G4cout << " Level data for " << ZA % 1000 << " " << int(ZA / 1000) << " " << file << G4endl;
+            int Z = ZA % 1000;
+            int A = int(ZA / 1000);
+            G4NuclearLevelData::GetInstance()->AddPrivateData(Z, A, file);
+            // add all levels to nuclide table
+            const G4LevelManager* levelManager = G4NuclearLevelData::GetInstance()->GetLevelManager(Z, A);
+            for (int i = 0; i <= levelManager->NumberOfTransitions(); i++) {
+                G4NuclideTable::GetNuclideTable()->AddState(Z, A, levelManager->LevelEnergy(i),
+                                                            levelManager->FloatingLevel(i), levelManager->LifeTime(i),
+                                                            levelManager->TwoSpinParity(i));
+            }
         }
         //////////////////////////////////////////////////////////
 
