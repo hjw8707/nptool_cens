@@ -259,7 +259,7 @@ void Plunger::SetReactionRegion(G4LogicalVolume* world) {
     if (!m_ReactionRegion) {
         m_ReactionRegion = new G4Region("NPSimulationReactionProcess");
         m_ReactionRegion->AddRootLogicalVolume(reactionRegionLV);
-        m_ReactionRegion->SetUserLimits(new G4UserLimits(1. * mm));
+        m_ReactionRegion->SetUserLimits(new G4UserLimits(1. * um));
     }
     new NPS::BeamReaction("BeamReaction", m_ReactionRegion);
     // new NPS::Decay("Decay", m_ReactionRegion);

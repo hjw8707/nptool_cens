@@ -3,30 +3,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%Beam energy given in MeV ; Excitation in MeV
 Beam
-  Particle= 15C
-  ExcitationEnergy= 4000 keV
+  Particle= 60Ni
+  ExcitationEnergy= 1332 keV
   UseNearestEnergyLevel= 1
-  Energy= 600 MeV
+  Energy= 11 MeV
   SigmaEnergy= 0 MeV
   SigmaThetaX= 0 deg
   SigmaPhiY= 0 deg
   SigmaX= 0 mm
   SigmaY= 0 mm
-  ZEmission = -500 mm
+  ZEmission = 0 mm
   MeanThetaX= 0 deg
   MeanPhiY= 0 deg
   MeanX= 0 mm
   MeanY= 0 mm
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TwoBodyReaction
-%   Beam= 12C
-%   Target= 26Al
-%   Light= 12C
-%   Heavy= 26Al
-%   ExcitationEnergyLight= 0.0 MeV
-%   ExcitationEnergyHeavy= 0.0 MeV
-%   CrossSectionPath= flat.txt CS
-%   ShootLight= 1
-%   ShootHeavy= 1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

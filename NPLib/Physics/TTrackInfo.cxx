@@ -28,56 +28,51 @@ using namespace std;
 
 #include "TTrackInfo.h"
 
-ClassImp(TTrackInfo)
-////////////////////////////////////////////////////////////////////////////////
-TTrackInfo::TTrackInfo(){
-}
-////////////////////////////////////////////////////////////////////////////////
-TTrackInfo::~TTrackInfo(){
-}
-////////////////////////////////////////////////////////////////////////////////
-void TTrackInfo::Clear(){
-  
-  // emmitted particle
-  fTI_Particle_Name.clear();
-  fTI_Volume_Name.clear();
-  fTI_Kinetic_Energy.clear();
-  fTI_Mass.clear();
-  fTI_Charge.clear();
-  fTI_Z.clear();
-  fTI_A.clear();
-  fTI_Brho.clear();
-  fTI_Momentum.clear();
-  fTI_Momentum_X.clear();
-  fTI_Momentum_Y.clear();
-  fTI_Momentum_Z.clear();
-  fTI_PositionX.clear();
-  fTI_PositionY.clear();
-  fTI_PositionZ.clear();
-  fTI_Index.clear();
-  fTI_Theta.clear();
-  fTI_Phi.clear();
-}
-////////////////////////////////////////////////////////////////////////////////
-void TTrackInfo::Dump() const{
-  cout << "--------- Initial Condition Dump ---------" << endl ;
-  
-  // emmitted particle
-  unsigned int size = fTI_Particle_Name.size();
-  for(unsigned int i = 0 ; i < size; i ++){
-    cout << "\t ---- Particle " << i << " ---- " << endl;
-    cout << "\t Particle Name" <<   fTI_Particle_Name[i] << endl;
-    cout << "\t Energy" <<   fTI_Kinetic_Energy[i] << endl;
-    cout << "\t Momentum Direction: ( "
-    << fTI_Momentum_X[i] << " ; "
-    << fTI_Momentum_Y[i] << " ; "
-    << fTI_Momentum_Z[i] << ")" << endl;
-  }
-}
-////////////////////////////////////////////////////////////////////////////////
-TVector3 TTrackInfo::GetParticleDirection (const int &i) const {
-  return TVector3(  fTI_Momentum_X[i],
-                    fTI_Momentum_Y[i],
-                    fTI_Momentum_Z[i]).Unit();
-}
+ClassImp(TTrackInfo);
 
+////////////////////////////////////////////////////////////////////////////////
+TTrackInfo::TTrackInfo() {}
+////////////////////////////////////////////////////////////////////////////////
+TTrackInfo::~TTrackInfo() {}
+////////////////////////////////////////////////////////////////////////////////
+void TTrackInfo::Clear() {
+    // emmitted particle
+    fTI_Particle_Name.clear();
+    fTI_Volume_Name.clear();
+    fTI_Kinetic_Energy.clear();
+    fTI_Mass.clear();
+    fTI_Charge.clear();
+    fTI_Z.clear();
+    fTI_A.clear();
+    fTI_Brho.clear();
+    fTI_Momentum.clear();
+    fTI_Momentum_X.clear();
+    fTI_Momentum_Y.clear();
+    fTI_Momentum_Z.clear();
+    fTI_PositionX.clear();
+    fTI_PositionY.clear();
+    fTI_PositionZ.clear();
+    fTI_Index.clear();
+    fTI_Theta.clear();
+    fTI_Phi.clear();
+    fTI_Time.clear();
+}
+////////////////////////////////////////////////////////////////////////////////
+void TTrackInfo::Dump() const {
+    cout << "--------- Initial Condition Dump ---------" << endl;
+
+    // emmitted particle
+    unsigned int size = fTI_Particle_Name.size();
+    for (unsigned int i = 0; i < size; i++) {
+        cout << "\t ---- Particle " << i << " ---- " << endl;
+        cout << "\t Particle Name" << fTI_Particle_Name[i] << endl;
+        cout << "\t Energy" << fTI_Kinetic_Energy[i] << endl;
+        cout << "\t Momentum Direction: ( " << fTI_Momentum_X[i] << " ; " << fTI_Momentum_Y[i] << " ; "
+             << fTI_Momentum_Z[i] << ")" << endl;
+        cout << "\t Time" << fTI_Time[i] << endl;
+    }
+}
+////////////////////////////////////////////////////////////////////////////////
+TVector3 TTrackInfo::GetParticleDirection(const int &i) const {
+    return TVector3(fTI_Momentum_X[i], fTI_Momentum_Y[i], fTI_Momentum_Z[i]).Unit();
+}

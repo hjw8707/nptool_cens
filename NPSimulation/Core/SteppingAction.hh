@@ -37,44 +37,15 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 class SteppingAction : public G4UserSteppingAction {
-public:
-  SteppingAction();
-  ~SteppingAction(){};
+   public:
+    SteppingAction();
+    ~SteppingAction() {};
 
-public:
-  void TrackRecording(const G4Step* step);
-  void UserSteppingAction(const G4Step* step);
+   public:
+    void UserSteppingAction(const G4Step* step);
 
-  std::string   ParticleName;
-  double        KineticEnergy;
-  double        Theta;
-  double        Phi;
-  double        Mass;
-  double        Charge;
-  double        A;
-  double        Z;
-  G4ThreeVector Momentum;
-  G4ThreeVector Position;
-  std::string   VolumeName;
-  int           nClear;
-  int           eventID;
-  int           TrackID;
-
-private: // tree
-  TTree*       m_tree;
-  bool         m_First;
-  unsigned int LastStepNumber;
-
-  // Host the Initial conditions TObject
-  TTrackInfo* m_TrackInfo;
-
-private:
-  bool m_record_track;
-  int m_cut_parent_id;
-
-public:
-  // Attach the TrackInfo object to the tree
-  void AttachTrackInfo();
+   private:
+    int m_cut_parent_id;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

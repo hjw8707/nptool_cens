@@ -22,8 +22,12 @@
  *****************************************************************************/
 
 #include "NPVAnalysis.h"
+#include "TASGARDData.h"
 #include "TASGARDPhysics.h"
+#include "TInitialConditions.h"
+#include "TPlungerData.h"
 #include "TPlungerPhysics.h"
+#include "TReactionConditions.h"
 class Analysis : public NPL::VAnalysis {
    public:
     Analysis();
@@ -40,7 +44,16 @@ class Analysis : public NPL::VAnalysis {
     static NPL::VAnalysis* Construct();
 
    private:
-    TPlungerPhysics* Plunger;
-    TASGARDPhysics* ASGARD;
+    TInitialConditions* InitialConditions;
+    TReactionConditions* ReactionConditions;
+    TPlungerData* PlungerData;
+    TASGARDData* ASGARDData;
+
+   private:
+    double flagVelocity;
+    double flagKineticEnergy;
+
+    TPlungerPhysics* PlungerPhysics;
+    TASGARDPhysics* ASGARDPhysics;
 };
 #endif

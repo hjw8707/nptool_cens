@@ -13,4 +13,4 @@ HadronPhysicsQGSP_INCLXX_HP 0
 HadronPhysicsINCLXX 0
 HadronPhysicsQGSP_BIC_HP 0
 Decay 1
-LevelData 6 15 testlevel.dat
+LevelData 28 60 testlevel.dat
