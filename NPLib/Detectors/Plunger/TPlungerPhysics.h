@@ -57,15 +57,10 @@ class TPlungerPhysics : public TObject, public NPL::VDetector {
     // data obtained after BuildPhysicalEvent() and stored in
     // output ROOT file
    public:
-    vector<int> DetectorNumber;
-    vector<double> Energy;
-    vector<double> Time;
-
-    /// A usefull method to bundle all operation to add a detector
-    void AddDetector(TVector3 POS, string shape);
-    void AddDetector(double R, double Theta, double Phi, string shape);
-
-    //////////////////////////////////////////////////////////////
+    vector<string> particleName;
+    vector<double> velocity;
+    vector<double> kineticEnergy;
+    ////////////////////////////////////////////////
     // methods inherited from the VDetector ABC class
    public:
     // read stream from ConfigFile to pick-up detector parameters
@@ -108,9 +103,6 @@ class TPlungerPhysics : public TObject, public NPL::VDetector {
     // remove bad channels, calibrate the data and apply thresholds
     void PreTreat();
 
-    // clear the pre-treated object
-    void ClearPreTreatedData() { m_PreTreatedData->Clear(); }
-
     // read the user configuration file. If no file is found, load standard one
     void ReadAnalysisConfig();
 
@@ -121,23 +113,11 @@ class TPlungerPhysics : public TObject, public NPL::VDetector {
     // objects are not written in the TTree
    private:
     TPlungerData* m_EventData;        //!
-    TPlungerData* m_PreTreatedData;   //!
     TPlungerPhysics* m_EventPhysics;  //!
 
     // getters for raw and pre-treated data object
    public:
     TPlungerData* GetRawData() const { return m_EventData; }
-    TPlungerData* GetPreTreatedData() const { return m_PreTreatedData; }
-
-    // parameters used in the analysis
-   private:
-    // thresholds
-    double m_E_RAW_Threshold;  //!
-    double m_E_Threshold;      //!
-
-    // number of detectors
-   private:
-    int m_NumberOfDetectors;  //!
 
     // parameters for the target
    private:

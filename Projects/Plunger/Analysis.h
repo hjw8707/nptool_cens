@@ -35,6 +35,7 @@ class Analysis : public NPL::VAnalysis {
 
    public:
     void Init();
+    void Clear();
     void TreatEvent();
     void End();
 
@@ -52,6 +53,12 @@ class Analysis : public NPL::VAnalysis {
    private:
     double flagVelocity;
     double flagKineticEnergy;
+    string flagParticleName;
+
+    vector<int> clover_nbr;
+    vector<double> clover_theta;
+    vector<double> energy;          // add-back
+    vector<double> doppler_energy;  // add-back
 
     TPlungerPhysics* PlungerPhysics;
     TASGARDPhysics* ASGARDPhysics;

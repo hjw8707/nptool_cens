@@ -714,11 +714,18 @@ void ASGARD::ReadSensitive(const G4Event* event) {
     }
     HPGEHitMap = (NPS::HitsMap<G4double*>*)(event->GetHCofThisEvent()->GetHC(HPGECollectionID));
 
+    //////////////////////////////////////////////////////////////
     // Loop on the HPGE map
+    //
+    // Current hit processing:
+    //  Only a single hit per segment because all hits are summed up in the scorer
+    //  But summing up is done only for the energy.
+    //  Other information (time, position, etc.) are the first hit of the segment.
+    //////////////////////////////////////////////////////////////
     for (HPGE_itr = HPGEHitMap->GetMap()->begin(); HPGE_itr != HPGEHitMap->GetMap()->end(); HPGE_itr++) {
         G4double* Info = *(HPGE_itr->second);
         G4int m_index = HPGE_itr->first;  // identifier for clover/crystal/segment
-        G4double energy = Info[0] / keV;
+        G4double energy = Info[0] / keV;  // to keV
         //    G4double Energy_reso = 0.4*keV + Energy_true*0.0015; // FWHM
 
         G4double Energy_reso =
@@ -727,6 +734,7 @@ void ASGARD::ReadSensitive(const G4Event* event) {
         //    if (energy > 30*keV && energy < 110*keV)
 
         // see ASGARDScorers.cc for clover/crystal/segment numbering
+        // m_Index = m_CloverNumber * 1e2 + m_CrystalNumber * 1e1 + m_SegmentNumber;
         G4int clo = m_index / 100;
         G4int cry = (m_index % 100) / 10;
         G4int seg = m_index % 10;
@@ -746,7 +754,7 @@ void ASGARD::ReadSensitive(const G4Event* event) {
             m_ASGARDData->AddGeCloverNbr(clo);
             m_ASGARDData->AddGeCrystalNbr(cry);
             m_ASGARDData->AddGeSegmentNbr(seg);
-            m_ASGARDData->AddGeEnergy(energy);
+            m_ASGARDData->AddGeEnergy(RandGauss::shoot(energy, Energy_reso));
             m_ASGARDData->AddGeTimeLED(RandGauss::shoot(time, 15));
             m_ASGARDData->AddGePosition(v_pos);
             m_ASGARDData->AddGeThetaSemiTrue(theta_semitrue);

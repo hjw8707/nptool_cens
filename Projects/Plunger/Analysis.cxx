@@ -35,16 +35,12 @@ Analysis::Analysis() {}
 Analysis::~Analysis() {
     if (InitialConditions) delete InitialConditions;
     if (ReactionConditions) delete ReactionConditions;
-    if (PlungerData) delete PlungerData;
-    if (ASGARDData) delete ASGARDData;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 void Analysis::Init() {
     InitialConditions = new TInitialConditions();
     ReactionConditions = new TReactionConditions();
-    PlungerData = new TPlungerData();
-    ASGARDData = new TASGARDData();
 
     PlungerPhysics = (TPlungerPhysics*)m_DetectorManager->GetDetector("Plunger");
     ASGARDPhysics = (TASGARDPhysics*)m_DetectorManager->GetDetector("ASGARD");
@@ -56,24 +52,40 @@ void Analysis::Init() {
     InitializeRootOutput();
 }
 
+void Analysis::Clear() {
+    flagVelocity = 0;
+    flagKineticEnergy = 0;
+    flagParticleName = "";
+    clover_nbr.clear();
+    energy.clear();
+    doppler_energy.clear();
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 void Analysis::TreatEvent() {
+    Clear();
+
     //////////////////////////////////////////////////////////////
     // Plunger Data Analysis
     //////////////////////////////////////////////////////////////
-    string particleFilter = "C15";
-    for (int i = 0; i < PlungerData->GetMultPlunger(); i++) {
-        if (PlungerData->GetParticleName(i) == particleFilter) {
-            flagVelocity = PlungerData->GetVelocity(i);
-            flagKineticEnergy = PlungerData->GetKineticEnergy(i);
-            break;
-        }
-    }
+    flagVelocity = PlungerPhysics->velocity[0];
+    flagKineticEnergy = PlungerPhysics->kineticEnergy[0];
+    flagParticleName = PlungerPhysics->particleName[0];
 
     //////////////////////////////////////////////////////////////
     // ASGARD Data Analysis
     //////////////////////////////////////////////////////////////
-    // ASGARDPhysics->BuildPhysicalEvent();
+    // Re-analysis of the ASGARD data
+    ASGARDPhysics->Clear();
+    ASGARDPhysics->SetBeta(TVector3(0, 0, flagVelocity));
+    ASGARDPhysics->BuildPhysicalEvent();
+
+    for (int i = 0; i < ASGARDPhysics->AddBack_Clover.size(); i++) {
+        clover_nbr.push_back(ASGARDPhysics->AddBack_Clover[i]);
+        clover_theta.push_back(ASGARDPhysics->AddBack_Theta[i]);
+        energy.push_back(ASGARDPhysics->AddBack_E[i]);
+        doppler_energy.push_back(ASGARDPhysics->AddBack_DC[i]);
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -82,10 +94,6 @@ void Analysis::End() {}
 ///////////////////////////////////////////////////////////////////////////
 void Analysis::InitializeRootInput() {
     TChain* inputChain = RootInput::getInstance()->GetChain();
-    inputChain->SetBranchStatus("Plunger", true);
-    inputChain->SetBranchAddress("Plunger", &PlungerData);
-    inputChain->SetBranchStatus("ASGARD", true);
-    inputChain->SetBranchAddress("ASGARD", &ASGARDData);
     inputChain->SetBranchStatus("InitialConditions", true);
     inputChain->SetBranchAddress("InitialConditions", &InitialConditions);
     inputChain->SetBranchStatus("ReactionConditions", true);
@@ -95,8 +103,14 @@ void Analysis::InitializeRootInput() {
 ///////////////////////////////////////////////////////////////////////////
 void Analysis::InitializeRootOutput() {
     TTree* outputTree = RootOutput::getInstance()->GetTree();
+    outputTree->Branch("flagParticleName", &flagParticleName, "flagParticleName/C");
     outputTree->Branch("flagVelocity", &flagVelocity, "flagVelocity/D");
     outputTree->Branch("flagKineticEnergy", &flagKineticEnergy, "flagKineticEnergy/D");
+
+    outputTree->Branch("clover_nbr", &clover_nbr);
+    outputTree->Branch("clover_theta", &clover_theta);
+    outputTree->Branch("energy", &energy);
+    outputTree->Branch("doppler_energy", &doppler_energy);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
