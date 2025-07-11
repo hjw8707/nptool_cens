@@ -86,6 +86,7 @@ int main(int argc, char** argv) {
     std::string libName = "./libNPAnalysis" + myOptionManager->GetSharedLibExtension();
     dlopen(libName.c_str(), RTLD_NOW | RTLD_GLOBAL);
     char* error = dlerror();
+    std::cout << "error: " << error << std::endl;
     if (error == NULL) {
         UserAnalysis = NPL::AnalysisFactory::getInstance()->Construct();
         UserAnalysis->SetDetectorManager(myDetector);
@@ -93,7 +94,8 @@ int main(int argc, char** argv) {
     } else {
         std::string str_error = error;
         if (str_error.find("image not found") != std::string::npos ||
-            str_error.find("No such file or directory") != std::string::npos)
+            str_error.find("No such file or directory") != std::string::npos ||
+            str_error.find("no such file") != std::string::npos)  // for dylib load in macos
             std::cout << "\033[1;33m**** INFO: No User analysis found, building Physical tree ****\033[0m" << std::endl;
         else {
             std::cout << "\033[1;31m**** ERROR: Failure to load libNPAnalysis ****" << std::endl
@@ -298,9 +300,9 @@ void ProgressDisplay(struct timeval& begin, struct timeval& end, unsigned long& 
 
         static char star[10];
         if (displayed % 2 == 0 || treated == total)
-            sprintf(star, "*******");
+            snprintf(star, 10, "*******");
         else
-            sprintf(star, "-------");
+            snprintf(star, 10, "-------");
 
         if (treated != total)
             printf(
@@ -345,9 +347,9 @@ void ProgressDisplay(clock_t& begin, clock_t& end, unsigned long& treated, unsig
 
         static char star[10];
         if (displayed % 2 == 0 || treated == total)
-            sprintf(star, "*******");
+            snprintf(star, 10, "*******");
         else
-            sprintf(star, "-------");
+            snprintf(star, 10, "-------");
 
         if (treated != total)
             printf(

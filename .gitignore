@@ -48,5 +48,5 @@ Outputs/*
 Outputs/*/*.*
 NPLib/Utility/npspectra_test
 build/
-
+!NPData/*
 NPSimulation/npsimulation
