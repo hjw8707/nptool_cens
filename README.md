@@ -333,11 +333,4 @@ root -l ShowResult.C
 
 Detector-specific manuals explain the setup and usage of each detector.
 
-- [ASGARD](Documentation/detectors/ASGARD.md)
-- [Khala](Documentation/detectors/Khala.md)
-- [Fatima](Documentation/detectors/Fatima.md)
-- [STARK](Documentation/detectors/STARK.md)
-- [STARKjr](Documentation/detectors/STARKjr.md)
-- [VOICE](Documentation/detectors/VOICE.md)
-- [CACAO](Documentation/detectors/CACAO.md)
 - [Plunger](Documentation/detectors/Plunger.md)
