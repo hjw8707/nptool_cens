@@ -1,2 +1,2 @@
 add_library(NPSPISTA SHARED  PISTA.cc)
-target_link_libraries(NPSPISTA NPSCore ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} ${NPLib_LIBRARIES} -lNPPISTA)
+target_link_libraries(NPSPISTA NPSCore ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} -lNPPISTA)

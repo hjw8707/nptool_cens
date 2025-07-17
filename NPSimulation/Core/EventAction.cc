@@ -27,25 +27,25 @@
 #include "G4UnitsTable.hh"
 #include "Randomize.hh"
 // NPTool headers
+#include <iostream>
+
 #include "DetectorConstruction.hh"
 #include "EventAction.hh"
 #include "ParticleStack.hh"
 #include "RootOutput.h"
 
-#include <iostream>
-
 EventAction *EventAction::m_EventAction = 0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 EventAction::EventAction() {
-  m_EventAction = this;
-  begin = clock();
-  treated = 0;
-  inter = 0;
-  total = 0;
-  mean_rate = 0;
-  displayed = 0;
-  m_tree = RootOutput::getInstance()->GetTree();
-  //  m_tree->Branch("Geant4RandomState",&m_G4State );
+    m_EventAction = this;
+    begin = clock();
+    treated = 0;
+    inter = 0;
+    total = 0;
+    mean_rate = 0;
+    displayed = 0;
+    m_tree = RootOutput::getInstance()->GetTree();
+    //  m_tree->Branch("Geant4RandomState",&m_G4State );
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -53,20 +53,20 @@ EventAction::~EventAction() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::BeginOfEventAction(const G4Event *event) {
-  treated = event->GetEventID() + 1;
-  ProgressDisplay();
-  //    SaveRandomGeneratorInitialState();
+    treated = event->GetEventID() + 1;
+    ProgressDisplay();
+    //    SaveRandomGeneratorInitialState();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::EndOfEventAction(const G4Event *event) {
-  m_detector->ReadAllSensitive(event);
-  m_tree->Fill();
-  m_detector->ClearInteractionCoordinates();
-  //    if(treated%10000==0){
-  //        tree->AutoSave();
-  //        RootOutput::getInstance()->GetFile()->SaveSelf(kTRUE);
-  //    }
+    m_detector->ReadAllSensitive(event);
+    m_tree->Fill();
+    m_detector->ClearInteractionCoordinates();
+    //    if(treated%10000==0){
+    //        tree->AutoSave();
+    //        RootOutput::getInstance()->GetFile()->SaveSelf(kTRUE);
+    //    }
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -74,69 +74,68 @@ void EventAction::SetDetector(DetectorConstruction *detector) { m_detector = det
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::SaveRandomGeneratorInitialState() {
-  // This allow to restore the geant4 random generator status for problematic
-  // event
+    // This allow to restore the geant4 random generator status for problematic
+    // event
 
-  CLHEP::HepRandom::saveFullState(m_Geant4RandomFullState);
-  m_G4State = m_Geant4RandomFullState.str();
-  m_Geant4RandomFullState.str("");
-  m_Geant4RandomFullState.clear();
+    CLHEP::HepRandom::saveFullState(m_Geant4RandomFullState);
+    m_G4State = m_Geant4RandomFullState.str();
+    m_Geant4RandomFullState.str("");
+    m_Geant4RandomFullState.clear();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::ProgressDisplay() {
-  if (treated == 0) {
-    begin = clock();
-    return;
-  }
-
-  end = clock();
-  if ((end - begin) > CLOCKS_PER_SEC || treated >= total) {
-    displayed++;
-    long double elapsed = (long double)(end - begin) / CLOCKS_PER_SEC;
-    double event_rate = inter / elapsed;
-    mean_rate += (event_rate - mean_rate) / (displayed);
-    double percent = 100 * treated / total;
-    double remain = (total - treated) / mean_rate;
-
-    char *timer;
-    double check;
-    check = 0;
-    if (remain > 60)
-      check = asprintf(&timer, "%dmin", (int)(remain / 60.));
-    else
-      check = asprintf(&timer, "%ds", (int)(remain));
-
-    check++;
-
-    static char star[] = "*******";
-    if (displayed % 2 == 0)
-      sprintf(star, "*******");
-    else
-      sprintf(star, "-------");
-
-    if (treated != total && mean_rate >= 1000 && remain >= 0 && displayed > 1)
-      printf("\r \033[1;31m %s Event: %d | Progress:  %.1f%% | Rate: %.1fk evt/s | Remain: %s %s\033[0m        ", star,
-             treated, percent, mean_rate / 1000., timer, star);
-
-    else if (mean_rate >= 1000 && remain >= 0 && displayed > 1) {
-      printf("\r \033[1;32m %s Event: %d | Progress:  %.1f%% | Rate: %.1fk evt/s | Remain: %s %s\033[0m        ", star,
-             treated, percent, mean_rate / 1000., timer, star);
+    if (treated == 0) {
+        begin = clock();
+        return;
     }
-    else if (treated != total && mean_rate >= 0 && remain >= 0 && displayed > 1)
-      printf("\r \033[1;31m %s Event: %d | Progress:  %.1f%% | Rate: %.1f evt/s | Remain: %s %s\033[0m        ", star,
-             treated, percent, mean_rate, timer, star);
 
-    else if (mean_rate >= 0 && remain >= 0 && displayed > 1) {
-      printf("\r \033[1;32m %s Event: %d | Progress:  %.1f%% | Rate: %.1f evt/s | Remain: %s %s\033[0m        ", star,
-             treated, percent, mean_rate, timer, star);
+    end = clock();
+    if ((end - begin) > CLOCKS_PER_SEC || treated >= total) {
+        displayed++;
+        long double elapsed = (long double)(end - begin) / CLOCKS_PER_SEC;
+        double event_rate = inter / elapsed;
+        mean_rate += (event_rate - mean_rate) / (displayed);
+        double percent = 100 * treated / total;
+        double remain = (total - treated) / mean_rate;
+
+        char *timer;
+        double check;
+        check = 0;
+        if (remain > 60)
+            check = asprintf(&timer, "%dmin", (int)(remain / 60.));
+        else
+            check = asprintf(&timer, "%ds", (int)(remain));
+
+        check++;
+
+        static char star[] = "*******";
+        if (displayed % 2 == 0)
+            snprintf(star, sizeof(star), "*******");
+        else
+            snprintf(star, sizeof(star), "-------");
+
+        if (treated != total && mean_rate >= 1000 && remain >= 0 && displayed > 1)
+            printf("\r \033[1;31m %s Event: %d | Progress:  %.1f%% | Rate: %.1fk evt/s | Remain: %s %s\033[0m        ",
+                   star, treated, percent, mean_rate / 1000., timer, star);
+
+        else if (mean_rate >= 1000 && remain >= 0 && displayed > 1) {
+            printf("\r \033[1;32m %s Event: %d | Progress:  %.1f%% | Rate: %.1fk evt/s | Remain: %s %s\033[0m        ",
+                   star, treated, percent, mean_rate / 1000., timer, star);
+        } else if (treated != total && mean_rate >= 0 && remain >= 0 && displayed > 1)
+            printf("\r \033[1;31m %s Event: %d | Progress:  %.1f%% | Rate: %.1f evt/s | Remain: %s %s\033[0m        ",
+                   star, treated, percent, mean_rate, timer, star);
+
+        else if (mean_rate >= 0 && remain >= 0 && displayed > 1) {
+            printf("\r \033[1;32m %s Event: %d | Progress:  %.1f%% | Rate: %.1f evt/s | Remain: %s %s\033[0m        ",
+                   star, treated, percent, mean_rate, timer, star);
+        }
+        fflush(stdout);
+        inter = 0;
+        begin = clock();
     }
-    fflush(stdout);
-    inter = 0;
-    begin = clock();
-  }
-  //  treated++;
-  inter++;
+    //  treated++;
+    inter++;
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void EventAction::SetRunLength(int length) { total = length; }
