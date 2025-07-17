@@ -86,7 +86,6 @@ int main(int argc, char** argv) {
     std::string libName = "./libNPAnalysis" + myOptionManager->GetSharedLibExtension();
     dlopen(libName.c_str(), RTLD_NOW | RTLD_GLOBAL);
     char* error = dlerror();
-    std::cout << "error: " << error << std::endl;
     if (error == NULL) {
         UserAnalysis = NPL::AnalysisFactory::getInstance()->Construct();
         UserAnalysis->SetDetectorManager(myDetector);

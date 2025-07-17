@@ -43,9 +43,6 @@ Documentation/user_guide.log
 *.blg
 *.SRIM
 *.sublime-*
-Outputs
-Outputs/*
-Outputs/*/*.*
 NPLib/Utility/npspectra_test
 build/
 !NPData/*

@@ -18,7 +18,7 @@ f= open(args.input, 'r')
 lines = f.readlines()
 f.close()
 
-cols = [ 'Type', 'Rho', 'Phi', 'Z', 'Rev', 'Flip', 'Beta' ]
+cols = [ 'Type', 'Rho', 'Phi', 'Z', 'Rev', 'Flip', 'Beta', 'Group' ]
 
 stark = []
 for line in lines:
@@ -33,15 +33,16 @@ for line in lines:
 for el in stark:
     if args.noBB10 and el['Type'] == 'BB10': continue
     if args.noQQQ5 and el['Type'] == 'QQQ5': continue
-    
+
     print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
     print("STARK")
     print(" Type= %s" % el['Type'])
     print(" Rho= %10s mm" % el['Rho'])
     print(" Phi= %10s deg" % el['Phi'])
     if el['Type'] == 'QQQ5':
-        print(" Beta= %10s deg" % el['Beta'])        
+        print(" Beta= %10s deg" % el['Beta'])
     print(" Z= %10s mm" % el['Z'])
-    print(" Rev= %10s" % el['Rev'])    
+    print(" Rev= %10s" % el['Rev'])
     print(" Flip= %10s" % el['Flip'])
-print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")    
+    print(" Group= %10s" % el['Group'])
+print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")

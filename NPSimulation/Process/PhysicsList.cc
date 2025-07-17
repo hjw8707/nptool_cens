@@ -76,6 +76,7 @@
 #include "G4UnitsTable.hh"
 #include "G4UniversalFluctuation.hh"
 #include "G4VPhysicsConstructor.hh"
+#include "G4Version.hh"
 #ifdef USE_NEUTRONHP
 #include "NeutronHPphysics.hh"
 #endif
@@ -258,9 +259,15 @@ PhysicsList::PhysicsList() : G4VUserPhysicsList() {
             // add all levels to nuclide table
             const G4LevelManager* levelManager = G4NuclearLevelData::GetInstance()->GetLevelManager(Z, A);
             for (int i = 0; i <= levelManager->NumberOfTransitions(); i++) {
+#if G4VERSION_NUMBER >= 1120
                 G4NuclideTable::GetNuclideTable()->AddState(Z, A, levelManager->LevelEnergy(i),
                                                             levelManager->FloatingLevel(i), levelManager->LifeTime(i),
                                                             levelManager->TwoSpinParity(i));
+#else
+                G4NuclideTable::GetNuclideTable()->AddState(Z, A, levelManager->LevelEnergy(i),
+                                                            levelManager->FloatingLevel(i), levelManager->LifeTime(i),
+                                                            levelManager->SpinTwo(i));
+#endif
             }
         }
         //////////////////////////////////////////////////////////
