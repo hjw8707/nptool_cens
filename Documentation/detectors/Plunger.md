@@ -72,7 +72,7 @@ Plunger Chamber
 
 | Variable Name               | Type                | Description                          |
 |-----------------------------|---------------------|--------------------------------------|
-| fPlunger_ParticleName       | vector<string>      | Particle name                        |
-| fPlunger_Velocity           | vector<double>      | Particle velocity                    |
-| fPlunger_KineticEnergy      | vector<double>      | Particle kinetic energy              |
-| fPlunger_Position           | vector<TVector3>    | Particle position (3D vector)        |
+| fPlunger_ParticleName       | vector`<string>`      | Particle name                        |
+| fPlunger_Velocity           | vector`<double>`      | Particle velocity                    |
+| fPlunger_KineticEnergy      | vector`<double>`      | Particle kinetic energy              |
+| fPlunger_Position           | vector`<TVector3>`    | Particle position (3D vector)        |
