@@ -300,7 +300,8 @@ void TSTARKPhysics::BuildPhysicalEvent() {
     for (auto& group : E_map) {
         group_E.push_back(make_pair(group.first, group.second));
     }
-    sort(group_E.begin(), group_E.end(), [](const auto& a, const auto& b) { return a.second > b.second; });
+    sort(group_E.begin(), group_E.end(),
+         [](const std::pair<int, double>& a, const std::pair<int, double>& b) { return a.second > b.second; });
 
     nGroup = group_E.size();
     for (int i = 0; i < nGroup; i++) {
