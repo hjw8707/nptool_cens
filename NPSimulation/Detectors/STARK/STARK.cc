@@ -36,11 +36,14 @@
 #include "G4Trap.hh"
 #include "G4Trd.hh"
 #include "G4Tubs.hh"
+#include "G4UserLimits.hh"
 #include "G4VisAttributes.hh"
 #include "Randomize.hh"
 
 // NPTool
+#include "BeamReaction.hh"
 #include "DSSDScorers.hh"
+#include "Decay.hh"
 #include "InteractionScorers.hh"
 #include "MaterialManager.hh"
 #include "NPCore.h"
@@ -62,7 +65,7 @@ using namespace STARKNS;
 STARK::STARK() {
     HCID_X6 = HCID_BB10 = HCID_QQQ5 = -1;
 
-    m_X6 = m_BB10 = m_QQQ5 = NULL;
+    m_X6 = m_BB10 = m_QQQ5 = m_Target = NULL;
     m_X6Det = m_BB10Det = m_QQQ5Det = NULL;
 
     m_VisX6 = new G4VisAttributes(G4Colour(0., 0.5, 0.5));
@@ -72,6 +75,14 @@ STARK::STARK() {
     m_VisQQQ5 = new G4VisAttributes(G4Colour(0., 0.5, 0.3));
     m_VisQQQ5PCB = new G4VisAttributes(G4Colour(0.8, 0.5, 0.3));
     m_VisConn = new G4VisAttributes(G4Colour(0.8, 0.8, 0.8));
+    m_VisTarget = new G4VisAttributes(G4Colour(0.5, 0.5, 0.5, 0.1));
+
+    m_useTarget = false;
+    m_TargetMaterial = "";
+    m_Pressure = 760.0;      // Torr
+    m_Temperature = 293.15;  // K
+    m_Radius = 100.0;        // mm
+    m_Z = 100.0;             // mm
 
     m_Event = new TSTARKData();
     m_Raw = new TSTARKRaw();
@@ -259,6 +270,21 @@ G4AssemblyVolume* STARK::BuildQQQ5Detector() {
     return m_QQQ5;
 }
 
+G4AssemblyVolume* STARK::BuildTarget() {
+    if (m_Target) return m_Target;
+
+    G4Material* matTarget =
+        MaterialManager::getInstance()->GetGasFromLibrary(m_TargetMaterial, m_Pressure, m_Temperature);
+    G4Tubs* solidTarget = new G4Tubs("solidTarget", 0, m_Radius / 2., m_Z / 2., 0, 360 * deg);
+    m_logicTarget = new G4LogicalVolume(solidTarget, matTarget, "logicTarget", 0, 0, 0);
+    m_logicTarget->SetVisAttributes(m_VisTarget);
+    G4ThreeVector Pos;
+
+    m_Target = new G4AssemblyVolume();
+    m_Target->AddPlacedVolume(m_logicTarget, Pos, 0);
+    return m_Target;
+}
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 // ReadConfiguration: reading a geometry file for each Si detector
 void STARK::ReadConfiguration(NPL::InputParser parser) {
@@ -267,6 +293,7 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
         cout << "//// " << blocks.size() << " detectors found " << endl;
 
     vector<string> reso = {"Type", "Reso"};  // for put resolutions as an input parameter
+    vector<string> targ = {"TargetMaterial", "Pressure", "Temperature", "Radius", "Z"};
     vector<string> cart = {"Type", "POS"};
     vector<string> sphe = {"Type", "R", "Theta", "Phi"};
     vector<string> cyld = {"Type", "Rho", "Phi", "Z"};
@@ -287,8 +314,24 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
         ////////////////////////////////////////////////////////////
 
         ////////////////////////////////////////////////////////////
+        // Target
+        if (blocks[i]->HasTokenList(targ)) {
+            m_useTarget = true;
+            m_TargetMaterial = blocks[i]->GetString("TargetMaterial");
+            m_Pressure = blocks[i]->GetDouble("Pressure", "Torr");
+            m_Temperature = blocks[i]->GetDouble("Temperature", "kelvin");
+            m_Radius = blocks[i]->GetDouble("Radius", "mm");
+            m_Z = blocks[i]->GetDouble("Z", "mm");
+            cout << "////  TargetMaterial " << m_TargetMaterial << endl;
+            cout << "////  Pressure " << m_Pressure << endl;
+            cout << "////  Temperature " << m_Temperature << endl;
+            cout << "////  Radius " << m_Radius << endl;
+            cout << "////  Z " << m_Z << endl;
+        }
+        ////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////
         // Cartesian coordinate
-        if (blocks[i]->HasTokenList(cart)) {
+        else if (blocks[i]->HasTokenList(cart)) {
             if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  STARK " << i + 1 << endl;
             string Type = blocks[i]->GetString("Type");
             G4ThreeVector Pos = NPS::ConvertVector(blocks[i]->GetTVector3("POS", "mm"));
@@ -380,6 +423,18 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
     std::cout << "read complete" << std::endl;
 }
 
+void STARK::SetReactionRegion(G4LogicalVolume* world) {
+    if (m_useTarget) {
+        if (!m_ReactionRegion) {
+            m_ReactionRegion = new G4Region("NPSimulationProcess");
+            m_ReactionRegion->AddRootLogicalVolume(m_logicTarget);
+            m_ReactionRegion->SetUserLimits(new G4UserLimits(0.5 * mm));
+        }
+        new NPS::BeamReaction("BeamReaction", m_ReactionRegion);
+        new NPS::Decay("Decay", m_ReactionRegion);
+    }
+}
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void STARK::ConstructDetector(G4LogicalVolume* world) {
     std::cout << "start constuct detector" << std::endl;
@@ -416,6 +471,13 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
         // set copy numbers of components of assembly volume to the current detector number
         for (it += (NbrImprints - 1) * NbrComponents; it <= det->GetVolumesIterator() + NbrTotalPV - 1; it++)
             (*it)->SetCopyNo(i + 1);
+    }
+
+    if (m_useTarget) {
+        G4AssemblyVolume* target = BuildTarget();
+        G4ThreeVector Pos;
+        target->MakeImprint(world, Pos, nullptr, 0, true);
+        SetReactionRegion(world);
     }
     std::cout << "construct complete" << std::endl;
 }

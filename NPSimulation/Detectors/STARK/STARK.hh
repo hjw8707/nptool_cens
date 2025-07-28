@@ -177,6 +177,11 @@ class STARK : public NPS::VDetector {
     G4AssemblyVolume* BuildX6Detector();
     G4AssemblyVolume* BuildBB10Detector();
     G4AssemblyVolume* BuildQQQ5Detector();
+    G4AssemblyVolume* BuildTarget();
+
+    // Reaction Region
+    G4Region* m_ReactionRegion;
+    void SetReactionRegion(G4LogicalVolume* world);
 
     // Inherited from NPS::VDetector class /////////////
    public:
@@ -211,6 +216,8 @@ class STARK : public NPS::VDetector {
     G4AssemblyVolume* m_X6;
     G4AssemblyVolume* m_BB10;
     G4AssemblyVolume* m_QQQ5;
+    G4AssemblyVolume* m_Target;
+    G4LogicalVolume* m_logicTarget;
 
     // Event class to store data
     TSTARKData* m_Event;
@@ -224,11 +231,19 @@ class STARK : public NPS::VDetector {
     vector<G4double> m_Beta;
     vector<G4int> m_Group;  // Detector group for dE-E analysis
 
+    // Target
+    bool m_useTarget;
+    string m_TargetMaterial;
+    double m_Pressure;
+    double m_Temperature;
+    double m_Radius;
+    double m_Z;
+
     // Visualisation
     G4VisAttributes *m_VisX6, *m_VisX6PCB;
     G4VisAttributes *m_VisBB10, *m_VisBB10PCB;
     G4VisAttributes *m_VisQQQ5, *m_VisQQQ5PCB;
-    G4VisAttributes* m_VisConn;
+    G4VisAttributes *m_VisConn, *m_VisTarget;
 
    public:
     // Dynamic loading of the library
