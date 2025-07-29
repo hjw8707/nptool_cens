@@ -32,6 +32,7 @@
 using namespace std;
 
 // Root Header
+#include "TMath.h"
 #include "TObject.h"
 #include "TVector3.h"
 
@@ -118,7 +119,7 @@ class TTrackInfo : public TObject {
     TVector3 GetParticleDirection(const int& i) const;
 
     double GetThetaLab_WorldFrame(const int& i) const {
-        return (GetParticleDirection(i).Angle(TVector3(0, 0, 1))) / deg;
+        return (GetParticleDirection(i).Angle(TVector3(0, 0, 1))) / TMath::DegToRad();
     }
 
     double GetTime(const int& i) const { return fTI_Time[i]; }

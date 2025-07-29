@@ -30,6 +30,7 @@
 #include "G4Material.hh"
 #include "G4MultiFunctionalDetector.hh"
 #include "G4PVPlacement.hh"
+#include "G4ProductionCuts.hh"
 #include "G4SDManager.hh"
 #include "G4SubtractionSolid.hh"
 #include "G4Transform3D.hh"
@@ -426,7 +427,10 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
 void STARK::SetReactionRegion(G4LogicalVolume* world) {
     if (m_useTarget) {
         if (!m_ReactionRegion) {
+            G4ProductionCuts* productionCuts = new G4ProductionCuts();
+            productionCuts->SetProductionCut(1000 * mm, "e-");
             m_ReactionRegion = new G4Region("NPSimulationProcess");
+            m_ReactionRegion->SetProductionCuts(productionCuts);
             m_ReactionRegion->AddRootLogicalVolume(m_logicTarget);
             m_ReactionRegion->SetUserLimits(new G4UserLimits(0.5 * mm));
         }

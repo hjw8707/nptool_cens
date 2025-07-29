@@ -33,6 +33,7 @@
 #include "EventAction.hh"
 #include "ParticleStack.hh"
 #include "RootOutput.h"
+#include "TrackRecording.hh"
 
 EventAction *EventAction::m_EventAction = 0;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -55,7 +56,7 @@ EventAction::~EventAction() {}
 void EventAction::BeginOfEventAction(const G4Event *event) {
     treated = event->GetEventID() + 1;
     ProgressDisplay();
-    //    SaveRandomGeneratorInitialState();
+    TrackRecording::GetInstance()->Clear();
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
