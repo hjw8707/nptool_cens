@@ -66,8 +66,8 @@ using namespace STARKNS;
 STARK::STARK() {
     HCID_X6 = HCID_BB10 = HCID_QQQ5 = -1;
 
-    m_X6 = m_BB10 = m_QQQ5 = m_Target = NULL;
-    m_X6Det = m_BB10Det = m_QQQ5Det = NULL;
+    m_X6 = m_BB10 = m_QQQ5 = m_Target = nullptr;
+    m_X6Det = m_BB10Det = m_QQQ5Det = nullptr;
 
     m_VisX6 = new G4VisAttributes(G4Colour(0., 0.5, 0.5));
     m_VisX6PCB = new G4VisAttributes(G4Colour(0.8, 0.5, 0.5));
@@ -78,6 +78,7 @@ STARK::STARK() {
     m_VisConn = new G4VisAttributes(G4Colour(0.8, 0.8, 0.8));
     m_VisTarget = new G4VisAttributes(G4Colour(0.5, 0.5, 0.5, 0.1));
 
+    m_ReactionRegion = nullptr;
     m_useTarget = false;
     m_TargetMaterial = "";
     m_Pressure = 760.0;      // Torr

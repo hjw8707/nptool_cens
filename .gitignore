@@ -16,6 +16,7 @@ CMakeCache.txt
 *.wrl
 *.pdf
 *.png
+!NPLib/Detectors/**/*.png
 *.jpg
 *.jpeg
 *.gif
@@ -25,6 +26,7 @@ install_manifest.txt
 .DS_store
 .DS_Store
 .last_*
+.tmp*
 npanalysis
 npreader
 npcalibration

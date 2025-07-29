@@ -23,6 +23,6 @@ TwoBodyReaction
  Heavy= 47K
  ExcitationEnergyLight= 0.0
  ExcitationEnergyHeavy= 0.0
- CrossSectionPath= ./reactions/d12C_el.cs CS
+ CrossSectionPath= flat.txt CS
  ShootLight= 1
  ShootHeavy= 1
