@@ -341,13 +341,15 @@ void TSTARKPhysics::ReadConfiguration(NPL::InputParser parser) {
         cout << "//// " << blocks.size() << " detectors found " << endl;
 
     vector<string> reso = {"Type", "Reso"};
+    vector<string> targ = {"TargetMaterial", "Pressure", "Temperature", "Radius", "Z"};  // for the active target
     vector<string> cart = {"Type", "POS"};
     vector<string> sphe = {"Type", "R", "Theta", "Phi"};
     vector<string> cyld = {"Type", "Rho", "Phi", "Z"};
 
     for (unsigned int i = 0; i < blocks.size(); i++) {
         ////////////////////////////////////////////////////////////
-        // skip the resolution block
+        // skip the target and resolution block
+        if (blocks[i]->HasTokenList(targ)) continue;
         if (blocks[i]->HasTokenList(reso)) continue;
         ////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////
