@@ -26,6 +26,63 @@ using namespace STARKSCORERS ;
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+// CsI
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+PS_STARK_CsI::PS_STARK_CsI(G4String name, G4int Level, G4int depth)
+  : G4VPrimitiveScorer(name, depth), HCID(-1) {
+  m_Level = Level; }
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+PS_STARK_CsI::~PS_STARK_CsI(){}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+G4bool PS_STARK_CsI::ProcessHits(G4Step* aStep, G4TouchableHistory*){
+  // contain E_DW, E_UP, E_Bot, Time, DetNbr, and StripWidth
+  G4double* EnergyAndTime = new G4double[3];
+
+  auto copyNo = aStep->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber(m_Level);
+  EnergyAndTime[0] = copyNo;
+  EnergyAndTime[1] = aStep->GetTotalEnergyDeposit();
+  EnergyAndTime[2] = aStep->GetPreStepPoint()->GetGlobalTime();
+  map<G4int, G4double**>::iterator it = EvtMap->GetMap()->find(copyNo);
+  if (it != EvtMap->GetMap()->end()){
+    G4double* dummy = *(it->second);
+    EnergyAndTime[1] += dummy[1];
+  }
+  EvtMap->set(copyNo, EnergyAndTime);
+  return true;}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void PS_STARK_CsI::Initialize(G4HCofThisEvent* HCE){
+    EvtMap = new NPS::HitsMap<G4double*>(GetMultiFunctionalDetector()->GetName(), GetName());
+    if (HCID < 0) HCID = GetCollectionID(0);
+    HCE->AddHitsCollection(HCID, (G4VHitsCollection*)EvtMap); }
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void PS_STARK_CsI::EndOfEvent(G4HCofThisEvent*){}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void PS_STARK_CsI::clear(){
+    std::map<G4int, G4double**>::iterator MapIterator;
+    for (MapIterator = EvtMap->GetMap()->begin() ;
+	 MapIterator != EvtMap->GetMap()->end() ; MapIterator++){
+        delete *(MapIterator->second); }
+    EvtMap->clear();}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void PS_STARK_CsI::DrawAll(){}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void PS_STARK_CsI::PrintAll(){
+    G4cout << " MultiFunctionalDet  " << detector->GetName() << G4endl ;
+    G4cout << " PrimitiveScorer " << GetName() << G4endl               ;
+    G4cout << " Number of entries " << EvtMap->entries() << G4endl     ;}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 // X6
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -277,7 +334,10 @@ G4bool PS_STARK_QQQ5::ProcessHits(G4Step* aStep, G4TouchableHistory*){
   EnergyAndTime[10]  = m_Position.phi();
 
   m_Position = aStep->GetPreStepPoint()->GetTouchableHandle()->GetHistory()->GetTopTransform().TransformPoint(m_Position);
-  
+
+  if (m_outR < m_Position.rho())
+    return false;
+
   m_annularStripNumber = (int)((m_outR - m_Position.rho()) / m_AStripPitch ) + 1 ; // reverse in R(Rho), from 1
   m_radialStripNumber = (int)((m_Position.phi() - m_phi0) / m_RStripPitch) + 1 ; // from 1
 
