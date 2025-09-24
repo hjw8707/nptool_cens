@@ -44,7 +44,9 @@ class TSTARKPhysics : public TObject, public NPL::VDetector {
 
    public:
     void AddDetector(string Type, TVector3 Pos, int Flip, int Rev, double Beta, int Group);
+    void AddDetector(string Type, TVector3 posXYZ, TVector3 rotXYZ, int Group);
     void AddStripPosition(string Type, TVector3 Pos, int Flip, int Rev, double Beta);
+    void AddStripPosition(string Type, TVector3 Pos, TVector3 rotXYZ, int Group);
 
     void
     BuildGroup();  // this function should be called after all detectors are added at the end of the ReadConfiguration()

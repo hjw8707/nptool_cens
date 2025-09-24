@@ -39,16 +39,18 @@
 //  for some constants
 ////////////////////////////////////////////////////////////////////////////////
 namespace STARKNS {
-G4double EnergyThreshold = 0.1 * MeV;
+extern G4double EnergyThreshold;
 ////////////////////////////////////////////////////////////
 // Resolution
 ////////////////////////////////////////////////////////////
-G4double X6_TRes = 0.213;
-G4double X6_ERes = 0.5;  // [%] in sigma
-G4double BB10_TRes = 0.213;
-G4double BB10_ERes = 0.5;  // [%] in sigma
-G4double QQQ5_TRes = 0.213;
-G4double QQQ5_ERes = 0.5;  // [%] in sigma
+extern G4double X6_TRes;
+extern G4double X6_ERes;
+extern G4double BB10_TRes;
+extern G4double BB10_ERes;
+extern G4double QQQ5_TRes;
+extern G4double QQQ5_ERes;
+extern G4double CsI_TRes;
+extern G4double CsI_ERes;
 ////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////
@@ -57,111 +59,147 @@ G4double QQQ5_ERes = 0.5;  // [%] in sigma
 //
 // X6
 ////////////////////////////////////////////////////////////
-const G4double X6_PCBX = 45.20 * mm;
-const G4double X6_PCBY = 93.10 * mm;
-const G4double X6_PCBZ = 2.40 * mm;
-const G4double X6_PCBSub1X = 43.60 * mm;
-const G4double X6_PCBSub1Y = 78.30 * mm;
-const G4double X6_PCBSub1Z = 1.20 * mm;
-const G4double X6_PCBSub1XOffset = 0.0 * mm;
-const G4double X6_PCBSub1YOffset = 6.2 * mm;
-const G4double X6_PCBSub1ZOffset = 0.6 * mm;
-const G4double X6_PCBSub2X = 42.20 * mm;
-const G4double X6_PCBSub2Y = 76.90 * mm;
-const G4double X6_PCBSub2Z = 1.20 * mm;
-const G4double X6_PCBSub2XOffset = 0.0 * mm;
-const G4double X6_PCBSub2YOffset = 6.2 * mm;
-const G4double X6_PCBSub2ZOffset = -0.6 * mm;
+extern const G4double X6_PCBX;
+extern const G4double X6_PCBY;
+extern const G4double X6_PCBZ;
+extern const G4double X6_PCBSub1X;
+extern const G4double X6_PCBSub1Y;
+extern const G4double X6_PCBSub1Z;
+extern const G4double X6_PCBSub1XOffset;
+extern const G4double X6_PCBSub1YOffset;
+extern const G4double X6_PCBSub1ZOffset;
+extern const G4double X6_PCBSub2X;
+extern const G4double X6_PCBSub2Y;
+extern const G4double X6_PCBSub2Z;
+extern const G4double X6_PCBSub2XOffset;
+extern const G4double X6_PCBSub2YOffset;
+extern const G4double X6_PCBSub2ZOffset;
 
-const G4double X6_SiX = 43.30 * mm;
-const G4double X6_SiY = 78.00 * mm;
-const G4double X6_SiZ = 1.00 * mm;
-const G4double X6_SiXOffset = 0.0 * mm;
-const G4double X6_SiYOffset = 6.2 * mm;
-const G4double X6_SiZOffset = 0.5 * mm;
-const G4double X6_SiActiveX = 40.30 * mm;
-const G4double X6_SiActiveY = 75.00 * mm;
-const G4double X6_SiActiveZ = 1.00 * mm;  // 1000 um
+extern const G4double X6_SiX;
+extern const G4double X6_SiY;
+extern const G4double X6_SiZ;
+extern const G4double X6_SiXOffset;
+extern const G4double X6_SiYOffset;
+extern const G4double X6_SiZOffset;
+extern const G4double X6_SiActiveX;
+extern const G4double X6_SiActiveY;
+extern const G4double X6_SiActiveZ;
 
-const G4int X6_NFrontStrips = 8;
-const G4int X6_NBackStrips = 4;
+extern const G4int X6_NFrontStrips;
+extern const G4int X6_NBackStrips;
 ////////////////////////////////////////////////////////////
 //
 // BB10
 ////////////////////////////////////////////////////////////
-const G4double BB10_PCBX = 45.20 * mm;
-const G4double BB10_PCBY = 93.10 * mm;
-const G4double BB10_PCBZ = 2.40 * mm;
-const G4double BB10_PCBSub1X = 43.60 * mm;
-const G4double BB10_PCBSub1Y = 78.30 * mm;
-const G4double BB10_PCBSub1Z = 1.20 * mm;
-const G4double BB10_PCBSub1XOffset = 0.0 * mm;
-const G4double BB10_PCBSub1YOffset = 6.5 * mm;  // only different to X6 PCB
-const G4double BB10_PCBSub1ZOffset = 0.6 * mm;
-const G4double BB10_PCBSub2X = 42.20 * mm;
-const G4double BB10_PCBSub2Y = 76.90 * mm;
-const G4double BB10_PCBSub2Z = 1.20 * mm;
-const G4double BB10_PCBSub2XOffset = 0.0 * mm;
-const G4double BB10_PCBSub2YOffset = 6.5 * mm;  // only different to X6 PCB
-const G4double BB10_PCBSub2ZOffset = -0.6 * mm;
+extern const G4double BB10_PCBX;
+extern const G4double BB10_PCBY;
+extern const G4double BB10_PCBZ;
+extern const G4double BB10_PCBSub1X;
+extern const G4double BB10_PCBSub1Y;
+extern const G4double BB10_PCBSub1Z;
+extern const G4double BB10_PCBSub1XOffset;
+extern const G4double BB10_PCBSub1YOffset;
+extern const G4double BB10_PCBSub1ZOffset;
+extern const G4double BB10_PCBSub2X;
+extern const G4double BB10_PCBSub2Y;
+extern const G4double BB10_PCBSub2Z;
+extern const G4double BB10_PCBSub2XOffset;
+extern const G4double BB10_PCBSub2YOffset;
+extern const G4double BB10_PCBSub2ZOffset;
 
-const G4double BB10_SiX = 43.30 * mm;
-const G4double BB10_SiY = 78.00 * mm;
-const G4double BB10_SiZ = 0.14 * mm;
-const G4double BB10_SiXOffset = 0.0 * mm;
-const G4double BB10_SiYOffset = 6.5 * mm;
-const G4double BB10_SiZOffset = 0.07 * mm;
-const G4double BB10_SiActiveX = 39.45 * mm;
-const G4double BB10_SiActiveY = 74.15 * mm;
-const G4double BB10_SiActiveZ = 0.14 * mm;  // 140 um
+extern const G4double BB10_SiX;
+extern const G4double BB10_SiY;
+extern const G4double BB10_SiZ;
+extern const G4double BB10_SiXOffset;
+extern const G4double BB10_SiYOffset;
+extern const G4double BB10_SiZOffset;
+extern const G4double BB10_SiActiveX;
+extern const G4double BB10_SiActiveY;
+extern const G4double BB10_SiActiveZ;
 
-const G4int BB10_NFrontStrips = 8;
-const G4int BB10_NBackStrips = 1;
+extern const G4int BB10_NFrontStrips;
+extern const G4int BB10_NBackStrips;
 ////////////////////////////////////////////////////////////
 //
 // QQQ5
-const G4double QQQ5_PCBOutR = 86 * mm;
-const G4double QQQ5_PCBInR = 15 * mm;
-const G4double QQQ5_PCBPhi0 = 0 * deg;   // Starting point
-const G4double QQQ5_PCBPhi1 = 90 * deg;  // ANGLE
-const G4double QQQ5_PCBT = 3.4 * mm;
-const G4double QQQ5_PCBCutX = 3.4 * 2 * mm;  // 3.4 mm gap from the arc center?
-const G4double QQQ5_PCBCutY = 86 * mm;
-const G4double QQQ5_PCBCutZ = 4 * mm;
-const G4double QQQ5_PCBCutXOffset = 0 * mm;
-const G4double QQQ5_PCBCutYOffset = 43 * mm;
-const G4double QQQ5_PCBCutZOffset = 0 * mm;
+////////////////////////////////////////////////////////////
+extern const G4double QQQ5_PCBOutR;
+extern const G4double QQQ5_PCBInR;
+extern const G4double QQQ5_PCBPhi0;
+extern const G4double QQQ5_PCBPhi1;
+extern const G4double QQQ5_PCBT;
+extern const G4double QQQ5_PCBCutX;
+extern const G4double QQQ5_PCBCutY;
+extern const G4double QQQ5_PCBCutZ;
+extern const G4double QQQ5_PCBCutXOffset;
+extern const G4double QQQ5_PCBCutYOffset;
+extern const G4double QQQ5_PCBCutZOffset;
 
+////////////////////////////////////////////////////////////
+//
 // QQQ Wafer
-const G4double QQQ5_SiOutR = 84.0 * mm;
-const G4double QQQ5_SiInR = 23.2 * mm;
-const G4double QQQ5_SiT = 1 * mm;
-const G4double QQQ5_SiPhi0 = 0 * deg;
-const G4double QQQ5_SiPhi1 = 90 * deg;
-const G4double QQQ5_SiActiveOutR = 81.95 * mm;
-const G4double QQQ5_SiActiveInR = 25.25 * mm;
-const G4double QQQ5_SiCut1X = (3.4 + 0.68) * 2 * mm;
-const G4double QQQ5_SiCut1Y = QQQ5_SiOutR;
-const G4double QQQ5_SiCut1Z = 2 * mm;
-const G4double QQQ5_SiCut1XOffset = 0 * mm;
-const G4double QQQ5_SiCut1YOffset = QQQ5_SiCut1Y / 2;
-const G4double QQQ5_SiCut1ZOffset = 0 * mm;
-const G4double QQQ5_SiCut2X = QQQ5_SiOutR;
-const G4double QQQ5_SiCut2Y = 0.92 * 2 * mm;
-const G4double QQQ5_SiCut2Z = 2 * mm;
-const G4double QQQ5_SiCut2XOffset = QQQ5_SiCut2X / 2;
-const G4double QQQ5_SiCut2YOffset = 0 * mm;
-const G4double QQQ5_SiCut2ZOffset = 0 * mm;
+////////////////////////////////////////////////////////////
+extern const G4double QQQ5_SiOutR;
+extern const G4double QQQ5_SiInR;
+extern const G4double QQQ5_SiT;
+extern const G4double QQQ5_SiPhi0;
+extern const G4double QQQ5_SiPhi1;
+extern const G4double QQQ5_SiActiveOutR;
+extern const G4double QQQ5_SiActiveInR;
+extern const G4double QQQ5_SiCut1X;
+extern const G4double QQQ5_SiCut1Y;
+extern const G4double QQQ5_SiCut1Z;
+extern const G4double QQQ5_SiCut1XOffset;
+extern const G4double QQQ5_SiCut1YOffset;
+extern const G4double QQQ5_SiCut1ZOffset;
+extern const G4double QQQ5_SiCut2X;
+extern const G4double QQQ5_SiCut2Y;
+extern const G4double QQQ5_SiCut2Z;
+extern const G4double QQQ5_SiCut2XOffset;
+extern const G4double QQQ5_SiCut2YOffset;
+extern const G4double QQQ5_SiCut2ZOffset;
 
-const G4int QQQ5_NRStrip = 32;
-const G4int QQQ5_NAStrip = 4;
+extern const G4int QQQ5_NRStrip;
+extern const G4int QQQ5_NAStrip;
 
 ////////////////////////////////////////////////////////////
 //
 // Connector
-const G4double Conn_X = 40.0 * mm;
-const G4double Conn_Y = 5.0 * mm;
-const G4double Conn_Z = 5.0 * mm;
+////////////////////////////////////////////////////////////
+extern const G4double Conn_X;
+extern const G4double Conn_Y;
+extern const G4double Conn_Z;
+
+////////////////////////////////////////////////////////////
+//
+// CsI
+////////////////////////////////////////////////////////////
+extern const G4double CsI_X;
+extern const G4double CsI_Y;
+extern const G4double CsI_Z;
+extern const G4double CsI_X6_XOffset;
+extern const G4double CsI_X6_YOffset1;
+extern const G4double CsI_X6_YOffset2;
+extern const G4double CsI_X6_ZOffset;
+extern const G4double CsI_BB10_XOffset;
+extern const G4double CsI_BB10_YOffset1;
+extern const G4double CsI_BB10_YOffset2;
+extern const G4double CsI_BB10_ZOffset;
+
+////////////////////////////////////////////////////////////
+//
+// ANASEN CsI for QQQ3
+////////////////////////////////////////////////////////////
+extern const G4double CsI_QQQ5_XOffset;
+extern const G4double CsI_QQQ5_YOffset;
+extern const G4double CsI_QQQ5_ZOffset;
+extern const G4double m_ANASENQQQ3CsIhypotenuse;
+extern const G4double m_ANASENQQQ3CsIThickness;
+extern const G4double m_ANASENQQQ3CsIWidthBot;
+extern const G4double m_ANASENQQQ3CsIWidthTop;
+extern const G4double m_ANASENQQQ3CsITotHyp;
+extern const G4double m_ANASENQQQ3CsITotHeight;
+extern const G4double m_ANASENQQQ3CsIHeight;
 ////////////////////////////////////////////////////////////
 
 }  // namespace STARKNS
@@ -173,15 +211,19 @@ class STARK : public NPS::VDetector {
     STARK();
     virtual ~STARK();
 
-    void AddDetector(string Type, G4ThreeVector POS, int Flip, int Rev, double Beta, int Group);
-    G4AssemblyVolume* BuildX6Detector();
-    G4AssemblyVolume* BuildBB10Detector();
-    G4AssemblyVolume* BuildQQQ5Detector();
+    void AddDetector(string Type, G4ThreeVector POS, int Flip, int Rev, double Beta, int CsI, int Group, string mvName);
+    void AddDetector(string Type, G4ThreeVector POS, G4ThreeVector rotXYZ, int CsI, int Group, string mvName);
+    G4AssemblyVolume* BuildX6Detector(int nCsI=0);
+    G4AssemblyVolume* BuildBB10Detector(int nCsI=0);
+    G4AssemblyVolume* BuildQQQ5Detector(int nCsI=0);
     G4AssemblyVolume* BuildTarget();
+    void BuildSquareCsI();
+    void BuildANASENQQQ3CsI();
 
     // Reaction Region
-    G4Region* m_ReactionRegion;
+    G4Region* m_ReactionRegion = nullptr;
     void SetReactionRegion(G4LogicalVolume* world);
+    void SetMotherVolume(G4LogicalVolume* motherVolume);
 
     // Inherited from NPS::VDetector class /////////////
    public:
@@ -206,18 +248,26 @@ class STARK : public NPS::VDetector {
     G4MultiFunctionalDetector* m_X6Det;
     G4MultiFunctionalDetector* m_BB10Det;
     G4MultiFunctionalDetector* m_QQQ5Det;
+    G4MultiFunctionalDetector* m_CsIDet;
     ////////////////////////////////////////////////////
 
    private:
     G4int HCID_X6;
     G4int HCID_BB10;
     G4int HCID_QQQ5;
+    G4int HCID_CsI;
 
     G4AssemblyVolume* m_X6;
     G4AssemblyVolume* m_BB10;
     G4AssemblyVolume* m_QQQ5;
+    G4AssemblyVolume* m_X6_wCsI[4];
+    G4AssemblyVolume* m_BB10_wCsI[4];
+    G4AssemblyVolume* m_QQQ5_wCsI[4];
     G4AssemblyVolume* m_Target;
     G4LogicalVolume* m_logicTarget;
+    G4LogicalVolume* m_logicSquareCsI1;
+    G4LogicalVolume* m_logicSquareCsI2;
+    G4LogicalVolume* m_logicANASENQQQ3CsI;
 
     // Event class to store data
     TSTARKData* m_Event;
@@ -230,6 +280,12 @@ class STARK : public NPS::VDetector {
     vector<int> m_Rev;
     vector<G4double> m_Beta;
     vector<G4int> m_Group;  // Detector group for dE-E analysis
+    vector<int> m_CsI;
+    vector<string> m_MVName;
+
+    // XYZ definition
+    vector<bool> m_UseXYZ;
+    vector<G4ThreeVector> m_RotXYZ;
 
     // Target
     bool m_useTarget;
@@ -244,6 +300,7 @@ class STARK : public NPS::VDetector {
     G4VisAttributes *m_VisBB10, *m_VisBB10PCB;
     G4VisAttributes *m_VisQQQ5, *m_VisQQQ5PCB;
     G4VisAttributes *m_VisConn, *m_VisTarget;
+    G4VisAttributes *m_VisCsI;
 
    public:
     // Dynamic loading of the library

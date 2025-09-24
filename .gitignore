@@ -49,3 +49,8 @@ NPLib/Utility/npspectra_test
 build/
 !NPData/*
 NPSimulation/npsimulation
+data
+input
+figures
+__pycache__
+build_dict.sh

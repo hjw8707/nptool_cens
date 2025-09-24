@@ -1,0 +1,21 @@
+sh batch_ATOMX_SiArray_0_z-140.0.sh
+sh batch_ATOMX_SiArray_1_z-126.0.sh
+sh batch_ATOMX_SiArray_2_z-112.0.sh
+sh batch_ATOMX_SiArray_3_z-98.0.sh
+sh batch_ATOMX_SiArray_4_z-84.0.sh
+sh batch_ATOMX_SiArray_5_z-70.0.sh
+sh batch_ATOMX_SiArray_6_z-56.0.sh
+sh batch_ATOMX_SiArray_7_z-42.0.sh
+sh batch_ATOMX_SiArray_8_z-28.0.sh
+sh batch_ATOMX_SiArray_9_z-14.0.sh
+sh batch_ATOMX_SiArray_10_z0.0.sh
+sh batch_ATOMX_SiArray_11_z14.0.sh
+sh batch_ATOMX_SiArray_12_z28.0.sh
+sh batch_ATOMX_SiArray_13_z42.0.sh
+sh batch_ATOMX_SiArray_14_z56.0.sh
+sh batch_ATOMX_SiArray_15_z70.0.sh
+sh batch_ATOMX_SiArray_16_z84.0.sh
+sh batch_ATOMX_SiArray_17_z98.0.sh
+sh batch_ATOMX_SiArray_18_z112.0.sh
+sh batch_ATOMX_SiArray_19_z126.0.sh
+root -q -b draw_summary.C

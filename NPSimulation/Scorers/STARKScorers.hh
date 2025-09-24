@@ -34,6 +34,34 @@ using namespace CLHEP;
 namespace STARKSCORERS {
 
   //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+  class PS_STARK_CsI: public G4VPrimitiveScorer{
+
+  public: // with description
+    PS_STARK_CsI(G4String name, G4int Level, G4int depth);
+    ~PS_STARK_CsI();
+
+  protected: // with description
+    G4bool ProcessHits(G4Step*, G4TouchableHistory*);
+
+  public:
+    void Initialize(G4HCofThisEvent*);
+    void EndOfEvent(G4HCofThisEvent*);
+    void clear();
+    void DrawAll();
+    void PrintAll();
+
+  private: // inherited from G4VPrimitiveScorer
+    G4int HCID;
+    NPS::HitsMap<G4double*>* EvtMap;
+
+  private: // Needed for intermediate calculation (avoid multiple instantiation in Processing Hit)
+    G4ThreeVector m_Position  ;
+    G4int m_detectorNumber    ;
+    G4long m_Index            ;
+    G4int m_Level             ;
+  };
+
+  //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
   class PS_STARK_X6: public G4VPrimitiveScorer{
 
   public: // with description

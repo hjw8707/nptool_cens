@@ -65,6 +65,23 @@ ClassImp(TSTARKPhysics)
 ///////////////////////////////////////////////////////////////////////////
 TSTARKPhysics::~TSTARKPhysics() {}
 
+void TSTARKPhysics::AddDetector(string Type, TVector3 posXYZ, TVector3 rotXYZ, int Group)
+{
+    m_Type.push_back(Type);
+    m_DetPos.push_back(posXYZ);
+    m_Flip.push_back(0);
+    m_Rev.push_back(0);
+    m_Beta.push_back(0);
+    m_Group.push_back(Group);
+    m_GroupLayer.push_back(0);
+    TVector3 V(0, 1, 0);
+    V.RotateX(rotXYZ.x());
+    V.RotateY(rotXYZ.y());
+    V.RotateZ(rotXYZ.z());
+    m_DetOri.push_back(V);
+    AddStripPosition(Type, posXYZ, rotXYZ, Group);
+}
+
 void TSTARKPhysics::AddDetector(string Type, TVector3 Pos, int Flip, int Rev, double Beta, int Group) {
     m_Type.push_back(Type);
     m_DetPos.push_back(Pos);
@@ -89,6 +106,101 @@ void TSTARKPhysics::AddDetector(string Type, TVector3 Pos, int Flip, int Rev, do
     ////////////////////////////////////////////////////////////
 
     AddStripPosition(Type, Pos, Flip, Rev, Beta);
+}
+
+void TSTARKPhysics::AddStripPosition(string Type, TVector3 Pos, TVector3 rotXYZ, int Group)
+{
+    //////////////////////////////////////////////////////
+    // local coordinate, unit vector (rotation)
+    TRotation rot;
+    rot.RotateX(rotXYZ.x());
+    rot.RotateY(rotXYZ.y());
+    rot.RotateZ(rotXYZ.z());
+    //////////////////////////////////////////////////////
+
+    if (Type == "X6") {
+        ////////////////////////////////////////////////////////////
+        // Strip position calculation for X6
+        ////////////////////////////////////////////////////////////
+        double X6_frontStripPitch = X6_activeX / X6_NFrontStrips;
+        double X6_backStripPitch = X6_activeY / X6_NBackStrips;
+
+        vector<vector<TVector3>> frontStripPos;
+        for (int i = 0; i < X6_NFrontStrips; i++) {
+            vector<TVector3> backStripPos;
+            for (int j = 0; j < X6_NBackStrips; j++) {
+                TVector3 PosStrip;
+                PosStrip.SetX(-X6_frontStripPitch * (i + 0.5) + X6_activeX / 2);
+                PosStrip.SetY(X6_backStripPitch * (j + 0.5) - X6_activeY / 2);
+                PosStrip = rot * PosStrip;
+                PosStrip += Pos;
+                backStripPos.push_back(PosStrip);
+            }
+            frontStripPos.push_back(backStripPos);
+        }
+        m_StripPos.push_back(frontStripPos);
+        ////////////////////////////////////////////////////////////
+
+    } else if (Type == "BB10") {
+        ////////////////////////////////////////////////////////////
+        // Strip position calculation for BB10
+        ////////////////////////////////////////////////////////////
+        double BB10_frontStripPitch = BB10_activeX / BB10_NFrontStrips;
+        double BB10_backStripPitch = BB10_activeY / BB10_NBackStrips;
+
+        vector<vector<TVector3>> frontStripPos;
+        for (int i = 0; i < BB10_NFrontStrips; i++) {
+            vector<TVector3> backStripPos;
+            for (int j = 0; j < BB10_NBackStrips; j++) {
+                TVector3 PosStrip;
+                PosStrip.SetX(-BB10_frontStripPitch * (i + 0.5) + BB10_activeX / 2);
+                PosStrip.SetY(BB10_backStripPitch * (j + 0.5) - BB10_activeY / 2);
+                PosStrip = rot * PosStrip;
+                PosStrip += Pos;
+                backStripPos.push_back(PosStrip);
+            }
+            frontStripPos.push_back(backStripPos);
+        }
+        m_StripPos.push_back(frontStripPos);
+        ////////////////////////////////////////////////////////////
+    } else if (Type == "QQQ5") {
+        ////////////////////////////////////////////////////////////
+        // Strip position calculation for QQQ5
+        ////////////////////////////////////////////////////////////
+        double QQQ5_rStripPitch = (QQQ5_activeOutR - QQQ5_activeInR) / QQQ5_NRStrips;
+        double QQQ5_aStripPitch = TMath::PiOver2() / QQQ5_NAStrips;
+
+        vector<vector<TVector3>> frontStripPos;  // Radial Strip
+        for (int i = 0; i < QQQ5_NRStrips; i++) {
+            vector<TVector3> backStripPos;  // Annular strips
+            for (int j = 0; j < QQQ5_NAStrips; j++) {
+                Double_t r = QQQ5_activeOutR - QQQ5_rStripPitch * (i + 0.5);
+                Double_t a = QQQ5_aStripPitch * (i + 0.5);
+                TVector3 PosStrip;
+                PosStrip.SetMagThetaPhi(r, TMath::PiOver2(), a);
+                PosStrip = rot * PosStrip;
+                PosStrip += Pos;
+                backStripPos.push_back(PosStrip);
+            }
+            frontStripPos.push_back(backStripPos);
+        }
+        m_StripPos.push_back(frontStripPos);
+        ////////////////////////////////////////////////////////////
+    }
+
+    ////////////////////////////////////////////////////////////
+    // for checking
+    //  auto lastDet = m_StripPos.back();
+    //  for (auto it2 = lastDet.begin() ;
+    //       it2 != lastDet.end() ; it2++) {
+    //    size_t frontIdx = it2 - lastDet.begin();
+    //    for (auto it3 = it2->begin() ;
+    //	 it3 != it2->end() ; it3++) {
+    //      size_t backIdx = it3 - it2->begin();
+    //      std::cout << "(" << frontIdx << ", " << backIdx << "): ";
+    //      it3->Print();
+    //    }}
+    ////////////////////////////////////////////////////////////
 }
 
 void TSTARKPhysics::AddStripPosition(string Type, TVector3 Pos, int Flip, int Rev, double Beta) {
@@ -254,6 +366,8 @@ void TSTARKPhysics::BuildPhysicalEvent() {
         uppE[i] = m_EventData->GetUpE(i);
         dwnE[i] = m_EventData->GetDwE(i);
         sumE[i] = m_EventData->GetFrE(i);
+        if (type[i]==3)
+            return;
 
         sPosArr.push_back(
             m_StripPos[detN[i] - 1][fStrN[i] - 1][bStrN[i] - 1]);  // detector and strip number from 1 (not 0)
@@ -345,6 +459,7 @@ void TSTARKPhysics::ReadConfiguration(NPL::InputParser parser) {
     vector<string> cart = {"Type", "POS"};
     vector<string> sphe = {"Type", "R", "Theta", "Phi"};
     vector<string> cyld = {"Type", "Rho", "Phi", "Z"};
+    vector<string> car2 = {"Type", "POS", "RotateXYZ"};
 
     for (unsigned int i = 0; i < blocks.size(); i++) {
         ////////////////////////////////////////////////////////////
@@ -354,7 +469,20 @@ void TSTARKPhysics::ReadConfiguration(NPL::InputParser parser) {
         ////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////
         // Cartesian coordinate
-        if (blocks[i]->HasTokenList(cart)) {
+        if (blocks[i]->HasTokenList(car2)) {
+            if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  STARK " << i + 1 << endl;
+            string Type = blocks[i]->GetString("Type");
+            TVector3 posXYZ = blocks[i]->GetTVector3("POS", "mm");
+            TVector3 rotXYZ = blocks[i]->GetTVector3("RotateXYZ", "deg");
+            int Group = 0;
+            if (blocks[i]->HasToken("Group")) Group = blocks[i]->GetInt("Group");
+            //int csi = 0;
+            //if (blocks[i]->HasToken("CsI")) csi = blocks[i]->GetInt("CsI");
+            string mvName;
+            if (blocks[i]->HasToken("MotherVolume")) mvName = blocks[i]->GetString("MotherVolume");
+            AddDetector(Type, posXYZ, rotXYZ, Group);
+        }
+        else if (blocks[i]->HasTokenList(cart)) {
             if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  STARK " << i + 1 << endl;
             string Type = blocks[i]->GetString("Type");
             TVector3 Pos = blocks[i]->GetTVector3("POS", "mm");

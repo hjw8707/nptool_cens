@@ -40,6 +40,8 @@
 #include "G4UserLimits.hh"
 #include "G4VisAttributes.hh"
 #include "Randomize.hh"
+#include "G4NistManager.hh"
+#include "G4LogicalVolumeStore.hh"
 
 // NPTool
 #include "BeamReaction.hh"
@@ -62,12 +64,190 @@ using namespace std;
 using namespace CLHEP;
 using namespace STARKNS;
 
+namespace STARKNS {
+G4double EnergyThreshold = 0.1 * MeV;
+////////////////////////////////////////////////////////////
+// Resolution
+////////////////////////////////////////////////////////////
+G4double X6_TRes = 0.213;
+G4double X6_ERes = 0.5;  // [%] in sigma
+G4double BB10_TRes = 0.213;
+G4double BB10_ERes = 0.5;  // [%] in sigma
+G4double QQQ5_TRes = 0.213;
+G4double QQQ5_ERes = 0.5;  // [%] in sigma
+G4double CsI_TRes = 0.213;
+G4double CsI_ERes = 0.5;  // [%] in sigma
+////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+// Geometry
+////////////////////////////////////////////////////////////
+//
+// X6
+////////////////////////////////////////////////////////////
+const G4double X6_PCBX = 45.20 * mm;
+const G4double X6_PCBY = 93.10 * mm;
+const G4double X6_PCBZ = 2.40 * mm;
+const G4double X6_PCBSub1X = 43.60 * mm;
+const G4double X6_PCBSub1Y = 78.30 * mm;
+const G4double X6_PCBSub1Z = 1.20 * mm;
+const G4double X6_PCBSub1XOffset = 0.0 * mm;
+const G4double X6_PCBSub1YOffset = 6.2 * mm;
+const G4double X6_PCBSub1ZOffset = 0.6 * mm;
+const G4double X6_PCBSub2X = 42.20 * mm;
+const G4double X6_PCBSub2Y = 76.90 * mm;
+const G4double X6_PCBSub2Z = 1.20 * mm;
+const G4double X6_PCBSub2XOffset = 0.0 * mm;
+const G4double X6_PCBSub2YOffset = 6.2 * mm;
+const G4double X6_PCBSub2ZOffset = -0.6 * mm;
+
+const G4double X6_SiX = 43.30 * mm;
+const G4double X6_SiY = 78.00 * mm;
+const G4double X6_SiZ = 1.00 * mm;
+const G4double X6_SiXOffset = 0.0 * mm;
+const G4double X6_SiYOffset = 6.2 * mm;
+const G4double X6_SiZOffset = 0.5 * mm;
+const G4double X6_SiActiveX = 40.30 * mm;
+const G4double X6_SiActiveY = 75.00 * mm;
+const G4double X6_SiActiveZ = 1.00 * mm;  // 1000 um
+
+const G4int X6_NFrontStrips = 8;
+const G4int X6_NBackStrips = 4;
+////////////////////////////////////////////////////////////
+//
+// BB10
+////////////////////////////////////////////////////////////
+const G4double BB10_PCBX = 45.20 * mm;
+const G4double BB10_PCBY = 93.10 * mm;
+const G4double BB10_PCBZ = 2.40 * mm;
+const G4double BB10_PCBSub1X = 43.60 * mm;
+const G4double BB10_PCBSub1Y = 78.30 * mm;
+const G4double BB10_PCBSub1Z = 1.20 * mm;
+const G4double BB10_PCBSub1XOffset = 0.0 * mm;
+const G4double BB10_PCBSub1YOffset = 6.5 * mm;  // only different to X6 PCB
+const G4double BB10_PCBSub1ZOffset = 0.6 * mm;
+const G4double BB10_PCBSub2X = 42.20 * mm;
+const G4double BB10_PCBSub2Y = 76.90 * mm;
+const G4double BB10_PCBSub2Z = 1.20 * mm;
+const G4double BB10_PCBSub2XOffset = 0.0 * mm;
+const G4double BB10_PCBSub2YOffset = 6.5 * mm;  // only different to X6 PCB
+const G4double BB10_PCBSub2ZOffset = -0.6 * mm;
+
+const G4double BB10_SiX = 43.30 * mm;
+const G4double BB10_SiY = 78.00 * mm;
+const G4double BB10_SiZ = 0.14 * mm;
+const G4double BB10_SiXOffset = 0.0 * mm;
+const G4double BB10_SiYOffset = 6.5 * mm;
+const G4double BB10_SiZOffset = 0.07 * mm;
+const G4double BB10_SiActiveX = 39.45 * mm;
+const G4double BB10_SiActiveY = 74.15 * mm;
+const G4double BB10_SiActiveZ = 0.14 * mm;  // 140 um
+
+const G4int BB10_NFrontStrips = 8;
+const G4int BB10_NBackStrips = 1;
+////////////////////////////////////////////////////////////
+//
+// QQQ5
+////////////////////////////////////////////////////////////
+const G4double QQQ5_PCBOutR = 86 * mm;
+const G4double QQQ5_PCBInR = 15 * mm;
+const G4double QQQ5_PCBPhi0 = 0 * deg;   // Starting point
+const G4double QQQ5_PCBPhi1 = 90 * deg;  // ANGLE
+const G4double QQQ5_PCBT = 3.4 * mm;
+const G4double QQQ5_PCBCutX = 3.4 * 2 * mm;  // 3.4 mm gap from the arc center?
+const G4double QQQ5_PCBCutY = 86 * mm;
+const G4double QQQ5_PCBCutZ = 4 * mm;
+const G4double QQQ5_PCBCutXOffset = 0 * mm;
+const G4double QQQ5_PCBCutYOffset = 43 * mm;
+const G4double QQQ5_PCBCutZOffset = 0 * mm;
+
+////////////////////////////////////////////////////////////
+//
+// QQQ Wafer
+////////////////////////////////////////////////////////////
+const G4double QQQ5_SiOutR = 84.0 * mm;
+const G4double QQQ5_SiInR = 23.2 * mm;
+const G4double QQQ5_SiT = 1 * mm;
+const G4double QQQ5_SiPhi0 = 0 * deg;
+const G4double QQQ5_SiPhi1 = 90 * deg;
+const G4double QQQ5_SiActiveOutR = 81.95 * mm;
+const G4double QQQ5_SiActiveInR = 25.25 * mm;
+const G4double QQQ5_SiCut1X = (3.4 + 0.68) * 2 * mm;
+const G4double QQQ5_SiCut1Y = QQQ5_SiOutR;
+const G4double QQQ5_SiCut1Z = 2 * mm;
+const G4double QQQ5_SiCut1XOffset = 0 * mm;
+const G4double QQQ5_SiCut1YOffset = QQQ5_SiCut1Y / 2;
+const G4double QQQ5_SiCut1ZOffset = 0 * mm;
+const G4double QQQ5_SiCut2X = QQQ5_SiOutR;
+const G4double QQQ5_SiCut2Y = 0.92 * 2 * mm;
+const G4double QQQ5_SiCut2Z = 2 * mm;
+const G4double QQQ5_SiCut2XOffset = QQQ5_SiCut2X / 2;
+const G4double QQQ5_SiCut2YOffset = 0 * mm;
+const G4double QQQ5_SiCut2ZOffset = 0 * mm;
+
+const G4int QQQ5_NRStrip = 32;
+const G4int QQQ5_NAStrip = 4;
+
+////////////////////////////////////////////////////////////
+//
+// Connector
+////////////////////////////////////////////////////////////
+const G4double Conn_X = 40.0 * mm;
+const G4double Conn_Y = 5.0 * mm;
+const G4double Conn_Z = 5.0 * mm;
+
+////////////////////////////////////////////////////////////
+//
+// CsI
+////////////////////////////////////////////////////////////
+const G4double CsI_X = 40.80 * mm;
+const G4double CsI_Y = 40.80 * mm;
+const G4double CsI_Z = 25.50 * mm;
+const G4double CsI_X6_XOffset = 0;
+const G4double CsI_X6_YOffset1 = 0.5*X6_SiY - 0.5*CsI_Y;
+const G4double CsI_X6_YOffset2 = CsI_X6_YOffset1 - CsI_Y;
+const G4double CsI_X6_ZOffset = 5.0 * mm;
+const G4double CsI_BB10_XOffset = 0;
+const G4double CsI_BB10_YOffset1 = 0.5*BB10_SiY - 0.5*CsI_Y;
+const G4double CsI_BB10_YOffset2 = CsI_BB10_YOffset1 - CsI_Y;
+const G4double CsI_BB10_ZOffset = 5.0 * mm;
+
+////////////////////////////////////////////////////////////
+//
+// ANASEN CsI for QQQ3
+////////////////////////////////////////////////////////////
+const G4double CsI_QQQ5_XOffset = 0;
+const G4double CsI_QQQ5_YOffset = 7 * mm;
+const G4double CsI_QQQ5_ZOffset = 5.0 * mm;
+const G4double m_ANASENQQQ3CsIhypotenuse = 56.8 * mm;
+const G4double m_ANASENQQQ3CsIThickness  = 26.0 * mm;
+const G4double m_ANASENQQQ3CsIWidthBot   = 19.2 * mm;
+const G4double m_ANASENQQQ3CsIWidthTop   = 41.3 * mm;
+const G4double m_ANASENQQQ3CsITotHyp     = (m_ANASENQQQ3CsIhypotenuse * m_ANASENQQQ3CsIWidthTop) / (m_ANASENQQQ3CsIWidthTop - m_ANASENQQQ3CsIWidthBot);
+const G4double m_ANASENQQQ3CsITotHeight  = sqrt(m_ANASENQQQ3CsITotHyp*m_ANASENQQQ3CsITotHyp - m_ANASENQQQ3CsIWidthTop*m_ANASENQQQ3CsIWidthTop);
+const G4double m_ANASENQQQ3CsIHeight     = m_ANASENQQQ3CsITotHeight * (m_ANASENQQQ3CsIWidthTop - m_ANASENQQQ3CsIWidthBot) / m_ANASENQQQ3CsIWidthTop;
+//m_ANASENQQQ3CsITotHyp     106.147
+//m_ANASENQQQ3CsITotHeight  97.7825
+//m_ANASENQQQ3CsIHeight     52.3243
+
+////////////////////////////////////////////////////////////
+
+}  // namespace STARKNS
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 STARK::STARK() {
-    HCID_X6 = HCID_BB10 = HCID_QQQ5 = -1;
+    HCID_X6 = HCID_BB10 = HCID_QQQ5 = HCID_CsI = -1;
 
     m_X6 = m_BB10 = m_QQQ5 = m_Target = nullptr;
+    for (auto i=0; i<4; ++i) {
+        m_X6_wCsI[i] = nullptr;
+        m_BB10_wCsI[i] = nullptr;
+        m_QQQ5_wCsI[i] = nullptr;
+    }
     m_X6Det = m_BB10Det = m_QQQ5Det = nullptr;
+    m_logicSquareCsI1 = nullptr;
+    m_logicSquareCsI2 = nullptr;
+    m_logicANASENQQQ3CsI = nullptr;
 
     m_VisX6 = new G4VisAttributes(G4Colour(0., 0.5, 0.5));
     m_VisX6PCB = new G4VisAttributes(G4Colour(0.8, 0.5, 0.5));
@@ -77,6 +257,8 @@ STARK::STARK() {
     m_VisQQQ5PCB = new G4VisAttributes(G4Colour(0.8, 0.5, 0.3));
     m_VisConn = new G4VisAttributes(G4Colour(0.8, 0.8, 0.8));
     m_VisTarget = new G4VisAttributes(G4Colour(0.5, 0.5, 0.5, 0.1));
+    m_VisCsI = new G4VisAttributes(G4Colour(0.5, 0.5, 0.1, 0.5));
+    m_VisCsI -> SetForceWireframe(true);
 
     m_ReactionRegion = nullptr;
     m_useTarget = false;
@@ -93,21 +275,64 @@ STARK::STARK() {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 STARK::~STARK() {}
 
-void STARK::AddDetector(string Type, G4ThreeVector Pos, int Flip, int Rev, double Beta, int Group) {
+void STARK::AddDetector(string Type, G4ThreeVector Pos, int Flip, int Rev, double Beta, int csi, int Group, string mvName) {
     m_Type.push_back(Type);
     m_Pos.push_back(Pos);
     m_Flip.push_back(Flip);
     m_Rev.push_back(Rev);
     m_Beta.push_back(Beta);
     m_Group.push_back(Group);
+    m_UseXYZ.push_back(0);
+    m_RotXYZ.push_back(G4ThreeVector());
+    m_CsI.push_back(csi);
+    m_MVName.push_back(mvName);
+}
+
+void STARK::AddDetector(string Type, G4ThreeVector Pos, G4ThreeVector rotXYZ, int csi, int Group, string mvName) {
+    m_Type.push_back(Type);
+    m_Pos.push_back(Pos);
+    m_Flip.push_back(0);
+    m_Rev.push_back(0);
+    m_Beta.push_back(0);
+    m_Group.push_back(Group);
+    m_UseXYZ.push_back(1);
+    m_RotXYZ.push_back(rotXYZ);
+    m_CsI.push_back(csi);
+    m_MVName.push_back(mvName);
+}
+
+void STARK::BuildSquareCsI() {
+    if (m_logicSquareCsI1) return;
+    G4Box* solidCsI = new G4Box("solidCsI", CsI_X / 2., CsI_Y / 2., CsI_Z / 2.);
+    G4NistManager* nist = G4NistManager::Instance();
+    G4Material* matCsI = nist->FindOrBuildMaterial("G4_CESIUM_IODIDE");
+    m_logicSquareCsI1 = new G4LogicalVolume(solidCsI, matCsI, "logicCsI1", 0, 0, 0);
+    m_logicSquareCsI2 = new G4LogicalVolume(solidCsI, matCsI, "logicCsI2", 0, 0, 0);
+    m_logicSquareCsI1 -> SetVisAttributes(m_VisCsI);
+    m_logicSquareCsI2 -> SetVisAttributes(m_VisCsI);
+    m_logicSquareCsI1 -> SetSensitiveDetector(m_CsIDet);
+    m_logicSquareCsI2 -> SetSensitiveDetector(m_CsIDet);
+}
+
+void STARK::BuildANASENQQQ3CsI() {
+    if (m_logicANASENQQQ3CsI) return;
+    G4Trap* solidANASENQQQ3CsI = new G4Trap("DetectorBody",  0.5*m_ANASENQQQ3CsIHeight, 0, 0,
+            0.5*m_ANASENQQQ3CsIThickness, 0.5*m_ANASENQQQ3CsIWidthTop, 0.5*m_ANASENQQQ3CsIWidthTop, 0,
+            0.5*m_ANASENQQQ3CsIThickness, 0.5*m_ANASENQQQ3CsIWidthBot, 0.5*m_ANASENQQQ3CsIWidthBot, 0);
+    G4NistManager* nist = G4NistManager::Instance();
+    G4Material* matCsI = nist->FindOrBuildMaterial("G4_CESIUM_IODIDE");
+    m_logicANASENQQQ3CsI = new G4LogicalVolume(solidANASENQQQ3CsI, matCsI, "logicCsI3", 0, 0, 0);
+    m_logicANASENQQQ3CsI -> SetVisAttributes(m_VisCsI);
+    m_logicANASENQQQ3CsI -> SetSensitiveDetector(m_CsIDet);
 }
 
 //////////////////////////////////////////////////////////////////////
 //
 // BuildX6Detector: making a G4AssemblyVolume for X6 (only once)
 //
-G4AssemblyVolume* STARK::BuildX6Detector() {
-    if (m_X6) return m_X6;
+G4AssemblyVolume* STARK::BuildX6Detector(int buildCsI) {
+    if (buildCsI==0) { if (m_X6) return m_X6; }
+    else { if (m_X6_wCsI[buildCsI]) return m_X6_wCsI[buildCsI]; }
 
     ////////////////////////////////////////////////////////////
     // material definition
@@ -140,23 +365,38 @@ G4AssemblyVolume* STARK::BuildX6Detector() {
     logicX6Si->SetVisAttributes(m_VisX6);
     logicX6Si->SetSensitiveDetector(m_X6Det);
 
-    m_X6 = new G4AssemblyVolume();
+    G4AssemblyVolume *assembly;
+    assembly = new G4AssemblyVolume();
     G4ThreeVector Pos;
-    m_X6->AddPlacedVolume(logicX6Si, Pos, 0);  // reference = center of the X6 Si wafer
+    assembly->AddPlacedVolume(logicX6Si, Pos, 0);  // reference = center of the X6 Si wafer
     Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset, -X6_SiZOffset);
-    m_X6->AddPlacedVolume(logicX6PCB, Pos, 0);
+    assembly->AddPlacedVolume(logicX6PCB, Pos, 0);
     Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset - X6_PCBY / 2. + Conn_Y / 2., X6_PCBZ / 2. + Conn_Z / 2.);
-    m_X6->AddPlacedVolume(logicX6Conn, Pos, 0);
+    assembly->AddPlacedVolume(logicX6Conn, Pos, 0);
 
-    return m_X6;
+    if (buildCsI!=0) {
+        BuildSquareCsI();
+        G4double offZ = 0.5*CsI_Z + CsI_X6_ZOffset;
+        if (buildCsI==2) offZ = -offZ;
+        G4ThreeVector Pos1(CsI_X6_XOffset, CsI_X6_YOffset1, offZ);
+        G4ThreeVector Pos2(CsI_X6_XOffset, CsI_X6_YOffset2, offZ);
+        assembly->AddPlacedVolume(m_logicSquareCsI1, Pos1, 0);
+        assembly->AddPlacedVolume(m_logicSquareCsI2, Pos2, 0);
+    }
+
+    if (buildCsI==0) m_X6 = assembly;
+    else m_X6_wCsI[buildCsI] = assembly;
+
+    return assembly;
 }
 
 //////////////////////////////////////////////////////////////////////
 //
 // BuildBB10Detector: making a G4AssemblyVolume for BB10 (only once)
 //
-G4AssemblyVolume* STARK::BuildBB10Detector() {
-    if (m_BB10) return m_BB10;
+G4AssemblyVolume* STARK::BuildBB10Detector(int buildCsI) {
+    if (buildCsI==0) { if (m_BB10) return m_BB10; }
+    else { if (m_BB10_wCsI[buildCsI]) return m_BB10_wCsI[buildCsI]; }
 
     ////////////////////////////////////////////////////////////
     // material definition
@@ -191,22 +431,35 @@ G4AssemblyVolume* STARK::BuildBB10Detector() {
     logicBB10Si->SetVisAttributes(m_VisBB10);
     logicBB10Si->SetSensitiveDetector(m_BB10Det);
 
-    m_BB10 = new G4AssemblyVolume();
+    G4AssemblyVolume *assembly = new G4AssemblyVolume();
     G4ThreeVector Pos;
-    m_BB10->AddPlacedVolume(logicBB10Si, Pos, 0);  // reference = center of the BB10 Si wafer
+    assembly->AddPlacedVolume(logicBB10Si, Pos, 0);  // reference = center of the BB10 Si wafer
     Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset, -BB10_SiZOffset);
-    m_BB10->AddPlacedVolume(logicBB10PCB, Pos, 0);
+    assembly->AddPlacedVolume(logicBB10PCB, Pos, 0);
     Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset - BB10_PCBY / 2. + Conn_Y / 2., BB10_PCBZ / 2. + Conn_Z / 2.);
-    m_BB10->AddPlacedVolume(logicBB10Conn, Pos, 0);
+    assembly->AddPlacedVolume(logicBB10Conn, Pos, 0);
 
-    return m_BB10;
+    if (buildCsI!=0) {
+        BuildSquareCsI();
+        G4double offZ = 0.5*CsI_Z + CsI_BB10_ZOffset;
+        if (buildCsI==2) offZ = -offZ;
+        G4ThreeVector Pos1(CsI_BB10_XOffset, CsI_BB10_YOffset1, offZ);
+        G4ThreeVector Pos2(CsI_BB10_XOffset, CsI_BB10_YOffset2, offZ);
+        assembly->AddPlacedVolume(m_logicSquareCsI1, Pos1, 0);
+        assembly->AddPlacedVolume(m_logicSquareCsI2, Pos2, 0);
+    }
+
+    if (buildCsI==0) m_BB10 = assembly;
+    else m_BB10_wCsI[buildCsI] = assembly;
+
+    return assembly;
 }
 
 //////////////////////////////////////////////////////////////////////
 //
 // BuildQQQ5Detector: making a G4AssemblyVolume for QQQ5 (only once)
 //
-G4AssemblyVolume* STARK::BuildQQQ5Detector() {
+G4AssemblyVolume* STARK::BuildQQQ5Detector(int buildCsI) {
     if (m_QQQ5) return m_QQQ5;
 
     ////////////////////////////////////////////////////////////
@@ -260,16 +513,42 @@ G4AssemblyVolume* STARK::BuildQQQ5Detector() {
     logicQQQ5Si->SetVisAttributes(m_VisQQQ5);
     logicQQQ5Si->SetSensitiveDetector(m_QQQ5Det);
 
-    m_QQQ5 = new G4AssemblyVolume();
+    G4AssemblyVolume* assembly = new G4AssemblyVolume();
     G4ThreeVector Pos;
-    m_QQQ5->AddPlacedVolume(logicQQQ5Si, Pos, 0);
-    m_QQQ5->AddPlacedVolume(logicQQQ5PCB, Pos, 0);
+    assembly->AddPlacedVolume(logicQQQ5Si, Pos, 0);
+    assembly->AddPlacedVolume(logicQQQ5PCB, Pos, 0);
     Pos = G4ThreeVector(Conn_Y / 2., (QQQ5_SiOutR + QQQ5_SiInR) / 2., QQQ5_PCBT / 2. + Conn_Z / 2.);
     G4RotationMatrix* rot = new G4RotationMatrix;
     rot->rotateZ(90 * deg);
-    m_QQQ5->AddPlacedVolume(logicQQQ5Conn, Pos, rot);
+    assembly->AddPlacedVolume(logicQQQ5Conn, Pos, rot);
 
-    return m_QQQ5;
+    if (buildCsI!=0) {
+        BuildANASENQQQ3CsI();
+        G4double m_ANASENQQQ3CsI_Z = 50;
+        G4double offZ = 0.5*m_ANASENQQQ3CsI_Z + CsI_QQQ5_ZOffset;
+        if (buildCsI==2) offZ = -offZ;
+        for (auto iCsI : {0,1,2,3})
+        {
+            G4double angle1 = -360/32.*deg;
+            G4double angle2 = -360/16.*deg;
+            G4double angleZ = angle1 + iCsI*angle2;
+            G4double angleO = 90*deg + angle1 + iCsI*angle2;
+            G4RotationMatrix* Rot = new G4RotationMatrix(0, 0, 0);
+            Rot->rotateX(90*deg);
+            //Rot->rotateZ(180*deg);
+            Rot->rotateZ(angleZ);
+            G4double offR = CsI_QQQ5_YOffset+m_ANASENQQQ3CsITotHeight-m_ANASENQQQ3CsIHeight/2.;
+            G4ThreeVector Pos1(CsI_QQQ5_XOffset, 0, offZ);
+            G4ThreeVector direction(std::cos(angleO), std::sin(angleO), 0);
+            Pos1 = Pos1 + offR*direction;
+            assembly->AddPlacedVolume(m_logicANASENQQQ3CsI, Pos1, Rot);
+        }
+    }
+
+    if (buildCsI==0) m_QQQ5 = assembly;
+    else m_QQQ5_wCsI[buildCsI] = assembly;
+
+    return assembly;
 }
 
 G4AssemblyVolume* STARK::BuildTarget() {
@@ -299,6 +578,7 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
     vector<string> cart = {"Type", "POS"};
     vector<string> sphe = {"Type", "R", "Theta", "Phi"};
     vector<string> cyld = {"Type", "Rho", "Phi", "Z"};
+    vector<string> car2 = {"Type", "POS", "RotateXYZ"};
 
     for (unsigned int i = 0; i < blocks.size(); i++) {
         ////////////////////////////////////////////////////////////
@@ -311,6 +591,8 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
                 BB10_ERes = blocks[i]->GetDouble("Reso", "void");
             else if (Type.compare("QQQ5") == 0)
                 QQQ5_ERes = blocks[i]->GetDouble("Reso", "void");
+            else if (Type.compare("CsI") == 0)
+                CsI_ERes = blocks[i]->GetDouble("Reso", "void");
             continue;  // only block for resolution
         }
         ////////////////////////////////////////////////////////////
@@ -332,6 +614,28 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
         }
         ////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////
+        // Cartesian coordinate with given rotation-xyz
+        else if (blocks[i]->HasTokenList(car2)) {
+            if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  STARK " << i + 1 << endl;
+            string Type = blocks[i]->GetString("Type");
+            G4ThreeVector posXYZ = NPS::ConvertVector(blocks[i]->GetTVector3("POS", "mm"));
+            G4ThreeVector rotXYZ = NPS::ConvertVector(blocks[i]->GetTVector3("RotateXYZ", "deg"));
+            int Group = 0;
+            if (blocks[i]->HasToken("Group")) Group = blocks[i]->GetInt("Group");
+            int csi = 0;
+            if (blocks[i]->HasToken("CsI")) csi = blocks[i]->GetInt("CsI");
+            cout << endl << "////  Type " << Type << endl;
+            cout << "////  POS " << posXYZ << endl;
+            cout << "////  RotateXYZ " << rotXYZ << endl;
+            if (Group != 0) {
+                cout << "////  Group " << Group << endl;
+            }
+            string mvName;
+            if (blocks[i]->HasToken("MotherVolume")) mvName = blocks[i]->GetString("MotherVolume");
+            AddDetector(Type, posXYZ, rotXYZ, csi, Group, mvName);
+        }
+        ////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////
         // Cartesian coordinate
         else if (blocks[i]->HasTokenList(cart)) {
             if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  STARK " << i + 1 << endl;
@@ -345,6 +649,8 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
             if (blocks[i]->HasToken("Beta")) Beta = blocks[i]->GetDouble("Beta", "deg");
             int Group = 0;
             if (blocks[i]->HasToken("Group")) Group = blocks[i]->GetInt("Group");
+            int csi = 0;
+            if (blocks[i]->HasToken("CsI")) csi = blocks[i]->GetInt("CsI");
             cout << endl << "////  Type " << Type << endl;
             cout << "////  Pos " << Pos << endl;
             cout << "////  Flip " << Flip << endl;
@@ -353,7 +659,9 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
             if (Group != 0) {
                 cout << "////  Group " << Group << endl;
             }
-            AddDetector(Type, Pos, Flip, Rev, Beta, Group);
+            string mvName;
+            if (blocks[i]->HasToken("MotherVolume")) mvName = blocks[i]->GetString("MotherVolume");
+            AddDetector(Type, Pos, Flip, Rev, Beta, csi, Group, mvName);
         }
         ////////////////////////////////////////////////////////////
 
@@ -373,6 +681,8 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
             if (blocks[i]->HasToken("Beta")) Beta = blocks[i]->GetDouble("Beta", "deg");
             int Group = 0;
             if (blocks[i]->HasToken("Group")) Group = blocks[i]->GetInt("Group");
+            int csi = 0;
+            if (blocks[i]->HasToken("CsI")) csi = blocks[i]->GetInt("CsI");
             G4ThreeVector Pos;
             Pos.setRThetaPhi(R, Theta, Phi);
             cout << endl << "////  Type " << Type << endl;
@@ -383,7 +693,9 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
             if (Group != 0) {
                 cout << "////  Group " << Group << endl;
             }
-            AddDetector(Type, Pos, Flip, Rev, Beta, Group);
+            string mvName;
+            if (blocks[i]->HasToken("MotherVolume")) mvName = blocks[i]->GetString("MotherVolume");
+            AddDetector(Type, Pos, Flip, Rev, Beta, csi, Group, mvName);
         }
         ////////////////////////////////////////////////////////////
 
@@ -403,6 +715,8 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
             if (blocks[i]->HasToken("Beta")) Beta = blocks[i]->GetDouble("Beta", "deg");
             int Group = 0;
             if (blocks[i]->HasToken("Group")) Group = blocks[i]->GetInt("Group");
+            int csi = 0;
+            if (blocks[i]->HasToken("CsI")) csi = blocks[i]->GetInt("CsI");
             G4ThreeVector Pos;
             Pos.setRhoPhiZ(Rho, Phi, Z);
             cout << endl << "////  Type " << Type << endl;
@@ -413,7 +727,9 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
             if (Group != 0) {
                 cout << "////  Group " << Group << endl;
             }
-            AddDetector(Type, Pos, Flip, Rev, Beta, Group);
+            string mvName;
+            if (blocks[i]->HasToken("MotherVolume")) mvName = blocks[i]->GetString("MotherVolume");
+            AddDetector(Type, Pos, Flip, Rev, Beta, csi, Group, mvName);
         }
         ////////////////////////////////////////////////////////////
 
@@ -446,18 +762,25 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
     for (unsigned short i = 0; i < m_Pos.size(); i++) {
         G4double phi = m_Pos[i].getPhi();
         G4RotationMatrix* Rot = new G4RotationMatrix(0, 0, 0);
-        if (m_Rev[i]) Rot->rotateZ(180 * deg);
-        if (m_Flip[i]) Rot->rotateY(180 * deg);
-        Rot->rotateX(90 * deg);
-        Rot->rotateZ(90 * deg + phi);
+        if (m_UseXYZ[i]) {
+            Rot->rotateX(m_RotXYZ[i].x());
+            Rot->rotateY(m_RotXYZ[i].y());
+            Rot->rotateZ(m_RotXYZ[i].z());
+        }
+        else{
+            if (m_Rev[i]) Rot->rotateZ(180 * deg);
+            if (m_Flip[i]) Rot->rotateY(180 * deg);
+            Rot->rotateX(90 * deg);
+            Rot->rotateZ(90 * deg + phi);
+        }
 
         G4AssemblyVolume* det;
         if (m_Type[i] == "X6")
-            det = BuildX6Detector();
+            det = BuildX6Detector(m_CsI[i]);
         else if (m_Type[i] == "BB10")
-            det = BuildBB10Detector();
+            det = BuildBB10Detector(m_CsI[i]);
         else if (m_Type[i] == "QQQ5") {
-            det = BuildQQQ5Detector();
+            det = BuildQQQ5Detector(m_CsI[i]);
             Rot = new G4RotationMatrix;
             Rot->rotateZ(m_Beta[i]);
             if (m_Flip[i]) Rot->rotateY(180 * deg);
@@ -466,6 +789,13 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
             continue;
         }
 
+        if (m_MVName[i].empty()==false) {
+            for (const auto& lv : *G4LogicalVolumeStore::GetInstance()) {
+                if (std::string(lv->GetName())==m_MVName[i]) {
+                    world = lv;
+                }
+            }
+        }
         det->MakeImprint(world, m_Pos[i], Rot, i + 1, true);
 
         // iterator is equal to fPVStore.begin()
@@ -474,8 +804,9 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
         unsigned int NbrTotalPV = det->TotalImprintedVolumes();
         unsigned int NbrComponents = NbrTotalPV / NbrImprints;
         // set copy numbers of components of assembly volume to the current detector number
+        int countComponents = 0;
         for (it += (NbrImprints - 1) * NbrComponents; it <= det->GetVolumesIterator() + NbrTotalPV - 1; it++)
-            (*it)->SetCopyNo(i + 1);
+            (*it)->SetCopyNo(i + 1 + (countComponents++)*100);
     }
 
     if (m_useTarget) {
@@ -510,6 +841,7 @@ void STARK::ReadSensitive(const G4Event* event) {
     if (HCID_X6 == -1) HCID_X6 = G4SDManager::GetSDMpointer()->GetCollectionID("X6Det/X6Scorer");
     if (HCID_BB10 == -1) HCID_BB10 = G4SDManager::GetSDMpointer()->GetCollectionID("BB10Det/BB10Scorer");
     if (HCID_QQQ5 == -1) HCID_QQQ5 = G4SDManager::GetSDMpointer()->GetCollectionID("QQQ5Det/QQQ5Scorer");
+    if (HCID_CsI == -1) HCID_CsI = G4SDManager::GetSDMpointer()->GetCollectionID("CsIDet/CsIScorer");
 
     /////////////////////////////////////////////////////////////////////////////////
     // loop for the event map
@@ -561,8 +893,8 @@ void STARK::ReadSensitive(const G4Event* event) {
     evtMap = static_cast<NPS::HitsMap<G4double*>*>(HCE->GetHC(HCID_QQQ5));
     for (it = evtMap->GetMap()->begin(); it != evtMap->GetMap()->end(); it++) {
         // energy smearing
-        G4double enSmear0 = RandGauss::shoot((*(it->second))[0], (*(it->second))[0] * BB10_ERes / 100.);
-        G4double enSmear1 = RandGauss::shoot((*(it->second))[1], (*(it->second))[1] * BB10_ERes / 100.);
+        G4double enSmear0 = RandGauss::shoot((*(it->second))[0], (*(it->second))[0] * QQQ5_ERes / 100.);
+        G4double enSmear1 = RandGauss::shoot((*(it->second))[1], (*(it->second))[1] * QQQ5_ERes / 100.);
         m_Event->Set(2,
                      (*(it->second))[3],   // detector number
                      (*(it->second))[4],   // front strip number
@@ -576,6 +908,25 @@ void STARK::ReadSensitive(const G4Event* event) {
                      (*(it->second))[7],   // hit position Y
                      (*(it->second))[8]);  // hit position Z
     }
+    /////////////////////////////////////
+    // for CsI
+    evtMap = static_cast<NPS::HitsMap<G4double*>*>(HCE->GetHC(HCID_CsI));
+    for (it = evtMap->GetMap()->begin(); it != evtMap->GetMap()->end(); it++) {
+        // energy smearing
+        G4double enSmear0 = RandGauss::shoot((*(it->second))[1], (*(it->second))[1] * CsI_ERes / 100.);
+        m_Event->Set(3,
+                     (*(it->second))[0],   // detector number
+                     0,                    // front strip number
+                     0,                    // back strip number
+                     enSmear0,             // frontside energy
+                     0,                    // backside energy
+                     0,                    // upstream energy
+                     0,                    // downstream energy
+                     (*(it->second))[2],   // global time
+                     0,                    // hit position X
+                     0,                    // hit position Y
+                     0);                   // hit position Z
+    }
     /////////////////////////////////////////////////////////////////////////////////
 }
 
@@ -585,9 +936,11 @@ void STARK::InitializeScorers() {
     bool already_exist_X6 = false;
     bool already_exist_BB10 = false;
     bool already_exist_QQQ5 = false;
+    bool already_exist_CsI = false;
     m_X6Det = CheckScorer("X6Det", already_exist_X6);        // MultiFunctionalDetector
     m_BB10Det = CheckScorer("BB10Det", already_exist_BB10);  // MultiFunctionalDetector
     m_QQQ5Det = CheckScorer("QQQ5Det", already_exist_QQQ5);  // MultiFunctionalDetector
+    m_CsIDet = CheckScorer("CsIDet", already_exist_CsI);     // MultiFunctionalDetector
 
     // if not, create them
     if (!already_exist_X6) {
@@ -610,6 +963,13 @@ void STARK::InitializeScorers() {
                                             QQQ5_SiPhi1, QQQ5_NAStrip, QQQ5_NRStrip, 0);
         m_QQQ5Det->RegisterPrimitive(QQQ5Scorer);
         G4SDManager::GetSDMpointer()->AddNewDetector(m_QQQ5Det);
+    }
+
+    if (!already_exist_CsI) {
+        G4VPrimitiveScorer* CsIScorer =
+            new STARKSCORERS::PS_STARK_CsI("CsIScorer", 0, 0);
+        m_CsIDet->RegisterPrimitive(CsIScorer);
+        G4SDManager::GetSDMpointer()->AddNewDetector(m_CsIDet);
     }
 }
 

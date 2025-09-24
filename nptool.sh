@@ -65,15 +65,17 @@ _npp() {
   # Pointer to current completion word.
   local cur
   # Array variable storing the possible completions.
-  COMPREPLY=()     
-  cur=${COMP_WORDS[COMP_CWORD]}
-  
-  # LIST of available choices
-  LIST=`ls $NPTOOL/Projects $NPTOOL/Examples`
-  case "$cur" in
-    *)
-    COMPREPLY=( $( compgen -W '$LIST' -- $cur ) );;
-  esac
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+
+  # Combine subdirectories from both Projects and Examples
+  local proj_dirs example_dirs
+  proj_dirs=$(basename -a "$NPTOOL"/Projects/* 2>/dev/null)
+  example_dirs=$(basename -a "$NPTOOL"/Examples/* 2>/dev/null)
+
+  local LIST="${proj_dirs} ${example_dirs}"
+
+  COMPREPLY=( $(compgen -W "$LIST" -- "$cur") )
 
   return 0
 }

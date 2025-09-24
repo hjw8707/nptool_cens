@@ -1,0 +1,7 @@
+- common/atomx_simulation_script_writter.py: python class atomx_simulation_script_writter for creating configuration files and run scripts.  You can check detector parameters here.
+- See simulation_12C/make_scripts.py for example to see how to use the class atomx_simulation_script_writter. Please check data and input path (set it to the existing path) before you link the directory
+
+- simulation_12C: simulation for 12C(p,p')3alpha
+- simulation_34Ar: simulation for 34Ar(alpha,p)37K
+- simulation_geometrical_efficiency: calculate geomtrical efficiency of atomx si arrays as a functions of reaction-z (no gas is used for this example)
+

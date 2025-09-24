@@ -1,0 +1,4 @@
+add_library(NPSATOMX SHARED  ATOMX.cc)
+#target_link_libraries(NPSATOMX NPSCore ${ROOT_LIBRARIES} ${Geant4_LIBRARIES} ${NPLib_LIBRARIES} -lNPATOMX)
+#target_link_libraries(NPSATOMX PUBLIC NPSSTARK)
+target_link_libraries(NPSATOMX PUBLIC NPSSTARK PRIVATE NPSCore ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} -lNPATOMX)
