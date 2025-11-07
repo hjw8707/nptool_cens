@@ -193,7 +193,7 @@ void Target::ReadConfiguration(NPL::InputParser parser) {
       m_BackCone = ctarget[0]->GetDouble("BackCone", "deg");
       m_FrameMaterial = Mat->GetMaterialFromLibrary(ctarget[0]->GetString("FrameMaterial"));
       // Heat Shield
-      m_HeatShield = ctarget[0]->GetInt("HeatShield");  // 0: no heat shield, 1: heat shield
+      m_HeatShield = ctarget[0]->GetBool("HeatShield");  // 0: no heat shield, 1: heat shield
       if (m_HeatShield) {
         m_ShieldInnerRadius = ctarget[0]->GetDouble("ShieldInnerRadius", "mm");
         m_ShieldOuterRadius = ctarget[0]->GetDouble("ShieldOuterRadius", "mm");
