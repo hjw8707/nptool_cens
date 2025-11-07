@@ -207,103 +207,102 @@ extern const G4double m_ANASENQQQ3CsIHeight;
 ////////////////////////////////////////////////////////////////////////////////
 
 class STARK : public NPS::VDetector {
-   public:
-    STARK();
-    virtual ~STARK();
+ public:
+  STARK();
+  virtual ~STARK();
 
-    void AddDetector(string Type, G4ThreeVector POS, int Flip, int Rev, double Beta, int CsI, int Group, string mvName);
-    void AddDetector(string Type, G4ThreeVector POS, G4ThreeVector rotXYZ, int CsI, int Group, string mvName);
-    G4AssemblyVolume* BuildX6Detector(int nCsI=0);
-    G4AssemblyVolume* BuildBB10Detector(int nCsI=0);
-    G4AssemblyVolume* BuildQQQ5Detector(int nCsI=0);
-    G4AssemblyVolume* BuildTarget();
-    void BuildSquareCsI();
-    void BuildANASENQQQ3CsI();
+  void AddDetector(string Type, G4ThreeVector POS, bool Flip, bool Rev, double Beta, int CsI, int Group, string mvName);
+  void AddDetector(string Type, G4ThreeVector POS, G4ThreeVector Rot, int CsI, int Group, string mvName);
+  G4AssemblyVolume* BuildX6Detector(int nCsI = 0);
+  G4AssemblyVolume* BuildBB10Detector(int nCsI = 0);
+  G4AssemblyVolume* BuildQQQ5Detector(int nCsI = 0);
+  G4AssemblyVolume* BuildTarget();
+  void BuildSquareCsI();
+  void BuildANASENQQQ3CsI();
 
-    // Reaction Region
-    G4Region* m_ReactionRegion = nullptr;
-    void SetReactionRegion(G4LogicalVolume* world);
-    void SetMotherVolume(G4LogicalVolume* motherVolume);
+  // Reaction Region
+  G4Region* m_ReactionRegion = nullptr;
+  void SetReactionRegion(G4LogicalVolume* world);
+  void SetMotherVolume(G4LogicalVolume* motherVolume);
 
-    // Inherited from NPS::VDetector class /////////////
-   public:
-    // Read stream at Configfile to pick-up parameters of detector
-    // called in DetectorConstruction::ReadDetectorConfiguration
-    void ReadConfiguration(NPL::InputParser);
+  // Inherited from NPS::VDetector class /////////////
+ public:
+  // Read stream at Configfile to pick-up parameters of detector
+  // called in DetectorConstruction::ReadDetectorConfiguration
+  void ReadConfiguration(NPL::InputParser);
 
-    // Construct detector and initialise sensitive part
-    // called after DetectorConstruction::AddDetector
-    void ConstructDetector(G4LogicalVolume* world);
+  // Construct detector and initialise sensitive part
+  // called after DetectorConstruction::AddDetector
+  void ConstructDetector(G4LogicalVolume* world);
 
-    // Add detector branch to the EventTree
-    // called after DetectorConstruction::AddDetector
-    void InitializeRootOutput();
+  // Add detector branch to the EventTree
+  // called after DetectorConstruction::AddDetector
+  void InitializeRootOutput();
 
-    // Read sensitive part and fill the Root tree
-    // called in EventAction::EndOfEventAvtion
-    void ReadSensitive(const G4Event* event);
+  // Read sensitive part and fill the Root tree
+  // called in EventAction::EndOfEventAvtion
+  void ReadSensitive(const G4Event* event);
 
-    // Initialise all scorers used by the detector
-    void InitializeScorers();
-    G4MultiFunctionalDetector* m_X6Det;
-    G4MultiFunctionalDetector* m_BB10Det;
-    G4MultiFunctionalDetector* m_QQQ5Det;
-    G4MultiFunctionalDetector* m_CsIDet;
-    ////////////////////////////////////////////////////
+  // Initialise all scorers used by the detector
+  void InitializeScorers();
+  G4MultiFunctionalDetector* m_X6Det;
+  G4MultiFunctionalDetector* m_BB10Det;
+  G4MultiFunctionalDetector* m_QQQ5Det;
+  G4MultiFunctionalDetector* m_CsIDet;
+  ////////////////////////////////////////////////////
 
-   private:
-    G4int HCID_X6;
-    G4int HCID_BB10;
-    G4int HCID_QQQ5;
-    G4int HCID_CsI;
+ private:
+  G4int HCID_X6;
+  G4int HCID_BB10;
+  G4int HCID_QQQ5;
+  G4int HCID_CsI;
 
-    G4AssemblyVolume* m_X6;
-    G4AssemblyVolume* m_BB10;
-    G4AssemblyVolume* m_QQQ5;
-    G4AssemblyVolume* m_X6_wCsI[4];
-    G4AssemblyVolume* m_BB10_wCsI[4];
-    G4AssemblyVolume* m_QQQ5_wCsI[4];
-    G4AssemblyVolume* m_Target;
-    G4LogicalVolume* m_logicTarget;
-    G4LogicalVolume* m_logicSquareCsI1;
-    G4LogicalVolume* m_logicSquareCsI2;
-    G4LogicalVolume* m_logicANASENQQQ3CsI;
+  G4AssemblyVolume* m_X6;
+  G4AssemblyVolume* m_BB10;
+  G4AssemblyVolume* m_QQQ5;
+  G4AssemblyVolume* m_X6_wCsI[4];
+  G4AssemblyVolume* m_BB10_wCsI[4];
+  G4AssemblyVolume* m_QQQ5_wCsI[4];
+  G4AssemblyVolume* m_Target;
+  G4LogicalVolume* m_logicTarget;
+  G4LogicalVolume* m_logicSquareCsI1;
+  G4LogicalVolume* m_logicSquareCsI2;
+  G4LogicalVolume* m_logicANASENQQQ3CsI;
 
-    // Event class to store data
-    TSTARKData* m_Event;
-    TSTARKRaw* m_Raw;
+  // Event class to store data
+  TSTARKData* m_Event;
+  TSTARKRaw* m_Raw;
 
-    // Type & Geometry
-    vector<string> m_Type;
-    vector<G4ThreeVector> m_Pos;
-    vector<int> m_Flip;  // Which surface facing to the beam line.
-    vector<int> m_Rev;
-    vector<G4double> m_Beta;
-    vector<G4int> m_Group;  // Detector group for dE-E analysis
-    vector<int> m_CsI;
-    vector<string> m_MVName;
+  // Type & Geometry
+  vector<string> m_Type;
+  vector<G4ThreeVector> m_Pos;
+  vector<G4ThreeVector> m_Rot;  // Rotation of the detector
+  vector<bool>
+      m_AutoRotateFacingBeamAxis;  // If true, the detector will be rotated to face the beam axis. (do not use m_Rot)
+  vector<bool> m_Flip;             // Which surface facing to the beam line.
+  vector<bool> m_Rev;              // Reverse along the beam axis. (connector direction)
+  vector<G4double> m_Beta;         // Rotation along the beam axis. (only for QQQ5)
+  vector<G4int> m_Group;           // Detector group for dE-E analysis
+  vector<int> m_CsI;               // Number of CsI layers
+  vector<string> m_MVName;         // Name of the mother volume
 
-    // XYZ definition
-    vector<bool> m_UseXYZ;
-    vector<G4ThreeVector> m_RotXYZ;
+  // Target
+  bool m_useTarget;
+  string m_TargetMaterial;
+  double m_Pressure;
+  double m_Temperature;
+  double m_Radius;
+  double m_Z;
 
-    // Target
-    bool m_useTarget;
-    string m_TargetMaterial;
-    double m_Pressure;
-    double m_Temperature;
-    double m_Radius;
-    double m_Z;
+  // Visualisation
+  G4VisAttributes *m_VisX6, *m_VisX6PCB;
+  G4VisAttributes *m_VisBB10, *m_VisBB10PCB;
+  G4VisAttributes *m_VisQQQ5, *m_VisQQQ5PCB;
+  G4VisAttributes *m_VisConn, *m_VisTarget;
+  G4VisAttributes* m_VisCsI;
 
-    // Visualisation
-    G4VisAttributes *m_VisX6, *m_VisX6PCB;
-    G4VisAttributes *m_VisBB10, *m_VisBB10PCB;
-    G4VisAttributes *m_VisQQQ5, *m_VisQQQ5PCB;
-    G4VisAttributes *m_VisConn, *m_VisTarget;
-    G4VisAttributes *m_VisCsI;
-
-   public:
-    // Dynamic loading of the library
-    static NPS::VDetector* Construct();
+ public:
+  // Dynamic loading of the library
+  static NPS::VDetector* Construct();
 };
 #endif
