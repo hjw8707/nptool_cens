@@ -1,0 +1,28 @@
+%%%%%%%%%%Detector%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+%GeneralTarget
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+%Target
+CryogenicTarget
+ NominalThickness= 8 mm
+ Material= D2
+ Density= 0.0715 g/cm3
+ Radius= 20 mm
+ Angle= 45 deg
+ X= 0 mm
+ Y= 0 mm
+ Z= 0 mm
+ FrontDeformation= 1 mm
+ FrontThickness= 2.5 micrometer
+ FrontRadius= 20 mm
+ FrontMaterial= Havar
+ BackDeformation= 1 mm
+ BackThickness= 2.5 micrometer
+ BackRadius= 20 mm
+ BackMaterial= Havar
+ FrameRadius= 30 mm
+ FrameThickness= 10 mm
+ FrontCone= 0 deg
+ BackCone= 45 deg
+ FrameMaterial= Al
+ HeatShield= 0

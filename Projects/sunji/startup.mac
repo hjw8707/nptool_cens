@@ -1,0 +1,2 @@
+/vis/viewer/set/viewpointThetaPhi 60 30
+/vis/scene/add/axes 0 0 0 10 cm
