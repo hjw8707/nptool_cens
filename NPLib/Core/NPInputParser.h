@@ -32,91 +32,92 @@
 
 namespace NPL {
 
-  static std::string token_separator = "=";
-  std::string StripSpaces(std::string line);
-  std::string ToLower(std::string line);
-  double ApplyUnit(double value, std::string unit);
-  unsigned int GetLevel(std::string line);
+static std::string token_separator = "=";
+std::string StripSpaces(std::string line);
+std::string ToLower(std::string line);
+double ApplyUnit(double value, std::string unit);
+unsigned int GetLevel(std::string line);
 
-  class InputBlock {
-   public:
-    InputBlock(){};
-    InputBlock(std::string line);
-    ~InputBlock(){};
-    NPL::InputBlock* Copy();
+class InputBlock {
+ public:
+  InputBlock() {};
+  InputBlock(std::string line);
+  ~InputBlock() {};
+  NPL::InputBlock* Copy();
 
-   private:
-    unsigned int m_Level;
-    std::string m_MainToken;
-    std::string m_MainValue;
-    std::vector<std::string> m_Token;
-    std::vector<std::string> m_Value;
-    std::vector<std::string> m_Lines;
+ private:
+  unsigned int m_Level;
+  std::string m_MainToken;
+  std::string m_MainValue;
+  std::vector<std::string> m_Token;
+  std::vector<std::string> m_Value;
+  std::vector<std::string> m_Lines;
 
-   public:
-    void AddLine(std::string line);
-    std::string ExtractToken(std::string line, std::string separator = "");
-    std::string ExtractValue(std::string line, std::string separator = "");
+ public:
+  void AddLine(std::string line);
+  std::string ExtractToken(std::string line, std::string separator = "");
+  std::string ExtractValue(std::string line, std::string separator = "");
 
-   public:
-    std::string GetToken(unsigned int i) { return m_Token[i]; };
-    std::string GetValue(unsigned int i) { return m_Value[i]; };
-    std::string GetValue(std::string Token);
-    void SetValue(unsigned int i, std::string val) { m_Value[i] = val; };
+ public:
+  std::string GetToken(unsigned int i) { return m_Token[i]; };
+  std::string GetValue(unsigned int i) { return m_Value[i]; };
+  std::string GetValue(std::string Token);
+  void SetValue(unsigned int i, std::string val) { m_Value[i] = val; };
 
-   public:
-    bool HasTokenList(std::vector<std::string> TokenList);
-    std::vector<std::string> GetMissingToken(std::vector<std::string> TokenList);
-    bool HasToken(std::string Token);
+ public:
+  bool HasTokenList(std::vector<std::string> TokenList);
+  std::vector<std::string> GetMissingToken(std::vector<std::string> TokenList);
+  bool HasToken(std::string Token);
 
-   public:
-    std::string GetMainToken() { return m_MainToken; };
-    std::string GetMainValue() { return m_MainValue; };
+ public:
+  std::string GetMainToken() { return m_MainToken; };
+  std::string GetMainValue() { return m_MainValue; };
 
-    unsigned int GetSize() { return m_Token.size(); };
-    double GetDouble(std::string Token, std::string default_unit);
-    int GetInt(std::string Token);
-    std::string GetString(std::string Token);
-    TVector3 GetTVector3(std::string Token, std::string default_unit);
-    std::vector<double> GetVectorDouble(std::string Token, std::string default_unit);
-    std::vector<int> GetVectorInt(std::string Token);
-    std::vector<std::string> GetVectorString(std::string Token, std::string separator = " ");
-    std::vector<std::string> GetVectorList(std::string Token, std::string separator = " ");
-    std::vector<NPL::InputBlock*> GetSubBlock(std::string Token);
-    std::vector<std::string> GetLines() { return m_Lines; };
+  unsigned int GetSize() { return m_Token.size(); };
+  double GetDouble(std::string Token, std::string default_unit);
+  int GetInt(std::string Token);
+  bool GetBool(std::string Token);
+  std::string GetString(std::string Token);
+  TVector3 GetTVector3(std::string Token, std::string default_unit);
+  std::vector<double> GetVectorDouble(std::string Token, std::string default_unit);
+  std::vector<int> GetVectorInt(std::string Token);
+  std::vector<std::string> GetVectorString(std::string Token, std::string separator = " ");
+  std::vector<std::string> GetVectorList(std::string Token, std::string separator = " ");
+  std::vector<NPL::InputBlock*> GetSubBlock(std::string Token);
+  std::vector<std::string> GetLines() { return m_Lines; };
 
-   public:
-    void Dump();
-  };
-  ////////////////////////////////////////////////////////////////////////////////
-  class InputParser {
-   public:
-    InputParser(){};
-    InputParser(std::string filename, bool ExitOnError = true) { ReadFile(filename, ExitOnError); }
-    ~InputParser(){};
+ public:
+  void Dump();
+};
+////////////////////////////////////////////////////////////////////////////////
+class InputParser {
+ public:
+  InputParser() {};
+  InputParser(std::string filename, bool ExitOnError = true) { ReadFile(filename, ExitOnError); }
+  ~InputParser() {};
 
-   private:
-    std::vector<InputBlock*> m_Block;
-    std::map<std::string, std::vector<std::string>> m_Aliases;
+ private:
+  std::vector<InputBlock*> m_Block;
+  std::map<std::string, std::vector<std::string>> m_Aliases;
 
-   private:
-    int m_verbose;
+ private:
+  int m_verbose;
 
-   public:
-    void ReadFile(std::string filename, bool ExitOnError = true);
-    void TreatAliases();
-    void TreatOneAlias(){};
-    void Dump();
-    void Print() { Dump(); }
-    void Clear();
-    std::vector<InputBlock*> GetAllBlocksWithToken(std::string Token);
-    std::vector<InputBlock*> GetAllBlocksWithTokenAndValue(std::string Token, std::string Value);
-    std::vector<std::string> GetAllBlocksValues(std::string);
-    std::vector<std::string> GetAllBlocksToken();
+ public:
+  void ReadFile(std::string filename, bool ExitOnError = true);
+  void TreatAliases();
+  void TreatOneAlias() {};
+  void Dump();
+  void Print() { Dump(); }
+  void Clear();
+  std::vector<InputBlock*> GetAllBlocksWithToken(std::string Token);
+  std::vector<InputBlock*> GetAllBlocksWithTokenAndValue(std::string Token, std::string Value);
+  std::vector<std::string> GetAllBlocksValues(std::string);
+  std::vector<std::string> GetAllBlocksToken();
 
-   private:
-    bool IsNotComment(std::string line);
-  };
-} // namespace NPL
+ private:
+  bool IsNotComment(std::string line);
+};
+}  // namespace NPL
 
 #endif
