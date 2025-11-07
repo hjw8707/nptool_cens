@@ -1,0 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TwoBodyReaction
+ Beam= 21Na
+ Target= d
+ Light= p
+ Heavy= 22Na
+ ExcitationEnergyLight= 0.0
+ ExcitationEnergyHeavy= 0.0
+ CrossSectionPath= flat.txt CS
+ ShootLight= 1
+ ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

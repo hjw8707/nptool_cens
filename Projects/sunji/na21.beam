@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Beam energy given in MeV ; Excitation in MeV
+Beam
+  Particle= 21Na
+  ZEmission= -5 cm
+  Energy= 209.91625 MeV
+  SigmaEnergy= 0 MeV
+  SigmaThetaX= 0 mrad
+  SigmaPhiY= 0 mrad
+  SigmaX= 0 mm
+  SigmaY= 0 mm
+  MeanThetaX= 0 mrad
+  MeanPhiY= 0 mrad
+  MeanX= 0 mm
+  MeanY= 0 mm

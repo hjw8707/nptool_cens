@@ -387,7 +387,8 @@ void Target::ConstructDetector(G4LogicalVolume* world) {
     new G4PVPlacement(rotation, G4ThreeVector(m_TargetX, m_TargetY, m_TargetZ), FrameLogic, "FrameTarget", world, false,
                       0);
     new G4PVPlacement(0, G4ThreeVector(0, 0, 0), WindowsLogic, "TargetWindows", FrameLogic, false, 0);
-    new G4PVPlacement(0, G4ThreeVector(0, 0, 0), m_TargetLogic, "Target", FrameLogic, false, 0);
+    new G4PVPlacement(rotation, G4ThreeVector(m_TargetX, m_TargetY, m_TargetZ), m_TargetLogic, "Target", world, false,
+                      0);
     ///////////////////////////////////////////////////////////////
 
     // Heat Shield

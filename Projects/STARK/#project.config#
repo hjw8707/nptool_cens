@@ -1,0 +1,4 @@
+Project STARK
+ AnalysisOutput= ./root/ana
+ SimulationOutput= ./root/sim
+ 

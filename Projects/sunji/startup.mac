@@ -1,2 +1,6 @@
 /vis/viewer/set/viewpointThetaPhi 60 30
 /vis/scene/add/axes 0 0 0 10 cm
+/vis/geometry/set/colour logicCsI1 0.5 0.5 0.1 1
+/vis/geometry/set/colour logicCsI2 0.5 0.5 0.1 1
+/vis/geometry/set/forceWireframe logicCsI1 -1 false
+/vis/geometry/set/forceWireframe logicCsI2 -1 false
