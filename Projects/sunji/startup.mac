@@ -1,6 +1,17 @@
 /vis/viewer/set/viewpointThetaPhi 60 30
-/vis/scene/add/axes 0 0 0 10 cm
+#/vis/scene/add/axes 0 0 0 10 cm
 /vis/geometry/set/colour logicCsI1 0.5 0.5 0.1 1
 /vis/geometry/set/colour logicCsI2 0.5 0.5 0.1 1
 /vis/geometry/set/forceWireframe logicCsI1 -1 false
 /vis/geometry/set/forceWireframe logicCsI2 -1 false
+
+# 입자 타입으로 색상 구분
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set e- red
+/vis/modeling/trajectories/drawByParticleID-0/set e+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set gamma green
+/vis/modeling/trajectories/drawByParticleID-0/set proton red
+/vis/modeling/trajectories/drawByParticleID-0/set neutron cyan
+/vis/modeling/trajectories/drawByParticleID-0/set alpha magenta
+/vis/modeling/trajectories/drawByParticleID-0/set Na22 green
+/vis/modeling/trajectories/drawByParticleID-0/set Na21 blue
