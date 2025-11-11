@@ -67,7 +67,7 @@ Target::Target() {
   m_TargetAngle = 0;
   m_TargetRadius = 0;
   m_TargetDensity = 0;
-  m_TargetNbSlices = 100.; // Number of sslices/steps by default
+  m_TargetNbSlices = 100.;  // Number of sslices/steps by default
   m_TargetBackingThickness = 0;
   m_ReactionRegion = NULL;
 
@@ -93,6 +93,9 @@ Target::Target() {
   m_ShieldFrontRadius = 0;
   m_ShieldBackRadius = 0;
   m_ShieldMaterial = 0;
+
+  m_CryoTargetSolid = nullptr;
+  m_CryoTargetExtrudedSolid = nullptr;
 
   TargetInstance = this;
 }
@@ -132,21 +135,18 @@ void Target::ReadConfiguration(NPL::InputParser parser) {
       m_TargetX = starget[0]->GetDouble("X", "mm");
       m_TargetY = starget[0]->GetDouble("Y", "mm");
       m_TargetZ = starget[0]->GetDouble("Z", "mm");
-    }
-    else {
+    } else {
       cout << "ERROR: Target token list incomplete, check your input file" << endl;
       exit(1);
     }
 
-    if (starget[0]->HasToken("NbSlices"))
-      m_TargetNbSlices = starget[0]->GetInt("NbSlices");
+    if (starget[0]->HasToken("NbSlices")) m_TargetNbSlices = starget[0]->GetInt("NbSlices");
 
     if (starget[0]->HasToken("BackingMaterial") && starget[0]->HasToken("BackingThickness")) {
       m_TargetBackingMaterial = GetMaterialFromLibrary(starget[0]->GetString("BackingMaterial"));
       m_TargetBackingThickness = starget[0]->GetDouble("BackingThickness", "micrometer");
     }
-  }
-  else if (ctarget.size() == 1) {
+  } else if (ctarget.size() == 1) {
     m_TargetType = false;
     cout << "//// Cryogenic Target found " << endl;
 
@@ -195,7 +195,7 @@ void Target::ReadConfiguration(NPL::InputParser parser) {
       m_BackCone = ctarget[0]->GetDouble("BackCone", "deg");
       m_FrameMaterial = Mat->GetMaterialFromLibrary(ctarget[0]->GetString("FrameMaterial"));
       // Heat Shield
-      m_HeatShield = ctarget[0]->GetBool("HeatShield"); // 0: no heat shield, 1: heat shield
+      m_HeatShield = ctarget[0]->GetBool("HeatShield");  // 0: no heat shield, 1: heat shield
       if (m_HeatShield) {
         m_ShieldInnerRadius = ctarget[0]->GetDouble("ShieldInnerRadius", "mm");
         m_ShieldOuterRadius = ctarget[0]->GetDouble("ShieldOuterRadius", "mm");
@@ -205,16 +205,13 @@ void Target::ReadConfiguration(NPL::InputParser parser) {
         m_ShieldBackRadius = ctarget[0]->GetDouble("ShieldBackRadius", "mm");
         m_ShieldMaterial = Mat->GetMaterialFromLibrary(ctarget[0]->GetString("ShieldMaterial"));
       }
-    }
-    else {
+    } else {
       cout << "ERROR: Target token list incomplete, check your input file" << endl;
       exit(1);
     }
 
-    if (ctarget[0]->HasToken("NbSlices"))
-      m_TargetNbSlices = ctarget[0]->GetInt("NbSlices");
-  }
-  else {
+    if (ctarget[0]->HasToken("NbSlices")) m_TargetNbSlices = ctarget[0]->GetInt("NbSlices");
+  } else {
     cout << "ERROR: One and only one target shall be declared in your detector file" << endl;
     exit(1);
   }
@@ -224,7 +221,7 @@ void Target::ReadConfiguration(NPL::InputParser parser) {
 // Construct detector and inialise sensitive part.
 // Called After DetecorConstruction::AddDetector Method
 void Target::ConstructDetector(G4LogicalVolume* world) {
-  if (m_TargetType) { // case of standard target
+  if (m_TargetType) {  // case of standard target
 
     if (m_TargetThickness > 0) {
       m_TargetSolid = new G4Tubs("solidTarget", 0, m_TargetRadius, 0.5 * m_TargetThickness, 0 * deg, 360 * deg);
@@ -257,9 +254,9 @@ void Target::ConstructDetector(G4LogicalVolume* world) {
     }
   }
 
-  else { // case of cryogenic target
+  else {  // case of cryogenic target
     // X-Z target profile
-    unsigned int size = 1000; // 100 makes 'to_entrance' infinity
+    unsigned int size = 1000;  // 100 makes 'to_entrance' infinity
     std::vector<double> OuterRadius;
     std::vector<double> InnerRadius;
     std::vector<double> Z;
@@ -436,8 +433,7 @@ void Target::SetReactionRegion() {
   G4FastSimulationManager* mng = m_ReactionRegion->GetFastSimulationManager();
 
   unsigned int size = m_ReactionModel.size();
-  for (unsigned int i = 0; i < size; i++)
-    mng->RemoveFastSimulationModel(m_ReactionModel[i]);
+  for (unsigned int i = 0; i < size; i++) mng->RemoveFastSimulationModel(m_ReactionModel[i]);
 
   m_ReactionModel.clear();
   G4VFastSimulationModel* fsm;
@@ -468,8 +464,7 @@ void Target::RandomGaussian2D(double MeanX, double MeanY, double SigmaX, double 
                               double NumberOfSigma) {
   if (SigmaX != 0) {
     X = 2 * NumberOfSigma * SigmaX;
-    while (X > NumberOfSigma * SigmaX)
-      X = RandGauss::shoot(MeanX, SigmaX);
+    while (X > NumberOfSigma * SigmaX) X = RandGauss::shoot(MeanX, SigmaX);
 
     double a = NumberOfSigma * SigmaX / 2;
     double b = NumberOfSigma * SigmaY / 2;
@@ -477,8 +472,7 @@ void Target::RandomGaussian2D(double MeanX, double MeanY, double SigmaX, double 
 
     SigmaYPrim = 2 * SigmaYPrim / NumberOfSigma;
     Y = RandGauss::shoot(MeanY, SigmaYPrim);
-  }
-  else {
+  } else {
     X = MeanX;
     Y = RandGauss::shoot(MeanY, SigmaY);
   }

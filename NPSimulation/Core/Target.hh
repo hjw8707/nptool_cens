@@ -36,6 +36,7 @@
 
 // G4 headers
 #include "G4Event.hh"
+#include "G4ExtrudedSolid.hh"
 #include "G4LogicalVolume.hh"
 #include "G4Material.hh"
 #include "G4Polycone.hh"
@@ -127,6 +128,12 @@ class Target : public NPS::VDetector {
   inline double BackProfile(double x, double offset, double b, double R) {
     return -NPL::HyperbolicProfile(x, offset, b, R);
   }
+  inline double FrontProfile(double x, double y, double offset, double b, double Rx, double Ry) {
+    return NPL::EllipticHyperbolicProfile(x, y, offset, b, Rx, Ry);
+  }
+  inline double BackProfile(double x, double y, double offset, double b, double Rx, double Ry) {
+    return -NPL::EllipticHyperbolicProfile(x, y, offset, b, Rx, Ry);
+  }
 
   G4double m_TargetDensity;
   double m_FrontDeformation;
@@ -152,6 +159,7 @@ class Target : public NPS::VDetector {
   double m_ShieldBackRadius;
   G4Material* m_ShieldMaterial;
   G4Polycone* m_CryoTargetSolid;
+  G4ExtrudedSolid* m_CryoTargetExtrudedSolid;
   // Positioning
   G4double m_TargetX;
   G4double m_TargetY;

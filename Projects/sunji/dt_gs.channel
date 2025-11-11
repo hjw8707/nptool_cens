@@ -2,11 +2,11 @@
 TwoBodyReaction
  Beam= 21Na
  Target= d
- Light= p
- Heavy= 22Na
- ExcitationEnergyLight= 0.0
- ExcitationEnergyHeavy= 0.0
- CrossSectionPath= dp_gs.cs CS
+ Light= t
+ Heavy= 20Na
+ ExcitationEnergyLight= 0.0 MeV
+ ExcitationEnergyHeavy= 0.0 MeV
+ CrossSectionPath= dt_gs.cs CS
  ShootLight= 1
  ShootHeavy= 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
