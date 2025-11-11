@@ -24,48 +24,57 @@
  *****************************************************************************/
 
 // STL
-#include<iostream>
-#include<fstream>
-#include<cstdlib>
-#include<string>
-#include<cmath>
+#include <cmath>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
 // ROOT
+#include "TFile.h"
+#include "TH1.h"
 #include "TH1F.h"
 #include "TH2F.h"
-#include "TH1.h"
-#include "TFile.h"
 #include "TRandom.h"
 #include "TRandom2.h"
 #include "TVector3.h"
 
-namespace NPL{
+namespace NPL {
 
+// Check the type of Filename (root or ASCII) and extract build/extract a 1D histogramm
+TH1D *Read1DProfile(string filename, string HistName);
 
-  // Check the type of Filename (root or ASCII) and extract build/extract a 1D histogramm
-  TH1D* Read1DProfile(string filename,string HistName);
-  
-  // Check the type of Filename (root or ASCII) and extract build/extract a 2D histogramm
-  TH2F* Read2DProfile(string filename,string HistName);
-  
-  // Open a file at Filename after checking the type of file it is
-  // true for a ASCII file
-  // False for a Root file
-  bool OpenASCIIorROOTFile(string filename, ifstream &ASCII , TFile &ROOT);
-  
-  void RandomGaussian2D(double MeanX, double MeanY, double SigmaX, double SigmaY, double &X, double &Y);
-  
-  // Change nucleus name from G4 standard to Physics standard (11Li vs Li11)
-  string ChangeNameToG4Standard(string name,bool excited=false);
-  string ChangeNameFromG4Standard(string name);
+// Check the type of Filename (root or ASCII) and extract build/extract a 2D histogramm
+TH2F *Read2DProfile(string filename, string HistName);
 
-  // Hyperbolic shape generator for cryogenic target deformation
-  inline double HyperbolicProfile(double x, double offset, double b, double R) {return (offset+b+1)- cosh(x/(R/acosh(b+1)));}
-  // Crossing point between a TVector3 direction and an Hyperbolic Profile
-  TVector3 HyperbolicProfileCrossing(TVector3 origin,TVector3 direction, double offset, double b, double R);
+// Open a file at Filename after checking the type of file it is
+// true for a ASCII file
+// False for a Root file
+bool OpenASCIIorROOTFile(string filename, ifstream &ASCII, TFile &ROOT);
 
+void RandomGaussian2D(double MeanX, double MeanY, double SigmaX, double SigmaY, double &X, double &Y);
+
+// Change nucleus name from G4 standard to Physics standard (11Li vs Li11)
+string ChangeNameToG4Standard(string name, bool excited = false);
+string ChangeNameFromG4Standard(string name);
+
+// Hyperbolic shape generator for cryogenic target deformation
+inline double HyperbolicProfile(double x, double offset, double b, double R) {
+  return (offset + b + 1) - cosh(x / (R / acosh(b + 1)));
 }
+// Crossing point between a TVector3 direction and an Hyperbolic Profile
+TVector3 HyperbolicProfileCrossing(TVector3 origin, TVector3 direction, double offset, double b, double R);
+
+// 타원형 윈도우에 해당하는 하이퍼볼릭 프로파일 함수
+// x: 타원의 긴축 방향(major axis, a축) 상의 위치 (예: x축)
+// y: 타원의 짧은축 방향(minor axis, b축) 상의 위치 (예: y축)
+// offset: 중심 offset
+// bpar: bulge parameter (window 부풀기 정도)
+// Rx: 타원의 x(major)방향 곡률반경
+// Ry: 타원의 y(minor)방향 곡률반경
+double EllipticHyperbolicProfile(double x, double y, double offset, double bpar, double Rx, double Ry);
+}  // namespace NPL
 
 #endif
