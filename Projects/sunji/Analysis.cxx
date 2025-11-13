@@ -20,9 +20,9 @@
  *                                                                           *
  *****************************************************************************/
 
-#include <iostream>
-
 #include "Analysis.h"
+
+#include <iostream>
 
 #include "NPAnalysisFactory.h"
 #include "NPDetectorManager.h"
@@ -33,19 +33,30 @@ using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////
 Analysis::Analysis()
-    : BeamReacE(0), OriginalBeamEnergy(0), TargetThickness(0), WindowsThickness(0), BeamTarget(NULL), BeamWindow(NULL),
-      OutgoingTarget(NULL), OutgoingWindow(NULL), starkM(0), STARK(NULL), MissingMass(0), MissingMassSq(0),
-      OutgoingEnergy(0), OutgoingThetaLab(0), myInit(NULL), myReac(NULL) {}
+    : BeamReacE(0),
+      OriginalBeamEnergy(0),
+      TargetThickness(0),
+      WindowsThickness(0),
+      BeamTarget(NULL),
+      BeamWindow(NULL),
+      OutgoingTarget(NULL),
+      OutgoingWindow(NULL),
+      STARK(NULL),
+      dE(TMath::QuietNaN()),
+      E(TMath::QuietNaN()),
+      hitPos(0, 0, 0),
+      MissingMass(TMath::QuietNaN()),
+      RecoilExcitationEnergy(TMath::QuietNaN()),
+      OutgoingEnergy(TMath::QuietNaN()),
+      OutgoingThetaLab(TMath::QuietNaN()),
+      myInit(NULL),
+      myReac(NULL) {}
 ////////////////////////////////////////////////////////////////////////////////
 Analysis::~Analysis() {
-  if (BeamTarget)
-    delete BeamTarget;
-  if (BeamWindow)
-    delete BeamWindow;
-  if (OutgoingTarget)
-    delete OutgoingTarget;
-  if (OutgoingWindow)
-    delete OutgoingWindow;
+  if (BeamTarget) delete BeamTarget;
+  if (BeamWindow) delete BeamWindow;
+  if (OutgoingTarget) delete OutgoingTarget;
+  if (OutgoingWindow) delete OutgoingWindow;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -56,8 +67,7 @@ void Analysis::Init() {
   // get STARK and CsI detector objects
   std::vector<std::string> detList = m_DetectorManager->GetDetectorList();
   for (auto it = detList.begin(); it != detList.end(); it++) {
-    if ((*it) == "STARK")
-      STARK = static_cast<TSTARKPhysics*>(m_DetectorManager->GetDetector("STARK"));
+    if ((*it) == "STARK") STARK = static_cast<TSTARKPhysics*>(m_DetectorManager->GetDetector("STARK"));
   }
 
   InitInputBranch();
@@ -110,23 +120,24 @@ void Analysis::TreatEvent() {
   ReInitValue();
 
   // Get reaction vertex and beam information
-  if (!myReac || !myInit)
-    return;
+  if (!myReac || !myInit) return;
 
   vert = myReac->GetVertexPosition();
-  if (TMath::IsNaN(vert.X())) // no reaction at the target
+  if (TMath::IsNaN(vert.X()))  // no reaction at the target
     return;
 
-  BeamImpact = vert;
-  BeamDirection = myReac->GetBeamDirection();
+  // BeamImpact = vert;
+  BeamImpact.SetXYZ(0, 0, 0);  // assume the beam impact is at the origin
+  // BeamDirection = myReac->GetBeamDirection();
+  BeamDirection.SetXYZ(0, 0, 1);  // assume the beam direction is along the z-axis
   BeamReacE = myReac->GetBeamEnergy();
   myReaction.SetBeamEnergy(BeamReacE);
 
   // Get beam and target 4-vectors
   NPL::Particle* beam = myReaction.GetParticle1();
   NPL::Particle* target = myReaction.GetParticle2();
-  NPL::Particle* outgoing = myReaction.GetParticle3();
-  NPL::Particle* recoil = myReaction.GetParticle4();
+  NPL::Particle* outgoing = myReaction.GetParticle3();  // proton (light ejectile)
+  NPL::Particle* recoil = myReaction.GetParticle4();    // nucleus (heavy ejectile)
 
   double beamMass = beam->Mass();
   double targetMass = target->Mass();
@@ -142,90 +153,42 @@ void Analysis::TreatEvent() {
   Target4Vector = TLorentzVector(0, 0, 0, targetMass);
 
   // Process STARK X6 hits (only X6 type = 0)
-  starkM = 0;
-  if (STARK && STARK->nhit > 0) {
-    for (int i = 0; i < STARK->nhit; i++) {
-      // Only process X6 detectors (type = 0)
-      if (STARK->type[i] != 0)
-        continue;
-
-      if (STARK->sumE[i] > 0 && STARK->hPosArr.size() > i) {
-        starkType[starkM] = STARK->type[i];
-        starkDetN[starkM] = STARK->detN[i];
-        starkFStrN[starkM] = STARK->fStrN[i];
-        starkBStrN[starkM] = STARK->bStrN[i];
-        starkUppE[starkM] = STARK->uppE[i];
-        starkDwnE[starkM] = STARK->dwnE[i];
-        starkSumE[starkM] = STARK->sumE[i];
-        starkHitPos[starkM] = STARK->hPosArr[i];
-
-        // Calculate lab angle
-        TVector3 hitDir = starkHitPos[starkM] - BeamImpact;
-        starkThetaLab[starkM] = hitDir.Angle(BeamDirection);
-
-        // Energy loss correction for outgoing particle
-        double thetaNormal = hitDir.Angle(TVector3(0, 0, 1));
-        double measuredE = starkSumE[starkM]; // MeV
-
-        // Correct for energy loss in target and window
-        if (OutgoingTarget) {
-          measuredE = OutgoingTarget->EvaluateInitialEnergy(measuredE, TargetThickness * 0.5, thetaNormal);
-        }
-        if (OutgoingWindow) {
-          measuredE = OutgoingWindow->EvaluateInitialEnergy(measuredE, WindowsThickness, thetaNormal);
-        }
-
-        starkELab[starkM] = measuredE;
-        starkM++;
-      }
-    }
+  if (STARK && STARK->nGroup > 0) {
+    dE = STARK->groupdE[0][0];
+    E = STARK->groupEwithCsI[0];
+    hitPos = STARK->sPosArr[STARK->groupFirstHitIdx[0]];
+  } else {
+    return;
   }
+  // Calculate lab angle
+  TVector3 hitDir = hitPos - BeamImpact;
+  OutgoingThetaLab = hitDir.Angle(BeamDirection);
+  OutgoingEnergy = E;
 
-  // // Calculate Missing Mass using STARK X6 data
-  // if (starkM > 0) {
-  //   // Use the highest energy X6 hit
-  //   int bestHit = 0;
-  //   double maxE = 0;
-  //   for (int i = 0; i < starkM; i++) {
-  //     if (starkELab[i] > maxE) {
-  //       maxE = starkELab[i];
-  //       bestHit = i;
-  //     }
-  //   }
-
-  //   OutgoingEnergy = starkELab[bestHit];
-  //   OutgoingThetaLab = starkThetaLab[bestHit];
-  //   TVector3 hitDir = starkHitPos[bestHit] - BeamImpact;
-  //   hitDir = hitDir.Unit();
-
-  //   // Calculate outgoing particle momentum
-  //   double outgoingKE = OutgoingEnergy; // MeV
-  //   double outgoingP = sqrt(outgoingKE * outgoingKE + 2 * outgoingKE * outgoingMass);
-  //   OutgoingMomentum = hitDir * outgoingP;
-
-  //   // Outgoing particle 4-vector
-  //   double outgoingE = outgoingKE + outgoingMass;
-  //   Outgoing4Vector = TLorentzVector(OutgoingMomentum, outgoingE);
-
-  //   // Missing 4-vector = Beam + Target - Outgoing
-  //   Missing4Vector = Beam4Vector + Target4Vector - Outgoing4Vector;
-
-  //   // Missing mass squared
-  //   MissingMassSq = Missing4Vector.M2();
-
-  //   // Missing mass (take square root if positive)
-  //   if (MissingMassSq >= 0) {
-  //     MissingMass = sqrt(MissingMassSq);
-  //   }
-  //   else {
-  //     MissingMass = -sqrt(-MissingMassSq); // imaginary mass (shouldn't happen physically)
-  //   }
+  // Correct for energy loss in target and window -> not implemented yet
+  // if (OutgoingTarget) {
+  //   measuredE = OutgoingTarget->EvaluateInitialEnergy(measuredE, TargetThickness * 0.5, thetaNormal);
   // }
-  // else {
-  //   // No STARK hit, set missing mass to NaN
-  //   MissingMass = TMath::QuietNaN();
-  //   MissingMassSq = TMath::QuietNaN();
+  // if (OutgoingWindow) {
+  //   measuredE = OutgoingWindow->EvaluateInitialEnergy(measuredE, WindowsThickness, thetaNormal);
   // }
+
+  // Calculate outgoing particle momentum
+  double outgoingKE = OutgoingEnergy;  // MeV
+  double outgoingP = sqrt(outgoingKE * outgoingKE + 2 * outgoingKE * outgoingMass);
+  OutgoingMomentum = hitDir.Unit() * outgoingP;
+
+  // Outgoing particle 4-vector
+  double outgoingE = outgoingKE + outgoingMass;
+  Outgoing4Vector = TLorentzVector(OutgoingMomentum, outgoingE);
+
+  // Missing 4-vector = Beam + Target - Outgoing
+  Missing4Vector = Beam4Vector + Target4Vector - Outgoing4Vector;
+
+  // Missing mass squared
+  // Calculate recoil excitation energy from missing4vector and recoil mass
+  MissingMass = Missing4Vector.M();
+  RecoilExcitationEnergy = MissingMass - recoilMass;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -239,8 +202,12 @@ void Analysis::InitOutputBranch() {
   RootOutput::getInstance()->GetTree()->Branch("Run", &Run, "Run/I");
 
   // Missing Mass branches
+  RootOutput::getInstance()->GetTree()->Branch("dE", &dE, "dE/D");
+  RootOutput::getInstance()->GetTree()->Branch("E", &E, "E/D");
+  RootOutput::getInstance()->GetTree()->Branch("hitPos", "TVector3", &hitPos);
   RootOutput::getInstance()->GetTree()->Branch("MissingMass", &MissingMass, "MissingMass/D");
-  RootOutput::getInstance()->GetTree()->Branch("MissingMassSq", &MissingMassSq, "MissingMassSq/D");
+  RootOutput::getInstance()->GetTree()->Branch("RecoilExcitationEnergy", &RecoilExcitationEnergy,
+                                               "RecoilExcitationEnergy/D");
   RootOutput::getInstance()->GetTree()->Branch("OutgoingEnergy", &OutgoingEnergy, "OutgoingEnergy/D");
   RootOutput::getInstance()->GetTree()->Branch("OutgoingThetaLab", &OutgoingThetaLab, "OutgoingThetaLab/D");
   RootOutput::getInstance()->GetTree()->Branch("OutgoingMomentum", "TVector3", &OutgoingMomentum);
@@ -258,8 +225,7 @@ void Analysis::InitInputBranch() {
     RootInput::getInstance()->GetChain()->SetBranchStatus("ReactionConditions", true);
     RootInput::getInstance()->GetChain()->SetBranchAddress("ReactionConditions", &myReac);
     myReac = new TReactionConditions();
-  }
-  else
+  } else
     myReac = NULL;
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -270,24 +236,13 @@ void Analysis::ReInitValue() {
   BeamImpact.SetXYZ(0, 0, 0);
 
   MissingMass = TMath::QuietNaN();
-  MissingMassSq = TMath::QuietNaN();
+  RecoilExcitationEnergy = TMath::QuietNaN();
   OutgoingEnergy = TMath::QuietNaN();
   OutgoingThetaLab = TMath::QuietNaN();
   OutgoingMomentum.SetXYZ(0, 0, 0);
-
-  starkM = 0;
-  for (int i = 0; i < 20; i++) {
-    starkType[i] = 0;
-    starkDetN[i] = 0;
-    starkFStrN[i] = 0;
-    starkBStrN[i] = 0;
-    starkUppE[i] = TMath::QuietNaN();
-    starkDwnE[i] = TMath::QuietNaN();
-    starkSumE[i] = TMath::QuietNaN();
-    starkHitPos[i].SetXYZ(0, 0, 0);
-    starkThetaLab[i] = TMath::QuietNaN();
-    starkELab[i] = TMath::QuietNaN();
-  }
+  dE = TMath::QuietNaN();
+  E = TMath::QuietNaN();
+  hitPos.SetXYZ(0, 0, 0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

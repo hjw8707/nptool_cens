@@ -39,41 +39,49 @@ STARK
  Type= X6
  Pos= -100 70.8 17.4 mm
  RotateXYZ= 90 0 -90 deg
+ Group= 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -100 23.6 17.4 mm
  RotateXYZ= 90 0 -90 deg
+ Group= 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -100 -23.6 17.4 mm
  RotateXYZ= 90 0 -90 deg
+ Group= 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -100 -70.8 17.4 mm
  RotateXYZ= 90 0 -90 deg
+ Group= 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -66.4 70.8 85.0 mm
  RotateXYZ= -60 0 90 deg
+ Group= 5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -66.4 23.6 85.0 mm
  RotateXYZ= -60 0 90 deg
+ Group= 6
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -66.4 -23.6 85.0 mm
  RotateXYZ= -60 0 90 deg
+ Group= 7
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -66.4 -70.8 85.0 mm
  RotateXYZ= -60 0 90 deg
+ Group= 8
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Si2 Layer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,48 +90,56 @@ STARK
  Pos= -110 70.8 23.2 mm
  RotateXYZ= 90 0 -90 deg
  CsI= true
+ Group= 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -110 23.6 23.2 mm
  RotateXYZ= 90 0 -90 deg
  CsI= true
+ Group= 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -110 -23.6 23.2 mm
  RotateXYZ= 90 0 -90 deg
  CsI= true
+ Group= 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -110 -70.8 23.2 mm
  RotateXYZ= 90 0 -90 deg
  CsI= true
+ Group= 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -75.1 70.8 89.9 mm
  RotateXYZ= -60 0 90 deg
  CsI= true
+ Group= 5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -75.1 23.6 89.9 mm
  RotateXYZ= -60 0 90 deg
  CsI= true
+ Group= 6
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -75.1 -23.6 89.9 mm
  RotateXYZ= -60 0 90 deg
  CsI= true
+ Group= 7
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= -75.1 -70.8 89.9 mm
  RotateXYZ= -60 0 90 deg
  CsI= true
+ Group= 8
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Si3 Layer
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,46 +148,54 @@ STARK
  Pos= 100 70.8 -17.4 mm
  RotateXYZ= -90 0 -90 deg
  CsI= true
+ Group= 9
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= 100 23.6 -17.4 mm
  RotateXYZ= -90 0 -90 deg
  CsI= true
+ Group= 10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= 100 -23.6 -17.4 mm
  RotateXYZ= -90 0 -90 deg
  CsI= true
+ Group= 11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= 100 -70.8 -17.4 mm
  RotateXYZ= -90 0 -90 deg
  CsI= true
+ Group= 12
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= 66.4 70.8 -85.0 mm
  RotateXYZ= 120 0 90 deg
  CsI= true
+ Group= 13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= 66.4 23.6 -85.0 mm
  RotateXYZ= 120 0 90 deg
  CsI= true
+ Group= 14
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= 66.4 -23.6 -85.0 mm
  RotateXYZ= 120 0 90 deg
  CsI= true
+ Group= 15
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 STARK
  Type= X6
  Pos= 66.4 -70.8 -85.0 mm
  RotateXYZ= 120 0 90 deg
  CsI= true
+ Group= 16
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

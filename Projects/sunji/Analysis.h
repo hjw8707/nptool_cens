@@ -22,6 +22,13 @@
  *                                                                           *
  *****************************************************************************/
 
+#include <TLorentzVector.h>
+#include <TMath.h>
+#include <TRandom3.h>
+#include <TVector3.h>
+
+#include <vector>
+
 #include "NPBeam.h"
 #include "NPEnergyLoss.h"
 #include "NPReaction.h"
@@ -32,11 +39,6 @@
 #include "TInitialConditions.h"
 #include "TReactionConditions.h"
 #include "TSTARKPhysics.h"
-#include <TLorentzVector.h>
-#include <TMath.h>
-#include <TRandom3.h>
-#include <TVector3.h>
-#include <vector>
 
 class Analysis : public NPL::VAnalysis {
  public:
@@ -66,7 +68,7 @@ class Analysis : public NPL::VAnalysis {
   ////////////////////////////////////////////////////////////
   // Reaction information
   NPL::Reaction myReaction;
-  double OriginalBeamEnergy; // AMeV
+  double OriginalBeamEnergy;  // AMeV
   double TargetThickness;
   double WindowsThickness;
 
@@ -77,27 +79,20 @@ class Analysis : public NPL::VAnalysis {
   NPL::EnergyLoss* OutgoingWindow;
 
   ////////////////////////////////////////////////////////////
-  // for STARK X6
-  int starkM;
-  int starkType[20]; // type = 0 (X6), 1 (BB10), 2 (QQQ5)
-  int starkDetN[20];
-  int starkFStrN[20], starkBStrN[20];
-  double starkUppE[20], starkDwnE[20], starkSumE[20];
-  TVector3 starkHitPos[20];
-  double starkThetaLab[20];
-  double starkELab[20];
-
   // Branches and detectors
   TSTARKPhysics* STARK;
   ////////////////////////////////////////////////////////////
 
   ////////////////////////////////////////////////////////////
   // Missing Mass calculation
-  double MissingMass;        // Missing mass in MeV/c^2
-  double MissingMassSq;      // Missing mass squared
-  TVector3 OutgoingMomentum; // Outgoing particle momentum
-  double OutgoingEnergy;     // Outgoing particle energy
-  double OutgoingThetaLab;   // Outgoing particle lab angle
+  Double_t dE;
+  Double_t E;
+  TVector3 hitPos;
+  double MissingMass;             // Missing mass in MeV/c^2
+  double RecoilExcitationEnergy;  // Recoil excitation energy in MeV
+  TVector3 OutgoingMomentum;      // Outgoing particle momentum
+  double OutgoingEnergy;          // Outgoing particle energy
+  double OutgoingThetaLab;        // Outgoing particle lab angle
   TLorentzVector Beam4Vector;
   TLorentzVector Target4Vector;
   TLorentzVector Outgoing4Vector;
