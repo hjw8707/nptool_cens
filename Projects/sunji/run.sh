@@ -1,11 +1,14 @@
 #!/bin/bash
 reaction=$1 # 1: dp_gs, 2: dp_ex, 3: dt_gs, 4: d3He_gs
-nevent=10
+nevent=100
 
 if [ -z "$reaction" ]; then
-    echo "Usage: $0 <reaction>"
-    echo "  reaction: 1: dp_gs, 2: dp_ex, 3: dt_gs, 4: d3He_gs"
-    exit 1
+    # argument가 없으면 GUI 모드로 실행
+    cat target.detector.lh2 > detector.det
+    cat si.detector >> detector.det
+    cat na21.beam > reaction.reac
+    npsimulation -D detector.det -E reaction.reac -M startup.mac
+    exit 0
 fi
 
 tee > batch.mac <<EOF
@@ -32,3 +35,4 @@ output=d3He_gs
 fi
 
 npsimulation -D detector.det -E reaction.reac -M startup.mac -B batch.mac -O ${output}_sim.root
+npanalysis --last-sim -O ${output}_ana.root
