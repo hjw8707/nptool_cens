@@ -19,9 +19,9 @@ TwoBodyReaction
  Target= d
  Light= p
  Heavy= 22Na
- ExcitationEnergyLight= 0.0 MeV
- ExcitationEnergyHeavy= 0.583 MeV
- CrossSectionPath= dp_ex.cs CS
+ ExcitationEnergyLight= 0.0
+ ExcitationEnergyHeavy= 0.0
+ CrossSectionPath= dp_gs.cs CS
  ShootLight= 1
  ShootHeavy= 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

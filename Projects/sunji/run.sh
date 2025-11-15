@@ -1,6 +1,6 @@
 #!/bin/bash
 reaction=$1 # 1: dp_gs, 2: dp_ex, 3: dt_gs, 4: d3He_gs
-nevent=10000
+nevent=100
 
 if [ -z "$reaction" ]; then
     # argument가 없으면 GUI 모드로 실행
@@ -35,4 +35,4 @@ output=d3He_gs
 fi
 
 npsimulation -D detector.det -E reaction.reac -M startup.mac -B batch.mac -O ${output}_sim.root
-npanalysis --last-sim -O ${output}_ana.root
+#npanalysis --last-sim -O ${output}_ana.root
