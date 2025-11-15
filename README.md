@@ -20,7 +20,6 @@ The following CENS detectors are currently available:
 - Khala (LaBr3 Array, the part of IDATEN)
 - Fatima (LaBr3 Array, the part of IDATEN)
 - STARK (Si Array)
-- STARKjr (Si Array)
 - VOICE (Active Target TPC)
 - CACAO (CsI:Tl Array)
 - Plunger (Plunger for lifetime measurement)
