@@ -16,22 +16,19 @@
  *                                                                           *
  *---------------------------------------------------------------------------*
  * Comment:                                                                  *
- *                                                                           *   
+ *                                                                           *
  *                                                                           *
  *****************************************************************************/
 
 #include "TSTARKData.h"
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
 
-using namespace std; 
+using namespace std;
 
 ClassImp(TSTARKData)
 
-//////////////////////////////////////////////////////////////////////
-TSTARKData::TSTARKData() {}
+    //////////////////////////////////////////////////////////////////////
+    TSTARKData::TSTARKData() {}
 
 //////////////////////////////////////////////////////////////////////
 TSTARKData::~TSTARKData() {}
@@ -48,14 +45,28 @@ void TSTARKData::Clear() {
   fUpE.clear();
   fDwE.clear();
   fT.clear();
-  fPos.clear();}
+  fPos.clear();
+  fNCsI.clear();
+  fCsIE.clear();
+}
 
+//////////////////////////////////////////////////////////////////////
+void TSTARKData::Print() const {
+  std::cout << "========== Print STARK Data ==============" << std::endl;
+  std::cout << "  Total Size = " << GetMult() << std::endl;
+  for (Int_t i = 0; i < GetMult(); i++) {
+    std::cout << " Type = " << fType[i] << ", ";
+    std::cout << " DetN = " << fDetN[i] << ", ";
+    std::cout << " HasCsI = " << (HasCsI(i) ? "Yes" : "No") << std::endl;
+  }
+  std::cout << "=======================================" << std::endl;
+}
 
 //////////////////////////////////////////////////////////////////////
 void TSTARKData::Dump() const { // to check the data
   std::cout << "========== Check STARK Data ==============" << std::endl;
   std::cout << "  Total Size = " << GetMult() << std::endl;
-  for (Int_t i = 0 ; i < GetMult() ; i++) {
+  for (Int_t i = 0; i < GetMult(); i++) {
     std::cout << " Type = " << fType[i] << ", ";
     std::cout << " DetN = " << fDetN[i] << ", ";
     std::cout << " FStN = " << fFStN[i] << ", ";
@@ -64,7 +75,13 @@ void TSTARKData::Dump() const { // to check the data
     std::cout << " BkE = " << fBkE[i] << ", ";
     std::cout << " UpE = " << fUpE[i] << ", ";
     std::cout << " DwE = " << fDwE[i] << ", ";
-    std::cout << " T = " << fT[i] << std::endl;
+    std::cout << " T = " << fT[i] << ", ";
+    std::cout << " NCsI = " << GetNCsI(i) << ", ";
+    std::cout << " CsIE = ";
+    for (Int_t j = 0; j < GetNCsI(i); j++) {
+      std::cout << GetCsIE(i, j) << " ";
+    }
+    std::cout << std::endl;
   }
-  std::cout << "=======================================" << std::endl;}
-
+  std::cout << "=======================================" << std::endl;
+}

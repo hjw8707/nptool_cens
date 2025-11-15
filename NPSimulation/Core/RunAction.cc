@@ -27,8 +27,6 @@
 // G4
 #include "G4Run.hh"
 #include "G4RunManager.hh"
-#include "G4Event.hh"
-#include "G4VTrajectory.hh"
 //----------------------//
 // NPL
 #include "RootOutput.h"
