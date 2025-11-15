@@ -34,7 +34,6 @@ npefficiency
 nponline
 nptool-cleaner
 nptool-installer
-NPData/*
 Inputs/EnergyLoss/*.G4table
 Inputs/CrossSection/G4XS*
 Inputs/CrossSection/*.C
@@ -54,3 +53,7 @@ input
 figures
 __pycache__
 build_dict.sh
+.cache/*
+NPLib/.cache/
+NPSimulation/.cache/
+.clang-format
