@@ -36,6 +36,8 @@
 #include "G4Tubs.hh"
 #include "G4UserLimits.hh"
 #include "G4VisAttributes.hh"
+#include "G4ThreeVector.hh"
+#include "G4Transform3D.hh"
 
 // NPTool
 #include "BeamReaction.hh"
@@ -239,8 +241,7 @@ STARK::STARK() {
     m_QQQ5_wCsI[i] = nullptr;
   }
   m_X6Det = m_BB10Det = m_QQQ5Det = nullptr;
-  m_logicSquareCsI1 = nullptr;
-  m_logicSquareCsI2 = nullptr;
+  m_logicSquareCsI = nullptr;
   m_logicANASENQQQ3CsI = nullptr;
 
   m_VisX6 = new G4VisAttributes(G4Colour(0., 0.5, 0.5));
@@ -296,23 +297,21 @@ void STARK::AddDetector(string Type, G4ThreeVector Pos, G4ThreeVector Rot, int c
   m_MVName.push_back(mvName);
 }
 
-void STARK::BuildSquareCsI() {
-  if (m_logicSquareCsI1)
-    return;
+G4LogicalVolume* STARK::BuildSquareCsI() {
+  if (m_logicSquareCsI)
+    return m_logicSquareCsI;
   G4Box* solidCsI = new G4Box("solidCsI", CsI_X / 2., CsI_Y / 2., CsI_Z / 2.);
   G4NistManager* nist = G4NistManager::Instance();
   G4Material* matCsI = nist->FindOrBuildMaterial("G4_CESIUM_IODIDE");
-  m_logicSquareCsI1 = new G4LogicalVolume(solidCsI, matCsI, "logicCsI1", 0, 0, 0);
-  m_logicSquareCsI2 = new G4LogicalVolume(solidCsI, matCsI, "logicCsI2", 0, 0, 0);
-  m_logicSquareCsI1->SetVisAttributes(m_VisCsI);
-  m_logicSquareCsI2->SetVisAttributes(m_VisCsI);
-  m_logicSquareCsI1->SetSensitiveDetector(m_CsIDet);
-  m_logicSquareCsI2->SetSensitiveDetector(m_CsIDet);
+  m_logicSquareCsI = new G4LogicalVolume(solidCsI, matCsI, "logicCsI1", 0, 0, 0);
+  m_logicSquareCsI->SetVisAttributes(m_VisCsI);
+  m_logicSquareCsI->SetSensitiveDetector(m_CsIDet);
+  return m_logicSquareCsI;
 }
 
-void STARK::BuildANASENQQQ3CsI() {
+G4LogicalVolume* STARK::BuildANASENQQQ3CsI() {
   if (m_logicANASENQQQ3CsI)
-    return;
+    return m_logicANASENQQQ3CsI;
   G4Trap* solidANASENQQQ3CsI =
       new G4Trap("DetectorBody", 0.5 * m_ANASENQQQ3CsIHeight, 0, 0, 0.5 * m_ANASENQQQ3CsIThickness,
                  0.5 * m_ANASENQQQ3CsIWidthTop, 0.5 * m_ANASENQQQ3CsIWidthTop, 0, 0.5 * m_ANASENQQQ3CsIThickness,
@@ -322,78 +321,80 @@ void STARK::BuildANASENQQQ3CsI() {
   m_logicANASENQQQ3CsI = new G4LogicalVolume(solidANASENQQQ3CsI, matCsI, "logicCsI3", 0, 0, 0);
   m_logicANASENQQQ3CsI->SetVisAttributes(m_VisCsI);
   m_logicANASENQQQ3CsI->SetSensitiveDetector(m_CsIDet);
+  return m_logicANASENQQQ3CsI;
 }
 
 //////////////////////////////////////////////////////////////////////
 //
 // BuildX6Detector: making a G4AssemblyVolume for X6 (only once)
 //
+// m_X6: the assembly volume for the X6 detector
+// m_X6_wCsI[buildCsI]: the assembly volume for the X6 detector with CsI layers
+//
+// First, check if the assembly volume already exists. If it does, return it.
+// If it doesn't, build the assembly volume and return it.
+// Making X6 Assembly first,
+// Then, add CsI layers to the assembly volume to make a new assembly volume.
 G4AssemblyVolume* STARK::BuildX6Detector(int buildCsI) {
-  if (buildCsI == 0) {
-    if (m_X6)
-      return m_X6;
-  }
-  else {
-    if (m_X6_wCsI[buildCsI])
-      return m_X6_wCsI[buildCsI];
-  }
+  if ((buildCsI == 0 && m_X6) || (buildCsI > 0 && m_X6_wCsI[buildCsI]))
+    return (buildCsI == 0) ? m_X6 : m_X6_wCsI[buildCsI];
 
-  ////////////////////////////////////////////////////////////
-  // material definition
-  G4Material* matSi = MaterialManager::getInstance()->GetMaterialFromLibrary("Si");
-  G4Material* matPCB = MaterialManager::getInstance()->GetMaterialFromLibrary("PCB");
-  ////////////////////////////////////////////////////////////
+  if (!m_X6) {
+    ////////////////////////////////////////////////////////////
+    // material definition
+    G4Material* matSi = MaterialManager::getInstance()->GetMaterialFromLibrary("Si");
+    G4Material* matPCB = MaterialManager::getInstance()->GetMaterialFromLibrary("PCB");
+    ////////////////////////////////////////////////////////////
 
-  G4Box* solidX6PCBAll = new G4Box("solidX6PCBAll", X6_PCBX / 2., X6_PCBY / 2., X6_PCBZ / 2.);
-  G4Box* solidX6PCBSub1 = new G4Box("solidX6PCBSub1", X6_PCBSub1X / 2., X6_PCBSub1Y / 2.,
-                                    X6_PCBSub1Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
-  G4Box* solidX6PCBSub2 = new G4Box("solidX6PCBSub2", X6_PCBSub2X / 2., X6_PCBSub2Y / 2.,
-                                    X6_PCBSub2Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+    G4Box* solidX6PCBAll = new G4Box("solidX6PCBAll", X6_PCBX / 2., X6_PCBY / 2., X6_PCBZ / 2.);
+    G4Box* solidX6PCBSub1 = new G4Box("solidX6PCBSub1", X6_PCBSub1X / 2., X6_PCBSub1Y / 2.,
+                                      X6_PCBSub1Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+    G4Box* solidX6PCBSub2 = new G4Box("solidX6PCBSub2", X6_PCBSub2X / 2., X6_PCBSub2Y / 2.,
+                                      X6_PCBSub2Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
 
-  G4VSolid* solidX6PCBTemp =
-      new G4SubtractionSolid("solidX6PCBTemp", solidX6PCBAll, solidX6PCBSub1, 0,
-                             G4ThreeVector(X6_PCBSub1XOffset, X6_PCBSub1YOffset, X6_PCBSub1ZOffset));
-  G4VSolid* solidX6PCB = new G4SubtractionSolid("solidX6PCB", solidX6PCBTemp, solidX6PCBSub2, 0,
-                                                G4ThreeVector(X6_PCBSub2XOffset, X6_PCBSub2YOffset, X6_PCBSub2ZOffset));
+    G4VSolid* solidX6PCBTemp =
+        new G4SubtractionSolid("solidX6PCBTemp", solidX6PCBAll, solidX6PCBSub1, 0,
+                               G4ThreeVector(X6_PCBSub1XOffset, X6_PCBSub1YOffset, X6_PCBSub1ZOffset));
+    G4VSolid* solidX6PCB =
+        new G4SubtractionSolid("solidX6PCB", solidX6PCBTemp, solidX6PCBSub2, 0,
+                               G4ThreeVector(X6_PCBSub2XOffset, X6_PCBSub2YOffset, X6_PCBSub2ZOffset));
 
-  G4LogicalVolume* logicX6PCB = new G4LogicalVolume(solidX6PCB, matPCB, "logicX6PCB", 0, 0, 0);
-  logicX6PCB->SetVisAttributes(m_VisX6PCB);
+    G4LogicalVolume* logicX6PCB = new G4LogicalVolume(solidX6PCB, matPCB, "logicX6PCB", 0, 0, 0);
+    logicX6PCB->SetVisAttributes(m_VisX6PCB);
 
-  G4Box* solidX6Conn = new G4Box("solidX6Conn", Conn_X / 2., Conn_Y / 2., Conn_Z / 2.);
-  G4LogicalVolume* logicX6Conn = new G4LogicalVolume(solidX6Conn, matPCB, "logicX6Conn", 0, 0, 0);
-  logicX6Conn->SetVisAttributes(m_VisConn);
+    G4Box* solidX6Conn = new G4Box("solidX6Conn", Conn_X / 2., Conn_Y / 2., Conn_Z / 2.);
+    G4LogicalVolume* logicX6Conn = new G4LogicalVolume(solidX6Conn, matPCB, "logicX6Conn", 0, 0, 0);
+    logicX6Conn->SetVisAttributes(m_VisConn);
 
-  G4Box* solidX6Si = new G4Box("solidX6Si", X6_SiX / 2., X6_SiY / 2., X6_SiZ / 2.);
-  G4LogicalVolume* logicX6Si = new G4LogicalVolume(solidX6Si, matSi, "logicX6Si", 0, 0, 0);
-  logicX6Si->SetVisAttributes(m_VisX6);
-  logicX6Si->SetSensitiveDetector(m_X6Det);
+    G4Box* solidX6Si = new G4Box("solidX6Si", X6_SiX / 2., X6_SiY / 2., X6_SiZ / 2.);
+    G4LogicalVolume* logicX6Si = new G4LogicalVolume(solidX6Si, matSi, "logicX6Si", 0, 0, 0);
+    logicX6Si->SetVisAttributes(m_VisX6);
+    logicX6Si->SetSensitiveDetector(m_X6Det);
 
-  G4AssemblyVolume* assembly;
-  assembly = new G4AssemblyVolume();
-  G4ThreeVector Pos;
-  assembly->AddPlacedVolume(logicX6Si, Pos, 0); // reference = center of the X6 Si wafer
-  Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset, -X6_SiZOffset);
-  assembly->AddPlacedVolume(logicX6PCB, Pos, 0);
-  Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset - X6_PCBY / 2. + Conn_Y / 2., X6_PCBZ / 2. + Conn_Z / 2.);
-  assembly->AddPlacedVolume(logicX6Conn, Pos, 0);
-
-  if (buildCsI != 0) {
-    BuildSquareCsI();
-    G4double offZ = 0.5 * CsI_Z + CsI_X6_ZOffset;
-    if (buildCsI == 2)
-      offZ = -offZ;
-    G4ThreeVector Pos1(CsI_X6_XOffset, CsI_X6_YOffset1, offZ);
-    G4ThreeVector Pos2(CsI_X6_XOffset, CsI_X6_YOffset2, offZ);
-    assembly->AddPlacedVolume(m_logicSquareCsI1, Pos1, 0);
-    assembly->AddPlacedVolume(m_logicSquareCsI2, Pos2, 0);
-  }
-
-  if (buildCsI == 0)
+    G4AssemblyVolume* assembly = new G4AssemblyVolume();
+    G4ThreeVector Pos;
+    assembly->AddPlacedVolume(logicX6Si, Pos, 0); // reference = center of the X6 Si wafer
+    Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset, -X6_SiZOffset);
+    assembly->AddPlacedVolume(logicX6PCB, Pos, 0);
+    Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset - X6_PCBY / 2. + Conn_Y / 2., X6_PCBZ / 2. + Conn_Z / 2.);
+    assembly->AddPlacedVolume(logicX6Conn, Pos, 0);
     m_X6 = assembly;
-  else
-    m_X6_wCsI[buildCsI] = assembly;
+  }
+  if (buildCsI == 0)
+    return m_X6;
 
-  return assembly;
+  G4AssemblyVolume* assembly_csi = new G4AssemblyVolume();
+  G4ThreeVector Pos0(0, 0, 0);
+  assembly_csi->AddPlacedAssembly(m_X6, Pos0, nullptr);
+  G4double offZ = 0.5 * CsI_Z + CsI_X6_ZOffset;
+  if (buildCsI == 2)
+    offZ = -offZ;
+  G4ThreeVector Pos1(CsI_X6_XOffset, CsI_X6_YOffset1, offZ);
+  G4ThreeVector Pos2(CsI_X6_XOffset, CsI_X6_YOffset2, offZ);
+  assembly_csi->AddPlacedVolume(BuildSquareCsI(), Pos1, 0);
+  assembly_csi->AddPlacedVolume(BuildSquareCsI(), Pos2, 0);
+  m_X6_wCsI[buildCsI] = assembly_csi;
+  return assembly_csi;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -401,71 +402,67 @@ G4AssemblyVolume* STARK::BuildX6Detector(int buildCsI) {
 // BuildBB10Detector: making a G4AssemblyVolume for BB10 (only once)
 //
 G4AssemblyVolume* STARK::BuildBB10Detector(int buildCsI) {
-  if (buildCsI == 0) {
-    if (m_BB10)
-      return m_BB10;
-  }
-  else {
-    if (m_BB10_wCsI[buildCsI])
-      return m_BB10_wCsI[buildCsI];
-  }
+  if ((buildCsI == 0 && m_BB10) || (buildCsI > 0 && m_BB10_wCsI[buildCsI]))
+    return (buildCsI == 0) ? m_BB10 : m_BB10_wCsI[buildCsI];
 
-  ////////////////////////////////////////////////////////////
-  // material definition
-  G4Material* matSi = MaterialManager::getInstance()->GetMaterialFromLibrary("Si");
-  G4Material* matPCB = MaterialManager::getInstance()->GetMaterialFromLibrary("PCB");
-  ////////////////////////////////////////////////////////////
+  if (!m_BB10) {
+    ////////////////////////////////////////////////////////////
+    // material definition
+    G4Material* matSi = MaterialManager::getInstance()->GetMaterialFromLibrary("Si");
+    G4Material* matPCB = MaterialManager::getInstance()->GetMaterialFromLibrary("PCB");
+    ////////////////////////////////////////////////////////////
 
-  G4Box* solidBB10PCBAll = new G4Box("solidBB10PCBAll", BB10_PCBX / 2., BB10_PCBY / 2., BB10_PCBZ / 2.);
-  G4Box* solidBB10PCBSub1 = new G4Box("solidBB10PCBSub1", BB10_PCBSub1X / 2., BB10_PCBSub1Y / 2.,
-                                      BB10_PCBSub1Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
-  G4Box* solidBB10PCBSub2 = new G4Box("solidBB10PCBSub2", BB10_PCBSub2X / 2., BB10_PCBSub2Y / 2.,
-                                      BB10_PCBSub2Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+    G4Box* solidBB10PCBAll = new G4Box("solidBB10PCBAll", BB10_PCBX / 2., BB10_PCBY / 2., BB10_PCBZ / 2.);
+    G4Box* solidBB10PCBSub1 =
+        new G4Box("solidBB10PCBSub1", BB10_PCBSub1X / 2., BB10_PCBSub1Y / 2.,
+                  BB10_PCBSub1Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+    G4Box* solidBB10PCBSub2 =
+        new G4Box("solidBB10PCBSub2", BB10_PCBSub2X / 2., BB10_PCBSub2Y / 2.,
+                  BB10_PCBSub2Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
 
-  G4VSolid* solidBB10PCBTemp =
-      new G4SubtractionSolid("solidBB10PCBTemp", solidBB10PCBAll, solidBB10PCBSub1, 0,
-                             G4ThreeVector(BB10_PCBSub1XOffset, BB10_PCBSub1YOffset, BB10_PCBSub1ZOffset));
-  G4VSolid* solidBB10PCB =
-      new G4SubtractionSolid("solidBB10PCB", solidBB10PCBTemp, solidBB10PCBSub2, 0,
-                             G4ThreeVector(BB10_PCBSub2XOffset, BB10_PCBSub2YOffset, BB10_PCBSub2ZOffset));
+    G4VSolid* solidBB10PCBTemp =
+        new G4SubtractionSolid("solidBB10PCBTemp", solidBB10PCBAll, solidBB10PCBSub1, 0,
+                               G4ThreeVector(BB10_PCBSub1XOffset, BB10_PCBSub1YOffset, BB10_PCBSub1ZOffset));
+    G4VSolid* solidBB10PCB =
+        new G4SubtractionSolid("solidBB10PCB", solidBB10PCBTemp, solidBB10PCBSub2, 0,
+                               G4ThreeVector(BB10_PCBSub2XOffset, BB10_PCBSub2YOffset, BB10_PCBSub2ZOffset));
 
-  G4LogicalVolume* logicBB10PCB = new G4LogicalVolume(solidBB10PCB, matPCB, "logicBB10PCB", 0, 0, 0);
-  logicBB10PCB->SetVisAttributes(m_VisBB10PCB);
+    G4LogicalVolume* logicBB10PCB = new G4LogicalVolume(solidBB10PCB, matPCB, "logicBB10PCB", 0, 0, 0);
+    logicBB10PCB->SetVisAttributes(m_VisBB10PCB);
 
-  G4Box* solidBB10Conn = new G4Box("solidBB10Conn", Conn_X / 2., Conn_Y / 2., Conn_Z / 2.);
-  G4LogicalVolume* logicBB10Conn = new G4LogicalVolume(solidBB10Conn, matPCB, "logicBB10Conn", 0, 0, 0);
-  logicBB10Conn->SetVisAttributes(m_VisConn);
+    G4Box* solidBB10Conn = new G4Box("solidBB10Conn", Conn_X / 2., Conn_Y / 2., Conn_Z / 2.);
+    G4LogicalVolume* logicBB10Conn = new G4LogicalVolume(solidBB10Conn, matPCB, "logicBB10Conn", 0, 0, 0);
+    logicBB10Conn->SetVisAttributes(m_VisConn);
 
-  G4Box* solidBB10Si = new G4Box("solidBB10Si", BB10_SiX / 2., BB10_SiY / 2., BB10_SiZ / 2.);
-  G4LogicalVolume* logicBB10Si = new G4LogicalVolume(solidBB10Si, matSi, "logicBB10Si", 0, 0, 0);
-  logicBB10Si->SetVisAttributes(m_VisBB10);
-  logicBB10Si->SetSensitiveDetector(m_BB10Det);
+    G4Box* solidBB10Si = new G4Box("solidBB10Si", BB10_SiX / 2., BB10_SiY / 2., BB10_SiZ / 2.);
+    G4LogicalVolume* logicBB10Si = new G4LogicalVolume(solidBB10Si, matSi, "logicBB10Si", 0, 0, 0);
+    logicBB10Si->SetVisAttributes(m_VisBB10);
+    logicBB10Si->SetSensitiveDetector(m_BB10Det);
 
-  G4AssemblyVolume* assembly = new G4AssemblyVolume();
-  G4ThreeVector Pos;
-  assembly->AddPlacedVolume(logicBB10Si, Pos, 0); // reference = center of the BB10 Si wafer
-  Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset, -BB10_SiZOffset);
-  assembly->AddPlacedVolume(logicBB10PCB, Pos, 0);
-  Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset - BB10_PCBY / 2. + Conn_Y / 2., BB10_PCBZ / 2. + Conn_Z / 2.);
-  assembly->AddPlacedVolume(logicBB10Conn, Pos, 0);
-
-  if (buildCsI != 0) {
-    BuildSquareCsI();
-    G4double offZ = 0.5 * CsI_Z + CsI_BB10_ZOffset;
-    if (buildCsI == 2)
-      offZ = -offZ;
-    G4ThreeVector Pos1(CsI_BB10_XOffset, CsI_BB10_YOffset1, offZ);
-    G4ThreeVector Pos2(CsI_BB10_XOffset, CsI_BB10_YOffset2, offZ);
-    assembly->AddPlacedVolume(m_logicSquareCsI1, Pos1, 0);
-    assembly->AddPlacedVolume(m_logicSquareCsI2, Pos2, 0);
-  }
-
-  if (buildCsI == 0)
+    G4AssemblyVolume* assembly = new G4AssemblyVolume();
+    G4ThreeVector Pos;
+    assembly->AddPlacedVolume(logicBB10Si, Pos, 0); // reference = center of the BB10 Si wafer
+    Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset, -BB10_SiZOffset);
+    assembly->AddPlacedVolume(logicBB10PCB, Pos, 0);
+    Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset - BB10_PCBY / 2. + Conn_Y / 2., BB10_PCBZ / 2. + Conn_Z / 2.);
+    assembly->AddPlacedVolume(logicBB10Conn, Pos, 0);
     m_BB10 = assembly;
-  else
-    m_BB10_wCsI[buildCsI] = assembly;
+  }
+  if (buildCsI == 0)
+    return m_BB10;
 
-  return assembly;
+  G4AssemblyVolume* assembly_csi = new G4AssemblyVolume();
+  G4ThreeVector Pos0(0, 0, 0);
+  assembly_csi->AddPlacedAssembly(m_BB10, Pos0, nullptr);
+  G4double offZ = 0.5 * CsI_Z + CsI_BB10_ZOffset;
+  if (buildCsI == 2)
+    offZ = -offZ;
+  G4ThreeVector Pos1(CsI_BB10_XOffset, CsI_BB10_YOffset1, offZ);
+  G4ThreeVector Pos2(CsI_BB10_XOffset, CsI_BB10_YOffset2, offZ);
+  assembly_csi->AddPlacedVolume(BuildSquareCsI(), Pos1, 0);
+  assembly_csi->AddPlacedVolume(BuildSquareCsI(), Pos2, 0);
+  m_BB10_wCsI[buildCsI] = assembly_csi;
+  return assembly_csi;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -473,98 +470,98 @@ G4AssemblyVolume* STARK::BuildBB10Detector(int buildCsI) {
 // BuildQQQ5Detector: making a G4AssemblyVolume for QQQ5 (only once)
 //
 G4AssemblyVolume* STARK::BuildQQQ5Detector(int buildCsI) {
-  if (m_QQQ5)
+  if ((buildCsI == 0 && m_QQQ5) || (buildCsI > 0 && m_QQQ5_wCsI[buildCsI]))
+    return (buildCsI == 0) ? m_QQQ5 : m_QQQ5_wCsI[buildCsI];
+
+  if (!m_QQQ5) {
+    ////////////////////////////////////////////////////////////
+    // material definition
+    G4Material* matSi = MaterialManager::getInstance()->GetMaterialFromLibrary("Si");
+    G4Material* matPCB = MaterialManager::getInstance()->GetMaterialFromLibrary("PCB");
+    ////////////////////////////////////////////////////////////
+
+    // Make the a single detector geometry
+    G4Tubs* solidQQQ5PCBAll =
+        new G4Tubs("solidQQQ5PCBAll", QQQ5_PCBInR, QQQ5_PCBOutR, QQQ5_PCBT * 0.5, QQQ5_PCBPhi0, QQQ5_PCBPhi1);
+    G4Box* solidQQQ5PCBCut = new G4Box("solidQQQ5PCBCut", QQQ5_PCBCutX / 2., QQQ5_PCBCutY / 2., QQQ5_PCBCutZ / 2.);
+    G4VSolid* solidQQQ5PCBSub1 =
+        new G4SubtractionSolid("solidQQQ5PCBSub1", solidQQQ5PCBAll, solidQQQ5PCBCut, 0,
+                               G4ThreeVector(QQQ5_PCBCutXOffset, QQQ5_PCBCutYOffset, QQQ5_PCBCutZOffset));
+
+    G4Tubs* solidQQQ5SiAllForPCBCut =
+        new G4Tubs("solidQQQ5SiAllForPCBCut", QQQ5_SiInR, QQQ5_SiOutR, QQQ5_PCBCutZ / 2., QQQ5_SiPhi0, QQQ5_SiPhi1);
+    G4Box* solidQQQ5SiCut1ForPCBCut =
+        new G4Box("solidQQQ5SiCut1ForPCBCut", QQQ5_SiCut1X / 2., QQQ5_SiCut1Y / 2., QQQ5_PCBCutZ / 2. + 1 * mm);
+    G4Box* solidQQQ5SiCut2ForPCBCut =
+        new G4Box("solidQQQ5SiCut2ForPCBCut", QQQ5_SiCut2X / 2., QQQ5_SiCut2Y / 2., QQQ5_PCBCutZ / 2. + 1 * mm);
+    G4VSolid* solidQQQ5SiSub1ForPCBCut =
+        new G4SubtractionSolid("solidQQQ5SiSub1ForPCBCut", solidQQQ5SiAllForPCBCut, solidQQQ5SiCut1ForPCBCut, 0,
+                               G4ThreeVector(QQQ5_SiCut1XOffset, QQQ5_SiCut1YOffset, QQQ5_SiCut1ZOffset));
+    G4VSolid* solidQQQ5SiForPCBCut =
+        new G4SubtractionSolid("solidQQQ5SiForPCBCut", solidQQQ5SiSub1ForPCBCut, solidQQQ5SiCut2ForPCBCut, 0,
+                               G4ThreeVector(QQQ5_SiCut2XOffset, QQQ5_SiCut2YOffset, QQQ5_SiCut2ZOffset));
+    G4VSolid* solidQQQ5PCB =
+        new G4SubtractionSolid("solidQQQ5PCB", solidQQQ5PCBSub1, solidQQQ5SiForPCBCut, 0, G4ThreeVector(0, 0, 0));
+
+    G4Tubs* solidQQQ5SiAll =
+        new G4Tubs("solidQQQ5SiAll", QQQ5_SiInR, QQQ5_SiOutR, QQQ5_SiT * 0.5, QQQ5_SiPhi0, QQQ5_SiPhi1);
+    G4Box* solidQQQ5SiCut1 = new G4Box("solidQQQ5SiCut1", QQQ5_SiCut1X / 2., QQQ5_SiCut1Y / 2., QQQ5_SiCut1Z / 2.);
+    G4Box* solidQQQ5SiCut2 = new G4Box("solidQQQ5SiCut2", QQQ5_SiCut2X / 2., QQQ5_SiCut2Y / 2., QQQ5_SiCut2Z / 2.);
+    G4VSolid* solidQQQ5SiSub1 =
+        new G4SubtractionSolid("solidQQQ5SiSub1", solidQQQ5SiAll, solidQQQ5SiCut1, 0,
+                               G4ThreeVector(QQQ5_SiCut1XOffset, QQQ5_SiCut1YOffset, QQQ5_SiCut1ZOffset));
+    G4VSolid* solidQQQ5Si =
+        new G4SubtractionSolid("solidQQQ5Si", solidQQQ5SiSub1, solidQQQ5SiCut2, 0,
+                               G4ThreeVector(QQQ5_SiCut2XOffset, QQQ5_SiCut2YOffset, QQQ5_SiCut2ZOffset));
+
+    G4LogicalVolume* logicQQQ5PCB = new G4LogicalVolume(solidQQQ5PCB, matPCB, "logicQQQ5PCB", 0, 0, 0);
+    logicQQQ5PCB->SetVisAttributes(m_VisQQQ5PCB);
+
+    G4Box* solidQQQ5Conn = new G4Box("solidQQQ5Conn", Conn_X / 2., Conn_Y / 2., Conn_Z / 2.);
+    G4LogicalVolume* logicQQQ5Conn = new G4LogicalVolume(solidQQQ5Conn, matPCB, "logicQQQ5Conn", 0, 0, 0);
+    logicQQQ5Conn->SetVisAttributes(m_VisConn);
+
+    G4LogicalVolume* logicQQQ5Si = new G4LogicalVolume(solidQQQ5Si, matSi, "logicQQQ5", 0, 0, 0);
+    logicQQQ5Si->SetVisAttributes(m_VisQQQ5);
+    logicQQQ5Si->SetSensitiveDetector(m_QQQ5Det);
+
+    G4AssemblyVolume* assembly = new G4AssemblyVolume();
+    G4ThreeVector Pos;
+    assembly->AddPlacedVolume(logicQQQ5Si, Pos, 0);
+    assembly->AddPlacedVolume(logicQQQ5PCB, Pos, 0);
+    Pos = G4ThreeVector(Conn_Y / 2., (QQQ5_SiOutR + QQQ5_SiInR) / 2., QQQ5_PCBT / 2. + Conn_Z / 2.);
+    G4RotationMatrix* rot = new G4RotationMatrix;
+    rot->rotateZ(90 * deg);
+    assembly->AddPlacedVolume(logicQQQ5Conn, Pos, rot);
+    m_QQQ5 = assembly;
+  }
+  if (buildCsI == 0)
     return m_QQQ5;
 
-  ////////////////////////////////////////////////////////////
-  // material definition
-  G4Material* matSi = MaterialManager::getInstance()->GetMaterialFromLibrary("Si");
-  G4Material* matPCB = MaterialManager::getInstance()->GetMaterialFromLibrary("PCB");
-  ////////////////////////////////////////////////////////////
-
-  // Make the a single detector geometry
-  G4Tubs* solidQQQ5PCBAll =
-      new G4Tubs("solidQQQ5PCBAll", QQQ5_PCBInR, QQQ5_PCBOutR, QQQ5_PCBT * 0.5, QQQ5_PCBPhi0, QQQ5_PCBPhi1);
-  G4Box* solidQQQ5PCBCut = new G4Box("solidQQQ5PCBCut", QQQ5_PCBCutX / 2., QQQ5_PCBCutY / 2., QQQ5_PCBCutZ / 2.);
-  G4VSolid* solidQQQ5PCBSub1 =
-      new G4SubtractionSolid("solidQQQ5PCBSub1", solidQQQ5PCBAll, solidQQQ5PCBCut, 0,
-                             G4ThreeVector(QQQ5_PCBCutXOffset, QQQ5_PCBCutYOffset, QQQ5_PCBCutZOffset));
-
-  G4Tubs* solidQQQ5SiAllForPCBCut =
-      new G4Tubs("solidQQQ5SiAllForPCBCut", QQQ5_SiInR, QQQ5_SiOutR, QQQ5_PCBCutZ / 2., QQQ5_SiPhi0, QQQ5_SiPhi1);
-  G4Box* solidQQQ5SiCut1ForPCBCut =
-      new G4Box("solidQQQ5SiCut1ForPCBCut", QQQ5_SiCut1X / 2., QQQ5_SiCut1Y / 2., QQQ5_PCBCutZ / 2. + 1 * mm);
-  G4Box* solidQQQ5SiCut2ForPCBCut =
-      new G4Box("solidQQQ5SiCut2ForPCBCut", QQQ5_SiCut2X / 2., QQQ5_SiCut2Y / 2., QQQ5_PCBCutZ / 2. + 1 * mm);
-  G4VSolid* solidQQQ5SiSub1ForPCBCut =
-      new G4SubtractionSolid("solidQQQ5SiSub1ForPCBCut", solidQQQ5SiAllForPCBCut, solidQQQ5SiCut1ForPCBCut, 0,
-                             G4ThreeVector(QQQ5_SiCut1XOffset, QQQ5_SiCut1YOffset, QQQ5_SiCut1ZOffset));
-  G4VSolid* solidQQQ5SiForPCBCut =
-      new G4SubtractionSolid("solidQQQ5SiForPCBCut", solidQQQ5SiSub1ForPCBCut, solidQQQ5SiCut2ForPCBCut, 0,
-                             G4ThreeVector(QQQ5_SiCut2XOffset, QQQ5_SiCut2YOffset, QQQ5_SiCut2ZOffset));
-  G4VSolid* solidQQQ5PCB =
-      new G4SubtractionSolid("solidQQQ5PCB", solidQQQ5PCBSub1, solidQQQ5SiForPCBCut, 0, G4ThreeVector(0, 0, 0));
-
-  G4Tubs* solidQQQ5SiAll =
-      new G4Tubs("solidQQQ5SiAll", QQQ5_SiInR, QQQ5_SiOutR, QQQ5_SiT * 0.5, QQQ5_SiPhi0, QQQ5_SiPhi1);
-  G4Box* solidQQQ5SiCut1 = new G4Box("solidQQQ5SiCut1", QQQ5_SiCut1X / 2., QQQ5_SiCut1Y / 2., QQQ5_SiCut1Z / 2.);
-  G4Box* solidQQQ5SiCut2 = new G4Box("solidQQQ5SiCut2", QQQ5_SiCut2X / 2., QQQ5_SiCut2Y / 2., QQQ5_SiCut2Z / 2.);
-  G4VSolid* solidQQQ5SiSub1 =
-      new G4SubtractionSolid("solidQQQ5SiSub1", solidQQQ5SiAll, solidQQQ5SiCut1, 0,
-                             G4ThreeVector(QQQ5_SiCut1XOffset, QQQ5_SiCut1YOffset, QQQ5_SiCut1ZOffset));
-  G4VSolid* solidQQQ5Si =
-      new G4SubtractionSolid("solidQQQ5Si", solidQQQ5SiSub1, solidQQQ5SiCut2, 0,
-                             G4ThreeVector(QQQ5_SiCut2XOffset, QQQ5_SiCut2YOffset, QQQ5_SiCut2ZOffset));
-
-  G4LogicalVolume* logicQQQ5PCB = new G4LogicalVolume(solidQQQ5PCB, matPCB, "logicQQQ5PCB", 0, 0, 0);
-  logicQQQ5PCB->SetVisAttributes(m_VisQQQ5PCB);
-
-  G4Box* solidQQQ5Conn = new G4Box("solidQQQ5Conn", Conn_X / 2., Conn_Y / 2., Conn_Z / 2.);
-  G4LogicalVolume* logicQQQ5Conn = new G4LogicalVolume(solidQQQ5Conn, matPCB, "logicQQQ5Conn", 0, 0, 0);
-  logicQQQ5Conn->SetVisAttributes(m_VisConn);
-
-  G4LogicalVolume* logicQQQ5Si = new G4LogicalVolume(solidQQQ5Si, matSi, "logicQQQ5", 0, 0, 0);
-  logicQQQ5Si->SetVisAttributes(m_VisQQQ5);
-  logicQQQ5Si->SetSensitiveDetector(m_QQQ5Det);
-
-  G4AssemblyVolume* assembly = new G4AssemblyVolume();
-  G4ThreeVector Pos;
-  assembly->AddPlacedVolume(logicQQQ5Si, Pos, 0);
-  assembly->AddPlacedVolume(logicQQQ5PCB, Pos, 0);
-  Pos = G4ThreeVector(Conn_Y / 2., (QQQ5_SiOutR + QQQ5_SiInR) / 2., QQQ5_PCBT / 2. + Conn_Z / 2.);
-  G4RotationMatrix* rot = new G4RotationMatrix;
-  rot->rotateZ(90 * deg);
-  assembly->AddPlacedVolume(logicQQQ5Conn, Pos, rot);
-
-  if (buildCsI != 0) {
-    BuildANASENQQQ3CsI();
-    G4double m_ANASENQQQ3CsI_Z = 50;
-    G4double offZ = 0.5 * m_ANASENQQQ3CsI_Z + CsI_QQQ5_ZOffset;
-    if (buildCsI == 2)
-      offZ = -offZ;
-    for (auto iCsI : {0, 1, 2, 3}) {
-      G4double angle1 = -360 / 32. * deg;
-      G4double angle2 = -360 / 16. * deg;
-      G4double angleZ = angle1 + iCsI * angle2;
-      G4double angleO = 90 * deg + angle1 + iCsI * angle2;
-      G4RotationMatrix* Rot = new G4RotationMatrix(0, 0, 0);
-      Rot->rotateX(90 * deg);
-      // Rot->rotateZ(180*deg);
-      Rot->rotateZ(angleZ);
-      G4double offR = CsI_QQQ5_YOffset + m_ANASENQQQ3CsITotHeight - m_ANASENQQQ3CsIHeight / 2.;
-      G4ThreeVector Pos1(CsI_QQQ5_XOffset, 0, offZ);
-      G4ThreeVector direction(std::cos(angleO), std::sin(angleO), 0);
-      Pos1 = Pos1 + offR * direction;
-      assembly->AddPlacedVolume(m_logicANASENQQQ3CsI, Pos1, Rot);
-    }
+  G4AssemblyVolume* assembly_csi = new G4AssemblyVolume();
+  G4ThreeVector Pos0(0, 0, 0);
+  assembly_csi->AddPlacedAssembly(m_QQQ5, Pos0, nullptr);
+  G4double m_ANASENQQQ3CsI_Z = 50;
+  G4double offZ = 0.5 * m_ANASENQQQ3CsI_Z + CsI_QQQ5_ZOffset;
+  if (buildCsI == 2)
+    offZ = -offZ;
+  for (auto iCsI : {0, 1, 2, 3}) {
+    G4double angle1 = -360 / 32. * deg;
+    G4double angle2 = -360 / 16. * deg;
+    G4double angleZ = angle1 + iCsI * angle2;
+    G4double angleO = 90 * deg + angle1 + iCsI * angle2;
+    G4RotationMatrix* Rot = new G4RotationMatrix(0, 0, 0);
+    Rot->rotateX(90 * deg);
+    // Rot->rotateZ(180*deg);
+    Rot->rotateZ(angleZ);
+    G4double offR = CsI_QQQ5_YOffset + m_ANASENQQQ3CsITotHeight - m_ANASENQQQ3CsIHeight / 2.;
+    G4ThreeVector Pos1(CsI_QQQ5_XOffset, 0, offZ);
+    G4ThreeVector direction(std::cos(angleO), std::sin(angleO), 0);
+    Pos1 = Pos1 + offR * direction;
+    assembly_csi->AddPlacedVolume(BuildANASENQQQ3CsI(), Pos1, Rot);
   }
-
-  if (buildCsI == 0)
-    m_QQQ5 = assembly;
-  else
-    m_QQQ5_wCsI[buildCsI] = assembly;
-
-  return assembly;
+  m_QQQ5_wCsI[buildCsI] = assembly_csi;
+  return assembly_csi;
 }
 
 G4AssemblyVolume* STARK::BuildTarget() {
@@ -757,24 +754,15 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
       continue;
     }
 
-    if (m_MVName[i].empty() == false) {
-      for (const auto& lv : *G4LogicalVolumeStore::GetInstance()) {
-        if (std::string(lv->GetName()) == m_MVName[i]) {
-          world = lv;
-        }
-      }
-    }
-    det->MakeImprint(world, m_Pos[i], Rot, i + 1, true);
-
-    // iterator is equal to fPVStore.begin()
-    std::vector<G4VPhysicalVolume*>::iterator it = det->GetVolumesIterator();
-    unsigned int NbrImprints = det->GetImprintsCount();
-    unsigned int NbrTotalPV = det->TotalImprintedVolumes();
-    unsigned int NbrComponents = NbrTotalPV / NbrImprints;
-    // set copy numbers of components of assembly volume to the current detector number
-    int countComponents = 0;
-    for (it += (NbrImprints - 1) * NbrComponents; it <= det->GetVolumesIterator() + NbrTotalPV - 1; it++)
-      (*it)->SetCopyNo(i + 1 + (countComponents++) * 100);
+    G4LogicalVolume* motherVolume = world;
+    if (!m_MVName[i].empty())
+      for (const auto& lv : *G4LogicalVolumeStore::GetInstance())
+        if (std::string(lv->GetName()) == m_MVName[i])
+          motherVolume = lv;
+    // Make imprint of the detector to the mother volume with copy number (i + 1) * 100
+    // => Si copy No = 101, 201, 301, ...
+    // => CsI copy No = 104, 105, 204, 205, 304, 305, ...
+    det->MakeImprint(motherVolume, m_Pos[i], Rot, (i + 1) * 100, true);
   }
 
   if (m_useTarget) {

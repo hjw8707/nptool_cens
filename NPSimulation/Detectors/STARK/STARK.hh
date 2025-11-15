@@ -27,7 +27,6 @@
 #include "G4AssemblyVolume.hh"
 #include "G4LogicalVolume.hh"
 #include "G4MultiFunctionalDetector.hh"
-#include "G4RotationMatrix.hh"
 #include "G4ThreeVector.hh"
 #include "NPInputParser.h"
 #include "NPSVDetector.hh"
@@ -39,170 +38,170 @@
 //  for some constants
 ////////////////////////////////////////////////////////////////////////////////
 namespace STARKNS {
-extern G4double EnergyThreshold;
-////////////////////////////////////////////////////////////
-// Resolution
-////////////////////////////////////////////////////////////
-extern G4double X6_TRes;
-extern G4double X6_ERes;
-extern G4double BB10_TRes;
-extern G4double BB10_ERes;
-extern G4double QQQ5_TRes;
-extern G4double QQQ5_ERes;
-extern G4double CsI_TRes;
-extern G4double CsI_ERes;
-////////////////////////////////////////////////////////////
+  extern G4double EnergyThreshold;
+  ////////////////////////////////////////////////////////////
+  // Resolution
+  ////////////////////////////////////////////////////////////
+  extern G4double X6_TRes;
+  extern G4double X6_ERes;
+  extern G4double BB10_TRes;
+  extern G4double BB10_ERes;
+  extern G4double QQQ5_TRes;
+  extern G4double QQQ5_ERes;
+  extern G4double CsI_TRes;
+  extern G4double CsI_ERes;
+  ////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////
-// Geometry
-////////////////////////////////////////////////////////////
-//
-// X6
-////////////////////////////////////////////////////////////
-extern const G4double X6_PCBX;
-extern const G4double X6_PCBY;
-extern const G4double X6_PCBZ;
-extern const G4double X6_PCBSub1X;
-extern const G4double X6_PCBSub1Y;
-extern const G4double X6_PCBSub1Z;
-extern const G4double X6_PCBSub1XOffset;
-extern const G4double X6_PCBSub1YOffset;
-extern const G4double X6_PCBSub1ZOffset;
-extern const G4double X6_PCBSub2X;
-extern const G4double X6_PCBSub2Y;
-extern const G4double X6_PCBSub2Z;
-extern const G4double X6_PCBSub2XOffset;
-extern const G4double X6_PCBSub2YOffset;
-extern const G4double X6_PCBSub2ZOffset;
+  ////////////////////////////////////////////////////////////
+  // Geometry
+  ////////////////////////////////////////////////////////////
+  //
+  // X6
+  ////////////////////////////////////////////////////////////
+  extern const G4double X6_PCBX;
+  extern const G4double X6_PCBY;
+  extern const G4double X6_PCBZ;
+  extern const G4double X6_PCBSub1X;
+  extern const G4double X6_PCBSub1Y;
+  extern const G4double X6_PCBSub1Z;
+  extern const G4double X6_PCBSub1XOffset;
+  extern const G4double X6_PCBSub1YOffset;
+  extern const G4double X6_PCBSub1ZOffset;
+  extern const G4double X6_PCBSub2X;
+  extern const G4double X6_PCBSub2Y;
+  extern const G4double X6_PCBSub2Z;
+  extern const G4double X6_PCBSub2XOffset;
+  extern const G4double X6_PCBSub2YOffset;
+  extern const G4double X6_PCBSub2ZOffset;
 
-extern const G4double X6_SiX;
-extern const G4double X6_SiY;
-extern const G4double X6_SiZ;
-extern const G4double X6_SiXOffset;
-extern const G4double X6_SiYOffset;
-extern const G4double X6_SiZOffset;
-extern const G4double X6_SiActiveX;
-extern const G4double X6_SiActiveY;
-extern const G4double X6_SiActiveZ;
+  extern const G4double X6_SiX;
+  extern const G4double X6_SiY;
+  extern const G4double X6_SiZ;
+  extern const G4double X6_SiXOffset;
+  extern const G4double X6_SiYOffset;
+  extern const G4double X6_SiZOffset;
+  extern const G4double X6_SiActiveX;
+  extern const G4double X6_SiActiveY;
+  extern const G4double X6_SiActiveZ;
 
-extern const G4int X6_NFrontStrips;
-extern const G4int X6_NBackStrips;
-////////////////////////////////////////////////////////////
-//
-// BB10
-////////////////////////////////////////////////////////////
-extern const G4double BB10_PCBX;
-extern const G4double BB10_PCBY;
-extern const G4double BB10_PCBZ;
-extern const G4double BB10_PCBSub1X;
-extern const G4double BB10_PCBSub1Y;
-extern const G4double BB10_PCBSub1Z;
-extern const G4double BB10_PCBSub1XOffset;
-extern const G4double BB10_PCBSub1YOffset;
-extern const G4double BB10_PCBSub1ZOffset;
-extern const G4double BB10_PCBSub2X;
-extern const G4double BB10_PCBSub2Y;
-extern const G4double BB10_PCBSub2Z;
-extern const G4double BB10_PCBSub2XOffset;
-extern const G4double BB10_PCBSub2YOffset;
-extern const G4double BB10_PCBSub2ZOffset;
+  extern const G4int X6_NFrontStrips;
+  extern const G4int X6_NBackStrips;
+  ////////////////////////////////////////////////////////////
+  //
+  // BB10
+  ////////////////////////////////////////////////////////////
+  extern const G4double BB10_PCBX;
+  extern const G4double BB10_PCBY;
+  extern const G4double BB10_PCBZ;
+  extern const G4double BB10_PCBSub1X;
+  extern const G4double BB10_PCBSub1Y;
+  extern const G4double BB10_PCBSub1Z;
+  extern const G4double BB10_PCBSub1XOffset;
+  extern const G4double BB10_PCBSub1YOffset;
+  extern const G4double BB10_PCBSub1ZOffset;
+  extern const G4double BB10_PCBSub2X;
+  extern const G4double BB10_PCBSub2Y;
+  extern const G4double BB10_PCBSub2Z;
+  extern const G4double BB10_PCBSub2XOffset;
+  extern const G4double BB10_PCBSub2YOffset;
+  extern const G4double BB10_PCBSub2ZOffset;
 
-extern const G4double BB10_SiX;
-extern const G4double BB10_SiY;
-extern const G4double BB10_SiZ;
-extern const G4double BB10_SiXOffset;
-extern const G4double BB10_SiYOffset;
-extern const G4double BB10_SiZOffset;
-extern const G4double BB10_SiActiveX;
-extern const G4double BB10_SiActiveY;
-extern const G4double BB10_SiActiveZ;
+  extern const G4double BB10_SiX;
+  extern const G4double BB10_SiY;
+  extern const G4double BB10_SiZ;
+  extern const G4double BB10_SiXOffset;
+  extern const G4double BB10_SiYOffset;
+  extern const G4double BB10_SiZOffset;
+  extern const G4double BB10_SiActiveX;
+  extern const G4double BB10_SiActiveY;
+  extern const G4double BB10_SiActiveZ;
 
-extern const G4int BB10_NFrontStrips;
-extern const G4int BB10_NBackStrips;
-////////////////////////////////////////////////////////////
-//
-// QQQ5
-////////////////////////////////////////////////////////////
-extern const G4double QQQ5_PCBOutR;
-extern const G4double QQQ5_PCBInR;
-extern const G4double QQQ5_PCBPhi0;
-extern const G4double QQQ5_PCBPhi1;
-extern const G4double QQQ5_PCBT;
-extern const G4double QQQ5_PCBCutX;
-extern const G4double QQQ5_PCBCutY;
-extern const G4double QQQ5_PCBCutZ;
-extern const G4double QQQ5_PCBCutXOffset;
-extern const G4double QQQ5_PCBCutYOffset;
-extern const G4double QQQ5_PCBCutZOffset;
+  extern const G4int BB10_NFrontStrips;
+  extern const G4int BB10_NBackStrips;
+  ////////////////////////////////////////////////////////////
+  //
+  // QQQ5
+  ////////////////////////////////////////////////////////////
+  extern const G4double QQQ5_PCBOutR;
+  extern const G4double QQQ5_PCBInR;
+  extern const G4double QQQ5_PCBPhi0;
+  extern const G4double QQQ5_PCBPhi1;
+  extern const G4double QQQ5_PCBT;
+  extern const G4double QQQ5_PCBCutX;
+  extern const G4double QQQ5_PCBCutY;
+  extern const G4double QQQ5_PCBCutZ;
+  extern const G4double QQQ5_PCBCutXOffset;
+  extern const G4double QQQ5_PCBCutYOffset;
+  extern const G4double QQQ5_PCBCutZOffset;
 
-////////////////////////////////////////////////////////////
-//
-// QQQ Wafer
-////////////////////////////////////////////////////////////
-extern const G4double QQQ5_SiOutR;
-extern const G4double QQQ5_SiInR;
-extern const G4double QQQ5_SiT;
-extern const G4double QQQ5_SiPhi0;
-extern const G4double QQQ5_SiPhi1;
-extern const G4double QQQ5_SiActiveOutR;
-extern const G4double QQQ5_SiActiveInR;
-extern const G4double QQQ5_SiCut1X;
-extern const G4double QQQ5_SiCut1Y;
-extern const G4double QQQ5_SiCut1Z;
-extern const G4double QQQ5_SiCut1XOffset;
-extern const G4double QQQ5_SiCut1YOffset;
-extern const G4double QQQ5_SiCut1ZOffset;
-extern const G4double QQQ5_SiCut2X;
-extern const G4double QQQ5_SiCut2Y;
-extern const G4double QQQ5_SiCut2Z;
-extern const G4double QQQ5_SiCut2XOffset;
-extern const G4double QQQ5_SiCut2YOffset;
-extern const G4double QQQ5_SiCut2ZOffset;
+  ////////////////////////////////////////////////////////////
+  //
+  // QQQ Wafer
+  ////////////////////////////////////////////////////////////
+  extern const G4double QQQ5_SiOutR;
+  extern const G4double QQQ5_SiInR;
+  extern const G4double QQQ5_SiT;
+  extern const G4double QQQ5_SiPhi0;
+  extern const G4double QQQ5_SiPhi1;
+  extern const G4double QQQ5_SiActiveOutR;
+  extern const G4double QQQ5_SiActiveInR;
+  extern const G4double QQQ5_SiCut1X;
+  extern const G4double QQQ5_SiCut1Y;
+  extern const G4double QQQ5_SiCut1Z;
+  extern const G4double QQQ5_SiCut1XOffset;
+  extern const G4double QQQ5_SiCut1YOffset;
+  extern const G4double QQQ5_SiCut1ZOffset;
+  extern const G4double QQQ5_SiCut2X;
+  extern const G4double QQQ5_SiCut2Y;
+  extern const G4double QQQ5_SiCut2Z;
+  extern const G4double QQQ5_SiCut2XOffset;
+  extern const G4double QQQ5_SiCut2YOffset;
+  extern const G4double QQQ5_SiCut2ZOffset;
 
-extern const G4int QQQ5_NRStrip;
-extern const G4int QQQ5_NAStrip;
+  extern const G4int QQQ5_NRStrip;
+  extern const G4int QQQ5_NAStrip;
 
-////////////////////////////////////////////////////////////
-//
-// Connector
-////////////////////////////////////////////////////////////
-extern const G4double Conn_X;
-extern const G4double Conn_Y;
-extern const G4double Conn_Z;
+  ////////////////////////////////////////////////////////////
+  //
+  // Connector
+  ////////////////////////////////////////////////////////////
+  extern const G4double Conn_X;
+  extern const G4double Conn_Y;
+  extern const G4double Conn_Z;
 
-////////////////////////////////////////////////////////////
-//
-// CsI
-////////////////////////////////////////////////////////////
-extern const G4double CsI_X;
-extern const G4double CsI_Y;
-extern const G4double CsI_Z;
-extern const G4double CsI_X6_XOffset;
-extern const G4double CsI_X6_YOffset1;
-extern const G4double CsI_X6_YOffset2;
-extern const G4double CsI_X6_ZOffset;
-extern const G4double CsI_BB10_XOffset;
-extern const G4double CsI_BB10_YOffset1;
-extern const G4double CsI_BB10_YOffset2;
-extern const G4double CsI_BB10_ZOffset;
+  ////////////////////////////////////////////////////////////
+  //
+  // CsI
+  ////////////////////////////////////////////////////////////
+  extern const G4double CsI_X;
+  extern const G4double CsI_Y;
+  extern const G4double CsI_Z;
+  extern const G4double CsI_X6_XOffset;
+  extern const G4double CsI_X6_YOffset1;
+  extern const G4double CsI_X6_YOffset2;
+  extern const G4double CsI_X6_ZOffset;
+  extern const G4double CsI_BB10_XOffset;
+  extern const G4double CsI_BB10_YOffset1;
+  extern const G4double CsI_BB10_YOffset2;
+  extern const G4double CsI_BB10_ZOffset;
 
-////////////////////////////////////////////////////////////
-//
-// ANASEN CsI for QQQ3
-////////////////////////////////////////////////////////////
-extern const G4double CsI_QQQ5_XOffset;
-extern const G4double CsI_QQQ5_YOffset;
-extern const G4double CsI_QQQ5_ZOffset;
-extern const G4double m_ANASENQQQ3CsIhypotenuse;
-extern const G4double m_ANASENQQQ3CsIThickness;
-extern const G4double m_ANASENQQQ3CsIWidthBot;
-extern const G4double m_ANASENQQQ3CsIWidthTop;
-extern const G4double m_ANASENQQQ3CsITotHyp;
-extern const G4double m_ANASENQQQ3CsITotHeight;
-extern const G4double m_ANASENQQQ3CsIHeight;
-////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////
+  //
+  // ANASEN CsI for QQQ3
+  ////////////////////////////////////////////////////////////
+  extern const G4double CsI_QQQ5_XOffset;
+  extern const G4double CsI_QQQ5_YOffset;
+  extern const G4double CsI_QQQ5_ZOffset;
+  extern const G4double m_ANASENQQQ3CsIhypotenuse;
+  extern const G4double m_ANASENQQQ3CsIThickness;
+  extern const G4double m_ANASENQQQ3CsIWidthBot;
+  extern const G4double m_ANASENQQQ3CsIWidthTop;
+  extern const G4double m_ANASENQQQ3CsITotHyp;
+  extern const G4double m_ANASENQQQ3CsITotHeight;
+  extern const G4double m_ANASENQQQ3CsIHeight;
+  ////////////////////////////////////////////////////////////
 
-}  // namespace STARKNS
+} // namespace STARKNS
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -217,8 +216,8 @@ class STARK : public NPS::VDetector {
   G4AssemblyVolume* BuildBB10Detector(int nCsI = 0);
   G4AssemblyVolume* BuildQQQ5Detector(int nCsI = 0);
   G4AssemblyVolume* BuildTarget();
-  void BuildSquareCsI();
-  void BuildANASENQQQ3CsI();
+  G4LogicalVolume* BuildSquareCsI();
+  G4LogicalVolume* BuildANASENQQQ3CsI();
 
   // Reaction Region
   G4Region* m_ReactionRegion = nullptr;
@@ -265,8 +264,7 @@ class STARK : public NPS::VDetector {
   G4AssemblyVolume* m_QQQ5_wCsI[4];
   G4AssemblyVolume* m_Target;
   G4LogicalVolume* m_logicTarget;
-  G4LogicalVolume* m_logicSquareCsI1;
-  G4LogicalVolume* m_logicSquareCsI2;
+  G4LogicalVolume* m_logicSquareCsI;
   G4LogicalVolume* m_logicANASENQQQ3CsI;
 
   // Event class to store data
@@ -276,15 +274,15 @@ class STARK : public NPS::VDetector {
   // Type & Geometry
   vector<string> m_Type;
   vector<G4ThreeVector> m_Pos;
-  vector<G4ThreeVector> m_Rot;  // Rotation of the detector
+  vector<G4ThreeVector> m_Rot; // Rotation of the detector
   vector<bool>
-      m_AutoRotateFacingBeamAxis;  // If true, the detector will be rotated to face the beam axis. (do not use m_Rot)
-  vector<bool> m_Flip;             // Which surface facing to the beam line.
-  vector<bool> m_Rev;              // Reverse along the beam axis. (connector direction)
-  vector<G4double> m_Beta;         // Rotation along the beam axis. (only for QQQ5)
-  vector<G4int> m_Group;           // Detector group for dE-E analysis
-  vector<int> m_CsI;               // Number of CsI layers
-  vector<string> m_MVName;         // Name of the mother volume
+      m_AutoRotateFacingBeamAxis; // If true, the detector will be rotated to face the beam axis. (do not use m_Rot)
+  vector<bool> m_Flip;            // Which surface facing to the beam line.
+  vector<bool> m_Rev;             // Reverse along the beam axis. (connector direction)
+  vector<G4double> m_Beta;        // Rotation along the beam axis. (only for QQQ5)
+  vector<G4int> m_Group;          // Detector group for dE-E analysis
+  vector<int> m_CsI;              // Number of CsI layers
+  vector<string> m_MVName;        // Name of the mother volume
 
   // Target
   bool m_useTarget;
