@@ -1,6 +1,6 @@
 #!/bin/bash
 reaction=$1 # 1: dp_gs, 2: dp_ex, 3: dt_gs, 4: d3He_gs
-nevent=100
+nevent=100000
 
 if [ -z "$reaction" ]; then
     # argument가 없으면 GUI 모드로 실행

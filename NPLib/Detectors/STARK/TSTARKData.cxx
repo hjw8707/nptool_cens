@@ -46,7 +46,7 @@ void TSTARKData::Clear() {
   fDwE.clear();
   fT.clear();
   fPos.clear();
-  fNCsI.clear();
+  fCsIN.clear();
   fCsIE.clear();
 }
 
@@ -76,12 +76,30 @@ void TSTARKData::Dump() const { // to check the data
     std::cout << " UpE = " << fUpE[i] << ", ";
     std::cout << " DwE = " << fDwE[i] << ", ";
     std::cout << " T = " << fT[i] << ", ";
-    std::cout << " NCsI = " << GetNCsI(i) << ", ";
+    std::cout << " CsIN = ";
+    for (Int_t j = 0; j < GetCsINArray(i).size(); j++) {
+      std::cout << GetCsIN(i, j) << " ";
+    }
+    std::cout << ", ";
     std::cout << " CsIE = ";
-    for (Int_t j = 0; j < GetNCsI(i); j++) {
+    for (Int_t j = 0; j < GetCsIEArray(i).size(); j++) {
       std::cout << GetCsIE(i, j) << " ";
     }
     std::cout << std::endl;
   }
   std::cout << "=======================================" << std::endl;
+}
+
+//////////////////////////////////////////////////////////////////////
+void TSTARKData::SetCsI(const Int_t DetN, const Int_t numCsI, const Double_t E) {
+  // fDetN에서 DetN이 같은 인덱스 찾기
+  auto it = std::find(fDetN.begin(), fDetN.end(), DetN);
+  if (it != fDetN.end()) {
+    int idx = std::distance(fDetN.begin(), it);
+    fCsIN[idx].push_back(numCsI);
+    fCsIE[idx].push_back(E);
+    return;
+  }
+  // 없을리가 없다. 에러 처리
+  throw std::runtime_error("Detector not found in TSTARKData::SetCsI");
 }

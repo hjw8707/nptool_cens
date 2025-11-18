@@ -43,7 +43,7 @@ class TSTARKData : public TObject {
   vector<Double_t> fDwE; // for X6 only
   vector<Double_t> fT;
   vector<TVector3> fPos;          // relative to each detector
-  vector<Int_t> fNCsI;            // number of relavant CsI detectors
+  vector<vector<Int_t>> fCsIN;    // number of relavant CsI detectors for each detector
   vector<vector<Double_t>> fCsIE; // CsI energy for each detector
 
   // constructor and destructor
@@ -65,7 +65,8 @@ class TSTARKData : public TObject {
   // for all
   inline void Set(const Int_t Type, const Int_t DetN, const Int_t FStN, const Int_t BStN, const Double_t FrE,
                   const Double_t BkE, const Double_t UpE, const Double_t DwE, const Double_t T, const Double_t posX,
-                  const Double_t posY, const Double_t posZ, const Int_t NCsI = 0, const vector<Double_t> CsIE = {}) {
+                  const Double_t posY, const Double_t posZ, const vector<Int_t> CsIN = {},
+                  const vector<Double_t> CsIE = {}) {
     fType.push_back(Type);
     fDetN.push_back(DetN);
     fFStN.push_back(FStN);
@@ -76,9 +77,11 @@ class TSTARKData : public TObject {
     fDwE.push_back(DwE);
     fT.push_back(T);
     fPos.push_back(TVector3(posX, posY, posZ));
-    fNCsI.push_back(NCsI);
+    fCsIN.push_back(CsIN);
     fCsIE.push_back(CsIE);
   };
+
+  void SetCsI(const Int_t DetN, const Int_t N, const Double_t E);
 
   // all
   inline Int_t GetMult() const { return fDetN.size(); }
@@ -92,8 +95,9 @@ class TSTARKData : public TObject {
   inline Double_t GetDwE(Int_t i) const { return fDwE[i]; }
   inline Double_t GetT(Int_t i) const { return fT[i]; }
   inline TVector3 GetPos(Int_t i) const { return fPos[i]; }
-  inline Bool_t HasCsI(Int_t i) const { return fNCsI[i] > 0; }
-  inline Int_t GetNCsI(Int_t i) const { return fNCsI[i]; }
+  inline Bool_t HasCsI(Int_t i) const { return fCsIN[i].size() > 0; }
+  inline vector<Int_t> GetCsINArray(Int_t i) const { return fCsIN[i]; }
+  inline Int_t GetCsIN(Int_t i, Int_t j) const { return fCsIN[i][j]; }
   inline vector<Double_t> GetCsIEArray(Int_t i) const { return fCsIE[i]; }
   inline Double_t GetCsIE(Int_t i, Int_t j) const { return fCsIE[i][j]; }
   inline Double_t GetCsITotalE(Int_t i) const { return std::accumulate(fCsIE[i].begin(), fCsIE[i].end(), 0.0); }

@@ -37,7 +37,6 @@
 #include "G4UserLimits.hh"
 #include "G4VisAttributes.hh"
 #include "G4ThreeVector.hh"
-#include "G4Transform3D.hh"
 
 // NPTool
 #include "BeamReaction.hh"
@@ -876,19 +875,20 @@ void STARK::ReadSensitive(const G4Event* event) {
   evtMap = static_cast<NPS::HitsMap<G4double*>*>(HCE->GetHC(HCID_CsI));
   for (it = evtMap->GetMap()->begin(); it != evtMap->GetMap()->end(); it++) {
     // energy smearing
-    G4double enSmear0 = RandGauss::shoot((*(it->second))[1], (*(it->second))[1] * CsI_ERes / 100.);
-    m_Event->Set(3,
-                 (*(it->second))[0], // detector number
-                 0,                  // front strip number
-                 0,                  // back strip number
-                 enSmear0,           // frontside energy
-                 0,                  // backside energy
-                 0,                  // upstream energy
-                 0,                  // downstream energy
-                 (*(it->second))[2], // global time
-                 0,                  // hit position X
-                 0,                  // hit position Y
-                 0);                 // hit position Z
+    G4double enSmear0 = RandGauss::shoot((*(it->second))[2], (*(it->second))[2] * CsI_ERes / 100.);
+    // m_Event->Set(3,
+    //              (*(it->second))[0], // detector number
+    //              0,                  // front strip number
+    //              0,                  // back strip number
+    //              enSmear0,           // frontside energy
+    //              0,                  // backside energy
+    //              0,                  // upstream energy
+    //              0,                  // downstream energy
+    //              (*(it->second))[2], // global time
+    //              0,                  // hit position X
+    //              0,                  // hit position Y
+    //              0);                 // hit position Z
+    m_Event->SetCsI((*(it->second))[0], (*(it->second))[1], enSmear0);
   }
   /////////////////////////////////////////////////////////////////////////////////
 }
