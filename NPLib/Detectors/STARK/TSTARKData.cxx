@@ -100,6 +100,8 @@ void TSTARKData::SetCsI(const Int_t DetN, const Int_t numCsI, const Double_t E) 
     fCsIE[idx].push_back(E);
     return;
   }
-  // 없을리가 없다. 에러 처리
-  throw std::runtime_error("Detector not found in TSTARKData::SetCsI");
+  // 없으면 새로 추가
+  Set(0, DetN, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+  fCsIN.back().push_back(numCsI);
+  fCsIE.back().push_back(E);
 }
