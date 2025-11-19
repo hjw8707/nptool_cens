@@ -98,15 +98,15 @@ void Analysis::Init() {
   OutgoingTarget = NULL;
   OutgoingWindow = NULL;
 
-  if (OriginalBeamEnergy > 0 && !TargetMaterial.empty()) {
-    BeamTarget = new NPL::EnergyLoss(beam + "_" + TargetMaterial + ".G4table", "G4Table", 100);
-    OutgoingTarget = new NPL::EnergyLoss(outgoing + "_" + TargetMaterial + ".G4table", "G4Table", 100);
-  }
+  // if (OriginalBeamEnergy > 0 && !TargetMaterial.empty()) {
+  //   BeamTarget = new NPL::EnergyLoss(beam + "_" + TargetMaterial + ".G4table", "G4Table", 100);
+  //   OutgoingTarget = new NPL::EnergyLoss(outgoing + "_" + TargetMaterial + ".G4table", "G4Table", 100);
+  // }
 
-  if (OriginalBeamEnergy > 0 && WindowsThickness > 0 && !WindowsMaterial.empty()) {
-    BeamWindow = new NPL::EnergyLoss(beam + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
-    OutgoingWindow = new NPL::EnergyLoss(outgoing + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
-  }
+  // if (OriginalBeamEnergy > 0 && WindowsThickness > 0 && !WindowsMaterial.empty()) {
+  //   BeamWindow = new NPL::EnergyLoss(beam + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
+  //   OutgoingWindow = new NPL::EnergyLoss(outgoing + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
+  // }
 
   // initialize random number generator
   Rand = TRandom3();
@@ -126,8 +126,8 @@ void Analysis::TreatEvent() {
   if (TMath::IsNaN(vert.X()))  // no reaction at the target
     return;
 
-  // BeamImpact = vert;
-  BeamImpact.SetXYZ(0, 0, 0);  // assume the beam impact is at the origin
+  BeamImpact = vert;
+  // BeamImpact.SetXYZ(0, 0, 0);  // assume the beam impact is at the origin
   // BeamDirection = myReac->GetBeamDirection();
   BeamDirection.SetXYZ(0, 0, 1);  // assume the beam direction is along the z-axis
   BeamReacE = myReac->GetBeamEnergy();
@@ -162,8 +162,8 @@ void Analysis::TreatEvent() {
   }
   // Calculate lab angle
   TVector3 hitDir = hitPos - BeamImpact;
+  // TVector3 hitDir = myReac->GetParticleDirection(0);
   OutgoingThetaLab = hitDir.Angle(BeamDirection);
-  OutgoingEnergy = E;
 
   // Correct for energy loss in target and window -> not implemented yet
   // if (OutgoingTarget) {
@@ -174,12 +174,13 @@ void Analysis::TreatEvent() {
   // }
 
   // Calculate outgoing particle momentum
-  double outgoingKE = OutgoingEnergy;  // MeV
-  double outgoingP = sqrt(outgoingKE * outgoingKE + 2 * outgoingKE * outgoingMass);
+  // OutgoingEnergy = myReac->GetKineticEnergy(0);  // OutgoingEnergy;  // MeV
+  OutgoingEnergy = E;
+  double outgoingP = sqrt(OutgoingEnergy * OutgoingEnergy + 2 * OutgoingEnergy * outgoingMass);
   OutgoingMomentum = hitDir.Unit() * outgoingP;
 
   // Outgoing particle 4-vector
-  double outgoingE = outgoingKE + outgoingMass;
+  double outgoingE = OutgoingEnergy + outgoingMass;
   Outgoing4Vector = TLorentzVector(OutgoingMomentum, outgoingE);
 
   // Missing 4-vector = Beam + Target - Outgoing
@@ -195,6 +196,7 @@ void Analysis::TreatEvent() {
 void Analysis::End() {}
 ////////////////////////////////////////////////////////////////////////////////
 void Analysis::InitOutputBranch() {
+  RootOutput::getInstance()->GetTree()->Branch("myReac", "RC", &myReac);
   RootOutput::getInstance()->GetTree()->Branch("vert", "TVector3", &vert);
   RootOutput::getInstance()->GetTree()->Branch("BeamReacE", &BeamReacE, "BeamReacE/D");
   RootOutput::getInstance()->GetTree()->Branch("BeamDirection", "TVector3", &BeamDirection);

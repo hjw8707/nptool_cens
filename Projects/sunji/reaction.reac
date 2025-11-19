@@ -7,8 +7,8 @@ Beam
   SigmaEnergy= 0 MeV
   SigmaThetaX= 0 mrad
   SigmaPhiY= 0 mrad
-  SigmaX= 10 mm
-  SigmaY= 10 mm
+  SigmaX= 0.1 mm
+  SigmaY= 0.1 mm
   MeanThetaX= 0 mrad
   MeanPhiY= 0 mrad
   MeanX= 0 mm

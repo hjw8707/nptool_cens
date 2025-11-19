@@ -32,11 +32,11 @@
 #include "G4ProductionCuts.hh"
 #include "G4SDManager.hh"
 #include "G4SubtractionSolid.hh"
+#include "G4ThreeVector.hh"
 #include "G4Trap.hh"
 #include "G4Tubs.hh"
 #include "G4UserLimits.hh"
 #include "G4VisAttributes.hh"
-#include "G4ThreeVector.hh"
 
 // NPTool
 #include "BeamReaction.hh"
@@ -57,177 +57,177 @@ using namespace CLHEP;
 using namespace STARKNS;
 
 namespace STARKNS {
-  G4double EnergyThreshold = 0.1 * MeV;
-  ////////////////////////////////////////////////////////////
-  // Resolution
-  ////////////////////////////////////////////////////////////
-  G4double X6_TRes = 0.213;
-  G4double X6_ERes = 0.5; // [%] in sigma
-  G4double BB10_TRes = 0.213;
-  G4double BB10_ERes = 0.5; // [%] in sigma
-  G4double QQQ5_TRes = 0.213;
-  G4double QQQ5_ERes = 0.5; // [%] in sigma
-  G4double CsI_TRes = 0.213;
-  G4double CsI_ERes = 0.5; // [%] in sigma
-  ////////////////////////////////////////////////////////////
+G4double EnergyThreshold = 0.1 * MeV;
+////////////////////////////////////////////////////////////
+// Resolution
+////////////////////////////////////////////////////////////
+G4double X6_TRes = 0.213;
+G4double X6_ERes = 0.5;  // [%] in sigma
+G4double BB10_TRes = 0.213;
+G4double BB10_ERes = 0.5;  // [%] in sigma
+G4double QQQ5_TRes = 0.213;
+G4double QQQ5_ERes = 0.5;  // [%] in sigma
+G4double CsI_TRes = 0.213;
+G4double CsI_ERes = 0.5;  // [%] in sigma
+////////////////////////////////////////////////////////////
 
-  ////////////////////////////////////////////////////////////
-  // Geometry
-  ////////////////////////////////////////////////////////////
-  //
-  // X6
-  ////////////////////////////////////////////////////////////
-  const G4double X6_PCBX = 45.20 * mm;
-  const G4double X6_PCBY = 93.10 * mm;
-  const G4double X6_PCBZ = 2.40 * mm;
-  const G4double X6_PCBSub1X = 43.60 * mm;
-  const G4double X6_PCBSub1Y = 78.30 * mm;
-  const G4double X6_PCBSub1Z = 1.20 * mm;
-  const G4double X6_PCBSub1XOffset = 0.0 * mm;
-  const G4double X6_PCBSub1YOffset = 6.2 * mm;
-  const G4double X6_PCBSub1ZOffset = 0.6 * mm;
-  const G4double X6_PCBSub2X = 42.20 * mm;
-  const G4double X6_PCBSub2Y = 76.90 * mm;
-  const G4double X6_PCBSub2Z = 1.20 * mm;
-  const G4double X6_PCBSub2XOffset = 0.0 * mm;
-  const G4double X6_PCBSub2YOffset = 6.2 * mm;
-  const G4double X6_PCBSub2ZOffset = -0.6 * mm;
+////////////////////////////////////////////////////////////
+// Geometry
+////////////////////////////////////////////////////////////
+//
+// X6
+////////////////////////////////////////////////////////////
+const G4double X6_PCBX = 45.20 * mm;
+const G4double X6_PCBY = 93.10 * mm;
+const G4double X6_PCBZ = 2.40 * mm;
+const G4double X6_PCBSub1X = 43.60 * mm;
+const G4double X6_PCBSub1Y = 78.30 * mm;
+const G4double X6_PCBSub1Z = 1.20 * mm;
+const G4double X6_PCBSub1XOffset = 0.0 * mm;
+const G4double X6_PCBSub1YOffset = 6.2 * mm;
+const G4double X6_PCBSub1ZOffset = 0.6 * mm;
+const G4double X6_PCBSub2X = 42.20 * mm;
+const G4double X6_PCBSub2Y = 76.90 * mm;
+const G4double X6_PCBSub2Z = 1.20 * mm;
+const G4double X6_PCBSub2XOffset = 0.0 * mm;
+const G4double X6_PCBSub2YOffset = 6.2 * mm;
+const G4double X6_PCBSub2ZOffset = -0.6 * mm;
 
-  const G4double X6_SiX = 43.30 * mm;
-  const G4double X6_SiY = 78.00 * mm;
-  const G4double X6_SiZ = 1.00 * mm;
-  const G4double X6_SiXOffset = 0.0 * mm;
-  const G4double X6_SiYOffset = 6.2 * mm;
-  const G4double X6_SiZOffset = 0.5 * mm;
-  const G4double X6_SiActiveX = 40.30 * mm;
-  const G4double X6_SiActiveY = 75.00 * mm;
-  const G4double X6_SiActiveZ = 1.00 * mm; // 1000 um
+const G4double X6_SiX = 43.30 * mm;
+const G4double X6_SiY = 78.00 * mm;
+const G4double X6_SiZ = 1.00 * mm;
+const G4double X6_SiXOffset = 0.0 * mm;
+const G4double X6_SiYOffset = 6.2 * mm;
+const G4double X6_SiZOffset = 0.5 * mm;
+const G4double X6_SiActiveX = 40.30 * mm;
+const G4double X6_SiActiveY = 75.00 * mm;
+const G4double X6_SiActiveZ = 1.00 * mm;  // 1000 um
 
-  const G4int X6_NFrontStrips = 8;
-  const G4int X6_NBackStrips = 4;
-  ////////////////////////////////////////////////////////////
-  //
-  // BB10
-  ////////////////////////////////////////////////////////////
-  const G4double BB10_PCBX = 45.20 * mm;
-  const G4double BB10_PCBY = 93.10 * mm;
-  const G4double BB10_PCBZ = 2.40 * mm;
-  const G4double BB10_PCBSub1X = 43.60 * mm;
-  const G4double BB10_PCBSub1Y = 78.30 * mm;
-  const G4double BB10_PCBSub1Z = 1.20 * mm;
-  const G4double BB10_PCBSub1XOffset = 0.0 * mm;
-  const G4double BB10_PCBSub1YOffset = 6.5 * mm; // only different to X6 PCB
-  const G4double BB10_PCBSub1ZOffset = 0.6 * mm;
-  const G4double BB10_PCBSub2X = 42.20 * mm;
-  const G4double BB10_PCBSub2Y = 76.90 * mm;
-  const G4double BB10_PCBSub2Z = 1.20 * mm;
-  const G4double BB10_PCBSub2XOffset = 0.0 * mm;
-  const G4double BB10_PCBSub2YOffset = 6.5 * mm; // only different to X6 PCB
-  const G4double BB10_PCBSub2ZOffset = -0.6 * mm;
+const G4int X6_NFrontStrips = 8;
+const G4int X6_NBackStrips = 4;
+////////////////////////////////////////////////////////////
+//
+// BB10
+////////////////////////////////////////////////////////////
+const G4double BB10_PCBX = 45.20 * mm;
+const G4double BB10_PCBY = 93.10 * mm;
+const G4double BB10_PCBZ = 2.40 * mm;
+const G4double BB10_PCBSub1X = 43.60 * mm;
+const G4double BB10_PCBSub1Y = 78.30 * mm;
+const G4double BB10_PCBSub1Z = 1.20 * mm;
+const G4double BB10_PCBSub1XOffset = 0.0 * mm;
+const G4double BB10_PCBSub1YOffset = 6.5 * mm;  // only different to X6 PCB
+const G4double BB10_PCBSub1ZOffset = 0.6 * mm;
+const G4double BB10_PCBSub2X = 42.20 * mm;
+const G4double BB10_PCBSub2Y = 76.90 * mm;
+const G4double BB10_PCBSub2Z = 1.20 * mm;
+const G4double BB10_PCBSub2XOffset = 0.0 * mm;
+const G4double BB10_PCBSub2YOffset = 6.5 * mm;  // only different to X6 PCB
+const G4double BB10_PCBSub2ZOffset = -0.6 * mm;
 
-  const G4double BB10_SiX = 43.30 * mm;
-  const G4double BB10_SiY = 78.00 * mm;
-  const G4double BB10_SiZ = 0.14 * mm;
-  const G4double BB10_SiXOffset = 0.0 * mm;
-  const G4double BB10_SiYOffset = 6.5 * mm;
-  const G4double BB10_SiZOffset = 0.07 * mm;
-  const G4double BB10_SiActiveX = 39.45 * mm;
-  const G4double BB10_SiActiveY = 74.15 * mm;
-  const G4double BB10_SiActiveZ = 0.14 * mm; // 140 um
+const G4double BB10_SiX = 43.30 * mm;
+const G4double BB10_SiY = 78.00 * mm;
+const G4double BB10_SiZ = 0.14 * mm;
+const G4double BB10_SiXOffset = 0.0 * mm;
+const G4double BB10_SiYOffset = 6.5 * mm;
+const G4double BB10_SiZOffset = 0.07 * mm;
+const G4double BB10_SiActiveX = 39.45 * mm;
+const G4double BB10_SiActiveY = 74.15 * mm;
+const G4double BB10_SiActiveZ = 0.14 * mm;  // 140 um
 
-  const G4int BB10_NFrontStrips = 8;
-  const G4int BB10_NBackStrips = 1;
-  ////////////////////////////////////////////////////////////
-  //
-  // QQQ5
-  ////////////////////////////////////////////////////////////
-  const G4double QQQ5_PCBOutR = 86 * mm;
-  const G4double QQQ5_PCBInR = 15 * mm;
-  const G4double QQQ5_PCBPhi0 = 0 * deg;  // Starting point
-  const G4double QQQ5_PCBPhi1 = 90 * deg; // ANGLE
-  const G4double QQQ5_PCBT = 3.4 * mm;
-  const G4double QQQ5_PCBCutX = 3.4 * 2 * mm; // 3.4 mm gap from the arc center?
-  const G4double QQQ5_PCBCutY = 86 * mm;
-  const G4double QQQ5_PCBCutZ = 4 * mm;
-  const G4double QQQ5_PCBCutXOffset = 0 * mm;
-  const G4double QQQ5_PCBCutYOffset = 43 * mm;
-  const G4double QQQ5_PCBCutZOffset = 0 * mm;
+const G4int BB10_NFrontStrips = 8;
+const G4int BB10_NBackStrips = 1;
+////////////////////////////////////////////////////////////
+//
+// QQQ5
+////////////////////////////////////////////////////////////
+const G4double QQQ5_PCBOutR = 86 * mm;
+const G4double QQQ5_PCBInR = 15 * mm;
+const G4double QQQ5_PCBPhi0 = 0 * deg;   // Starting point
+const G4double QQQ5_PCBPhi1 = 90 * deg;  // ANGLE
+const G4double QQQ5_PCBT = 3.4 * mm;
+const G4double QQQ5_PCBCutX = 3.4 * 2 * mm;  // 3.4 mm gap from the arc center?
+const G4double QQQ5_PCBCutY = 86 * mm;
+const G4double QQQ5_PCBCutZ = 4 * mm;
+const G4double QQQ5_PCBCutXOffset = 0 * mm;
+const G4double QQQ5_PCBCutYOffset = 43 * mm;
+const G4double QQQ5_PCBCutZOffset = 0 * mm;
 
-  ////////////////////////////////////////////////////////////
-  //
-  // QQQ Wafer
-  ////////////////////////////////////////////////////////////
-  const G4double QQQ5_SiOutR = 84.0 * mm;
-  const G4double QQQ5_SiInR = 23.2 * mm;
-  const G4double QQQ5_SiT = 1 * mm;
-  const G4double QQQ5_SiPhi0 = 0 * deg;
-  const G4double QQQ5_SiPhi1 = 90 * deg;
-  const G4double QQQ5_SiActiveOutR = 81.95 * mm;
-  const G4double QQQ5_SiActiveInR = 25.25 * mm;
-  const G4double QQQ5_SiCut1X = (3.4 + 0.68) * 2 * mm;
-  const G4double QQQ5_SiCut1Y = QQQ5_SiOutR;
-  const G4double QQQ5_SiCut1Z = 2 * mm;
-  const G4double QQQ5_SiCut1XOffset = 0 * mm;
-  const G4double QQQ5_SiCut1YOffset = QQQ5_SiCut1Y / 2;
-  const G4double QQQ5_SiCut1ZOffset = 0 * mm;
-  const G4double QQQ5_SiCut2X = QQQ5_SiOutR;
-  const G4double QQQ5_SiCut2Y = 0.92 * 2 * mm;
-  const G4double QQQ5_SiCut2Z = 2 * mm;
-  const G4double QQQ5_SiCut2XOffset = QQQ5_SiCut2X / 2;
-  const G4double QQQ5_SiCut2YOffset = 0 * mm;
-  const G4double QQQ5_SiCut2ZOffset = 0 * mm;
+////////////////////////////////////////////////////////////
+//
+// QQQ Wafer
+////////////////////////////////////////////////////////////
+const G4double QQQ5_SiOutR = 84.0 * mm;
+const G4double QQQ5_SiInR = 23.2 * mm;
+const G4double QQQ5_SiT = 1 * mm;
+const G4double QQQ5_SiPhi0 = 0 * deg;
+const G4double QQQ5_SiPhi1 = 90 * deg;
+const G4double QQQ5_SiActiveOutR = 81.95 * mm;
+const G4double QQQ5_SiActiveInR = 25.25 * mm;
+const G4double QQQ5_SiCut1X = (3.4 + 0.68) * 2 * mm;
+const G4double QQQ5_SiCut1Y = QQQ5_SiOutR;
+const G4double QQQ5_SiCut1Z = 2 * mm;
+const G4double QQQ5_SiCut1XOffset = 0 * mm;
+const G4double QQQ5_SiCut1YOffset = QQQ5_SiCut1Y / 2;
+const G4double QQQ5_SiCut1ZOffset = 0 * mm;
+const G4double QQQ5_SiCut2X = QQQ5_SiOutR;
+const G4double QQQ5_SiCut2Y = 0.92 * 2 * mm;
+const G4double QQQ5_SiCut2Z = 2 * mm;
+const G4double QQQ5_SiCut2XOffset = QQQ5_SiCut2X / 2;
+const G4double QQQ5_SiCut2YOffset = 0 * mm;
+const G4double QQQ5_SiCut2ZOffset = 0 * mm;
 
-  const G4int QQQ5_NRStrip = 32;
-  const G4int QQQ5_NAStrip = 4;
+const G4int QQQ5_NRStrip = 32;
+const G4int QQQ5_NAStrip = 4;
 
-  ////////////////////////////////////////////////////////////
-  //
-  // Connector
-  ////////////////////////////////////////////////////////////
-  const G4double Conn_X = 40.0 * mm;
-  const G4double Conn_Y = 5.0 * mm;
-  const G4double Conn_Z = 5.0 * mm;
+////////////////////////////////////////////////////////////
+//
+// Connector
+////////////////////////////////////////////////////////////
+const G4double Conn_X = 40.0 * mm;
+const G4double Conn_Y = 5.0 * mm;
+const G4double Conn_Z = 5.0 * mm;
 
-  ////////////////////////////////////////////////////////////
-  //
-  // CsI
-  ////////////////////////////////////////////////////////////
-  const G4double CsI_X = 40.80 * mm;
-  const G4double CsI_Y = 40.80 * mm;
-  const G4double CsI_Z = 25.50 * mm;
-  const G4double CsI_X6_XOffset = 0;
-  const G4double CsI_X6_YOffset1 = 0.5 * X6_SiY - 0.5 * CsI_Y;
-  const G4double CsI_X6_YOffset2 = CsI_X6_YOffset1 - CsI_Y;
-  const G4double CsI_X6_ZOffset = 5.0 * mm;
-  const G4double CsI_BB10_XOffset = 0;
-  const G4double CsI_BB10_YOffset1 = 0.5 * BB10_SiY - 0.5 * CsI_Y;
-  const G4double CsI_BB10_YOffset2 = CsI_BB10_YOffset1 - CsI_Y;
-  const G4double CsI_BB10_ZOffset = 5.0 * mm;
+////////////////////////////////////////////////////////////
+//
+// CsI
+////////////////////////////////////////////////////////////
+const G4double CsI_X = 40.80 * mm;
+const G4double CsI_Y = 40.80 * mm;
+const G4double CsI_Z = 25.50 * mm;
+const G4double CsI_X6_XOffset = 0;
+const G4double CsI_X6_YOffset1 = 0.5 * X6_SiY - 0.5 * CsI_Y;
+const G4double CsI_X6_YOffset2 = CsI_X6_YOffset1 - CsI_Y;
+const G4double CsI_X6_ZOffset = 5.0 * mm;
+const G4double CsI_BB10_XOffset = 0;
+const G4double CsI_BB10_YOffset1 = 0.5 * BB10_SiY - 0.5 * CsI_Y;
+const G4double CsI_BB10_YOffset2 = CsI_BB10_YOffset1 - CsI_Y;
+const G4double CsI_BB10_ZOffset = 5.0 * mm;
 
-  ////////////////////////////////////////////////////////////
-  //
-  // ANASEN CsI for QQQ3
-  ////////////////////////////////////////////////////////////
-  const G4double CsI_QQQ5_XOffset = 0;
-  const G4double CsI_QQQ5_YOffset = 7 * mm;
-  const G4double CsI_QQQ5_ZOffset = 5.0 * mm;
-  const G4double m_ANASENQQQ3CsIhypotenuse = 56.8 * mm;
-  const G4double m_ANASENQQQ3CsIThickness = 26.0 * mm;
-  const G4double m_ANASENQQQ3CsIWidthBot = 19.2 * mm;
-  const G4double m_ANASENQQQ3CsIWidthTop = 41.3 * mm;
-  const G4double m_ANASENQQQ3CsITotHyp =
-      (m_ANASENQQQ3CsIhypotenuse * m_ANASENQQQ3CsIWidthTop) / (m_ANASENQQQ3CsIWidthTop - m_ANASENQQQ3CsIWidthBot);
-  const G4double m_ANASENQQQ3CsITotHeight =
-      sqrt(m_ANASENQQQ3CsITotHyp * m_ANASENQQQ3CsITotHyp - m_ANASENQQQ3CsIWidthTop * m_ANASENQQQ3CsIWidthTop);
-  const G4double m_ANASENQQQ3CsIHeight =
-      m_ANASENQQQ3CsITotHeight * (m_ANASENQQQ3CsIWidthTop - m_ANASENQQQ3CsIWidthBot) / m_ANASENQQQ3CsIWidthTop;
-  // m_ANASENQQQ3CsITotHyp     106.147
-  // m_ANASENQQQ3CsITotHeight  97.7825
-  // m_ANASENQQQ3CsIHeight     52.3243
+////////////////////////////////////////////////////////////
+//
+// ANASEN CsI for QQQ3
+////////////////////////////////////////////////////////////
+const G4double CsI_QQQ5_XOffset = 0;
+const G4double CsI_QQQ5_YOffset = 7 * mm;
+const G4double CsI_QQQ5_ZOffset = 5.0 * mm;
+const G4double m_ANASENQQQ3CsIhypotenuse = 56.8 * mm;
+const G4double m_ANASENQQQ3CsIThickness = 26.0 * mm;
+const G4double m_ANASENQQQ3CsIWidthBot = 19.2 * mm;
+const G4double m_ANASENQQQ3CsIWidthTop = 41.3 * mm;
+const G4double m_ANASENQQQ3CsITotHyp =
+    (m_ANASENQQQ3CsIhypotenuse * m_ANASENQQQ3CsIWidthTop) / (m_ANASENQQQ3CsIWidthTop - m_ANASENQQQ3CsIWidthBot);
+const G4double m_ANASENQQQ3CsITotHeight =
+    sqrt(m_ANASENQQQ3CsITotHyp * m_ANASENQQQ3CsITotHyp - m_ANASENQQQ3CsIWidthTop * m_ANASENQQQ3CsIWidthTop);
+const G4double m_ANASENQQQ3CsIHeight =
+    m_ANASENQQQ3CsITotHeight * (m_ANASENQQQ3CsIWidthTop - m_ANASENQQQ3CsIWidthBot) / m_ANASENQQQ3CsIWidthTop;
+// m_ANASENQQQ3CsITotHyp     106.147
+// m_ANASENQQQ3CsITotHeight  97.7825
+// m_ANASENQQQ3CsIHeight     52.3243
 
-  ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 
-} // namespace STARKNS
+}  // namespace STARKNS
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 STARK::STARK() {
@@ -257,10 +257,10 @@ STARK::STARK() {
   m_ReactionRegion = nullptr;
   m_useTarget = false;
   m_TargetMaterial = "";
-  m_Pressure = 760.0;     // Torr
-  m_Temperature = 293.15; // K
-  m_Radius = 100.0;       // mm
-  m_Z = 100.0;            // mm
+  m_Pressure = 760.0;      // Torr
+  m_Temperature = 293.15;  // K
+  m_Radius = 100.0;        // mm
+  m_Z = 100.0;             // mm
 
   m_Event = new TSTARKData();
   m_Raw = new TSTARKRaw();
@@ -297,8 +297,7 @@ void STARK::AddDetector(string Type, G4ThreeVector Pos, G4ThreeVector Rot, int c
 }
 
 G4LogicalVolume* STARK::BuildSquareCsI() {
-  if (m_logicSquareCsI)
-    return m_logicSquareCsI;
+  if (m_logicSquareCsI) return m_logicSquareCsI;
   G4Box* solidCsI = new G4Box("solidCsI", CsI_X / 2., CsI_Y / 2., CsI_Z / 2.);
   G4NistManager* nist = G4NistManager::Instance();
   G4Material* matCsI = nist->FindOrBuildMaterial("G4_CESIUM_IODIDE");
@@ -309,8 +308,7 @@ G4LogicalVolume* STARK::BuildSquareCsI() {
 }
 
 G4LogicalVolume* STARK::BuildANASENQQQ3CsI() {
-  if (m_logicANASENQQQ3CsI)
-    return m_logicANASENQQQ3CsI;
+  if (m_logicANASENQQQ3CsI) return m_logicANASENQQQ3CsI;
   G4Trap* solidANASENQQQ3CsI =
       new G4Trap("DetectorBody", 0.5 * m_ANASENQQQ3CsIHeight, 0, 0, 0.5 * m_ANASENQQQ3CsIThickness,
                  0.5 * m_ANASENQQQ3CsIWidthTop, 0.5 * m_ANASENQQQ3CsIWidthTop, 0, 0.5 * m_ANASENQQQ3CsIThickness,
@@ -347,9 +345,9 @@ G4AssemblyVolume* STARK::BuildX6Detector(int buildCsI) {
 
     G4Box* solidX6PCBAll = new G4Box("solidX6PCBAll", X6_PCBX / 2., X6_PCBY / 2., X6_PCBZ / 2.);
     G4Box* solidX6PCBSub1 = new G4Box("solidX6PCBSub1", X6_PCBSub1X / 2., X6_PCBSub1Y / 2.,
-                                      X6_PCBSub1Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+                                      X6_PCBSub1Z / 2. + 0.01 * mm);  // +0.01 mm for the perfect subtraction of solid
     G4Box* solidX6PCBSub2 = new G4Box("solidX6PCBSub2", X6_PCBSub2X / 2., X6_PCBSub2Y / 2.,
-                                      X6_PCBSub2Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+                                      X6_PCBSub2Z / 2. + 0.01 * mm);  // +0.01 mm for the perfect subtraction of solid
 
     G4VSolid* solidX6PCBTemp =
         new G4SubtractionSolid("solidX6PCBTemp", solidX6PCBAll, solidX6PCBSub1, 0,
@@ -372,22 +370,20 @@ G4AssemblyVolume* STARK::BuildX6Detector(int buildCsI) {
 
     G4AssemblyVolume* assembly = new G4AssemblyVolume();
     G4ThreeVector Pos;
-    assembly->AddPlacedVolume(logicX6Si, Pos, 0); // reference = center of the X6 Si wafer
+    assembly->AddPlacedVolume(logicX6Si, Pos, 0);  // reference = center of the X6 Si wafer
     Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset, -X6_SiZOffset);
     assembly->AddPlacedVolume(logicX6PCB, Pos, 0);
     Pos = G4ThreeVector(-X6_SiXOffset, -X6_SiYOffset - X6_PCBY / 2. + Conn_Y / 2., X6_PCBZ / 2. + Conn_Z / 2.);
     assembly->AddPlacedVolume(logicX6Conn, Pos, 0);
     m_X6 = assembly;
   }
-  if (buildCsI == 0)
-    return m_X6;
+  if (buildCsI == 0) return m_X6;
 
   G4AssemblyVolume* assembly_csi = new G4AssemblyVolume();
   G4ThreeVector Pos0(0, 0, 0);
   assembly_csi->AddPlacedAssembly(m_X6, Pos0, nullptr);
   G4double offZ = 0.5 * CsI_Z + CsI_X6_ZOffset;
-  if (buildCsI == 2)
-    offZ = -offZ;
+  if (buildCsI == 2) offZ = -offZ;
   G4ThreeVector Pos1(CsI_X6_XOffset, CsI_X6_YOffset1, offZ);
   G4ThreeVector Pos2(CsI_X6_XOffset, CsI_X6_YOffset2, offZ);
   assembly_csi->AddPlacedVolume(BuildSquareCsI(), Pos1, 0);
@@ -414,10 +410,10 @@ G4AssemblyVolume* STARK::BuildBB10Detector(int buildCsI) {
     G4Box* solidBB10PCBAll = new G4Box("solidBB10PCBAll", BB10_PCBX / 2., BB10_PCBY / 2., BB10_PCBZ / 2.);
     G4Box* solidBB10PCBSub1 =
         new G4Box("solidBB10PCBSub1", BB10_PCBSub1X / 2., BB10_PCBSub1Y / 2.,
-                  BB10_PCBSub1Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+                  BB10_PCBSub1Z / 2. + 0.01 * mm);  // +0.01 mm for the perfect subtraction of solid
     G4Box* solidBB10PCBSub2 =
         new G4Box("solidBB10PCBSub2", BB10_PCBSub2X / 2., BB10_PCBSub2Y / 2.,
-                  BB10_PCBSub2Z / 2. + 0.01 * mm); // +0.01 mm for the perfect subtraction of solid
+                  BB10_PCBSub2Z / 2. + 0.01 * mm);  // +0.01 mm for the perfect subtraction of solid
 
     G4VSolid* solidBB10PCBTemp =
         new G4SubtractionSolid("solidBB10PCBTemp", solidBB10PCBAll, solidBB10PCBSub1, 0,
@@ -440,22 +436,20 @@ G4AssemblyVolume* STARK::BuildBB10Detector(int buildCsI) {
 
     G4AssemblyVolume* assembly = new G4AssemblyVolume();
     G4ThreeVector Pos;
-    assembly->AddPlacedVolume(logicBB10Si, Pos, 0); // reference = center of the BB10 Si wafer
+    assembly->AddPlacedVolume(logicBB10Si, Pos, 0);  // reference = center of the BB10 Si wafer
     Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset, -BB10_SiZOffset);
     assembly->AddPlacedVolume(logicBB10PCB, Pos, 0);
     Pos = G4ThreeVector(-BB10_SiXOffset, -BB10_SiYOffset - BB10_PCBY / 2. + Conn_Y / 2., BB10_PCBZ / 2. + Conn_Z / 2.);
     assembly->AddPlacedVolume(logicBB10Conn, Pos, 0);
     m_BB10 = assembly;
   }
-  if (buildCsI == 0)
-    return m_BB10;
+  if (buildCsI == 0) return m_BB10;
 
   G4AssemblyVolume* assembly_csi = new G4AssemblyVolume();
   G4ThreeVector Pos0(0, 0, 0);
   assembly_csi->AddPlacedAssembly(m_BB10, Pos0, nullptr);
   G4double offZ = 0.5 * CsI_Z + CsI_BB10_ZOffset;
-  if (buildCsI == 2)
-    offZ = -offZ;
+  if (buildCsI == 2) offZ = -offZ;
   G4ThreeVector Pos1(CsI_BB10_XOffset, CsI_BB10_YOffset1, offZ);
   G4ThreeVector Pos2(CsI_BB10_XOffset, CsI_BB10_YOffset2, offZ);
   assembly_csi->AddPlacedVolume(BuildSquareCsI(), Pos1, 0);
@@ -534,16 +528,14 @@ G4AssemblyVolume* STARK::BuildQQQ5Detector(int buildCsI) {
     assembly->AddPlacedVolume(logicQQQ5Conn, Pos, rot);
     m_QQQ5 = assembly;
   }
-  if (buildCsI == 0)
-    return m_QQQ5;
+  if (buildCsI == 0) return m_QQQ5;
 
   G4AssemblyVolume* assembly_csi = new G4AssemblyVolume();
   G4ThreeVector Pos0(0, 0, 0);
   assembly_csi->AddPlacedAssembly(m_QQQ5, Pos0, nullptr);
   G4double m_ANASENQQQ3CsI_Z = 50;
   G4double offZ = 0.5 * m_ANASENQQQ3CsI_Z + CsI_QQQ5_ZOffset;
-  if (buildCsI == 2)
-    offZ = -offZ;
+  if (buildCsI == 2) offZ = -offZ;
   for (auto iCsI : {0, 1, 2, 3}) {
     G4double angle1 = -360 / 32. * deg;
     G4double angle2 = -360 / 16. * deg;
@@ -564,8 +556,7 @@ G4AssemblyVolume* STARK::BuildQQQ5Detector(int buildCsI) {
 }
 
 G4AssemblyVolume* STARK::BuildTarget() {
-  if (m_Target)
-    return m_Target;
+  if (m_Target) return m_Target;
 
   G4Material* matTarget =
       MaterialManager::getInstance()->GetGasFromLibrary(m_TargetMaterial, m_Pressure, m_Temperature);
@@ -586,7 +577,7 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
   if (NPOptionManager::getInstance()->GetVerboseLevel())
     cout << "//// " << blocks.size() << " detectors found " << endl;
 
-  vector<string> reso = {"Type", "Reso"}; // for put resolutions as an input parameter
+  vector<string> reso = {"Type", "Reso"};  // for put resolutions as an input parameter
   vector<string> targ = {"TargetMaterial", "Pressure", "Temperature", "Radius", "Z"};
   vector<string> cart = {"Type", "POS"};
   vector<string> sphe = {"Type", "R", "Theta", "Phi"};
@@ -606,7 +597,7 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
         QQQ5_ERes = blocks[i]->GetDouble("Reso", "void");
       else if (Type.compare("CsI") == 0)
         CsI_ERes = blocks[i]->GetDouble("Reso", "void");
-      continue; // only block for resolution
+      continue;  // only block for resolution
     }
     ////////////////////////////////////////////////////////////
 
@@ -629,8 +620,7 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
     ////////////////////////////////////////////////////////////
     // Cartesian coordinate or Spherical coordinate or Cylindrical coordinate
     else if (blocks[i]->HasTokenList(cart) || blocks[i]->HasTokenList(sphe) || blocks[i]->HasTokenList(cyld)) {
-      if (NPOptionManager::getInstance()->GetVerboseLevel())
-        cout << endl << "////  STARK " << i + 1 << endl;
+      if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  STARK " << i + 1 << endl;
       string Type = blocks[i]->GetString("Type");
       G4ThreeVector Pos = G4ThreeVector();
       if (blocks[i]->HasTokenList(cart))
@@ -651,26 +641,19 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
       if (blocks[i]->HasToken("RotateXYZ")) {
         Rot = NPS::ConvertVector(blocks[i]->GetTVector3("RotateXYZ", "deg"));
         AutoRotateFacingBeamAxis = false;
-      }
-      else { // Auto rotate facing beam axis
+      } else {  // Auto rotate facing beam axis
         AutoRotateFacingBeamAxis = true;
-        if (blocks[i]->HasToken("Flip"))
-          Flip = blocks[i]->GetInt("Flip");
-        if (blocks[i]->HasToken("Rev"))
-          Rev = blocks[i]->GetInt("Rev");
-        if (blocks[i]->HasToken("Beta"))
-          Beta = blocks[i]->GetDouble("Beta", "deg");
+        if (blocks[i]->HasToken("Flip")) Flip = blocks[i]->GetInt("Flip");
+        if (blocks[i]->HasToken("Rev")) Rev = blocks[i]->GetInt("Rev");
+        if (blocks[i]->HasToken("Beta")) Beta = blocks[i]->GetDouble("Beta", "deg");
       }
       ////////////////////////////////////////////////////////////
       int Group = 0;
-      if (blocks[i]->HasToken("Group"))
-        Group = blocks[i]->GetInt("Group");
+      if (blocks[i]->HasToken("Group")) Group = blocks[i]->GetInt("Group");
       bool csi = false;
-      if (blocks[i]->HasToken("CsI"))
-        csi = blocks[i]->GetBool("CsI");
+      if (blocks[i]->HasToken("CsI")) csi = blocks[i]->GetBool("CsI");
       string mvName;
-      if (blocks[i]->HasToken("MotherVolume"))
-        mvName = blocks[i]->GetString("MotherVolume");
+      if (blocks[i]->HasToken("MotherVolume")) mvName = blocks[i]->GetString("MotherVolume");
       cout << endl << "////  Type " << Type << endl;
       cout << "////  Pos " << Pos << endl;
       cout << "////  Rot " << Rot << endl;
@@ -687,8 +670,7 @@ void STARK::ReadConfiguration(NPL::InputParser parser) {
       }
       if (AutoRotateFacingBeamAxis) {
         AddDetector(Type, Pos, Flip, Rev, Beta, csi, Group, mvName);
-      }
-      else {
+      } else {
         AddDetector(Type, Pos, Rot, csi, Group, mvName);
       }
     }
@@ -726,12 +708,9 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
       Rot->rotateX(m_Rot[i].x());
       Rot->rotateY(m_Rot[i].y());
       Rot->rotateZ(m_Rot[i].z());
-    }
-    else {
-      if (m_Rev[i])
-        Rot->rotateZ(180 * deg);
-      if (m_Flip[i])
-        Rot->rotateY(180 * deg);
+    } else {
+      if (m_Rev[i]) Rot->rotateZ(180 * deg);
+      if (m_Flip[i]) Rot->rotateY(180 * deg);
       Rot->rotateX(90 * deg);
       Rot->rotateZ(90 * deg + phi);
     }
@@ -745,10 +724,8 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
       det = BuildQQQ5Detector(m_CsI[i]);
       Rot = new G4RotationMatrix;
       Rot->rotateZ(m_Beta[i]);
-      if (m_Flip[i])
-        Rot->rotateY(180 * deg);
-    }
-    else {
+      if (m_Flip[i]) Rot->rotateY(180 * deg);
+    } else {
       std::cerr << "no type " << m_Type[i] << " exists.\n";
       continue;
     }
@@ -756,8 +733,7 @@ void STARK::ConstructDetector(G4LogicalVolume* world) {
     G4LogicalVolume* motherVolume = world;
     if (!m_MVName[i].empty())
       for (const auto& lv : *G4LogicalVolumeStore::GetInstance())
-        if (std::string(lv->GetName()) == m_MVName[i])
-          motherVolume = lv;
+        if (std::string(lv->GetName()) == m_MVName[i]) motherVolume = lv;
     // Make imprint of the detector to the mother volume with copy number (i + 1) * 100
     // => Si copy No = 101, 201, 301, ...
     // => CsI copy No = 104, 105, 204, 205, 304, 305, ...
@@ -778,10 +754,8 @@ void STARK::InitializeRootOutput() {
   // add detector branch to the EventTree
   RootOutput* pAnalysis = RootOutput::getInstance();
   TTree* pTree = pAnalysis->GetTree();
-  if (!pTree->FindBranch("STARK"))
-    pTree->Branch("STARK", "TSTARKData", &m_Event);
-  if (!pTree->FindBranch("Raw"))
-    pTree->Branch("Raw", "TSTARKRaw", &m_Raw);
+  if (!pTree->FindBranch("STARK")) pTree->Branch("STARK", "TSTARKData", &m_Event);
+  if (!pTree->FindBranch("Raw")) pTree->Branch("Raw", "TSTARKRaw", &m_Raw);
   pTree->SetBranchAddress("STARK", &m_Event);
   pTree->SetBranchAddress("Raw", &m_Raw);
 }
@@ -793,17 +767,12 @@ void STARK::ReadSensitive(const G4Event* event) {
   m_Raw->Clear();
 
   auto HCE = event->GetHCofThisEvent();
-  if (!HCE)
-    return;
+  if (!HCE) return;
 
-  if (HCID_X6 == -1)
-    HCID_X6 = G4SDManager::GetSDMpointer()->GetCollectionID("X6Det/X6Scorer");
-  if (HCID_BB10 == -1)
-    HCID_BB10 = G4SDManager::GetSDMpointer()->GetCollectionID("BB10Det/BB10Scorer");
-  if (HCID_QQQ5 == -1)
-    HCID_QQQ5 = G4SDManager::GetSDMpointer()->GetCollectionID("QQQ5Det/QQQ5Scorer");
-  if (HCID_CsI == -1)
-    HCID_CsI = G4SDManager::GetSDMpointer()->GetCollectionID("CsIDet/CsIScorer");
+  if (HCID_X6 == -1) HCID_X6 = G4SDManager::GetSDMpointer()->GetCollectionID("X6Det/X6Scorer");
+  if (HCID_BB10 == -1) HCID_BB10 = G4SDManager::GetSDMpointer()->GetCollectionID("BB10Det/BB10Scorer");
+  if (HCID_QQQ5 == -1) HCID_QQQ5 = G4SDManager::GetSDMpointer()->GetCollectionID("QQQ5Det/QQQ5Scorer");
+  if (HCID_CsI == -1) HCID_CsI = G4SDManager::GetSDMpointer()->GetCollectionID("CsIDet/CsIScorer");
 
   /////////////////////////////////////////////////////////////////////////////////
   // loop for the event map
@@ -817,17 +786,17 @@ void STARK::ReadSensitive(const G4Event* event) {
     G4double enSmear0 = RandGauss::shoot((*(it->second))[0], (*(it->second))[0] * X6_ERes / 100.);
     G4double enSmear1 = RandGauss::shoot((*(it->second))[1], (*(it->second))[1] * X6_ERes / 100.);
     m_Event->Set(0,
-                 (*(it->second))[4],  // detector number
-                 (*(it->second))[5],  // front strip number
-                 (*(it->second))[6],  // back strip number
-                 enSmear2,            // frontside energy
-                 enSmear2,            // backside energy
-                 enSmear0,            // upstream energy
-                 enSmear1,            // downstream energy
-                 (*(it->second))[3],  // global time
-                 (*(it->second))[7],  // hit position X
-                 (*(it->second))[8],  // hit position Y
-                 (*(it->second))[9]); // hit position Z
+                 (*(it->second))[4],   // detector number
+                 (*(it->second))[5],   // front strip number
+                 (*(it->second))[6],   // back strip number
+                 enSmear2,             // frontside energy
+                 enSmear2,             // backside energy
+                 enSmear0,             // upstream energy
+                 enSmear1,             // downstream energy
+                 (*(it->second))[3],   // global time
+                 (*(it->second))[7],   // hit position X
+                 (*(it->second))[8],   // hit position Y
+                 (*(it->second))[9]);  // hit position Z
     m_Raw->SetRaw(m_Event);
   }
   /////////////////////////////////////
@@ -838,17 +807,17 @@ void STARK::ReadSensitive(const G4Event* event) {
     G4double enSmear0 = RandGauss::shoot((*(it->second))[0], (*(it->second))[0] * BB10_ERes / 100.);
     G4double enSmear1 = RandGauss::shoot((*(it->second))[1], (*(it->second))[1] * BB10_ERes / 100.);
     m_Event->Set(1,
-                 (*(it->second))[3],  // detector number
-                 (*(it->second))[4],  // front strip number
-                 1,                   // back strip number (only 1)
-                 enSmear0,            // frontside energy
-                 enSmear1,            // backside energy
-                 0,                   // upstream energy
-                 0,                   // downstream energy
-                 (*(it->second))[2],  // global time
-                 (*(it->second))[5],  // hit position X
-                 (*(it->second))[6],  // hit position Y
-                 (*(it->second))[7]); // hit position Z
+                 (*(it->second))[3],   // detector number
+                 (*(it->second))[4],   // front strip number
+                 1,                    // back strip number (only 1)
+                 enSmear0,             // frontside energy
+                 enSmear1,             // backside energy
+                 0,                    // upstream energy
+                 0,                    // downstream energy
+                 (*(it->second))[2],   // global time
+                 (*(it->second))[5],   // hit position X
+                 (*(it->second))[6],   // hit position Y
+                 (*(it->second))[7]);  // hit position Z
   }
   /////////////////////////////////////
   // for QQQ5
@@ -858,17 +827,17 @@ void STARK::ReadSensitive(const G4Event* event) {
     G4double enSmear0 = RandGauss::shoot((*(it->second))[0], (*(it->second))[0] * QQQ5_ERes / 100.);
     G4double enSmear1 = RandGauss::shoot((*(it->second))[1], (*(it->second))[1] * QQQ5_ERes / 100.);
     m_Event->Set(2,
-                 (*(it->second))[3],  // detector number
-                 (*(it->second))[4],  // front strip number
-                 (*(it->second))[5],  // back strip number
-                 enSmear0,            // frontside energy
-                 enSmear1,            // backside energy
-                 0,                   // upstream energy
-                 0,                   // downstream energy
-                 (*(it->second))[2],  // global time
-                 (*(it->second))[6],  // hit position X
-                 (*(it->second))[7],  // hit position Y
-                 (*(it->second))[8]); // hit position Z
+                 (*(it->second))[3],   // detector number
+                 (*(it->second))[4],   // front strip number
+                 (*(it->second))[5],   // back strip number
+                 enSmear0,             // frontside energy
+                 enSmear1,             // backside energy
+                 0,                    // upstream energy
+                 0,                    // downstream energy
+                 (*(it->second))[2],   // global time
+                 (*(it->second))[6],   // hit position X
+                 (*(it->second))[7],   // hit position Y
+                 (*(it->second))[8]);  // hit position Z
   }
   /////////////////////////////////////
   // for CsI
@@ -888,10 +857,22 @@ void STARK::ReadSensitive(const G4Event* event) {
     //              0,                  // hit position X
     //              0,                  // hit position Y
     //              0);                 // hit position Z
-    m_Event->SetCsI((*(it->second))[0], (*(it->second))[1], enSmear0);
+    // m_Event->SetCsI((*(it->second))[0], (*(it->second))[1], enSmear0);
+    m_Event->Set(3,
+                 (*(it->second))[0],  // detector number
+                 (*(it->second))[1],  // front strip number
+                 0,                   // back strip number
+                 enSmear0,            // frontside energy
+                 0,                   // backside energy
+                 0,                   // upstream energy
+                 0,                   // downstream energy
+                 (*(it->second))[3],  // global time
+                 0,                   // hit position X
+                 0,                   // hit position Y
+                 0);                  // hit position Z
   }
-  /////////////////////////////////////////////////////////////////////////////////
 }
+/////////////////////////////////////////////////////////////////////////////////
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void STARK::InitializeScorers() {
@@ -900,10 +881,10 @@ void STARK::InitializeScorers() {
   bool already_exist_BB10 = false;
   bool already_exist_QQQ5 = false;
   bool already_exist_CsI = false;
-  m_X6Det = CheckScorer("X6Det", already_exist_X6);       // MultiFunctionalDetector
-  m_BB10Det = CheckScorer("BB10Det", already_exist_BB10); // MultiFunctionalDetector
-  m_QQQ5Det = CheckScorer("QQQ5Det", already_exist_QQQ5); // MultiFunctionalDetector
-  m_CsIDet = CheckScorer("CsIDet", already_exist_CsI);    // MultiFunctionalDetector
+  m_X6Det = CheckScorer("X6Det", already_exist_X6);        // MultiFunctionalDetector
+  m_BB10Det = CheckScorer("BB10Det", already_exist_BB10);  // MultiFunctionalDetector
+  m_QQQ5Det = CheckScorer("QQQ5Det", already_exist_QQQ5);  // MultiFunctionalDetector
+  m_CsIDet = CheckScorer("CsIDet", already_exist_CsI);     // MultiFunctionalDetector
 
   // if not, create them
   if (!already_exist_X6) {
