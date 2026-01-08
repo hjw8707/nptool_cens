@@ -27,68 +27,67 @@
 using namespace std;
 
 // G4 headers
-#include "G4ThreeVector.hh"
-#include "G4RotationMatrix.hh"
 #include "G4LogicalVolume.hh"
 #include "G4MultiFunctionalDetector.hh"
+#include "G4RotationMatrix.hh"
+#include "G4ThreeVector.hh"
 
 // NPTool header
+#include "NPInputParser.h"
 #include "NPSVDetector.hh"
 #include "TCACAOData.h"
-#include "NPInputParser.h"
 
-class CACAO : public NPS::VDetector{
+class CACAO : public NPS::VDetector {
   ////////////////////////////////////////////////////
   /////// Default Constructor and Destructor /////////
   ////////////////////////////////////////////////////
-public:
-  CACAO() ;
-  virtual ~CACAO() ;
+ public:
+  CACAO();
+  virtual ~CACAO();
 
   ////////////////////////////////////////////////////
   /////// Specific Function of this Class ///////////
   ////////////////////////////////////////////////////
-public:
-  void AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot,
-		   G4ThreeVector Dim,
-		   G4double ShieldThickness);  
-  
+ public:
+  void AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot, G4ThreeVector Dim, G4double ShieldThicknessSide,
+                   G4double ShieldThicknessBottom);
+
   G4LogicalVolume* BuildDetector(G4int i);
 
   void DefineMaterials();
-  void ConstructChamber(G4LogicalVolume* world); // should be called in 'ConstructDetector'
+  void ConstructChamber(G4LogicalVolume* world);  // should be called in 'ConstructDetector'
 
   ////////////////////////////////////////////////////
   //////  Inherite from NPS::VDetector class /////////
   ////////////////////////////////////////////////////
-public:
+ public:
   // Read stream at Configfile to pick-up parameters of detector (Position,...)
   // Called in DetecorConstruction::ReadDetextorConfiguration Method
-  void ReadConfiguration(NPL::InputParser) ;
+  void ReadConfiguration(NPL::InputParser);
 
   // Construct detector and inialise sensitive part.
   // Called After DetecorConstruction::AddDetector Method
-  void ConstructDetector(G4LogicalVolume* world) ;
+  void ConstructDetector(G4LogicalVolume* world);
 
   // Add Detector branch to the EventTree.
   // Called After DetecorConstruction::AddDetector Method
-  void InitializeRootOutput() ;
+  void InitializeRootOutput();
 
   // Read sensitive part and fill the Root tree.
   // Called at in the EventAction::EndOfEventAvtion
-  void ReadSensitive(const G4Event* event) ;
+  void ReadSensitive(const G4Event* event);
 
-public:   // Scorer
+ public:  // Scorer
   //   Initialize all Scorer used by the MUST2Array
-  void InitializeScorers() ;
+  void InitializeScorers();
 
   //   Associated Scorer
-  G4MultiFunctionalDetector* m_CACAOScorer ;
+  G4MultiFunctionalDetector* m_CACAOScorer;
   ////////////////////////////////////////////////////
   ///////////Event class to store Data////////////////
   ////////////////////////////////////////////////////
-private:
-  TCACAOData* m_Event ;
+ private:
+  TCACAOData* m_Event;
 
   ////////////////////////////////////////////////////
   ///////////////Private intern Data//////////////////
@@ -98,13 +97,14 @@ private:
   G4Material* m_matPCB;
   G4Material* m_matChamber;
 
-private: // Geometry
-  // Detector Coordinate 
+ private:  // Geometry
+  // Detector Coordinate
   vector<G4ThreeVector> m_Pos;     // Detector Position
   vector<G4RotationMatrix> m_Rot;  // Detector Rotation
   vector<G4ThreeVector> m_Dim;     // Detector Dimension
 
-  vector<double> m_ShieldThickness; 
+  vector<double> m_ShieldThicknessSide;
+  vector<double> m_ShieldThicknessBottom;
 
   ////////////////////////////////////////////////////////////////////////////////
   // CACAO chamber
@@ -119,9 +119,9 @@ private: // Geometry
   // Visualisation Attribute
   G4VisAttributes* m_VisScint;
   G4VisAttributes* m_VisPCB;
-
+  G4VisAttributes* m_VisShield;
   // Needed for dynamic loading of the library
-public:
+ public:
   static NPS::VDetector* Construct();
 };
 #endif

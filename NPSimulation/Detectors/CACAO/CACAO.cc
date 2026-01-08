@@ -59,20 +59,20 @@ using namespace CLHEP;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 namespace CACAO_NS {
-  // Geometry
-  const double PCBThickness = 1.6 * mm;
+// Geometry
+const double PCBThickness = 1.6 * mm;
 
-  // Energy and time Resolution
-  const double EnergyThreshold = 0.1 * MeV;
-  const double ResoTime = 4.5 * ns;
-  double ResoEnergy = 0.027455; // dE = Reso*Sqrt(E) where E in MeV
-  const double Radius = 50 * mm;
-  const double Width = 100 * mm;
-  const double Thickness = 300 * mm;
-  const string ScintMaterial = "CsI";
-  const string ShieldMaterial = "Mylar";
-  const string ChamberMaterial = "Al";
-} // namespace CACAO_NS
+// Energy and time Resolution
+const double EnergyThreshold = 0.1 * MeV;
+const double ResoTime = 4.5 * ns;
+double ResoEnergy = 0.027455;  // dE = Reso*Sqrt(E) where E in MeV
+const double Radius = 50 * mm;
+const double Width = 100 * mm;
+const double Thickness = 300 * mm;
+const string ScintMaterial = "CsI";
+const string ShieldMaterial = "PLA";
+const string ChamberMaterial = "Al";
+}  // namespace CACAO_NS
 
 using namespace CACAO_NS;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -96,13 +96,13 @@ CACAO::CACAO() {
   // RGB Color + Transparency
   m_VisScint = new G4VisAttributes(G4Colour(243 / 255., 198 / 255., 165 / 255., 1));
   m_VisPCB = new G4VisAttributes(G4Colour(71 / 255., 255 / 255., 87 / 255., 1));
+  m_VisShield = new G4VisAttributes(G4Colour(0., 0., 0., 0.8));
 }
 
 CACAO::~CACAO() {}
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 void CACAO::DefineMaterials() {
-
   G4Element* Tl = new G4Element("Thallium", "Tl", 81., 204.383 * g / mole);
 
   m_matScint = new G4Material("CsITl", 4.51 * g / cm3, 2);
@@ -115,16 +115,17 @@ void CACAO::DefineMaterials() {
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-void CACAO::AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot, G4ThreeVector Dim, G4double ShieldThickness) {
+void CACAO::AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot, G4ThreeVector Dim, G4double ShieldThicknessSide,
+                        G4double ShieldThicknessBottom) {
   m_Pos.push_back(Pos);
   m_Rot.push_back(Rot);
   m_Dim.push_back(Dim);
-  m_ShieldThickness.push_back(ShieldThickness);
+  m_ShieldThicknessSide.push_back(ShieldThicknessSide);
+  m_ShieldThicknessBottom.push_back(ShieldThicknessBottom);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 G4LogicalVolume* CACAO::BuildDetector(G4int i) {
-
   G4Box* solidScint = new G4Box("Scint_Box", m_Dim[i].x() * 0.5, m_Dim[i].y() * 0.5, m_Dim[i].z() * 0.5);
 
   G4LogicalVolume* logicScint = new G4LogicalVolume(solidScint, m_matScint, "logicScint", 0, 0, 0);
@@ -137,12 +138,16 @@ G4LogicalVolume* CACAO::BuildDetector(G4int i) {
   new G4PVPlacement(0, G4ThreeVector(0, 0, -m_Dim[i].z() * 0.5 - PCBThickness * 0.5), logicPCB, "solidPCB", logicScint,
                     false, 0);
 
-  if (m_ShieldThickness[i] > 0) {
+  if (m_ShieldThicknessSide[i] > 0) {
     G4Box* solidShieldAll =
-        new G4Box("Shield_Box", m_Dim[i].x() * 0.5 + m_ShieldThickness[i], m_Dim[i].y() * 0.5 + m_ShieldThickness[i],
-                  m_Dim[i].z() * 0.5 + m_ShieldThickness[i]);
-    G4VSolid* solidShield = new G4SubtractionSolid("Shield", solidShieldAll, solidScint);
+        new G4Box("Shield_Box", m_Dim[i].x() * 0.5 + m_ShieldThicknessSide[i],
+                  m_Dim[i].y() * 0.5 + m_ShieldThicknessSide[i], m_Dim[i].z() * 0.5 + m_ShieldThicknessBottom[i]);
+    G4Box* solidShieldInside = new G4Box("Shield_Inside_Box", m_Dim[i].x() * 0.5, m_Dim[i].y() * 0.5,
+                                         m_Dim[i].z() * 0.5 + m_ShieldThicknessBottom[i]);
+    G4VSolid* solidShield = new G4SubtractionSolid("Shield", solidShieldAll, solidShieldInside, new G4RotationMatrix,
+                                                   G4ThreeVector(0, 0, m_ShieldThicknessBottom[i]));
     G4LogicalVolume* logicShield = new G4LogicalVolume(solidShield, m_matShield, "logicShield", 0, 0, 0);
+    logicShield->SetVisAttributes(m_VisShield);
     new G4PVPlacement(0, G4ThreeVector(), logicShield, "solidShield", logicScint, false, 0);
   }
 
@@ -172,7 +177,6 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
   vector<string> cuboid = {"DIM", "ShieldThickness"};
 
   for (unsigned int i = 0; i < blocks.size(); i++) {
-
     ////////////////////////////////////////////////////////////
     // Resolution
     if (blocks[i]->HasTokenList(reso)) {
@@ -185,23 +189,17 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
     // checking the position items of the block
     G4ThreeVector Pos;
     if (blocks[i]->HasTokenList(cart)) {
-      if (NPOptionManager::getInstance()->GetVerboseLevel())
-        cout << endl << "////  CACAO " << i + 1 << endl;
+      if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  CACAO " << i + 1 << endl;
       Pos = NPS::ConvertVector(blocks[i]->GetTVector3("POS", "mm"));
-    }
-    else if (blocks[i]->HasTokenList(sphe)) {
-      if (NPOptionManager::getInstance()->GetVerboseLevel())
-        cout << endl << "////  CACAO " << i + 1 << endl;
+    } else if (blocks[i]->HasTokenList(sphe)) {
+      if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  CACAO " << i + 1 << endl;
       Pos.setRThetaPhi(blocks[i]->GetDouble("R", "mm"), blocks[i]->GetDouble("Theta", "deg"),
                        blocks[i]->GetDouble("Phi", "deg"));
-    }
-    else if (blocks[i]->HasTokenList(cyli)) {
-      if (NPOptionManager::getInstance()->GetVerboseLevel())
-        cout << endl << "////  CACAO " << i + 1 << endl;
+    } else if (blocks[i]->HasTokenList(cyli)) {
+      if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  CACAO " << i + 1 << endl;
       Pos.setRhoPhiZ(blocks[i]->GetDouble("Rho", "mm"), blocks[i]->GetDouble("Phi", "deg"),
                      blocks[i]->GetDouble("Z", "mm"));
-    }
-    else {
+    } else {
       cout << "ERROR: check your input file formatting " << endl;
       exit(1);
     }
@@ -211,7 +209,7 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
       G4ThreeVector Ang;
       Ang = NPS::ConvertVector(blocks[i]->GetTVector3("ANG", "deg"));
       Rot.set(Ang.x(), Ang.y(), Ang.z());
-    } // (phi, theta, psi)
+    }  // (phi, theta, psi)
     ////////////////////////////////////////////////////////////
 
     ////////////////////////////////////////////////////////////
@@ -219,10 +217,10 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
     G4ThreeVector Dim;
     if (blocks[i]->HasTokenList(cuboid)) {
       Dim = NPS::ConvertVector(blocks[i]->GetTVector3("DIM", "mm"));
-      double ShieldThickness = blocks[i]->GetDouble("ShieldThickness", "mm");
-      AddDetector(Pos, Rot, Dim, ShieldThickness);
-    }
-    else {
+      double ShieldThicknessSide = blocks[i]->GetDouble("ShieldThicknessSide", "mm");
+      double ShieldThicknessBottom = blocks[i]->GetDouble("ShieldThicknessBottom", "mm");
+      AddDetector(Pos, Rot, Dim, ShieldThicknessSide, ShieldThicknessBottom);
+    } else {
       cout << "ERROR: check your input file formatting " << endl;
       exit(1);
     }
@@ -239,8 +237,7 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
   vector<string> token = {"TRmin", "TRmax", "TZ0", "TZ1", "CRmin", "CRmax", "TZ2", "TZ3"};
   for (unsigned int i = 0; i < blocks.size(); i++) {
     if (blocks[i]->HasTokenList(token)) {
-      if (NPOptionManager::getInstance()->GetVerboseLevel())
-        cout << endl << "////  CACAO Chamber " << i + 1 << endl;
+      if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  CACAO Chamber " << i + 1 << endl;
       m_ChamberFound = true;
       m_ChamberTRmin = blocks[i]->GetDouble("TRmin", "mm");
       m_ChamberTRmax = blocks[i]->GetDouble("TRmax", "mm");
@@ -252,17 +249,16 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
       m_ChamberTZ3 = blocks[i]->GetDouble("TZ3", "mm");
       m_ChamberLRmin = m_ChamberTRmin;
       m_ChamberLRmax = m_ChamberTRmax;
-      m_ChamberLH = 200; // mm
+      m_ChamberLH = 200;  // mm
       m_ChamberLRmin = blocks[i]->GetDouble("LRmin", "mm");
       m_ChamberLRmax = blocks[i]->GetDouble("LRmax", "mm");
       m_ChamberLH = blocks[i]->GetDouble("LH", "mm");
       m_ChamberBRmin = blocks[i]->GetDouble("BRmin", "mm");
       m_ChamberBRmax = blocks[i]->GetDouble("BRmax", "mm");
       m_ChamberBZ1 = blocks[i]->GetDouble("BZ1", "mm");
-      m_ChamberBZ2 = blocks[i]->GetDouble("BZ2", "mm");      
-      //m_ChamberBZ1 = blocks[i]->GetDouble("BZ2", "mm");
-    }
-    else {
+      m_ChamberBZ2 = blocks[i]->GetDouble("BZ2", "mm");
+      // m_ChamberBZ1 = blocks[i]->GetDouble("BZ2", "mm");
+    } else {
       cout << "Warning: check your input file formatting " << endl;
     }
   }
@@ -275,15 +271,13 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
 // Called After DetecorConstruction::AddDetector Method
 void CACAO::ConstructDetector(G4LogicalVolume* world) {
   DefineMaterials();
-  if (m_ChamberFound)
-    ConstructChamber(world);
+  if (m_ChamberFound) ConstructChamber(world);
   for (unsigned short i = 0; i < m_Pos.size(); i++) {
     new G4PVPlacement(G4Transform3D(m_Rot[i], m_Pos[i]), BuildDetector(i), "CACAO", world, false, i + 1);
   }
 }
 
 void CACAO::ConstructChamber(G4LogicalVolume* world) {
-
   G4Tubs* tubsChamber0All =
       new G4Tubs("tubsChamber0All", m_ChamberTRmin, m_ChamberTRmax, (m_ChamberTZ1 - m_ChamberTZ0) / 2, 0, 2 * pi);
   G4Tubs* tubsChamber0Sub = new G4Tubs("tubsChamber0Sub", 0, m_ChamberLRmax, m_ChamberTRmax, 0, 2 * pi);
@@ -316,7 +310,7 @@ void CACAO::ConstructChamber(G4LogicalVolume* world) {
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Backward chamber
   G4Cons* consBChamber = new G4Cons("consBChamber", m_ChamberBRmin, m_ChamberBRmax, m_ChamberTRmin, m_ChamberTRmax,
-                                   (m_ChamberTZ0 - m_ChamberBZ1) / 2, 0, 2 * pi);
+                                    (m_ChamberTZ0 - m_ChamberBZ1) / 2, 0, 2 * pi);
   G4LogicalVolume* lConsBChamber = new G4LogicalVolume(consBChamber, m_matChamber, "lConsBChamber", 0, 0, 0);
   G4Tubs* tubsBChamber1 =
       new G4Tubs("tubsBChamber1", m_ChamberBRmin, m_ChamberBRmax, (m_ChamberBZ1 - m_ChamberBZ2) / 2, 0, 2 * pi);
@@ -324,8 +318,8 @@ void CACAO::ConstructChamber(G4LogicalVolume* world) {
 
   new G4PVPlacement(0, G4ThreeVector(0., 0., (m_ChamberTZ0 + m_ChamberBZ1) / 2), lConsBChamber, "pConsBChamber", world,
                     false, 0);
-  new G4PVPlacement(0, G4ThreeVector(0., 0., (m_ChamberBZ1 + m_ChamberBZ2) / 2), lTubsBChamber1, "pTubsBChamber1", world,
-                    false, 0);
+  new G4PVPlacement(0, G4ThreeVector(0., 0., (m_ChamberBZ1 + m_ChamberBZ2) / 2), lTubsBChamber1, "pTubsBChamber1",
+                    world, false, 0);
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   G4VisAttributes* ChamberVisAtt = new G4VisAttributes(G4Colour(0., 1., 1.));
@@ -380,8 +374,7 @@ void CACAO::InitializeScorers() {
   bool already_exist = false;
   m_CACAOScorer = CheckScorer("CACAOScorer", already_exist);
 
-  if (already_exist)
-    return;
+  if (already_exist) return;
 
   // Otherwise the scorer is initialised
   vector<int> level;

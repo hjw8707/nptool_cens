@@ -1128,7 +1128,7 @@ G4Material* MaterialManager::GetMaterialFromLibrary(string Name, double density)
     // PLA
     else if (Name == "PLA") {
       if (!density) density = 1.24 * g / cm3;
-      G4Material* material = new G4Material("NPS_" + Name, density, 2);
+      G4Material* material = new G4Material("NPS_" + Name, density, 3);
       material->AddElement(GetElementFromLibrary("C"), 3);
       material->AddElement(GetElementFromLibrary("H"), 4);
       material->AddElement(GetElementFromLibrary("O"), 2);
