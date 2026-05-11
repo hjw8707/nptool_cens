@@ -16,44 +16,42 @@
  *                                                                           *
  *---------------------------------------------------------------------------*
  * Comment:                                                                  *
- *                                                                           *   
+ *                                                                           *
  *                                                                           *
  *****************************************************************************/
 #include "TCACAOData.h"
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
-using namespace std; 
+using namespace std;
 
-ClassImp(TCACAOData)
-
-
-//////////////////////////////////////////////////////////////////////
-TCACAOData::TCACAOData() {
-}
+ClassImp(TCACAOData);
 
 //////////////////////////////////////////////////////////////////////
-TCACAOData::~TCACAOData() {
-}
+TCACAOData::TCACAOData() {}
 
 //////////////////////////////////////////////////////////////////////
-void TCACAOData::Clear()
-{
+TCACAOData::~TCACAOData() {}
+
+//////////////////////////////////////////////////////////////////////
+void TCACAOData::Clear() {
   fDetN.clear();
+  fCsIN.clear();
   fE.clear();
   fT.clear();
 }
 
 //////////////////////////////////////////////////////////////////////
-void TCACAOData::Dump() const
-{
+void TCACAOData::Dump() const {
   std::cout << "========== Check CACAO Data ==============" << std::endl;
   std::cout << "  Total Size = " << GetMult() << std::endl;
-  for (Int_t i = 0 ; i < GetMult() ; i++) {
+  for (Int_t i = 0; i < GetMult(); i++) {
     std::cout << " DetN = " << fDetN[i] << ", ";
+    std::cout << " CsIN = " << fCsIN[i] << ", ";
     std::cout << " E = " << fE[i] << ", ";
     std::cout << " T = " << fT[i] << std::endl;
   }
-  std::cout << "=======================================" << std::endl;}
+  std::cout << "=======================================" << std::endl;
+}

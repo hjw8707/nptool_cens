@@ -12,10 +12,10 @@ while getopts "a" opt; do
 done
 
 reaction=$1 # 1: dp_gs, 2: dp_ex, 3: dt_gs, 4: d3He_gs, 5: aa_gs, 6: aa_ex
-nevent=1000
+nevent=10000
 
 cat target.detector.lh2 > detector.det
-cat si.detector.original >> detector.det
+cat si.detector.50mm_downonly >> detector.det
 
 if [ -z "$reaction" ]; then
     # argument가 없으면 GUI 모드로 실행

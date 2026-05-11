@@ -1137,6 +1137,17 @@ G4Material* MaterialManager::GetMaterialFromLibrary(string Name, double density)
     }
     //////////////////////////////////////////////////////////////
 
+    //////////////////////////// 3D Printing Materials ////////////////////////////\
+    // Teflon (PTFE)
+    else if (Name == "Teflon" || Name == "PTFE") {
+      if (!density) density = 2.2 * g / cm3;
+      G4Material* material = new G4Material("NPS_" + Name, density, 2);
+      material->AddElement(GetElementFromLibrary("C"), 2);
+      material->AddElement(GetElementFromLibrary("F"), 4);
+      m_Material[Name] = material;
+      return material;
+    }
+    //////////////////////////////////////////////////////////////
     else {
       cout << "INFO: trying to get " << Name << " material from NIST" << endl;
       G4NistManager* man = G4NistManager::Instance();

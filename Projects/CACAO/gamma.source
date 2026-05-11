@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% A "collimated" Source to be used as EventGenerator %%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%      Energy are given in MeV , Position in mm % 
+%      Energy are given in MeV , Position in mm %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Isotropic
- EnergyLow= 1000 keV
- EnergyHigh= 1000 keV
+ EnergyLow= 662 keV
+ EnergyHigh= 662 keV
  HalfOpenAngleMin= 0 deg
  HalfOpenAngleMax= 180 deg
  x0= 0 mm
@@ -13,4 +13,4 @@ Isotropic
  z0= 0 mm
  particle= gamma
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Supported particle type: proton, neutron, deuton, triton, He3 , alpha 
+% Supported particle type: proton, neutron, deuton, triton, He3 , alpha

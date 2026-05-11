@@ -27,6 +27,7 @@
 using namespace std;
 
 // G4 headers
+#include "G4AssemblyVolume.hh"
 #include "G4LogicalVolume.hh"
 #include "G4MultiFunctionalDetector.hh"
 #include "G4RotationMatrix.hh"
@@ -49,10 +50,9 @@ class CACAO : public NPS::VDetector {
   /////// Specific Function of this Class ///////////
   ////////////////////////////////////////////////////
  public:
-  void AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot, G4ThreeVector Dim, G4double ShieldThicknessSide,
-                   G4double ShieldThicknessBottom);
+  void AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot);
 
-  G4LogicalVolume* BuildDetector(G4int i);
+  G4AssemblyVolume* BuildDetector();
 
   void DefineMaterials();
   void ConstructChamber(G4LogicalVolume* world);  // should be called in 'ConstructDetector'
@@ -89,6 +89,7 @@ class CACAO : public NPS::VDetector {
  private:
   TCACAOData* m_Event;
 
+  G4AssemblyVolume* m_CACAOModule;
   ////////////////////////////////////////////////////
   ///////////////Private intern Data//////////////////
   ////////////////////////////////////////////////////
@@ -101,10 +102,10 @@ class CACAO : public NPS::VDetector {
   // Detector Coordinate
   vector<G4ThreeVector> m_Pos;     // Detector Position
   vector<G4RotationMatrix> m_Rot;  // Detector Rotation
-  vector<G4ThreeVector> m_Dim;     // Detector Dimension
+  // vector<G4ThreeVector> m_Dim;     // Detector Dimension
 
-  vector<double> m_ShieldThicknessSide;
-  vector<double> m_ShieldThicknessBottom;
+  // vector<double> m_ShieldThicknessSide;
+  // vector<double> m_ShieldThicknessBottom;
 
   ////////////////////////////////////////////////////////////////////////////////
   // CACAO chamber

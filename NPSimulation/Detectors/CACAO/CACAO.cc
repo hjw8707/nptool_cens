@@ -60,7 +60,14 @@ using namespace CLHEP;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 namespace CACAO_NS {
 // Geometry
-const double PCBThickness = 1.6 * mm;
+const double CsIXY = 15 * mm;
+const double CsIZ = 50 * mm;
+const double PCBXY = 30 * mm;
+const double PCBZ = 1.6 * mm;
+
+const double ShieldInsideWidth = 32 * mm;
+const double ShieldThicknessSide = 2 * mm;
+const double ShieldThicknessBottom = 1.5 * mm;
 
 // Energy and time Resolution
 const double EnergyThreshold = 0.1 * MeV;
@@ -82,7 +89,7 @@ using namespace CACAO_NS;
 CACAO::CACAO() {
   m_Event = new TCACAOData();
   m_CACAOScorer = 0;
-
+  m_CACAOModule = nullptr;
   m_matScint = 0;
   m_matShield = 0;
 
@@ -96,7 +103,7 @@ CACAO::CACAO() {
   // RGB Color + Transparency
   m_VisScint = new G4VisAttributes(G4Colour(243 / 255., 198 / 255., 165 / 255., 1));
   m_VisPCB = new G4VisAttributes(G4Colour(71 / 255., 255 / 255., 87 / 255., 1));
-  m_VisShield = new G4VisAttributes(G4Colour(0., 0., 0., 0.8));
+  m_VisShield = new G4VisAttributes(G4Colour(1., 1., 1., 1));
 }
 
 CACAO::~CACAO() {}
@@ -115,43 +122,68 @@ void CACAO::DefineMaterials() {
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-void CACAO::AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot, G4ThreeVector Dim, G4double ShieldThicknessSide,
-                        G4double ShieldThicknessBottom) {
+void CACAO::AddDetector(G4ThreeVector Pos, G4RotationMatrix Rot) {
   m_Pos.push_back(Pos);
   m_Rot.push_back(Rot);
-  m_Dim.push_back(Dim);
-  m_ShieldThicknessSide.push_back(ShieldThicknessSide);
-  m_ShieldThicknessBottom.push_back(ShieldThicknessBottom);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-G4LogicalVolume* CACAO::BuildDetector(G4int i) {
-  G4Box* solidScint = new G4Box("Scint_Box", m_Dim[i].x() * 0.5, m_Dim[i].y() * 0.5, m_Dim[i].z() * 0.5);
+G4AssemblyVolume* CACAO::BuildDetector() {
+  if (!m_CACAOModule) {
+    ////////////////////////////////////////////////////////////
+    // Scintillator
+    G4Box* solidScint = new G4Box("Scint_Box", CsIXY * 0.5, CsIXY * 0.5, CsIZ * 0.5);
+    G4LogicalVolume* logicScint = new G4LogicalVolume(solidScint, m_matScint, "logicScint", 0, 0, 0);
+    logicScint->SetVisAttributes(m_VisScint);
+    logicScint->SetSensitiveDetector(m_CACAOScorer);
+    ////////////////////////////////////////////////////////////
 
-  G4LogicalVolume* logicScint = new G4LogicalVolume(solidScint, m_matScint, "logicScint", 0, 0, 0);
-  logicScint->SetVisAttributes(m_VisScint);
-  logicScint->SetSensitiveDetector(m_CACAOScorer);
+    ////////////////////////////////////////////////////////////
+    // PCB
+    G4VSolid* solidPCB = new G4Box("PCB_Box", PCBXY * 0.5, PCBXY * 0.5, PCBZ * 0.5);
+    G4LogicalVolume* logicPCB = new G4LogicalVolume(solidPCB, m_matPCB, "logicPCB", 0, 0, 0);
+    logicPCB->SetVisAttributes(m_VisPCB);
+    ////////////////////////////////////////////////////////////
 
-  G4VSolid* solidPCB = new G4Box("PCB_Box", m_Dim[i].x() * 0.5, m_Dim[i].y() * 0.5, PCBThickness * 0.5);
-  G4LogicalVolume* logicPCB = new G4LogicalVolume(solidPCB, m_matPCB, "logicPCB", 0, 0, 0);
-  logicPCB->SetVisAttributes(m_VisPCB);
-  new G4PVPlacement(0, G4ThreeVector(0, 0, -m_Dim[i].z() * 0.5 - PCBThickness * 0.5), logicPCB, "solidPCB", logicScint,
-                    false, 0);
-
-  if (m_ShieldThicknessSide[i] > 0) {
+    ////////////////////////////////////////////////////////////
+    // Shield
     G4Box* solidShieldAll =
-        new G4Box("Shield_Box", m_Dim[i].x() * 0.5 + m_ShieldThicknessSide[i],
-                  m_Dim[i].y() * 0.5 + m_ShieldThicknessSide[i], m_Dim[i].z() * 0.5 + m_ShieldThicknessBottom[i]);
-    G4Box* solidShieldInside = new G4Box("Shield_Inside_Box", m_Dim[i].x() * 0.5, m_Dim[i].y() * 0.5,
-                                         m_Dim[i].z() * 0.5 + m_ShieldThicknessBottom[i]);
+        new G4Box("Shield_Box", ShieldInsideWidth * 0.5 + ShieldThicknessSide,
+                  ShieldInsideWidth * 0.5 + ShieldThicknessSide, CsIZ * 0.5 + ShieldThicknessBottom);
+    G4Box* solidShieldInside = new G4Box("Shield_Inside_Box", ShieldInsideWidth * 0.5, ShieldInsideWidth * 0.5,
+                                         CsIZ * 0.5 + ShieldThicknessBottom);
     G4VSolid* solidShield = new G4SubtractionSolid("Shield", solidShieldAll, solidShieldInside, new G4RotationMatrix,
-                                                   G4ThreeVector(0, 0, m_ShieldThicknessBottom[i]));
+                                                   G4ThreeVector(0, 0, ShieldThicknessBottom));
     G4LogicalVolume* logicShield = new G4LogicalVolume(solidShield, m_matShield, "logicShield", 0, 0, 0);
     logicShield->SetVisAttributes(m_VisShield);
-    new G4PVPlacement(0, G4ThreeVector(), logicShield, "solidShield", logicScint, false, 0);
-  }
+    ////////////////////////////////////////////////////////////
 
-  return logicScint;
+    ////////////////////////////////////////////////////////////
+    // Make an assembly volume
+    G4AssemblyVolume* assembly = new G4AssemblyVolume();
+    G4RotationMatrix* rot = new G4RotationMatrix();
+
+    // Place the scintillator in the assembly volume (4 blocks)
+    G4ThreeVector pos = G4ThreeVector(CsIXY * 0.5, CsIXY * 0.5, 0);
+    assembly->AddPlacedVolume(logicScint, pos, rot);
+    pos.setX(-CsIXY * 0.5);
+    assembly->AddPlacedVolume(logicScint, pos, rot);
+    pos.setY(-CsIXY * 0.5);
+    assembly->AddPlacedVolume(logicScint, pos, rot);
+    pos.setX(CsIXY * 0.5);
+    assembly->AddPlacedVolume(logicScint, pos, rot);
+
+    // Place the PCB in the assembly volume
+    pos.set(0, 0, CsIZ * 0.5 + PCBZ * 0.5);
+    assembly->AddPlacedVolume(logicPCB, pos, rot);
+
+    // Place the shield in the assembly volume
+    pos.set(0, 0, 0);
+    assembly->AddPlacedVolume(logicShield, pos, rot);
+    ////////////////////////////////////////////////////////////
+    m_CACAOModule = assembly;
+  }
+  return m_CACAOModule;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -187,18 +219,22 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
 
     ////////////////////////////////////////////////////////////
     // checking the position items of the block
+    G4bool isPositionDefined = false;
     G4ThreeVector Pos;
     if (blocks[i]->HasTokenList(cart)) {
       if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  CACAO " << i + 1 << endl;
       Pos = NPS::ConvertVector(blocks[i]->GetTVector3("POS", "mm"));
+      isPositionDefined = true;
     } else if (blocks[i]->HasTokenList(sphe)) {
       if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  CACAO " << i + 1 << endl;
       Pos.setRThetaPhi(blocks[i]->GetDouble("R", "mm"), blocks[i]->GetDouble("Theta", "deg"),
                        blocks[i]->GetDouble("Phi", "deg"));
+      isPositionDefined = true;
     } else if (blocks[i]->HasTokenList(cyli)) {
       if (NPOptionManager::getInstance()->GetVerboseLevel()) cout << endl << "////  CACAO " << i + 1 << endl;
       Pos.setRhoPhiZ(blocks[i]->GetDouble("Rho", "mm"), blocks[i]->GetDouble("Phi", "deg"),
                      blocks[i]->GetDouble("Z", "mm"));
+      isPositionDefined = true;
     } else {
       cout << "ERROR: check your input file formatting " << endl;
       exit(1);
@@ -214,12 +250,8 @@ void CACAO::ReadConfiguration(NPL::InputParser parser) {
 
     ////////////////////////////////////////////////////////////
     // checking the shape items of the block
-    G4ThreeVector Dim;
-    if (blocks[i]->HasTokenList(cuboid)) {
-      Dim = NPS::ConvertVector(blocks[i]->GetTVector3("DIM", "mm"));
-      double ShieldThicknessSide = blocks[i]->GetDouble("ShieldThicknessSide", "mm");
-      double ShieldThicknessBottom = blocks[i]->GetDouble("ShieldThicknessBottom", "mm");
-      AddDetector(Pos, Rot, Dim, ShieldThicknessSide, ShieldThicknessBottom);
+    if (isPositionDefined) {
+      AddDetector(Pos, Rot);
     } else {
       cout << "ERROR: check your input file formatting " << endl;
       exit(1);
@@ -273,7 +305,9 @@ void CACAO::ConstructDetector(G4LogicalVolume* world) {
   DefineMaterials();
   if (m_ChamberFound) ConstructChamber(world);
   for (unsigned short i = 0; i < m_Pos.size(); i++) {
-    new G4PVPlacement(G4Transform3D(m_Rot[i], m_Pos[i]), BuildDetector(i), "CACAO", world, false, i + 1);
+    // new G4PVPlacement(G4Transform3D(m_Rot[i], m_Pos[i]), BuildDetector(i), "CACAO", world, false, i + 1);
+    G4Transform3D transform(m_Rot[i], m_Pos[i]);
+    BuildDetector()->MakeImprint(world, transform, 100 * (i + 1));
   }
 }
 
@@ -361,8 +395,8 @@ void CACAO::ReadSensitive(const G4Event*) {
 
     if (Energy > CACAO_NS::EnergyThreshold) {
       double Time = RandGauss::shoot(Scorer->GetTime(i), CACAO_NS::ResoTime);
-      int DetectorNbr = level[0];
-      m_Event->Set(DetectorNbr, Energy, Time);
+      int copyNo = level[0];
+      m_Event->Set(copyNo / 100, copyNo % 100, Energy, Time);
     }
   }
 }

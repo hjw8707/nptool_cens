@@ -18,7 +18,7 @@
  *                                                                           *
  *---------------------------------------------------------------------------*
  * Comment:                                                                  *
- *                                                                           *   
+ *                                                                           *
  *                                                                           *
  *****************************************************************************/
 
@@ -30,40 +30,43 @@ using namespace std;
 #include "TObject.h"
 
 class TCACAOData : public TObject {
- private: 
+ private:
   vector<Int_t> fDetN;
+  vector<Int_t> fCsIN;
   vector<Double_t> fE;
   vector<Double_t> fT;
 
  public:
-   TCACAOData();
-   virtual ~TCACAOData();
+  TCACAOData();
+  virtual ~TCACAOData();
 
-   void   Clear();
-   void   Clear(const Option_t*) {};
-   void   Dump() const;
+  void Clear();
+  void Clear(const Option_t*) {};
+  void Dump() const;
 
-   //////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////
   // Getters and Setters
-  // Prefer inline declaration to avoid unnecessary called of 
+  // Prefer inline declaration to avoid unnecessary called of
   // frequently used methods
   // add //! to avoid ROOT creating dictionnary for the methods
  public:
   //////////////////////    SETTERS    ////////////////////////
   // Energy
-  inline void Set(const Int_t DetN,
-		  const Double_t E, const Double_t T) {
+  inline void Set(const Int_t DetN, const Int_t CsIN, const Double_t E, const Double_t T) {
     fDetN.push_back(DetN);
+    fCsIN.push_back(CsIN);
     fE.push_back(E);
-    fT.push_back(T);}
-  
-  // all
-  inline Int_t GetMult() const {return fDetN.size();}
-  inline Int_t GetDetN(Int_t i) const {return fDetN[i]; }
-  inline Double_t GetE(Int_t i) const { return fE[i]; }
-  inline Double_t GetT(Int_t i)   const { return fT[i]; }
+    fT.push_back(T);
+  }
 
-   ClassDef(TCACAOData,1)  // CACAOData structure
+  // all
+  inline Int_t GetMult() const { return fDetN.size(); }
+  inline Int_t GetDetN(Int_t i) const { return fDetN[i]; }
+  inline Int_t GetCsIN(Int_t i) const { return fCsIN[i]; }
+  inline Double_t GetE(Int_t i) const { return fE[i]; }
+  inline Double_t GetT(Int_t i) const { return fT[i]; }
+
+  ClassDef(TCACAOData, 1)  // CACAOData structure
 };
 
 #endif

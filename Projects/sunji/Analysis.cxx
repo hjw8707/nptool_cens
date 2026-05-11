@@ -98,15 +98,15 @@ void Analysis::Init() {
   OutgoingTarget = NULL;
   OutgoingWindow = NULL;
 
-  // if (OriginalBeamEnergy > 0 && !TargetMaterial.empty()) {
-  //   BeamTarget = new NPL::EnergyLoss(beam + "_" + TargetMaterial + ".G4table", "G4Table", 100);
-  //   OutgoingTarget = new NPL::EnergyLoss(outgoing + "_" + TargetMaterial + ".G4table", "G4Table", 100);
-  // }
+  if (OriginalBeamEnergy > 0 && !TargetMaterial.empty()) {
+    BeamTarget = new NPL::EnergyLoss(beam + "_" + TargetMaterial + ".G4table", "G4Table", 100);
+    OutgoingTarget = new NPL::EnergyLoss(outgoing + "_" + TargetMaterial + ".G4table", "G4Table", 100);
+  }
 
-  // if (OriginalBeamEnergy > 0 && WindowsThickness > 0 && !WindowsMaterial.empty()) {
-  //   BeamWindow = new NPL::EnergyLoss(beam + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
-  //   OutgoingWindow = new NPL::EnergyLoss(outgoing + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
-  // }
+  if (OriginalBeamEnergy > 0 && WindowsThickness > 0 && !WindowsMaterial.empty()) {
+    BeamWindow = new NPL::EnergyLoss(beam + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
+    OutgoingWindow = new NPL::EnergyLoss(outgoing + "_" + WindowsMaterial + ".G4table", "G4Table", 100);
+  }
 
   // initialize random number generator
   Rand = TRandom3();
@@ -164,18 +164,20 @@ void Analysis::TreatEvent() {
   TVector3 hitDir = hitPos - BeamImpact;
   // TVector3 hitDir = myReac->GetParticleDirection(0);
   OutgoingThetaLab = hitDir.Angle(BeamDirection);
-
+  TVector3 targetNormal = TVector3(-1, 0, 1);
+  double thetaNormal = hitDir.Angle(targetNormal);
   // Correct for energy loss in target and window -> not implemented yet
-  // if (OutgoingTarget) {
-  //   measuredE = OutgoingTarget->EvaluateInitialEnergy(measuredE, TargetThickness * 0.5, thetaNormal);
-  // }
-  // if (OutgoingWindow) {
-  //   measuredE = OutgoingWindow->EvaluateInitialEnergy(measuredE, WindowsThickness, thetaNormal);
-  // }
+  double measuredE = E;
+  if (OutgoingWindow) {
+    measuredE = OutgoingWindow->EvaluateInitialEnergy(measuredE, WindowsThickness, thetaNormal);
+  }
+  if (OutgoingTarget) {
+    measuredE = OutgoingTarget->EvaluateInitialEnergy(measuredE, TargetThickness * 0.5, thetaNormal);
+  }
 
   // Calculate outgoing particle momentum
   // OutgoingEnergy = myReac->GetKineticEnergy(0);  // OutgoingEnergy;  // MeV
-  OutgoingEnergy = E;
+  OutgoingEnergy = measuredE;
   double outgoingP = sqrt(OutgoingEnergy * OutgoingEnergy + 2 * OutgoingEnergy * outgoingMass);
   OutgoingMomentum = hitDir.Unit() * outgoingP;
 

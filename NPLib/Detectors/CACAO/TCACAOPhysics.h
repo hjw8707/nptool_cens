@@ -18,62 +18,59 @@
  *                                                                           *
  *---------------------------------------------------------------------------*
  * Comment:                                                                  *
- *                                                                           *   
+ *                                                                           *
  *                                                                           *
  *****************************************************************************/
 
-// C++ headers 
-#include <vector>
+// C++ headers
 #include <map>
 #include <string>
+#include <vector>
 using namespace std;
 
 // ROOT headers
-#include "TObject.h"
 #include "TH1.h"
-#include "TVector3.h"
+#include "TObject.h"
 #include "TRotation.h"
+#include "TVector3.h"
 
 // NPTool headers
+#include "NPCalibrationManager.h"
+#include "NPInputParser.h"
+#include "NPVDetector.h"
 #include "TCACAOData.h"
 #include "TCACAOSpectra.h"
-#include "NPCalibrationManager.h"
-#include "NPVDetector.h"
-#include "NPInputParser.h"
 // forward declaration
 class TCACAOSpectra;
-
-
 
 class TCACAOPhysics : public TObject, public NPL::VDetector {
   //////////////////////////////////////////////////////////////
   // constructor and destructor
-public:
+ public:
   TCACAOPhysics();
   ~TCACAOPhysics() {};
 
-
   //////////////////////////////////////////////////////////////
   // Inherited from TObject and overriden to avoid warnings
-public: 
-  void Clear();   
+ public:
+  void Clear();
   void Clear(const Option_t*) {};
 
   ////////////////////////////////////////////////////////////
-  // 
-  void AddDetector(TVector3 Pos, TRotation Rot,
-		   TVector3 Dim, Double_t ShieldThickness);
+  //
+  void AddDetector(TVector3 Pos, TRotation Rot);
 
   TVector3 GetDetPosition(int i) { return m_Pos[i]; }
+  TVector3 GetCsIPosition(int i, int j) { return m_CsIPos[i][j]; }
   inline double GetNumberOfDetectors() { return m_NumberOfDetectors; }
 
   //////////////////////////////////////////////////////////////
   // methods inherited from the VDetector ABC class
-public:
+ public:
   // read stream from ConfigFile to pick-up detector parameters
   void ReadConfiguration(NPL::InputParser);
 
-  // method called event by event, aiming at extracting the 
+  // method called event by event, aiming at extracting the
   // physical information from detector
   void BuildPhysicalEvent();
 
@@ -82,15 +79,15 @@ public:
   void BuildSimplePhysicalEvent();
 
   // same as above but for online analysis
-  void BuildOnlinePhysicalEvent()  {BuildPhysicalEvent();};
+  void BuildOnlinePhysicalEvent() { BuildPhysicalEvent(); };
 
   // activate raw data object and branches from input TChain
-  // in this method mother branches (Detector) AND daughter leaves 
+  // in this method mother branches (Detector) AND daughter leaves
   // (fDetector_parameter) have to be activated
   void InitializeRootInputRaw();
 
   // activate physics data object and branches from input TChain
-  // in this method mother branches (Detector) AND daughter leaves 
+  // in this method mother branches (Detector) AND daughter leaves
   // (fDetector_parameter) have to be activated
   void InitializeRootInputPhysics();
 
@@ -98,18 +95,18 @@ public:
   void InitializeRootOutput();
 
   // clear the raw and physical data objects event by event
-  void ClearEventPhysics() {Clear();}      
-  void ClearEventData()    {m_EventData->Clear();}   
+  void ClearEventPhysics() { Clear(); }
+  void ClearEventData() { m_EventData->Clear(); }
 
   // methods related to the TCACAOSpectra class
-  // instantiate the TCACAOSpectra class and 
+  // instantiate the TCACAOSpectra class and
   // declare list of histograms
   void InitSpectra();
 
   // fill the spectra
   void FillSpectra();
 
-  // used for Online mainly, sanity check for histograms and 
+  // used for Online mainly, sanity check for histograms and
   // change their color if issues are found, for example
   void CheckSpectra();
 
@@ -119,71 +116,71 @@ public:
   // write spectra to ROOT output file
   void WriteSpectra();
 
-
   //////////////////////////////////////////////////////////////
   // specific methods to CACAO array
-public:
+ public:
   // remove bad channels, calibrate the data and apply thresholds
   void PreTreat();
 
   // clear the pre-treated object
-  void ClearPreTreatedData()   {m_PreTreatedData->Clear();}
+  void ClearPreTreatedData() { m_PreTreatedData->Clear(); }
 
   // read the user configuration file. If no file is found, load standard one
   void ReadAnalysisConfig();
 
-  // give and external TCACAOData object to TCACAOPhysics. 
+  // give and external TCACAOData object to TCACAOPhysics.
   // needed for online analysis for example
-  void SetRawDataPointer(TCACAOData* rawDataPointer) {m_EventData = rawDataPointer;}
-    
+  void SetRawDataPointer(TCACAOData* rawDataPointer) { m_EventData = rawDataPointer; }
+
   // objects are not written in the TTree
-private:
-  TCACAOData*         m_EventData;        //!
-  TCACAOData*         m_PreTreatedData;   //!
-  TCACAOPhysics*      m_EventPhysics;     //!
+ private:
+  TCACAOData* m_EventData;        //!
+  TCACAOData* m_PreTreatedData;   //!
+  TCACAOPhysics* m_EventPhysics;  //!
 
   //////////////////////////////////////////////////////////////
   // data obtained after BuildPhysicalEvent() and stored in
   // output ROOT file
-public:
+ public:
   Int_t nhit;
   Int_t detN[20];
+  Int_t CsIN[20];
   Double_t E[20], T[20];
 
-  
   // getters for raw and pre-treated data object
-public:
-  TCACAOData* GetRawData()        const {return m_EventData;}
-  TCACAOData* GetPreTreatedData() const {return m_PreTreatedData;}
+ public:
+  TCACAOData* GetRawData() const { return m_EventData; }
+  TCACAOData* GetPreTreatedData() const { return m_PreTreatedData; }
 
   // parameters used in the analysis
-private:
+ private:
   // thresholds
-  double m_E_RAW_Threshold; //!
-  double m_E_Threshold;     //!
+  double m_E_RAW_Threshold;  //!
+  double m_E_Threshold;      //!
 
-private:
+ private:
   vector<TVector3> m_Pos;
+  vector<vector<TVector3>> m_CsIPos;
   vector<TRotation> m_Rot;
-  vector<TVector3> m_Dim;
-  vector<double> m_ShieldThickness;
-  
+  // vector<TVector3> m_Dim;
+  // vector<double> m_ShieldThickness;
+
   // number of detectors
-private:
+ private:
   int m_NumberOfDetectors;  //!
 
   // spectra class
-private:
-  TCACAOSpectra* m_Spectra; // !
+ private:
+  TCACAOSpectra* m_Spectra;  // !
 
   // spectra getter
-public:
-  map<string, TH1*>   GetSpectra(); 
+ public:
+  map<string, TH1*> GetSpectra();
 
   // Static constructor to be passed to the Detector Factory
-public:
+ public:
   static NPL::VDetector* Construct();
 
-  ClassDef(TCACAOPhysics,1)  // CACAOPhysics structure
+  ClassDef(TCACAOPhysics, 1)  // CACAOPhysics structure
 };
 #endif
