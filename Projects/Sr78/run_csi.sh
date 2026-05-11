@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+ens=(662 1000)
+#cat geometry/target.detector geometry/TiNA.detector > det.detector
+cat geometry/chamber.detector geometry/target.detector.lh2 geometry/TiNA.detector.30cm geometry/csi.detector.ring > det.detector
+
+for x in $ens
+do
+    sed -i "s/EnergyLow= .* keV/EnergyLow= ${x} keV/g" srcs/gamma.source
+    sed -i "s/EnergyHigh= .* keV/EnergyHigh= ${x} keV/g" srcs/gamma.source
+    npsimulation -D det.detector -E srcs/gamma.source -B batch.mac -O ring_sim_${x}.root
+    npanalysis --last-sim -O ring_ana_${x}.root
+done

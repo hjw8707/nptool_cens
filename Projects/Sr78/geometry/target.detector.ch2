@@ -1,0 +1,12 @@
+%%%%%%%%%%Detector%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+%GeneralTarget
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+Target
+ Thickness= 500 micrometer
+ Radius= 30 mm
+ Material= CH2
+ Angle= 0 deg
+ X= 0 mm
+ Y= 0 mm
+ Z= 0 mm

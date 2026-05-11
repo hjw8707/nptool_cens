@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%TiNA
+%%%%%%% Square 1 %%%%%%%
+Tina
+ POS = 80 -20 300 mm
+ Shape= TTTPad
+
+%%%%%%% Square 2 %%%%%%%
+Tina
+ POS = 20 80 300 mm
+ Shape= TTTPad
+
+%%%%%%% Square 3 %%%%%%%
+Tina
+ POS = -80 20 300 mm
+ Shape= TTTPad
+ 
+%%%%%%% Square 4 %%%%%%%
+Tina
+ POS = -20 -80 300 mm
+ Shape= TTTPad
+

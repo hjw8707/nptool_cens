@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+def PrintBlock(x, y, z, a, b, c):
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    print("CACAO")
+    print(" Pos= %6.1f %6.1f %6.1f mm" % (x, y, z))
+    print(" Ang= %6.1f %6.1f %6.1f deg" % (a, b, c))
+    print(" Dim= %6.1f %6.1f %6.1f mm" % (15, 15, 50))    
+    print(" ShieldThickness= 0 mm")
+
+z_start = -48.
+n_zlayer = 8
+    
+# bottom wall
+(a, b, c) = (0, 90, 0)
+y = -100.
+for i in range(n_zlayer):
+    z = z_start + 16.*i
+    for iblock in range(-4,5):
+        x = iblock * 16.
+        PrintBlock(x,y,z,a,b,c)
+
+# left, right wall
+(a, b, c) = (0, 90, 90)
+x = 100.
+for i in range(n_zlayer):
+    z = z_start + 16.*i
+    for iblock in range(-7,8):
+        y = iblock * 16.
+        PrintBlock(x,y,z,a,b,c)
+        PrintBlock(-x,y,z,a,b,c)        
+

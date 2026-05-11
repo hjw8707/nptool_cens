@@ -1,0 +1,73 @@
+%%%%%%% GRAPE 1 %%%%%%%
+GRAPE
+ GRAPEID= 1
+ R= 210
+ Theta= 130
+ Phi= 195
+ Beta= 0 0 0
+
+%%%%%%% GRAPE 2 %%%%%%%
+GRAPE
+ GRAPEID= 2
+ R= 210
+ Theta= 125
+ Phi= 255
+ Beta= 0 0 0
+ 
+%%%%%%% GRAPE 6 %%%%%%%
+GRAPE
+ GRAPEID= 6
+ R= 210
+ Theta= 130
+ Phi= 135
+ Beta= 0 0 0
+
+%%%%%%% GRAPE 7 %%%%%%%
+GRAPE
+ GRAPEID= 7
+ R= 200
+ Theta= 90
+ Phi= 225
+ Beta= 0 0 0
+
+%%%%%%% GRAPE 11 %%%%%%%
+GRAPE
+ GRAPEID= 11
+ R= 200
+ Theta= 90
+ Phi= 105
+ Beta= 0 0 0
+
+%%%%%%% GRAPE 12 %%%%%%%
+GRAPE
+ GRAPEID= 12
+ R= 200
+ Theta= 90
+ Phi= 165
+ Beta= 0 0 0
+
+%%%%%%% GRAPE 13 %%%%%%%
+GRAPE
+ GRAPEID= 13
+ R= 240
+ Theta= 50
+ Phi= 195
+ Beta= 0 0 0
+
+%%%%%%% GRAPE 14 %%%%%%%
+GRAPE
+ GRAPEID= 14
+ R= 240
+ Theta= 55
+ Phi= 255
+ Beta= 0 0 0
+
+%%%%%%% GRAPE 18 %%%%%%%
+GRAPE
+ GRAPEID= 18
+ R= 240
+ Theta= 50
+ Phi= 135
+ Beta= 0 0 0
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

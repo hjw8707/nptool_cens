@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Chamber OEDO
+ TRmin=  72 mm
+ TRmax=  75 mm
+ TZ0  = -100 mm
+ TZ1  =  120 mm	
+ CRmin= 167 mm
+ CRmax= 170 mm
+ TZ2  = 280 mm
+ TZ3  = 350 mm
+ LRmin = 55 mm
+ LRmax = 58 mm
+ LH    = 100 mm
+ Material= Alu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

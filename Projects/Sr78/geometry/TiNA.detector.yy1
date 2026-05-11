@@ -1,0 +1,49 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%TiNA
+%%%%%%% Trapezoid 1 %%%%%%%
+Tina
+ R= 82.3 mm
+ Theta= -50 deg
+ Phi= 15 deg
+ T= 270.0 mm
+ Shape= YY1CsI
+
+%%%%%%% Trapezoid 2 %%%%%%%
+Tina
+ R= 82.3 mm
+ Theta= -50 deg
+ Phi= 75 deg
+ T= 270.0 mm
+ Shape= YY1CsI
+
+%%%%%%% Trapezoid 3 %%%%%%%
+Tina
+ R= 82.3 mm
+ Theta= -50 deg
+ Phi= 135 deg
+ T= 270.0 mm
+ Shape= YY1CsI
+
+%%%%%%% Trapezoid 4 %%%%%%%
+Tina
+ R= 82.3 mm
+ Theta= -50 deg
+ Phi= 195. deg
+ T= 270.0 mm
+ Shape= YY1CsI
+
+%%%%%%% Trapezoid 5 %%%%%%%
+Tina
+ R= 82.3 mm
+ Theta= -50 deg
+ Phi= 255 deg
+ T= 270.0 mm
+ Shape= YY1CsI
+
+%%%%%%% Trapezoid 6 %%%%%%%
+Tina
+ R= 82.3 mm
+ Theta= -50 deg
+ Phi= 315 deg
+ T= 270.0 mm
+ Shape= YY1CsI

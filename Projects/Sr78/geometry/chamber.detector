@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CACAOChamber
+ TRmin=  72 mm
+ TRmax=  75 mm
+ TZ0  = -100 mm
+ TZ1  =  140 mm # 120 -> 140 mm for the CsI crystal
+ CRmin= 167 mm
+ CRmax= 170 mm
+ TZ2  = 280 mm
+ TZ3  = 350 mm
+ LRmin = 55 mm
+ LRmax = 58 mm
+ LH    = 100 mm
+ BZ1   = -120 mm
+ BZ2   = -300 mm
+ BRmin = 50 mm
+ BRmax = 53 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

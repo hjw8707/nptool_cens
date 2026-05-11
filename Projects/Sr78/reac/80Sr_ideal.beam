@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Reaction file for 80Sr(p,t)78Sr reaction %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Beam energy given in MeV ; Excitation in MeV
+Beam
+  Particle= 80Sr
+  ZEmission= -5 cm
+  Energy= 4095.4705 MeV
+  SigmaEnergy= 0 MeV
+  SigmaThetaX= 0 mrad
+  SigmaPhiY= 0 mrad
+  SigmaX= 0 mm
+  SigmaY= 0 mm
+  MeanThetaX= 0 mrad
+  MeanPhiY= 0 mrad
+  MeanX= 0 mm
+  MeanY= 0 mm
+  

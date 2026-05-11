@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TwoBodyReaction
+ Beam= 80Sr
+ Target= p
+ Light= t
+ Heavy= 78Sr
+ ExcitationEnergyLight= 0.0
+ ExcitationEnergyHeavy= 1.10
+ DoubleDifferentialCrossSectionPath= cs/2d_twofnr.root j2_2d
+% CrossSectionPath= cs/j2_twofnr.sig CS
+ ShootLight= 1
+ ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Decay 78Sr
+ Daughter= 78Sr gamma gamma
+ Threshold= 1.10 MeV
+ ExcitationEnergy= 0. 0.811 0.289 MeV
+ LifeTime= 0.01 ns
+ BranchingRatio= 79
+ Shoot= 1 1 1
+%
+Decay 78Sr
+ Daughter= 78Sr gamma gamma gamma
+ Threshold= 1.10 MeV
+ ExcitationEnergy= 0. 0.340 0.471 0.289 MeV  
+ LifeTime= 0.01 ns
+ BranchingRatio= 21
+ Shoot= 1 1 1 1
+%

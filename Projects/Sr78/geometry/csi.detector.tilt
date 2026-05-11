@@ -1,0 +1,6184 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0  -48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0  -32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0  -16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0    0.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0   16.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0   32.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0   48.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -64.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -48.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -32.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -16.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=    0.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   16.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   32.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   48.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   64.0 -100.0   64.0 mm
+ Ang=   90.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0  -48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0  -32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0  -16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0    0.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0   16.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0   32.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0   48.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0 -112.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0 -112.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -96.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -96.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -80.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -80.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -64.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -64.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -48.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -48.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -32.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -32.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  -16.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  -16.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   16.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   16.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   32.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   32.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   48.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   48.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   64.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   64.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   80.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   80.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0   96.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0   96.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0  112.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0  112.0   64.0 mm
+ Ang=    0.0   90.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   25.0 -112.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -25.0 -112.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   52.7  -96.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -52.7  -96.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   70.6  -80.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -70.6  -80.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   82.4  -64.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -82.4  -64.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   90.5  -48.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -90.5  -48.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   95.9  -32.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -95.9  -32.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   99.0  -16.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -99.0  -16.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   99.0   16.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -99.0   16.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   95.9   32.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -95.9   32.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   90.5   48.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -90.5   48.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   82.4   64.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -82.4   64.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   70.6   80.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -70.6   80.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   52.7   96.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -52.7   96.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   25.0  112.0   80.0 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -25.0  112.0   80.0 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   25.0 -112.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -25.0 -112.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   52.7  -96.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -52.7  -96.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   70.6  -80.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -70.6  -80.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   82.4  -64.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -82.4  -64.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   90.5  -48.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -90.5  -48.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   95.9  -32.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -95.9  -32.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   99.0  -16.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -99.0  -16.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  100.0    0.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -100.0    0.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   99.0   16.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -99.0   16.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   95.9   32.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -95.9   32.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   90.5   48.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -90.5   48.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   82.4   64.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -82.4   64.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   70.6   80.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -70.6   80.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   52.7   96.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -52.7   96.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   25.0  112.0   99.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -25.0  112.0   99.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   25.0 -128.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -25.0 -128.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   55.3 -112.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -55.3 -112.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   75.3  -96.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -75.3  -96.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   88.7  -80.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -88.7  -80.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   98.4  -64.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -98.4  -64.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  105.3  -48.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -105.3  -48.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  109.9  -32.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -109.9  -32.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  112.6  -16.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -112.6  -16.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  113.5    0.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -113.5    0.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  112.6   16.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -112.6   16.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  109.9   32.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -109.9   32.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  105.3   48.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -105.3   48.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   98.4   64.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -98.4   64.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   88.7   80.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -88.7   80.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   75.3   96.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -75.3   96.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   55.3  112.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -55.3  112.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   25.0  128.0  126.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -25.0  128.0  126.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   57.4 -128.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -57.4 -128.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   79.4 -112.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -79.4 -112.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   94.4  -96.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -94.4  -96.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  105.4  -80.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -105.4  -80.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  113.7  -64.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -113.7  -64.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  119.7  -48.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -119.7  -48.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  123.8  -32.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -123.8  -32.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  126.2  -16.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -126.2  -16.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  127.0    0.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -127.0    0.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  126.2   16.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -126.2   16.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  123.8   32.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -123.8   32.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  119.7   48.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -119.7   48.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  113.7   64.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -113.7   64.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  105.4   80.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -105.4   80.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   94.4   96.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -94.4   96.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   79.4  112.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -79.4  112.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   57.4  128.0  153.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -57.4  128.0  153.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   59.2 -144.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -59.2 -144.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   83.1 -128.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -83.1 -128.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   99.6 -112.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -99.6 -112.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  111.9  -96.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -111.9  -96.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  121.4  -80.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -121.4  -80.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  128.6  -64.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -128.6  -64.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  133.9  -48.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -133.9  -48.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  137.6  -32.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -137.6  -32.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  139.8  -16.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -139.8  -16.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  140.5    0.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -140.5    0.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  139.8   16.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -139.8   16.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  137.6   32.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -137.6   32.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  133.9   48.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -133.9   48.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  128.6   64.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -128.6   64.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  121.4   80.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -121.4   80.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  111.9   96.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -111.9   96.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   99.6  112.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -99.6  112.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   83.1  128.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -83.1  128.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   59.2  144.0  180.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -59.2  144.0  180.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   60.6 -160.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -60.6 -160.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   86.5 -144.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -86.5 -144.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  104.3 -128.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -104.3 -128.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  117.9 -112.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -117.9 -112.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  128.4  -96.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -128.4  -96.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  136.8  -80.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -136.8  -80.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  143.2  -64.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -143.2  -64.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  148.0  -48.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -148.0  -48.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  151.4  -32.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -151.4  -32.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  153.3  -16.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -153.3  -16.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  154.0    0.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -154.0    0.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  153.3   16.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -153.3   16.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  151.4   32.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -151.4   32.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  148.0   48.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -148.0   48.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  143.2   64.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -143.2   64.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  136.8   80.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -136.8   80.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  128.4   96.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -128.4   96.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  117.9  112.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -117.9  112.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  104.3  128.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -104.3  128.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   86.5  144.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -86.5  144.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   60.6  160.0  207.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -60.6  160.0  207.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 6
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   61.6 -176.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -61.6 -176.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   89.5 -160.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -89.5 -160.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  108.7 -144.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -108.7 -144.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  123.4 -128.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -123.4 -128.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  135.0 -112.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -135.0 -112.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  144.4  -96.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -144.4  -96.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  151.8  -80.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -151.8  -80.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  157.6  -64.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -157.6  -64.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  162.0  -48.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -162.0  -48.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  165.1  -32.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -165.1  -32.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  166.9  -16.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -166.9  -16.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  167.5    0.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -167.5    0.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  166.9   16.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -166.9   16.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  165.1   32.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -165.1   32.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  162.0   48.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -162.0   48.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  157.6   64.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -157.6   64.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  151.8   80.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -151.8   80.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  144.4   96.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -144.4   96.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  135.0  112.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -135.0  112.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  123.4  128.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -123.4  128.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  108.7  144.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -108.7  144.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   89.5  160.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -89.5  160.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   61.6  176.0  234.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -61.6  176.0  234.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for ring 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   62.4 -192.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -62.4 -192.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   92.2 -176.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -92.2 -176.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  112.7 -160.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -112.7 -160.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  128.5 -144.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -128.5 -144.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  141.2 -128.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -141.2 -128.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  151.5 -112.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -151.5 -112.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  159.8  -96.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -159.8  -96.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  166.6  -80.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -166.6  -80.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  171.9  -64.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -171.9  -64.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  175.9  -48.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -175.9  -48.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  178.8  -32.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -178.8  -32.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  180.4  -16.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -180.4  -16.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  181.0    0.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -181.0    0.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  180.4   16.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -180.4   16.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  178.8   32.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -178.8   32.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  175.9   48.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -175.9   48.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  171.9   64.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -171.9   64.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  166.6   80.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -166.6   80.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  159.8   96.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -159.8   96.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  151.5  112.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -151.5  112.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  141.2  128.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -141.2  128.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  128.5  144.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -128.5  144.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  112.7  160.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos= -112.7  160.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   92.2  176.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -92.2  176.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=   62.4  192.0  261.2 mm
+ Ang=    0.0   60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CsI
+ Pos=  -62.4  192.0  261.2 mm
+ Ang=    0.0  -60.0    0.0 deg
+ Shape= Square
+ Thickness= 50 mm
+ FaceFront= 15 mm
+ FaceBack= 15 mm
+ Scintillator= CsI_Scintillator
+ LeadThickness= 0 mm

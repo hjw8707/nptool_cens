@@ -1,0 +1,13 @@
+%%%%%%%%%%Detector%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+%GeneralTarget
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1
+%Target
+Target
+ Thickness= 2 mm
+ Material= H2
+ Radius= 20 mm
+ Angle= 0 deg
+ X= 0 mm
+ Y= 0 mm
+ Z= 0 mm

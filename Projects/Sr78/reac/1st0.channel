@@ -1,0 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+TwoBodyReaction
+ Beam= 80Sr
+ Target= p
+ Light= t
+ Heavy= 78Sr
+ ExcitationEnergyLight= 0.0
+ ExcitationEnergyHeavy= 0.0
+ DoubleDifferentialCrossSectionPath= cs/2d_twofnr.root j0_2d
+% CrossSectionPath= cs/j0_twofnr.sig CS
+% CrossSectionPath= cs.root hj0t1
+ ShootLight= 1
+ ShootHeavy= 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

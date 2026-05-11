@@ -1,0 +1,153 @@
+#!/usr/bin/env python
+def PrintBlock(x, y, z, a, b, c):
+    print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+    print("CACAO")
+    print(" Pos= %6.1f %6.1f %6.1f mm" % (x, y, z))
+    print(" Ang= %6.1f %6.1f %6.1f deg" % (a, b, c))
+    print(" Dim= %6.1f %6.1f %6.1f mm" % (15, 15, 50))    
+    print(" ShieldThickness= 65 um")  # 65-um ESR (mylar instead)
+
+z_start = -48 - 36
+n_zlayer = 14
+n_cacao = 0
+
+###############################################
+# bottom wall: 120 blocks
+# 
+def BottomWall(n_xlayers = 10):
+    global n_cacao
+    (a, b, c) = (0, 90, 0)
+    y = -105.
+    for i in range(n_zlayer):
+        z = z_start + 16.*i
+        for iblock in range(n_xlayers): # n layers
+            x = (iblock - (n_xlayers-1)/2.) * 16.
+            PrintBlock(x,y,z,a,b,c)
+            n_cacao = n_cacao + 1
+
+################################################
+# left, right wall: 168 x 2 blocks = 336 blocks
+#
+def SideWall(n_ylayers = 14):
+    global n_cacao
+    (a, b, c) = (0, 90, 90)
+    x = 105.
+    for i in range(n_zlayer):
+        z = z_start + 16.*i
+        for iblock in range(n_ylayers): # n layers
+            y = (iblock - (n_ylayers-1)/2.) * 16.
+            PrintBlock(x,y,z,a,b,-c)
+            PrintBlock(-x,y,z,a,b,c)
+            n_cacao = n_cacao + 2            
+
+########################################################
+# Top Wall
+def TopWall(n_xlayers = 10):
+    global n_cacao
+    (a, b, c) = (0, -90, 0)
+    y = 105.
+    for i in [0, 1, 8, 9, 10, 11, 12, 13]:
+        z = z_start + 16.*i
+        if i == 8 or i == 9:
+            for iblock in [0, 1, n_xlayers-2, n_xlayers-1]: # n layers
+                x = (iblock - (n_xlayers-1)/2.) * 16.
+                PrintBlock(x,y,z,a,b,c)
+                n_cacao = n_cacao + 1
+            continue
+        for iblock in range(n_xlayers): # n layers
+            x = (iblock - (n_xlayers-1)/2.) * 16.
+            PrintBlock(x,y,z,a,b,c)
+            n_cacao = n_cacao + 1
+
+################################################
+# backward blocks (left, right)
+#
+def Rings(n_rings = 7):
+    global n_cacao
+    (a, b, c) = (0, 90, 90)
+    slope = -95/160.
+    offset = []
+    for i in range(2):
+        offset.append(0)
+    for i in range(1,4):
+        offset.append(slope*i*16)
+    for i in range(2):
+        offset.append(slope*3*16)
+    
+    for iring in range(0,n_rings):
+        print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+        print("%% for ring %d" % iring)
+        print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+        xDef = 110
+        xOff = offset[iring]
+        z = -100.0 - iring * 16
+
+        n_block = 7
+        if iring > 1: n_block = 6
+        if iring > 3: n_block = 5
+        for iblock in range(-n_block+1,n_block):
+            y = iblock * 16.
+            x = ((xDef+xOff)**2 - y**2)**0.5
+            PrintBlock(x,y,z,a,b,-c)
+            PrintBlock(-x,y,z,a,b,c)
+            n_cacao = n_cacao + 2            
+
+def Rings2x2(n_rings = 4):
+    global n_cacao
+    (a, b, c) = (0, 90, 90)
+    slope = -95/160.
+    offset = []
+    #for i in range(1):   offset.append(0)
+    #for i in range(1,2): offset.append(slope*i*32)
+    #for i in range(2):   offset.append(slope*3*16)
+    offset.append(0)
+    offset.append(-20)
+    offset.append(-20)
+    #offset.append(-12)
+    
+    for iring in range(0,len(offset)):
+        print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+        print("%% for ring %d" % iring)
+        print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
+        xDef = 110
+        xOff = offset[iring]
+        z = -100.0 - iring * 32
+
+        n_block = 4
+        #if iring > 0: n_block = 3
+        for iblock in range(-n_block+1,n_block):
+            y = iblock * 32.
+            if (xDef+xOff)**2 - 1.05*y**2 > 0: x = ((xDef+xOff)**2 - 1.05*y**2)**0.5
+            else: x = 30
+            PrintBlock(x,y+8,z,a,b,-c)
+            PrintBlock(x,y-8,z,a,b,-c)
+            PrintBlock(x,y+8,z-16,a,b,-c)
+            PrintBlock(x,y-8,z-16,a,b,-c)
+            n_cacao = n_cacao + 4 
+
+        for iblock in range(-n_block+1,n_block):
+            y = iblock * 32.
+            if (xDef+xOff)**2 - 1.05*y**2 > 0: x = ((xDef+xOff)**2 - 1.05*y**2)**0.5
+            else: x = 30
+            PrintBlock(-x,y+8,z,a,b,c)
+            PrintBlock(-x,y-8,z,a,b,c)
+            PrintBlock(-x,y+8,z-16,a,b,c)
+            PrintBlock(-x,y-8,z-16,a,b,c)
+            n_cacao = n_cacao + 4                 
+
+#######################
+# total = 456 blocks
+#######################
+
+if __name__=="__main__":
+    BottomWall()
+    print("%% Bottom total = %d" % n_cacao)
+    SideWall()
+    print("%% Bottom + Side total = %d" % n_cacao)
+    TopWall()
+    print("%% Bottom + Side + Top total = %d" % n_cacao)
+    #Rings()
+    #Rings2x2()
+    print("%% total = %d" % n_cacao)    
