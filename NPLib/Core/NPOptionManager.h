@@ -110,6 +110,7 @@ class NPOptionManager{
       bool   GetCheckHistoOption()         {return fCheckHistoOption;}
       bool   GetOnline()                   {return fOnline;}
       bool   GetG4BatchMode()              {return fG4BatchMode;}
+      bool   GetG4NoVisMode()              {return fG4NoVisMode;}
       bool   GetCircularTree()             {return fCircularTree;}
       bool   IsAnalysis()                  {return fIsAnalysis;};
       bool   IsSimulation()                {return fIsSimulation;}
@@ -125,6 +126,7 @@ class NPOptionManager{
       int    GetSpectraServerPort()        {return fSpectraServerPort;}
       int    GetRandomSeed()               {return fRandomSeed;}
       int    GetRecordTrack()              {return fRecordTrack;}
+      int    GetOnlineStream()             {return fOnlineStream;}
       int    GetCutParentID()              {return fCutParentID;}
       std::string GetSharedLibExtension()       {return fSharedLibExtension;}     
       std::string GetLastFile();                 
@@ -195,10 +197,12 @@ class NPOptionManager{
       int    fSpectraServerPort;
       int    fRandomSeed;
       int    fRecordTrack;
+      int    fOnlineStream; // >0: stream first N events/run as text for online viewer
       int    fCutParentID;
       std::string fSharedLibExtension; // lib extension is platform dependent
       std::string fG4MacroPath; // Path to a geant4 macro to execute at start of nps
       bool fG4BatchMode; // Execute geant4 in batch mode, running the given macro
+      bool fG4NoVisMode; // Execute geant4 interactive mode without visualization
       std::set<std::string> fDefinition; // a set of user defined definition 
       std::string m_AnalysisOutputPath;// output path of analysed tree
       std::string m_SimulationOutputPath;// output path of simulated tree

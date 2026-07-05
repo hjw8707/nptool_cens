@@ -95,9 +95,15 @@ int main(int argc, char** argv) {
     ///////////////////////////////////////////////////////////////
     // interactive mode : define UI session
     // Get the pointer to the User Interface manager
-    G4cout << "//////////// Starting UI ////////////" << endl;
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
-    G4UIExecutive* ui = new G4UIExecutive(argc, argv);
+    G4UIExecutive* ui = nullptr;
+    if (!OptionManager->GetG4BatchMode()) {
+        G4cout << "//////////// Starting UI ////////////" << endl;
+        if (OptionManager->GetG4NoVisMode())
+            ui = new G4UIExecutive(argc, argv, "tcsh");
+        else
+            ui = new G4UIExecutive(argc, argv);
+    }
 
     ///////////////////////////////////////////////////////////////
     ////////////////////// Reading Reaction ///////////////////////
@@ -132,7 +138,7 @@ int main(int argc, char** argv) {
 
     G4VisManager* visManager = NULL;
 
-    if (!OptionManager->GetG4BatchMode()) {
+    if (!OptionManager->GetG4BatchMode() && !OptionManager->GetG4NoVisMode()) {
         string Path_Macro = getenv("NPTOOL");
         Path_Macro += "/NPSimulation/ressources/macro/";
         UImanager->ApplyCommand("/control/execute " + Path_Macro + "verbose.mac");
@@ -141,7 +147,7 @@ int main(int argc, char** argv) {
         visManager = new G4VisExecutive("Quiet");
         visManager->Initialize();
         UImanager->ApplyCommand("/control/execute " + Path_Macro + "vis.mac");
-        if (ui->IsGUI()) {
+        if (ui && ui->IsGUI()) {
             UImanager->ApplyCommand("/control/execute " + Path_Macro + "gui.mac");
         }
 
@@ -152,6 +158,11 @@ int main(int argc, char** argv) {
         int res = system(command.c_str());
         res = 0;
 #endif
+    } else if (OptionManager->GetG4NoVisMode()) {
+        string Path_Macro = getenv("NPTOOL");
+        Path_Macro += "/NPSimulation/ressources/macro/";
+        UImanager->ApplyCommand("/control/execute " + Path_Macro + "verbose.mac");
+        UImanager->ApplyCommand("/control/execute " + Path_Macro + "aliases.mac");
     } else {  // if batch mode do not accumulate any track
         UImanager->ApplyCommand("/vis/scene/endOfEventAction accumulate 0");
     }
@@ -161,7 +172,7 @@ int main(int argc, char** argv) {
     }
 
     // Start the session
-    if (!OptionManager->GetG4BatchMode()) ui->SessionStart();
+    if (ui) ui->SessionStart();
 
     delete ui;
 

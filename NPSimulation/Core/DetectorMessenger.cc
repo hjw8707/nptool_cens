@@ -51,7 +51,11 @@ DetectorMessenger::DetectorMessenger(DetectorConstruction* Det):Detector(Det){
 
   ExportCmd = new G4UIcmdWithAString("/det/export_gdml",this);
   ExportCmd->SetGuidance("export current geometry to gdml");
-  ExportCmd->AvailableForStates(G4State_Idle);  
+  ExportCmd->AvailableForStates(G4State_Idle);
+
+  ExportJSONCmd = new G4UIcmdWithAString("/det/export_geometry",this);
+  ExportJSONCmd->SetGuidance("export current geometry to a flat JSON (for the web 3D viewer)");
+  ExportJSONCmd->AvailableForStates(G4State_Idle);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -72,6 +76,9 @@ void DetectorMessenger::SetNewValue(G4UIcommand* command, G4String value){
   }
   else if(command == ExportCmd ){
     Detector->ExportGeometry(value);
+  }
+  else if(command == ExportJSONCmd ){
+    Detector->ExportGeometryJSON(value);
   }
 }
 

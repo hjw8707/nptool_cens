@@ -26,6 +26,12 @@
 
 // G4
 #include "G4Box.hh"
+#include "G4Tubs.hh"
+#include "G4Sphere.hh"
+#include "G4Polyhedron.hh"   // exact triangulation of Boolean/other solids on export
+#include "G4Point3D.hh"
+#include "G4BooleanSolid.hh" // fall back to a constituent when a Boolean can't tessellate
+#include "G4RotationMatrix.hh"
 #include "G4GeometryManager.hh"
 #include "G4LogicalVolume.hh"
 #include "G4LogicalVolumeStore.hh"
@@ -286,5 +292,109 @@ void DetectorConstruction::ExportGeometry(string file) {
   file = "";
   G4cout << "You need to compile Geant4 with GDML support to use this command" << G4endl;
 #endif
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// Walk the placed physical-volume tree and dump each solid with its GLOBAL
+// transform (rotation matrix + translation). Unlike GDML this handles nested
+// assemblies (they are already imprinted into real placements here) and carries
+// the exact rotation Geant4 uses at tracking time — no Euler-convention drift.
+static void DumpPV(G4VPhysicalVolume* pv, const G4RotationMatrix& Rp,
+                   const G4ThreeVector& Tp, std::ofstream& out, bool& first) {
+  G4RotationMatrix Robj = pv->GetObjectRotationValue();  // local -> mother
+  G4ThreeVector    Tobj = pv->GetObjectTranslation();
+  G4RotationMatrix Rg = Rp * Robj;                       // local -> world
+  G4ThreeVector    Tg = Rp * Tobj + Tp;
+
+  G4LogicalVolume* lv = pv->GetLogicalVolume();
+  G4VSolid* solid = lv ? lv->GetSolid() : nullptr;
+  std::string type; double a = 0, b = 0, c = 0;
+  double rmin = 0, phi0 = 0, dphi = 0;   // extra Tubs params (inner radius + phi wedge)
+  std::vector<double> verts;             // "mesh" type: triangles (local coords), 9 per tri
+  if (auto* box = dynamic_cast<G4Box*>(solid)) {
+    type = "box"; a = box->GetXHalfLength() * 2; b = box->GetYHalfLength() * 2; c = box->GetZHalfLength() * 2;
+  } else if (auto* tub = dynamic_cast<G4Tubs*>(solid)) {
+    type = "cylinder"; a = tub->GetOuterRadius(); c = tub->GetZHalfLength() * 2;
+    // carry inner radius + phi start/sweep so a partial Tubs (e.g. a plain annular
+    // sector) renders as the real fan shape, not a full disc.
+    rmin = tub->GetInnerRadius(); phi0 = tub->GetStartPhiAngle(); dphi = tub->GetDeltaPhiAngle();
+  } else if (auto* sph = dynamic_cast<G4Sphere*>(solid)) {
+    type = "sphere"; a = sph->GetOuterRadius();
+  } else if (solid) {
+    // Any other solid — a Boolean (Subtraction/Union) or Trd/Cons/Polycone/… — has
+    // no single primitive shape. Tessellate the REAL solid via its polyhedron so the
+    // exact shape (incl. boolean cuts, e.g. the STARK QQQ5 wafer's rectangular
+    // notches) is exported as a triangle mesh in the solid's local frame.
+    // Some Boolean combos can't build a polyhedron (G4 prints "No G4Polyhedron for
+    // Boolean component", e.g. the Plunger sphere-shell + pipe union). When that
+    // happens, fall back to the first constituent so at least the base shape shows.
+    G4VSolid* tess = solid;
+    G4Polyhedron* poly = tess->GetPolyhedron();
+    for (int guard = 0; !poly && guard < 8; ++guard) {
+      auto* boolean = dynamic_cast<G4BooleanSolid*>(tess);
+      if (!boolean) break;
+      tess = boolean->GetConstituentSolid(0);
+      poly = tess->GetPolyhedron();
+    }
+    if (poly) {
+      const G4int nf = poly->GetNoFacets();
+      auto push = [&](const G4Point3D& p) { verts.push_back(p.x()); verts.push_back(p.y()); verts.push_back(p.z()); };
+      for (G4int f = 0; f < nf; ++f) {
+        G4int nnode = 0; G4Point3D nd[4];
+        poly->GetNextFacet(nnode, nd);
+        if (nnode < 3) continue;
+        push(nd[0]); push(nd[1]); push(nd[2]);              // triangle
+        if (nnode == 4) { push(nd[0]); push(nd[2]); push(nd[3]); }  // split quad
+      }
+      if (!verts.empty()) type = "mesh";
+    }
+  }
+
+  double cr = 0.6, cg = 0.7, cb = 0.8;
+  const G4VisAttributes* vis = lv ? lv->GetVisAttributes() : nullptr;
+  if (vis) { G4Colour col = vis->GetColour(); cr = col.GetRed(); cg = col.GetGreen(); cb = col.GetBlue(); }
+  // skip volumes the geometry marks invisible (e.g. MaterialManager's zero-size
+  // "sample_log" material-registration dummies parked 10 m away)
+  bool visible = !(vis && !vis->IsVisible());
+
+  if (!type.empty() && visible) {
+    if (!first) out << ",\n";
+    first = false;
+    out << "{\"name\":\"" << lv->GetName() << "\",\"type\":\"" << type << "\",\"copy\":" << pv->GetCopyNo();
+    if (type == "mesh") {     // exact triangulated shape (local coords), 9 numbers/triangle
+      out << ",\"verts\":[";
+      for (size_t k = 0; k < verts.size(); ++k) { if (k) out << ","; out << verts[k]; }
+      out << "]";
+    } else {
+      out << ",\"dim\":[" << a << "," << b << "," << c << "]";
+      if (type == "cylinder")   // inner radius + phi wedge (radians) for annular sectors
+        out << ",\"rmin\":" << rmin << ",\"phi0\":" << phi0 << ",\"dphi\":" << dphi;
+    }
+    out << ",\"pos\":[" << Tg.x() << "," << Tg.y() << "," << Tg.z() << "]"
+        << ",\"rot\":[" << Rg.xx() << "," << Rg.xy() << "," << Rg.xz() << ","
+        << Rg.yx() << "," << Rg.yy() << "," << Rg.yz() << ","
+        << Rg.zx() << "," << Rg.zy() << "," << Rg.zz() << "]"
+        << ",\"color\":[" << cr << "," << cg << "," << cb << "]}";
+  }
+  for (int i = 0; i < lv->GetNoDaughters(); ++i) DumpPV(lv->GetDaughter(i), Rg, Tg, out, first);
+}
+
+void DetectorConstruction::ExportGeometryJSON(string file) {
+  std::ofstream out(file.c_str());
+  if (!out) { G4cout << "export_geometry: cannot open " << file << G4endl; return; }
+  // Finer polyhedra so tessellated arcs (annular sectors etc.) read smooth.
+  G4Polyhedron::SetNumberOfRotationSteps(48);
+  out << "[\n";
+  bool first = true;
+  if (world_phys) {
+    G4RotationMatrix Rid;         // identity
+    G4ThreeVector Tid(0, 0, 0);
+    G4LogicalVolume* wl = world_phys->GetLogicalVolume();
+    for (int i = 0; i < wl->GetNoDaughters(); ++i)   // skip the world box itself
+      DumpPV(wl->GetDaughter(i), Rid, Tid, out, first);
+  }
+  out << "\n]\n";
+  out.close();
+  G4cout << "export_geometry: wrote " << file << G4endl;
 }
 

@@ -131,6 +131,7 @@ void NPOptionManager::ReadTheInputArgument(int argc, char** argv) {
     fSpectraServerPort = 9092;
     fRandomSeed = -1;
     fRecordTrack = 0;
+    fOnlineStream = 0;
     fCutParentID = 10000;
     fDisableAllBranchOption = false;
     fInputPhysicalTreeOption = false;
@@ -138,6 +139,7 @@ void NPOptionManager::ReadTheInputArgument(int argc, char** argv) {
     fCircularTree = false;
     fOnline = false;
     fG4BatchMode = false;
+    fG4NoVisMode = false;
 #ifdef __linux__
     fSharedLibExtension = ".so";
 #endif
@@ -205,6 +207,9 @@ void NPOptionManager::ReadTheInputArgument(int argc, char** argv) {
             fG4BatchMode = true;
         }
 
+        else if (argument == "--no-vis" || argument == "-N")
+            fG4NoVisMode = true;
+
         else if (argument == "-V" && argc >= i + 1)
             fVerboseLevel = atoi(argv[++i]);
 
@@ -243,6 +248,9 @@ void NPOptionManager::ReadTheInputArgument(int argc, char** argv) {
 
         else if (argument == "--record-track")
             fRecordTrack = true;
+
+        else if (argument == "--online-data-streaming" && argc >= i + 1)
+            fOnlineStream = atoi(argv[++i]);
 
         else if (argument == "--cut-parent-id" && argc >= i + 1)
             fCutParentID = atoi(argv[++i]);
@@ -599,8 +607,10 @@ void NPOptionManager::DisplayHelp() {
     std::cout << std::endl << "NPSimulation only:" << std::endl;
     std::cout << "\t-M <arg>\t\t\tExecute Geant4 macro <arg> at startup" << std::endl;
     std::cout << "\t-B <arg>\t\t\tExecute in batch mode (no ui) with Geant4 macro <arg> at startup" << std::endl;
+    std::cout << "\t--no-vis -N\t\t\tStart interactive Geant4 terminal without visualization" << std::endl;
     std::cout << "\t--random-seed <arg>\t\tSet the random generator seed to <arg> (unsigned int)" << std::endl;
     std::cout << "\t--record-track\t\t\tRecord the track of every simulated particle to the ouput tree" << std::endl;
+    std::cout << "\t--online-data-streaming <N>\tStream the first <N> events of each run to online_stream.dat (text) for a live web viewer" << std::endl;
     std::cout << std::endl << std::endl;
 
     // exit current program

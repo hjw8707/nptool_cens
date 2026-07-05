@@ -53,6 +53,7 @@ G4bool PS_PhotoDiode_Rectangle::ProcessHits(G4Step* aStep, G4TouchableHistory*){
   G4double* Infos = new G4double[9];
   Infos[0] = aStep->GetTotalEnergyDeposit();
   Infos[1] = aStep->GetPreStepPoint()->GetGlobalTime();
+  Infos[8] = 0;
   
   m_DetectorNumber = aStep->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber(m_Level);
   m_Position  = aStep->GetPreStepPoint()->GetPosition();
@@ -133,5 +134,4 @@ void PS_PhotoDiode_Rectangle::PrintAll(){
   G4cout << " Number of entries " << EvtMap->entries() << G4endl     ;
 }
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 

@@ -133,12 +133,12 @@ RootInput::RootInput(std::string configFileName) {
   if (pTreeName == "SimulatedTree") {
     std::string path = getenv("NPTOOL");
     path += "/NPLib/lib/";
-    std::string libName = "libNPInteractionCoordinates" + NPOptionManager::getInstance()->GetSharedLibExtension();
-    libName = path + libName;
-    dlopen(libName.c_str(), RTLD_NOW);
-    libName = "libNPInitialConditions" + NPOptionManager::getInstance()->GetSharedLibExtension();
-    libName = path + libName;
-    dlopen(libName.c_str(), RTLD_NOW);
+    for (auto libBaseName : {"libNPInteractionCoordinates", "libNPInitialConditions", "libNPReactionConditions",
+                             "libNPTrackInfo"}) {
+      std::string libName = std::string(libBaseName) + NPOptionManager::getInstance()->GetSharedLibExtension();
+      libName = path + libName;
+      dlopen(libName.c_str(), RTLD_NOW);
+    }
   }
 
   // Initialise the chain
@@ -280,4 +280,3 @@ RootInput::~RootInput() {
   // Close the Root file
   pRootFile->Close();
 }
-

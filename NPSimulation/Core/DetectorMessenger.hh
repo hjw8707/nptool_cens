@@ -50,6 +50,7 @@ class DetectorMessenger: public G4UImessenger{
     G4UIcmdWithoutParameter* UpdateCmd;
     G4UIcmdWithAString* OpenCmd;
     G4UIcmdWithAString* ExportCmd;
+    G4UIcmdWithAString* ExportJSONCmd;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -210,7 +210,8 @@ PhysicsList::PhysicsList() : G4VUserPhysicsList() {
     // Optical Photon for scintillator simulation
     if (m_OpticalPhysics) {
         cout << "//// Using Optical Photon Physics List ////" << endl;
-        RegisterPhysics(new G4OpticalPhysics(0));
+        opticalPhysicsList = new G4OpticalPhysics(0);
+        RegisterPhysics(opticalPhysicsList);
         /*opticalPhysicsList->SetMaxNumPhotonsPerStep(100);
         opticalPhysicsList->SetScintillationYieldFactor(0.1);
         opticalPhysicsList->SetTrackSecondariesFirst(kScintillation,true);

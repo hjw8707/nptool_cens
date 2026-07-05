@@ -48,6 +48,7 @@ void RunAction::BeginOfRunAction(const G4Run* aRun) {
 
   // initialize event cumulative quantities
   EventAction::GetInstance()->SetRunLength(aRun->GetNumberOfEventToBeProcessed());
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -56,6 +56,9 @@ class DetectorConstruction : public G4VUserDetectorConstruction{
     void RedefineGeometry(string file="");
     // Export the geometry to a gdml file
     void ExportGeometry(string);
+    // Export the placed geometry (flat, global transforms) to a JSON file — for
+    // the web 3D viewer; handles nested assemblies that GDML export cannot.
+    void ExportGeometryJSON(string);
 
   public:
     G4VPhysicalVolume* ReadConfigurationFile();
