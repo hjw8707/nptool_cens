@@ -58,9 +58,9 @@ using namespace CLHEP;
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 namespace Coaxial_Germanium_NS{
   // Energy and time Resolution
-  const double EnergyThreshold = 0.01*MeV;
-  const double ResoTime = 0*ns ;
-  const double ResoEnergy = 1e-9*keV ; 
+  double EnergyThreshold = 0.01*MeV;
+  double ResoTime = 0*ns ;
+  double ResoEnergy = 1e-9*keV ;
   const string Material_Shell = "Al";
   const double radii_internal[7] =  {0       , 65/2.*mm-1*mm, 90/2*mm-1*mm, 90/2*mm-1*mm, 90/2*mm-1*mm, 222/2.*mm-1*mm, 0.            };
   const double radii_external[7] =  {65/2.*mm, 65/2.*mm     , 90/2.*mm    , 90/2.*mm    , 222/2.*mm     , 222/2.*mm     , 222/2.*mm     };
@@ -101,30 +101,33 @@ G4LogicalVolume* Coaxial_Germanium::BuildDetector(G4int DetNumber, G4ThreeVector
   G4Material* m_MaterialCarbon = MaterialManager::getInstance()->GetMaterialFromLibrary("C");
   G4Material* m_MaterialGermanium = MaterialManager::getInstance()->GetMaterialFromLibrary("Germanium");
 
-  G4VisAttributes* light_GreyAtt = new G4VisAttributes(G4Colour(0.5, 0.5, 0.5, 0.7));
-  G4VisAttributes* RedAtt = new G4VisAttributes(G4Colour(1.0, 0.0, 0.0, 0.6));
-  G4VisAttributes* GreenAtt = new G4VisAttributes(G4Colour(0.0, 1.0, 0.0, 0.6));
+  G4VisAttributes* MotherAtt = new G4VisAttributes(G4Colour(0.1, 0.3, 1.0, 0.15));
+  G4VisAttributes* ShellAtt = new G4VisAttributes(G4Colour(0.95, 0.72, 0.15, 0.35));
+  G4VisAttributes* CrystalAtt = new G4VisAttributes(G4Colour(0.85, 0.05, 0.05, 0.85));
+  MotherAtt->SetForceWireframe(true);
+  ShellAtt->SetForceWireframe(true);
+  CrystalAtt->SetForceSolid(true);
 
   // Global volume
   // Origin axis at the front of detector
   G4Tubs* solidCoaxial_Germanium = new G4Tubs("solidCoaxial_Germanium", 0, 25, 720*0.5*mm, 0, 360*deg);
   G4LogicalVolume* logicCoaxial_Germanium = new G4LogicalVolume(solidCoaxial_Germanium, m_MaterialVacuum, "logicCoaxial_Germanium", 0, 0);
   new G4PVPlacement(G4Transform3D(*Det_rot, Det_pos), logicCoaxial_Germanium, "Coaxial_Germanium", world, false, DetNumber);
-  logicCoaxial_Germanium->SetVisAttributes(G4VisAttributes::GetInvisible());
+  logicCoaxial_Germanium->SetVisAttributes(MotherAtt);
 
   // Enveloppe
   G4Polycone* Coaxial_Germanium_Cyl = new G4Polycone("Coaxial_Germanium_Cyl", 0, 360*deg, 7, Coaxial_Germanium_NS::length_external, Coaxial_Germanium_NS::radii_internal, Coaxial_Germanium_NS::radii_external);
   G4LogicalVolume* vol_Coaxial_Germanium = new G4LogicalVolume(Coaxial_Germanium_Cyl, DetectorMaterial, "logic_Coaxial_Germanium_Cyl", 0, 0, 0);
   G4ThreeVector Coaxial_Germanium_cyl_Pos = G4ThreeVector(0, 0, 0);
   new G4PVPlacement(0, Coaxial_Germanium_cyl_Pos, vol_Coaxial_Germanium, "Coaxial_Germanium_cyl", logicCoaxial_Germanium, false, DetNumber);
-  vol_Coaxial_Germanium->SetVisAttributes(light_GreyAtt);
+  vol_Coaxial_Germanium->SetVisAttributes(ShellAtt);
 
   // Germanium crystal
   G4Tubs* Coaxial_Germanium_crys = new G4Tubs("Coaxial_Germanium_crys",0 , 25.*mm, 35.*mm, 0, 360*deg);
   G4LogicalVolume* vol_crys = new G4LogicalVolume(Coaxial_Germanium_crys, m_MaterialGermanium, "logic_Coaxial_Germanium_crys", 0, 0, 0);
   G4ThreeVector crys_Pos = G4ThreeVector(0, 0, 50.*mm);
   new G4PVPlacement(0, crys_Pos, vol_crys, "Coaxial_Germanium_crys", logicCoaxial_Germanium, false, DetNumber);
-  vol_crys->SetVisAttributes(RedAtt);
+  vol_crys->SetVisAttributes(CrystalAtt);
 
   vol_crys->SetSensitiveDetector(m_Coaxial_GermaniumScorer);
   
@@ -166,6 +169,11 @@ void Coaxial_Germanium::ReadConfiguration(NPL::InputParser parser){
       cout << "ERROR: check your input file formatting " << endl;
       exit(1);
     }
+
+    if(blocks[i]->HasToken("ResoEnergy"))
+      Coaxial_Germanium_NS::ResoEnergy = blocks[i]->GetDouble("ResoEnergy","keV");
+    if(blocks[i]->HasToken("EnergyThreshold"))
+      Coaxial_Germanium_NS::EnergyThreshold = blocks[i]->GetDouble("EnergyThreshold","MeV");
   }
 }
 

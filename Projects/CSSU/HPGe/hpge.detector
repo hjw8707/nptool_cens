@@ -1,0 +1,11 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Minimal coaxial HPGe setup for ambient gamma-ray background studies.
+% Source position is the origin. The detector is placed on the +X axis,
+% so the generated +X gamma cone enters the detector from the front.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Coaxial_Germanium
+ R= 150 mm
+ Theta= 90 deg
+ Phi= 0 deg
+ ResoEnergy= 0.85 keV
+ EnergyThreshold= 0.01 MeV

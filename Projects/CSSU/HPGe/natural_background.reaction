@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Natural-background gamma source outside the HPGe detector.
+% The energy spectrum is sampled from natural_gamma_lines.root:h_gamma.
+% The source is placed upstream on -X and collimated toward +X.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Isotropic
+ EnergyLow= 0.05 MeV
+ EnergyHigh= 3.0 MeV
+ EnergyDistribution= FromHisto
+ EnergyDistributionHist= natural_gamma_lines.root h_gamma
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 8 deg
+ Direction= x
+ x0= -400 mm
+ y0= 0 mm
+ z0= 0 mm
+ Particle= gamma
+ Multiplicity= 1

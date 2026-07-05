@@ -1,0 +1,42 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Two-source HPGe gamma test.
+% Source 1: natural-background gamma spectrum from x=-400 mm.
+% Source 2: Co-60 gamma lines from x=-800 mm, collimated toward +X.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Isotropic
+ EnergyLow= 0.05 MeV
+ EnergyHigh= 3.0 MeV
+ EnergyDistribution= FromHisto
+ EnergyDistributionHist= natural_gamma_lines.root h_gamma
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 8 deg
+ Direction= x
+ x0= -400 mm
+ y0= 0 mm
+ z0= 0 mm
+ Particle= gamma
+ Multiplicity= 1
+
+Isotropic
+ EnergyLow= 1.173228 MeV
+ EnergyHigh= 1.173228 MeV
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 4 deg
+ Direction= x
+ x0= -800 mm
+ y0= 0 mm
+ z0= 0 mm
+ Particle= gamma
+ Multiplicity= 1
+
+Isotropic
+ EnergyLow= 1.332492 MeV
+ EnergyHigh= 1.332492 MeV
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 4 deg
+ Direction= x
+ x0= -800 mm
+ y0= 0 mm
+ z0= 0 mm
+ Particle= gamma
+ Multiplicity= 1
