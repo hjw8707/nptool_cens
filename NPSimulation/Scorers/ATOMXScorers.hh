@@ -69,7 +69,7 @@ class ATOMXData {
     int m_PDG;
 
    public:
-    unsigned int GetIndex() const { return m_Index; };
+    unsigned int GetTrackIndex() const { return m_Index; };
     double GetEnergy() const { return m_Energy; };
     double GetKineticEnergy() const { return m_KineticEnergy; };
     double GetTime() const { return m_Time; };
@@ -159,6 +159,7 @@ class PS_ATOMX : public G4VPrimitiveScorer {
     G4ThreeVector t_Position;
    public:
     inline unsigned int GetMult() { return m_DataVector.size(); };
+    inline int GetTrackIndex(const unsigned int& i) { return m_DataVector[i]->GetTrackIndex(); };
     inline double GetEnergy(const unsigned int& i) { return m_DataVector[i]->GetEnergy(); };
     inline double GetTime(const unsigned int& i) { return m_DataVector[i]->GetTime(); };
     inline double GetKineticEnergy(const unsigned int& i) { return m_DataVector[i]->GetKineticEnergy(); };

@@ -33,6 +33,7 @@ using namespace std;
 class TATOMXData : public TObject
 {
     public: 
+        std::vector<int> fTrackIndex;
         std::vector<double> fEnergyLoss;
         std::vector<double> fTime;
         std::vector<TVector3> fPosition;

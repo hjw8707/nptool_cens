@@ -42,6 +42,7 @@ TATOMXData::~TATOMXData()
 //////////////////////////////////////////////////////////////////////
 void TATOMXData::Clear()
 {
+    fTrackIndex.clear();
     fEnergyLoss.clear();
     fTime.clear();
     fPosition.clear();
@@ -51,12 +52,14 @@ void TATOMXData::Clear()
 void TATOMXData::Dump(int max_points) const
 {
     auto n = fEnergyLoss.size();
-    cout << "ATOMX event containing " << n << " points [i](e,t|x,y,z)" << endl;
+    cout << "ATOMX event containing " << n << " points [i](i,e,t|x,y,z)" << endl;
     if (n>max_points)
         n = max_points;
     for (auto i=0; i<n; ++i)
     {
-        cout << "  [" << i << "] (" << fEnergyLoss[i] << ", "
+        cout << "  [" << i << "] ("
+            << fTrackIndex[i] << ", "
+            << fEnergyLoss[i] << ", "
             << fTime [i] << " | "
             << fPosition[i].x() << ", "
             << fPosition[i].y() << ", "
@@ -67,10 +70,12 @@ void TATOMXData::Dump(int max_points) const
 void TATOMXData::Dump() const
 {
     auto n = fEnergyLoss.size();
-    cout << "ATOMX event containing " << n << " points [i](e,t|x,y,z)" << endl;
+    cout << "ATOMX event containing " << n << " points [i](i,e,t|x,y,z)" << endl;
     for (auto i=0; i<n; ++i)
     {
-        cout << "  [" << i << "] (" << fEnergyLoss[i] << ", "
+        cout << "  [" << i << "] ("
+            << fTrackIndex[i] << ", "
+            << fEnergyLoss[i] << ", "
             << fTime [i] << " | "
             << fPosition[i].x() << ", "
             << fPosition[i].y() << ", "

@@ -150,13 +150,13 @@ G4LogicalVolume* ATOMX::BuildDetector()
     for (unsigned int i = 0; i < NumberOfGasMix; i++)
         cout << i << " " << GasComponent[i] << " " << FractionMass[i] << endl;
 
-    m_logicChamber = new G4LogicalVolume(solidChamber, GasMaterial, "logic_Chamber", 0, 0, 0);
-    m_logicGas = new G4LogicalVolume(solidGas, DriftGasMaterial, "ATOMX_LV_Gas", 0, 0, 0);
+    m_logicChamber = new G4LogicalVolume(solidChamber, GasMaterial, "ATOMX_chamber", 0, 0, 0);
+    m_logicGas = new G4LogicalVolume(solidGas, DriftGasMaterial, "ATOMX_gas", 0, 0, 0);
     G4LogicalVolume* logicThrough1 = new G4LogicalVolume(solidThrough1, DriftGasMaterial, "logic_Gas", 0, 0, 0);
     if (limitReactionZ)
-        m_sensitive = new G4LogicalVolume(solidSensitive, DriftGasMaterial, "logic_SensitiveGas", 0, 0, 0);
-    G4LogicalVolume* logicPad = new G4LogicalVolume(solidPad, Cu, "logic_Pad", 0, 0, 0);
-    G4LogicalVolume* logicMMS = new G4LogicalVolume(solidMMS, Al, "logic_MMS", 0, 0, 0);
+        m_sensitive = new G4LogicalVolume(solidSensitive, DriftGasMaterial, "sensitive_gas", 0, 0, 0);
+    G4LogicalVolume* logicPad = new G4LogicalVolume(solidPad, Cu, "padplane", 0, 0, 0);
+    G4LogicalVolume* logicMMS = new G4LogicalVolume(solidMMS, Al, "micromegas", 0, 0, 0);
     G4LogicalVolume* logicWindow = new G4LogicalVolume(solidWindow, Mylar, "logic_Win", 0, 0, 0);
 
     int copyNo = fCopyNo;
@@ -165,7 +165,7 @@ G4LogicalVolume* ATOMX::BuildDetector()
     new G4PVPlacement(G4Transform3D(*Rot, G4ThreeVector(0, 0, throughZ)), logicThrough1, "ATOMX_Through1", m_logicChamber, false, ++copyNo);
     if (limitReactionZ)
     new G4PVPlacement(G4Transform3D(*Rot, G4ThreeVector(0, 0, sensitiveZ)), m_sensitive, "ATOMX_SensitiveGas", m_logicGas, false, ++copyNo);
-    new G4PVPlacement(G4Transform3D(*Rot, G4ThreeVector(0, padY, 0)), logicPad, "ATOMX_Pad", m_logicGas, false, ++copyNo);
+    //new G4PVPlacement(G4Transform3D(*Rot, G4ThreeVector(0, padY, 0)), logicPad, "ATOMX_Pad", m_logicGas, false, ++copyNo);
     new G4PVPlacement(G4Transform3D(*Rot, G4ThreeVector(0, 0, windowZ)), logicWindow, "ATOMX_Window", logicThrough1, false, ++copyNo);
 
     m_logicGas -> SetSensitiveDetector(m_ATOMXScorer);
@@ -331,6 +331,7 @@ void ATOMX::ReadSensitive(const G4Event*)
     for (unsigned int i=0; i<size; i++)
     {
         TVector3 Position(interaction->GetPositionX(i), interaction->GetPositionY(i), interaction->GetPositionZ(i));
+        m_Event->fTrackIndex.push_back(interaction -> GetTrackIndex(i));
         m_Event->fEnergyLoss.push_back(interaction -> GetEnergy(i));
         m_Event->fTime.push_back(interaction -> GetTime(i));
         m_Event->fPosition.push_back(Position);
