@@ -69,6 +69,10 @@ namespace NPS {
     double m_length;
     int m_Parent_ID;
     double m_event_weight;
+    double ComputeReactionEcm(double BeamEnergy);
+    double ShootUniformReactionZ(double PathLength);
+    double ShootExcitationFunctionWeightedZ(const G4ParticleDefinition* Beam, double IncidentEnergy, double PathLength,
+                                            G4Material* Material);
     double SlowDownBeam(const G4ParticleDefinition* Beam, double IncidentEnergy, double Thickness,
                         G4Material* Material);
 

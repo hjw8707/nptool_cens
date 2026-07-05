@@ -105,6 +105,7 @@ namespace NPL {
     TH2F* fDoubleDifferentialCrossSectionHist; // Diff. CS CM frame vs Beam E
 
     TH1D* fExcitationEnergyHist;               // Distribution of Excitation energy
+    TH1D* fExcitationFunctionHist;             // Excitation function versus Ecm
 
     #if __cplusplus > 201703L
     BreitWigner fBreitWigner;                  // Breit Wigner energy distribution
@@ -160,6 +161,10 @@ namespace NPL {
     void SetDoubleDifferentialCrossSectionHist(TH2F* CrossSectionHist) {
       fDoubleDifferentialCrossSectionHist = CrossSectionHist;
     }
+    void SetExcitationFunctionHist(TH1D* ExcitationFunctionHist) {
+      delete fExcitationFunctionHist;
+      fExcitationFunctionHist = ExcitationFunctionHist;
+    }
     double GetBeamEnergy() const { return fBeamEnergy; }
     double GetThetaCM() const { return fThetaCM; }
     double GetExcitation1() const { return fExcitation1; }
@@ -177,6 +182,8 @@ namespace NPL {
     NPL::Particle* GetNucleus4() { return GetParticle4(); }
 
     TH1D* GetCrossSectionHist() const { return fCrossSectionHist; }
+    TH1D* GetExcitationFunctionHist() const { return fExcitationFunctionHist; }
+    bool HasExcitationFunction() const { return fExcitationFunctionHist != 0; }
     int GetVerboseLevel() const { return fVerboseLevel; }
     bool GetShoot3() const { return fshoot3; }
     bool GetShoot4() const { return fshoot4; }

@@ -82,6 +82,7 @@ ClassImp(Reaction)
 
   fCrossSectionHist = NULL;
   fExcitationEnergyHist = NULL;
+  fExcitationFunctionHist = NULL;
   fDoubleDifferentialCrossSectionHist = NULL;
 
   fshoot3 = true;
@@ -158,6 +159,8 @@ Reaction::Reaction(string reaction) {
     ++offset;
 
   fCrossSectionHist = new TH1D(Form("EnergyHist_%i", offset), "Reaction_CS", 1, 0, 180);
+  fExcitationEnergyHist = NULL;
+  fExcitationFunctionHist = NULL;
   fDoubleDifferentialCrossSectionHist = NULL;
 
   fshoot3 = true;
@@ -524,6 +527,11 @@ void Reaction::ReadConfigurationFile(NPL::InputParser parser) {
       vector<string> file = blocks[i]->GetVectorString("ExcitationEnergyDistribution");
       fExcitationEnergyHist = Read1DProfile(file[0], file[1]);
       fExcitation4 = 0;
+    }
+
+    if (blocks[i]->HasToken("ExcitationFunctionPath")) {
+      vector<string> file = blocks[i]->GetVectorString("ExcitationFunctionPath");
+      SetExcitationFunctionHist(Read1DProfile(file[0], file[1]));
     }
 
     if (blocks[i]->HasToken("CrossSectionPath")) {

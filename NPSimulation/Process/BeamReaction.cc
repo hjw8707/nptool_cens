@@ -24,8 +24,11 @@
 #include "BeamReaction.hh"
 
 #include <Randomize.hh>
+#include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "G4Electron.hh"
 #include "G4EmCalculator.hh"
@@ -191,9 +194,15 @@ G4bool NPS::BeamReaction::ModelTrigger(const G4FastTrack& fastTrack) {
   }
 
   if (is_first) {
-    m_rand = G4RandFlat::shoot();
-    // random Z in the Volume
-    m_Z = m_rand * (to_exit + to_entrance) - 0.5 * (to_exit + to_entrance);
+    double path_length = to_exit + to_entrance;
+    if (m_ReactionType == TwoBody && m_Reaction.HasExcitationFunction()) {
+      G4Material* material = PrimaryTrack->GetVolume()->GetLogicalVolume()->GetMaterial();
+      m_Z = ShootExcitationFunctionWeightedZ(PrimaryTrack->GetParticleDefinition(), PrimaryTrack->GetKineticEnergy(),
+                                             path_length, material);
+    }
+    else {
+      m_Z = ShootUniformReactionZ(path_length);
+    }
     // Clear Previous Event
     m_ReactionConditions->Clear();
     m_shoot = true;
@@ -892,6 +901,59 @@ void NPS::BeamReaction::DoIt(const G4FastTrack& fastTrack, G4FastStep& fastStep)
     fastStep.CreateSecondaryTrack(particle, localPosition, time);
   } // end fusion
 }
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+// Return the center-of-mass energy for the configured two-body reaction.
+double NPS::BeamReaction::ComputeReactionEcm(double BeamEnergy) {
+  double m1 = m_Reaction.GetParticle1()->Mass() + m_Reaction.GetExcitation1();
+  double m2 = m_Reaction.GetParticle2()->Mass();
+  double s = m1 * m1 + m2 * m2 + 2. * m2 * (BeamEnergy + m1);
+  if (s <= 0) return 0;
+
+  double ecm = std::sqrt(s) - m1 - m2;
+  return ecm > 0 ? ecm : 0;
+}
+
+// Original NPTool forced-reaction sampler: uniform along the target chord.
+double NPS::BeamReaction::ShootUniformReactionZ(double PathLength) {
+  m_rand = G4RandFlat::shoot();
+  return m_rand * PathLength - 0.5 * PathLength;
+}
+
+// Excitation-function sampler: build P(s) proportional to sigma(Ecm(s)).
+double NPS::BeamReaction::ShootExcitationFunctionWeightedZ(const G4ParticleDefinition* Beam, double IncidentEnergy,
+                                                           double PathLength, G4Material* Material) {
+  if (PathLength <= 0 || !m_Reaction.HasExcitationFunction()) return ShootUniformReactionZ(PathLength);
+
+  const int bins = 200;
+  const double ds = PathLength / bins;
+  std::vector<double> cdf;
+  cdf.reserve(bins);
+
+  double integral = 0;
+  TH1D* excitation_function = m_Reaction.GetExcitationFunctionHist();
+  for (int i = 0; i < bins; ++i) {
+    double distance = (i + 0.5) * ds;
+    double beam_energy = SlowDownBeam(Beam, IncidentEnergy, distance, Material);
+    double ecm = ComputeReactionEcm(beam_energy);
+    double weight = excitation_function->Interpolate(ecm);
+    if (!std::isfinite(weight) || weight < 0) weight = 0;
+
+    integral += weight;
+    cdf.push_back(integral);
+  }
+
+  if (integral <= 0) return ShootUniformReactionZ(PathLength);
+
+  m_rand = G4RandFlat::shoot();
+  double random = m_rand * integral;
+  std::vector<double>::iterator bin = std::lower_bound(cdf.begin(), cdf.end(), random);
+  int index = std::distance(cdf.begin(), bin);
+  if (index >= bins) index = bins - 1;
+
+  double sampled_distance = (index + G4RandFlat::shoot()) * ds;
+  return sampled_distance - 0.5 * PathLength;
+}
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 // Return the slow down beam in given thickness of material
 double NPS::BeamReaction::SlowDownBeam(const G4ParticleDefinition* Beam, double IncidentEnergy, double Thickness,
