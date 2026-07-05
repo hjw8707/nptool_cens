@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 241Am alpha source approximation
+%
+% One event emits one 5.486 MeV alpha toward the scintillator.
+% The real 241Am source has several alpha lines; this keeps the first
+% simulation simple and uses the dominant energy.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Isotropic
+ EnergyLow= 5.486 MeV
+ EnergyHigh= 5.486 MeV
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 2 deg
+ x0= 0 mm
+ y0= 0 mm
+ z0= -100 mm
+ Direction= z
+ Particle= alpha
+ ExcitationEnergy= 0 MeV

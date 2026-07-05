@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CSSU CF4 gas detector example.
+% Geometry adapted from ejungwoo/cssu_geant4_simulation:
+% CF4 gas box, 120 x 120 x 200 mm, 200 Torr, 10 mm step limit.
+% The box is centered at z=100 mm, so the entrance plane is at z=0 mm.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CSSU
+ Type= GasBox
+ POS= 0 0 100 mm
+ Length= 120 mm
+ Width= 120 mm
+ Thickness= 200 mm
+ PressureTorr= 200
+ StepLimit= 10 mm
+ SegmentsZ= 4
+ SegmentGapZ= 5 mm
+ EnergyThreshold= 0.001 MeV
+ ResoEnergy= 1 keV

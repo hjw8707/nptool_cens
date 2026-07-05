@@ -1,0 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 241Am alpha approximation from the gas detector entrance plane.
+% The original standalone Geant4 example used 5.443 MeV alpha along +Z.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Isotropic
+ EnergyLow= 5.443 MeV
+ EnergyHigh= 5.443 MeV
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 0 deg
+ Direction= z
+ x0= 0 mm
+ y0= 0 mm
+ z0= 0 mm
+ Particle= alpha
+ Multiplicity= 1

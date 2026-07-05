@@ -1,0 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CSSU plastic scintillator bar with two cylindrical PMT photon counters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+CSSU
+ Type= ScintillatorBar
+ POS= 0 0 0 mm
+ Length= 200 mm
+ Width= 20 mm
+ Thickness= 40 mm
+ PMTLength= 100 mm
+ PMTDiameter= 40 mm
+ ScintillationYield= 1000
+ AttenuationLength= 2000 mm
+ ScintillatorRIndex= 1.58

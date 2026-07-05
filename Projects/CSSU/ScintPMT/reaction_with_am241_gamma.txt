@@ -1,0 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 241Am alpha + 59.54 keV gamma test source
+%
+% The gamma block emits one 59.54 keV gamma every event. Real 241Am emits
+% this gamma in about 36% of decays, so gamma-sensitive results from this
+% file should be scaled by 0.36 or replaced later by a decay generator.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Isotropic
+ EnergyLow= 5.486 MeV
+ EnergyHigh= 5.486 MeV
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 2 deg
+ x0= 0 mm
+ y0= 0 mm
+ z0= -25 mm
+ Direction= z
+ Particle= alpha
+ ExcitationEnergy= 0 MeV
+
+Isotropic
+ EnergyLow= 0.0595409 MeV
+ EnergyHigh= 0.0595409 MeV
+ HalfOpenAngleMin= 0 deg
+ HalfOpenAngleMax= 180 deg
+ x0= 0 mm
+ y0= 0 mm
+ z0= -25 mm
+ Particle= gamma
+ Multiplicity= 1

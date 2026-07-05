@@ -1,0 +1,19 @@
+/vis/open OGL 900x800-0+0
+/vis/scene/add/axes 0 0 0 100 mm
+/vis/drawVolume
+/vis/viewer/flush
+/vis/viewer/set/background white
+/vis/viewer/set/style surface
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/viewpointThetaPhi 40 35
+/vis/viewer/zoom 1.2
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set alpha red
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsSize 3
+/vis/scene/endOfEventAction accumulate
+/vis/geometry/set/visibility logicWorld 0 false
+/vis/viewer/set/autoRefresh true
+/tracking/verbose 1
+/run/beamOn 1
