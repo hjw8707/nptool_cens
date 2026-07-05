@@ -1,6 +1,7 @@
 #!/bin/bash
 
-python geometry/cacao.py > geometry/cacao.detector
+PYTHON_BIN=${PYTHON_BIN:-python3}
+"$PYTHON_BIN" geometry/cacao.py > geometry/cacao.detector
 cat chamber.detector > detector.det
 cat geometry/cacao.detector >> detector.det
 #cat cacao_single.detector >> detector.det

@@ -57,3 +57,5 @@ build_dict.sh
 NPLib/.cache/
 NPSimulation/.cache/
 .clang-format
+AGENTS.md
+jungwoo*

@@ -82,9 +82,9 @@ _npp() {
 
 # associate the tab completion to npp
 if [ -n "$ZSH_VERSION" ]; then
-  # ZSH have its own command to make things easy
-  #compdef _directories -W $NPTOLL/Project npp
-  :
+  # Reuse the bash completion function in zsh.
+  autoload -U +X bashcompinit && bashcompinit
+  complete -F _npp -o filenames npp
 else
   # the rest of the world use standard posix complete
   complete -F _npp -o filenames npp
